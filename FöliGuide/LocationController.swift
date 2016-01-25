@@ -19,23 +19,25 @@ class LocationController: NSObject{
 		//Check the current location authorization status
 		switch CLLocationManager.authorizationStatus() {
 		case .NotDetermined: //The user has not given explicit authorization yet
-			appDelegate.handleApplicationEvent(.LocationAuthorizationNotDetermined)
+			appDelegate.applicationEventHandler?(.LocationAuthorizationNotDetermined)
 			return
 			
 		case .Denied, .Restricted: //The user has not or can not give authorization
-			appDelegate.handleApplicationEvent(.LocationAuthorizationDenied)
+			appDelegate.applicationEventHandler?(.LocationAuthorizationDenied)
 			return
 			
 		case .AuthorizedAlways, .AuthorizedWhenInUse: break //Authorized
 		}
 		
 		guard CLLocationManager.locationServicesEnabled() else { //User disabled location services
-			appDelegate.handleApplicationEvent(.LocationServicesDisabled)
+			appDelegate.applicationEventHandler?(.LocationServicesDisabled)
 			return
 		}
 		
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
+		locationManager.distanceFilter = kCLDistanceFilterNone //get notified on any gps movement
+		locationManager.startUpdatingLocation()
 	}
 	
 }
@@ -45,5 +47,13 @@ class LocationController: NSObject{
 
 
 extension LocationController : CLLocationManagerDelegate {
-
+	
+	func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+		start() //try to start, status check happens in start function
+	}
+	
+	func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+		appDelegate.userLocationUpdateHandler?(newLocation)
+	}
+	
 }
