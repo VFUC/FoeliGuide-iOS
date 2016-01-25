@@ -7,16 +7,29 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
+	
+	
+	// MARK: Event Handlers
+	
+	var applicationEventHandler : ((ApplicationEvent) -> ())?
+	var	userLocationUpdateHandler : ((CLLocation) -> ())?
+
+	
+	
+	
+	
 
 	//MARK: Application Cycle
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		// Override point for customization after application launch.
+		applicationEventHandler = handleApplicationEvent
+		
 		return true
 	}
 
