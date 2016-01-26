@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  AuthorizationRequestViewController.swift
 //  FöliGuide
 //
 //  Created by Jonas on 25/01/16.
@@ -8,20 +8,15 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class AuthorizationRequestViewController: UIViewController {
 
-	@IBOutlet weak var debugLabel: UILabel!
-	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+
+		appDelegate.authorizationVC = self
     }
-	
-	override func viewDidAppear(animated: Bool) {
-		appDelegate.mainVC = self
-	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,5 +33,14 @@ class MainViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+	
+	func didAuthorizeSuccessfully(){
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	@IBAction func activateButtonPressed(sender: UIButton) {
+			appDelegate.locationController?.locationManager.requestWhenInUseAuthorization()
+	}
+	
 
 }

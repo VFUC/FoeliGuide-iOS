@@ -14,14 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 	
+	var locationController: LocationController?
+	
+	
+	
+	//MARK: VC Adapters
+	var mainVC: MainViewController? {
+		didSet {
+			mainViewControllerDidAppear()
+		}
+	}
+	var authorizationVC: AuthorizationRequestViewController?
 	
 	// MARK: Event Handlers
-	
-	var applicationEventHandler : ((ApplicationEvent) -> ())?
-	var	userLocationUpdateHandler : ((CLLocation) -> ())?
+	var applicationEventHandler: ((ApplicationEvent) -> ())?
+	var	userLocationUpdateHandler: ((CLLocation) -> ())?
 
-	
-	
 	
 	
 
@@ -29,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		applicationEventHandler = handleApplicationEvent
+		userLocationUpdateHandler = { [unowned self](location: CLLocation) in
+			self.mainVC?.debugLabel.text = "Longitude: \(location.coordinate.longitude) \n Latitude: \(location.coordinate.latitude)"
+		}
 		
 		return true
 	}
@@ -58,14 +69,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	
-	
-	
-	
+	func mainViewControllerDidAppear(){
+		locationController = LocationController()
+		locationController?.start()
+	}
 	
 	func handleApplicationEvent(event: ApplicationEvent){
 		switch event {
-		default:
-			print("TODO")
+			
+		case .LocationAuthorizationNotDetermined, .LocationAuthorizationDenied, .LocationServicesDisabled: //TODO: test - can all cases be treated the same? Nope: Denied needs different interaction
+			mainVC?.performSegueWithIdentifier("showAuthorizationRequestVC", sender: nil)
+		case .LocationAuthorizationSuccessful:
+			authorizationVC?.didAuthorizeSuccessfully()
 		}
 	}
 

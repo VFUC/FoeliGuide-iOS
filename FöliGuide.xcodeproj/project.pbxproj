@@ -16,6 +16,7 @@
 		722D306C1C5139BF00CAEE90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722D306A1C5139BF00CAEE90 /* LaunchScreen.storyboard */; };
 		722D30771C5139BF00CAEE90 /* Fo_liGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30761C5139BF00CAEE90 /* Fo_liGuideTests.swift */; };
 		722D30821C5139BF00CAEE90 /* Fo_liGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */; };
+		727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		722D307D1C5139BF00CAEE90 /* FöliGuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FöliGuideUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fo_liGuideUITests.swift; sourceTree = "<group>"; };
 		722D30831C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				721C90391C561BEE001027EC /* MainViewController.swift */,
+				727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				722D30621C5139BF00CAEE90 /* AppDelegate.swift in Sources */,
 				721C903A1C561BEE001027EC /* MainViewController.swift in Sources */,
 				721C903C1C561E78001027EC /* ApplicationEvent.swift in Sources */,
+				727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

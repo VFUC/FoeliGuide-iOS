@@ -12,4 +12,5 @@ enum ApplicationEvent {
 	case LocationServicesDisabled
 	case LocationAuthorizationNotDetermined
 	case LocationAuthorizationDenied
+	case LocationAuthorizationSuccessful
 }

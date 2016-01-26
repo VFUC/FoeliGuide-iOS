@@ -15,6 +15,7 @@ class LocationController: NSObject{
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
 	func start(){
+		locationManager.delegate = self
 		
 		//Check the current location authorization status
 		switch CLLocationManager.authorizationStatus() {
@@ -26,7 +27,8 @@ class LocationController: NSObject{
 			appDelegate.applicationEventHandler?(.LocationAuthorizationDenied)
 			return
 			
-		case .AuthorizedAlways, .AuthorizedWhenInUse: break //Authorized
+		case .AuthorizedAlways, .AuthorizedWhenInUse: //Authorized
+			appDelegate.applicationEventHandler?(.LocationAuthorizationSuccessful)
 		}
 		
 		guard CLLocationManager.locationServicesEnabled() else { //User disabled location services
@@ -34,7 +36,7 @@ class LocationController: NSObject{
 			return
 		}
 		
-		locationManager.delegate = self
+		
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.distanceFilter = kCLDistanceFilterNone //get notified on any gps movement
 		locationManager.startUpdatingLocation()

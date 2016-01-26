@@ -6,6 +6,61 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Authorization Request View Controller-->
+        <scene sceneID="4Ja-aL-eDx">
+            <objects>
+                <viewController id="jQH-yQ-9MS" customClass="AuthorizationRequestViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5N6-tO-8cf"/>
+                        <viewControllerLayoutGuide type="bottom" id="FC8-NL-TbJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bCm-Pn-UgG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ctr-4o-vFz">
+                                <rect key="frame" x="30" y="228" width="540" height="144"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9m-4M-4Hl">
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="86"/>
+                                        <string key="text">This application needs to know your current location in order to properly operate.
+
+Therefore, please activate location services.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzi-ig-ZBr">
+                                        <rect key="frame" x="0.0" y="114" width="540" height="30"/>
+                                        <state key="normal" title="Activate"/>
+                                        <connections>
+                                            <action selector="activateButtonPressed:" destination="jQH-yQ-9MS" eventType="touchUpInside" id="xft-Ex-eZi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jzi-ig-ZBr" firstAttribute="top" secondItem="L9m-4M-4Hl" secondAttribute="bottom" constant="20" id="Ql4-88-LMf"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ql4-88-LMf"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ctr-4o-vFz" firstAttribute="centerX" secondItem="bCm-Pn-UgG" secondAttribute="centerX" id="0w5-9x-8A6"/>
+                            <constraint firstItem="Ctr-4o-vFz" firstAttribute="leading" secondItem="bCm-Pn-UgG" secondAttribute="leadingMargin" constant="10" id="H1x-2H-c99"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ctr-4o-vFz" secondAttribute="trailing" constant="10" id="i6U-Vt-L2l"/>
+                            <constraint firstItem="Ctr-4o-vFz" firstAttribute="centerY" secondItem="bCm-Pn-UgG" secondAttribute="centerY" id="yaw-02-jEc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7U6-PG-cwJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="409" y="-240"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -19,15 +74,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FöliGuide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dq-2i-288">
-                                <rect key="frame" x="234.5" y="40" width="131" height="35"/>
+                                <rect key="frame" x="234" y="120" width="131" height="35"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-n5-tfj">
+                                <rect key="frame" x="279" y="185" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.6705882352941176" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="5dq-2i-288" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="40" id="Whw-7l-Pwa"/>
+                            <constraint firstItem="uEK-n5-tfj" firstAttribute="top" secondItem="5dq-2i-288" secondAttribute="bottom" constant="30" id="2qa-oR-47N"/>
+                            <constraint firstItem="5dq-2i-288" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="120" id="Whw-7l-Pwa"/>
+                            <constraint firstItem="uEK-n5-tfj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c7X-EG-FA3"/>
                             <constraint firstItem="5dq-2i-288" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f0d-4n-hAG"/>
                             <constraint firstItem="5dq-2i-288" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="10" id="sIK-DP-AED"/>
                         </constraints>
@@ -37,6 +100,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="debugLabel" destination="uEK-n5-tfj" id="MQ4-ay-39N"/>
+                        <segue destination="jQH-yQ-9MS" kind="show" identifier="showAuthorizationRequestVC" id="Stf-As-h4F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
