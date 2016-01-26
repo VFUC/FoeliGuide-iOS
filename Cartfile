@@ -1,0 +1,2 @@
+github "marmelroy/Zip"
+github "Alamofire/Alamofire" ~> 3.0
