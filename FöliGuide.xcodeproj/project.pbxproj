@@ -18,7 +18,6 @@
 		722D30821C5139BF00CAEE90 /* Fo_liGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */; };
 		727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */; };
 		72DF00BE1C57873300AFBCCD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DF00BD1C57873300AFBCCD /* Alamofire.framework */; };
-		72DF00C01C57873800AFBCCD /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DF00BF1C57873800AFBCCD /* Zip.framework */; };
 		72DF00C31C57898D00AFBCCD /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF00C21C57898D00AFBCCD /* NetworkController.swift */; };
 		72DF00C51C578B2800AFBCCD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */; };
 		72DF00C71C578BBA00AFBCCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF00C61C578BBA00AFBCCD /* Constants.swift */; };
@@ -59,7 +58,6 @@
 		722D30831C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
 		72DF00BD1C57873300AFBCCD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		72DF00BF1C57873800AFBCCD /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/iOS/Zip.framework; sourceTree = "<group>"; };
 		72DF00C21C57898D00AFBCCD /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		72DF00C61C578BBA00AFBCCD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				72DF00BE1C57873300AFBCCD /* Alamofire.framework in Frameworks */,
-				72DF00C01C57873800AFBCCD /* Zip.framework in Frameworks */,
 				72DF00C51C578B2800AFBCCD /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */,
-				72DF00BF1C57873800AFBCCD /* Zip.framework */,
 				72DF00BD1C57873300AFBCCD /* Alamofire.framework */,
 				722D30601C5139BF00CAEE90 /* FöliGuide */,
 				722D30751C5139BF00CAEE90 /* FöliGuideTests */,
@@ -310,7 +306,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Zip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
