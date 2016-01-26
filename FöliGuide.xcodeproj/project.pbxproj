@@ -19,6 +19,9 @@
 		727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */; };
 		72DF00BE1C57873300AFBCCD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DF00BD1C57873300AFBCCD /* Alamofire.framework */; };
 		72DF00C01C57873800AFBCCD /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DF00BF1C57873800AFBCCD /* Zip.framework */; };
+		72DF00C31C57898D00AFBCCD /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF00C21C57898D00AFBCCD /* NetworkController.swift */; };
+		72DF00C51C578B2800AFBCCD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */; };
+		72DF00C71C578BBA00AFBCCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF00C61C578BBA00AFBCCD /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
 		72DF00BD1C57873300AFBCCD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		72DF00BF1C57873800AFBCCD /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/iOS/Zip.framework; sourceTree = "<group>"; };
+		72DF00C21C57898D00AFBCCD /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		72DF00C61C578BBA00AFBCCD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 			files = (
 				72DF00BE1C57873300AFBCCD /* Alamofire.framework in Frameworks */,
 				72DF00C01C57873800AFBCCD /* Zip.framework in Frameworks */,
+				72DF00C51C578B2800AFBCCD /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				721C903B1C561E78001027EC /* ApplicationEvent.swift */,
+				72DF00C61C578BBA00AFBCCD /* Constants.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -108,6 +116,7 @@
 			children = (
 				722D30611C5139BF00CAEE90 /* AppDelegate.swift */,
 				721C90341C5619E6001027EC /* LocationController.swift */,
+				72DF00C21C57898D00AFBCCD /* NetworkController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -115,6 +124,7 @@
 		722D30551C5139BF00CAEE90 = {
 			isa = PBXGroup;
 			children = (
+				72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */,
 				72DF00BF1C57873800AFBCCD /* Zip.framework */,
 				72DF00BD1C57873300AFBCCD /* Alamofire.framework */,
 				722D30601C5139BF00CAEE90 /* FöliGuide */,
@@ -302,6 +312,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Zip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);
@@ -318,7 +329,9 @@
 			files = (
 				721C90351C5619E6001027EC /* LocationController.swift in Sources */,
 				722D30621C5139BF00CAEE90 /* AppDelegate.swift in Sources */,
+				72DF00C31C57898D00AFBCCD /* NetworkController.swift in Sources */,
 				721C903A1C561BEE001027EC /* MainViewController.swift in Sources */,
+				72DF00C71C578BBA00AFBCCD /* Constants.swift in Sources */,
 				721C903C1C561E78001027EC /* ApplicationEvent.swift in Sources */,
 				727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */,
 			);
