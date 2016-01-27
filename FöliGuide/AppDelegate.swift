@@ -14,8 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 	
-	var locationController: LocationController?
-	
+	var locationController: LocationController? //Do not init until main view appeared, because segues might need do be initiated
 	
 	
 	//MARK: VC Adapters
@@ -65,7 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-	
 	
 	
 	
