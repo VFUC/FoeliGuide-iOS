@@ -11,7 +11,7 @@ import CoreLocation
 
 struct Bus {
 	var location: CLLocation
-	var name: String
+	var name: String //name == "Bus number"
 	var nextStop: BusStop
 	//TODO: Estimated arrival
 }
