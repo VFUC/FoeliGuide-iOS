@@ -36,7 +36,7 @@ class BusDataController: NSObject {
 					let nextStopNumber = vehicle["next_stoppointref"].string,
 					let nextStopName = vehicle["next_stoppointname"].string {
 						
-						let bus = Bus(location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: BusStop(name: nextStopName, number: nextStopNumber, location: nil))
+						let bus = Bus(location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: BusStop(name: nextStopName, number: nextStopNumber, location: nil), distanceToUser: nil)
 						busses.append(bus)
 				}
 			}
@@ -45,9 +45,35 @@ class BusDataController: NSObject {
 		}
 	}
 	
-	func getBussesNearLocation(location: CLLocation, count: Int){
+	func getBussesNearLocation(location: CLLocation, count: Int, completionHandler: [Bus]? -> ()){
+		getCurrentBusData { (busses) -> () in
+			
+			guard let busses = busses else {
+				completionHandler(nil)
+				return
+			}
+			
+			let bussesWithDistance = self.setDistanceToUserOnBusses(busses, location: location)
+			
+			let sorted = bussesWithDistance.sort(self.isOrderedBeforeByDistanceToUser)
+			
+			
+			completionHandler(Array(sorted[0..<count]))
+		}
+	}
+	
+	func setDistanceToUserOnBusses(busses: [Bus], location: CLLocation) -> [Bus]{
+		var mutable = busses
 		
+		for (index, bus) in busses.enumerate() {
+			mutable[index].distanceToUser = location.distanceFromLocation(bus.location)
+		}
 		
+		return mutable
+	}
+	
+	func isOrderedBeforeByDistanceToUser(bus1: Bus, bus2: Bus) -> Bool {
+		return bus1.distanceToUser < bus2.distanceToUser
 	}
 	
 
