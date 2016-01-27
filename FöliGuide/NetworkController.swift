@@ -13,7 +13,7 @@ import SwiftyJSON
 class NetworkController: NSObject {
 	
 	
-	func getCurrentRealtimeBusData(completionHandler: JSON? -> () ){
+	 class func getCurrentRealtimeBusData(completionHandler: JSON? -> () ){
 		
 		getDataFromAPI { apiData -> () in
 			guard let apidata = apiData else { //check if data returns nil
@@ -27,7 +27,7 @@ class NetworkController: NSObject {
 	}
 	
 	
-	func getDataFromAPI(completionHandler: NSData? -> () ) {
+	private class func getDataFromAPI(completionHandler: NSData? -> () ) {
 		Alamofire.request(.GET, Constants.API.RealTimeBusURL)
 			.responseData { response in
 				print(response.request)
