@@ -61,6 +61,50 @@ Therefore, please activate location services.</string>
             </objects>
             <point key="canvasLocation" x="409" y="-240"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="3OI-LN-pyC">
+            <objects>
+                <viewController id="391-2Q-LLS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="inE-je-dHR"/>
+                        <viewControllerLayoutGuide type="bottom" id="vC5-pj-9qc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="94x-Ss-2kF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FöliGuide" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAD-co-vUw">
+                                <rect key="frame" x="242" y="89" width="131" height="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0Y-1n-bYL">
+                                <rect key="frame" x="279" y="166" width="43" height="30"/>
+                                <state key="normal" title="Suomi">
+                                    <color key="titleColor" red="0.97807776492647269" green="0.99029391172259684" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFK-4B-bQd">
+                                <rect key="frame" x="271" y="278" width="58" height="30"/>
+                                <state key="normal" title="Svenska">
+                                    <color key="titleColor" red="0.97807776489999998" green="0.99029391170000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRy-wN-gSR">
+                                <rect key="frame" x="275" y="224" width="50" height="30"/>
+                                <state key="normal" title="English">
+                                    <color key="titleColor" red="0.97807776489999998" green="0.99029391170000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6rE-rp-ibi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1217" y="-240"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
