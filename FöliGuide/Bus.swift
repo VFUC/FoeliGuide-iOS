@@ -14,5 +14,5 @@ struct Bus {
 	var name: String //name == "Bus number"
 	var nextStop: BusStop
 	var distanceToUser: CLLocationDistance?
-	//TODO: Estimated arrival?
+	//TODO: Estimated arrival? - test
 }
