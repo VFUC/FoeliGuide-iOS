@@ -10,9 +10,22 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 
+class BusLoopParameters {
+	var location: CLLocation
+	var count: Int
+	var completionHandler: [Bus]? -> ()
+	
+	init(location: CLLocation, count: Int, completionHandler: ([Bus]? -> ())){
+		self.location = location
+		self.count = count
+		self.completionHandler = completionHandler
+	}
+}
+
 class BusDataController: NSObject {
 	
 	var networkController = NetworkController()
+	var timer: NSTimer? = nil
 	
 	func getCurrentBusData(completionHandler: [Bus]? -> () ){
 		NetworkController.getCurrentRealtimeBusData { (json) -> () in
@@ -75,6 +88,41 @@ class BusDataController: NSObject {
 	func isOrderedBeforeByDistanceToUser(bus1: Bus, bus2: Bus) -> Bool {
 		return bus1.distanceToUser < bus2.distanceToUser
 	}
+	
+	
+	
+	func stopRunningLoop(){
+		guard let timer = timer else {
+			print("[BusDataController] Trying to stop a timer that has not been set anyways")
+			return
+		}
+		
+		timer.invalidate()
+		self.timer = nil
+	}
+
+	
+	func getBussesNearLocationInLoop(location: CLLocation, count: Int, intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
+		guard timer == nil else {
+			print("[BusDataController] Timer is set -> not starting again")
+			return
+		}
+		
+		let parameters = BusLoopParameters(location: location, count: count, completionHandler: completionHandler)
+		
+		timer = NSTimer.scheduledTimerWithTimeInterval(intervalInSeconds, target: self, selector: "getBusLoop:", userInfo: parameters, repeats: true)
+		//TODO: abort previous network request if still running (?)
+	}
+	
+	func getBusLoop(timer: NSTimer) {
+		guard let parameters = timer.userInfo as? BusLoopParameters else {
+			print("[BusDataController] Sending parameter of unrecognized type to busLoop")
+			return
+		}
+		
+		getBussesNearLocation(parameters.location, count: parameters.count, completionHandler: parameters.completionHandler)
+	}
+	
 	
 
 }
