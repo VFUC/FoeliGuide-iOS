@@ -10,7 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-	@IBOutlet weak var debugLabel: UILabel!
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
