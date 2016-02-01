@@ -11,12 +11,12 @@ import CoreLocation
 import SwiftyJSON
 
 class BusLoopParameters {
-	var location: CLLocation
+	var locationSource: UserLocationDataSource
 	var count: Int
 	var completionHandler: [Bus]? -> ()
 	
-	init(location: CLLocation, count: Int, completionHandler: ([Bus]? -> ())){
-		self.location = location
+	init(locationSource: UserLocationDataSource, count: Int, completionHandler: ([Bus]? -> ())){
+		self.locationSource = locationSource
 		self.count = count
 		self.completionHandler = completionHandler
 	}
@@ -24,7 +24,6 @@ class BusLoopParameters {
 
 class BusDataController: NSObject {
 	
-	var networkController = NetworkController()
 	var timer: NSTimer? = nil
 	
 	func getCurrentBusData(completionHandler: [Bus]? -> () ){
@@ -101,26 +100,31 @@ class BusDataController: NSObject {
 		self.timer = nil
 	}
 
-	
-	func getBussesNearLocationInLoop(location: CLLocation, count: Int, intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
+	// Location must be passed via data source, so it can be dynamically updated.
+	// Passing the location directly would call the loop with the same parameter each time
+	func getBussesInLoopFromLocationDataSource(source: UserLocationDataSource, count: Int, intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
 		guard timer == nil else {
 			print("[BusDataController] Timer is set -> not starting again")
 			return
 		}
 		
-		let parameters = BusLoopParameters(location: location, count: count, completionHandler: completionHandler)
+		let parameters = BusLoopParameters(locationSource: source, count: count, completionHandler: completionHandler)
 		
 		timer = NSTimer.scheduledTimerWithTimeInterval(intervalInSeconds, target: self, selector: "getBusLoop:", userInfo: parameters, repeats: true)
-		//TODO: abort previous network request if still running (?)
+		timer?.fire() // start right away
 	}
 	
+	
+	// Method, which is repeadetly called while loop is running
 	func getBusLoop(timer: NSTimer) {
 		guard let parameters = timer.userInfo as? BusLoopParameters else {
 			print("[BusDataController] Sending parameter of unrecognized type to busLoop")
 			return
 		}
 		
-		getBussesNearLocation(parameters.location, count: parameters.count, completionHandler: parameters.completionHandler)
+		NetworkController.cancelActiveRequest() // in case a request is still running
+		
+		getBussesNearLocation(parameters.locationSource.getLastStoredUserLocation(), count: parameters.count, completionHandler: parameters.completionHandler)
 	}
 	
 	
