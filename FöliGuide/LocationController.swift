@@ -9,9 +9,17 @@
 import UIKit
 import CoreLocation
 
+
+
+protocol UserLocationDataSource {
+	func getLastStoredUserLocation() -> CLLocation
+}
+
+
 class LocationController: NSObject{
 	
 	var locationManager = CLLocationManager()
+	var userLocation = CLLocation()
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
 	func start(){
@@ -46,8 +54,6 @@ class LocationController: NSObject{
 
 
 
-
-
 extension LocationController : CLLocationManagerDelegate {
 	
 	func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -55,7 +61,14 @@ extension LocationController : CLLocationManagerDelegate {
 	}
 	
 	func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+		userLocation = newLocation
 		appDelegate.userLocationUpdateHandler?(newLocation)
 	}
-	
+}
+
+
+extension LocationController : UserLocationDataSource {
+	func getLastStoredUserLocation() -> CLLocation {
+		return userLocation
+	}
 }
