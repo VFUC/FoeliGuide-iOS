@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	
 	var locationController: LocationController? //Do not init until main view appeared, because segues might need do be initiated
-	
+	var loopRunning = false
 	
 	//MARK: VC Adapters
 	var mainVC: MainViewController? {
@@ -23,7 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			mainViewControllerDidAppear()
 		}
 	}
+	
+	var nextBusStopVC: NextBusStopViewController? {
+		didSet {
+			busController.runNow()
+		}
+	}
 	var authorizationVC: AuthorizationRequestViewController?
+	let busController = BusDataController()
 	
 	// MARK: Event Handlers
 	var applicationEventHandler: ((ApplicationEvent) -> ())?
@@ -36,9 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		applicationEventHandler = handleApplicationEvent
-		userLocationUpdateHandler = { [unowned self](location: CLLocation) in
-			self.mainVC?.debugLabel.text = "Longitude: \(location.coordinate.longitude) \n Latitude: \(location.coordinate.latitude)"
-		}
 		
 		return true
 	}
@@ -70,6 +74,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func mainViewControllerDidAppear(){
 		locationController = LocationController()
 		locationController?.start()
+		
+		
+		if let locationController = self.locationController {
+			userLocationUpdateHandler = { [unowned self](location: CLLocation) in
+				if !self.loopRunning {
+					self.busController.getBussesInLoopFromLocationDataSource(locationController, count: 1, intervalInSeconds: 10, completionHandler: { (busses) -> () in
+						
+						guard let busses = busses else { // failure getting busses
+							return
+						}
+						
+						if busses.count > 0 {
+							self.nextBusStopVC?.busNumberLabel.text = busses[0].name
+							self.nextBusStopVC?.nextStationNameLabel.text = busses[0].nextStop.name
+						}
+						
+//						for bus in busses {
+//							print(bus)
+//						}
+					})
+					
+					self.loopRunning = true
+				}
+			}
+		}
+		
+		
 	}
 	
 	func handleApplicationEvent(event: ApplicationEvent){
@@ -81,6 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			authorizationVC?.didAuthorizeSuccessfully()
 		}
 	}
+	
 
 }
 

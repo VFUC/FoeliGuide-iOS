@@ -16,6 +16,7 @@
 		722D306C1C5139BF00CAEE90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722D306A1C5139BF00CAEE90 /* LaunchScreen.storyboard */; };
 		722D30771C5139BF00CAEE90 /* Fo_liGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30761C5139BF00CAEE90 /* Fo_liGuideTests.swift */; };
 		722D30821C5139BF00CAEE90 /* Fo_liGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */; };
+		72418BBE1C5F4FAF002E7262 /* NextBusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */; };
 		727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */; };
 		72C6F6691C58BA5700DEDD53 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F6681C58BA5700DEDD53 /* Bus.swift */; };
 		72C6F66B1C58BACC00DEDD53 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F66A1C58BACC00DEDD53 /* BusStop.swift */; };
@@ -59,6 +60,7 @@
 		722D307D1C5139BF00CAEE90 /* FöliGuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FöliGuideUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fo_liGuideUITests.swift; sourceTree = "<group>"; };
 		722D30831C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextBusStopViewController.swift; sourceTree = "<group>"; };
 		727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
 		72C6F6681C58BA5700DEDD53 /* Bus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
 		72C6F66A1C58BACC00DEDD53 /* BusStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				721C90381C561A2B001027EC /* ViewControllers */,
 				721C903D1C561EA7001027EC /* Models */,
 				722D30651C5139BF00CAEE90 /* Main.storyboard */,
+				72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */,
 				722D306A1C5139BF00CAEE90 /* LaunchScreen.storyboard */,
 				722D306D1C5139BF00CAEE90 /* Info.plist */,
 				722D30681C5139BF00CAEE90 /* Assets.xcassets */,
@@ -340,6 +343,7 @@
 				72C6F66B1C58BACC00DEDD53 /* BusStop.swift in Sources */,
 				72C6F6691C58BA5700DEDD53 /* Bus.swift in Sources */,
 				72C6F66D1C58BD5A00DEDD53 /* BusDataController.swift in Sources */,
+				72418BBE1C5F4FAF002E7262 /* NextBusStopViewController.swift in Sources */,
 				727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
