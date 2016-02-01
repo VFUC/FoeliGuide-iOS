@@ -12,15 +12,17 @@ import SwiftyJSON
 
 class NetworkController: NSObject {
 	
+	static var requestActive = false
+	static var latestRequest : Request?
 	
-	 class func getCurrentRealtimeBusData(completionHandler: JSON? -> () ){
+	class func getCurrentRealtimeBusData(completionHandler: JSON? -> () ){
 		
 		getDataFromAPI { apiData -> () in
 			guard let apidata = apiData else { //check if data returns nil
 				completionHandler(nil)
 				return
 			}
-	
+			
 			let json = JSON(data: apidata)
 			completionHandler(json)
 		}
@@ -28,12 +30,24 @@ class NetworkController: NSObject {
 	
 	
 	private class func getDataFromAPI(completionHandler: NSData? -> () ) {
-		Alamofire.request(.GET, Constants.API.RealTimeBusURL)
+		requestActive = true
+		
+		latestRequest = Alamofire.request(.GET, Constants.API.RealTimeBusURL)
 			.responseData { response in
+				
+				requestActive = false
+				
 				print(response.request)
 				print(response.response)
 				print(response.result)
 				completionHandler(response.data)
+		}
+	}
+	
+	
+	class func cancelActiveRequest() {
+		if requestActive {
+			latestRequest?.cancel()
 		}
 	}
 }
