@@ -24,7 +24,7 @@ class BusLoopParameters {
 
 class BusDataController: NSObject {
 	
-	var timer: NSTimer? = nil
+	private var timer: NSTimer? = nil
 	
 	func getCurrentBusData(completionHandler: [Bus]? -> () ){
 		NetworkController.getCurrentRealtimeBusData { (json) -> () in
@@ -88,6 +88,10 @@ class BusDataController: NSObject {
 		return bus1.distanceToUser < bus2.distanceToUser
 	}
 	
+	
+	func runNow(){
+		self.timer?.fire()
+	}
 	
 	
 	func stopRunningLoop(){
