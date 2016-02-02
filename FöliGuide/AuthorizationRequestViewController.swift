@@ -34,10 +34,6 @@ class AuthorizationRequestViewController: UIViewController {
     }
     */
 	
-	func didAuthorizeSuccessfully(){
-		self.dismissViewControllerAnimated(true, completion: nil)
-	}
-	
 	@IBAction func activateButtonPressed(sender: UIButton) {
 			appDelegate.locationController?.locationManager.requestWhenInUseAuthorization()
 	}

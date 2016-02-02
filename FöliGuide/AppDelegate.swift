@@ -89,10 +89,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 							self.nextBusStopVC?.busNumberLabel.text = busses[0].name
 							self.nextBusStopVC?.nextStationNameLabel.text = busses[0].nextStop.name
 						}
-						
-//						for bus in busses {
-//							print(bus)
-//						}
 					})
 					
 					self.loopRunning = true
@@ -109,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		case .LocationAuthorizationNotDetermined, .LocationAuthorizationDenied, .LocationServicesDisabled: //TODO: test - can all cases be treated the same? Nope: Denied needs different interaction
 			mainVC?.performSegueWithIdentifier("showAuthorizationRequestVC", sender: nil)
 		case .LocationAuthorizationSuccessful:
-			authorizationVC?.didAuthorizeSuccessfully()
+			mainVC?.dismissViewControllerAnimated(true, completion: nil)
 		}
 	}
 	
