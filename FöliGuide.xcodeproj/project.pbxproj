@@ -103,6 +103,7 @@
 			children = (
 				721C90391C561BEE001027EC /* MainViewController.swift */,
 				727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */,
+				72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -158,7 +159,6 @@
 				721C90381C561A2B001027EC /* ViewControllers */,
 				721C903D1C561EA7001027EC /* Models */,
 				722D30651C5139BF00CAEE90 /* Main.storyboard */,
-				72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */,
 				722D306A1C5139BF00CAEE90 /* LaunchScreen.storyboard */,
 				722D306D1C5139BF00CAEE90 /* Info.plist */,
 				722D30681C5139BF00CAEE90 /* Assets.xcassets */,
