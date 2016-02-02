@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Asx-y5-jmL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -110,13 +110,14 @@ Therefore, please activate location services.</string>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="wnQ-7r-bV2"/>
                     <connections>
-                        <segue destination="jQH-yQ-9MS" kind="show" identifier="showAuthorizationRequestVC" id="Stf-As-h4F"/>
+                        <segue destination="jQH-yQ-9MS" kind="presentation" identifier="showAuthorizationRequestVC" id="Stf-As-h4F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409" y="448"/>
+            <point key="canvasLocation" x="1221" y="448"/>
         </scene>
         <!--Next Bus Stop View Controller-->
         <scene sceneID="FQK-1J-6Tg">
@@ -169,20 +170,9 @@ Therefore, please activate location services.</string>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifk-8A-Zwj">
-                                <rect key="frame" x="20" y="20" width="34" height="30"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="T07-fV-tdV" eventType="touchUpInside" id="iHz-aQ-XsU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ifk-8A-Zwj" firstAttribute="top" secondItem="5LT-Wr-7w3" secondAttribute="bottom" id="9Zd-5v-zc0"/>
-                            <constraint firstItem="Ifk-8A-Zwj" firstAttribute="leading" secondItem="mVO-Jw-AqP" secondAttribute="leadingMargin" id="mcr-Du-5Sq"/>
                             <constraint firstItem="Ebn-tl-nGN" firstAttribute="centerX" secondItem="mVO-Jw-AqP" secondAttribute="centerX" id="vHx-oN-PTJ"/>
                             <constraint firstItem="Ebn-tl-nGN" firstAttribute="centerY" secondItem="mVO-Jw-AqP" secondAttribute="centerY" id="xZU-Op-LAk"/>
                         </constraints>
@@ -194,7 +184,25 @@ Therefore, please activate location services.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXm-Pr-v1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="448"/>
+            <point key="canvasLocation" x="1941" y="448"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dLb-hh-eL6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Asx-y5-jmL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aFc-Np-LyP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Fny-4P-5e3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9v-we-ShJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="409" y="448"/>
         </scene>
     </scenes>
 </document>
