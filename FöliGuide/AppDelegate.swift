@@ -88,6 +88,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 						if busses.count > 0 {
 							self.nextBusStopVC?.busNumberLabel.text = busses[0].name
 							self.nextBusStopVC?.nextStationNameLabel.text = busses[0].nextStop.name
+							
+							if let distance = busses[0].distanceToUser {
+								self.nextBusStopVC?.busDistanceDebugLabel.text = "Distance to bus: \(Int(distance))m"
+							} else {
+								self.nextBusStopVC?.busDistanceDebugLabel.text = "Distance to bus unknown"
+							}
+							
+							
 						}
 					})
 					

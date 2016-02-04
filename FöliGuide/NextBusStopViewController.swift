@@ -12,6 +12,7 @@ class NextBusStopViewController: UIViewController {
 
 	@IBOutlet weak var busNumberLabel: UILabel!
 	@IBOutlet weak var nextStationNameLabel: UILabel!
+	@IBOutlet weak var busDistanceDebugLabel: UILabel!
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
