@@ -119,10 +119,10 @@ Therefore, please activate location services.</string>
             </objects>
             <point key="canvasLocation" x="1221" y="448"/>
         </scene>
-        <!--Next Bus Stop View Controller-->
+        <!--Next Bus Stop-->
         <scene sceneID="FQK-1J-6Tg">
             <objects>
-                <viewController id="T07-fV-tdV" customClass="NextBusStopViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Next Bus Stop" id="T07-fV-tdV" customClass="NextBusStopViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5LT-Wr-7w3"/>
                         <viewControllerLayoutGuide type="bottom" id="2xH-J7-mK5"/>
@@ -132,19 +132,19 @@ Therefore, please activate location services.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-tl-nGN">
-                                <rect key="frame" x="202" y="171.5" width="196" height="317.5"/>
+                                <rect key="frame" x="202" y="172" width="196" height="318"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yh4-0C-srK">
-                                        <rect key="frame" x="0.0" y="0.5" width="196" height="153.5"/>
+                                        <rect key="frame" x="0.0" y="1" width="196" height="154"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="You are on bus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezw-7Y-ucp">
-                                                <rect key="frame" x="0.0" y="0.5" width="196" height="36"/>
+                                                <rect key="frame" x="0.0" y="1" width="196" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="51" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-QD-Fsv">
-                                                <rect key="frame" x="50.5" y="46.5" width="95.5" height="107.5"/>
+                                                <rect key="frame" x="51" y="47" width="96" height="108"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="90"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -152,16 +152,16 @@ Therefore, please activate location services.</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9u3-xo-pAe">
-                                        <rect key="frame" x="19" y="196" width="158.5" height="59.5"/>
+                                        <rect key="frame" x="19" y="196" width="159" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Next bus station:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVf-y6-Hyu">
-                                                <rect key="frame" x="0.0" y="0.0" width="158.5" height="25.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="159" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpP-ZQ-Sld">
-                                                <rect key="frame" x="16.5" y="29.5" width="125" height="30"/>
+                                                <rect key="frame" x="17" y="30" width="125" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -169,7 +169,7 @@ Therefore, please activate location services.</string>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance to bus: 2m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGO-BX-uvy">
-                                        <rect key="frame" x="22" y="297.5" width="152.5" height="20.5"/>
+                                        <rect key="frame" x="22" y="298" width="153" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -183,6 +183,13 @@ Therefore, please activate location services.</string>
                             <constraint firstItem="Ebn-tl-nGN" firstAttribute="centerY" secondItem="mVO-Jw-AqP" secondAttribute="centerY" constant="30" id="xZU-Op-LAk"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Next Bus Stop" id="ELB-ey-m2b">
+                        <barButtonItem key="rightBarButtonItem" image="bell" id="h7u-wV-wYc">
+                            <connections>
+                                <segue destination="h8i-tE-EnK" kind="show" id="7w9-YB-9Mg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="busDistanceDebugLabel" destination="rGO-BX-uvy" id="pSA-U9-Eu3"/>
                         <outlet property="busNumberLabel" destination="MLR-QD-Fsv" id="nJc-JA-7Ym"/>
@@ -192,6 +199,24 @@ Therefore, please activate location services.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXm-Pr-v1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1941" y="448"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Obv-r0-JuI">
+            <objects>
+                <viewController id="h8i-tE-EnK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EvC-FQ-PF3"/>
+                        <viewControllerLayoutGuide type="bottom" id="e5k-7c-mOm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yby-r7-kSV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bDw-Sx-NwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2597" y="448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dLb-hh-eL6">
@@ -212,4 +237,7 @@ Therefore, please activate location services.</string>
             <point key="canvasLocation" x="409" y="448"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bell" width="22" height="22"/>
+    </resources>
 </document>
