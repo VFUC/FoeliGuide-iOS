@@ -13,4 +13,6 @@ struct Constants {
 		static let RealTimeBusURL = "http://data.foli.fi/siri/vm"
 		static let BusStopURL = "http://data.foli.fi/siri/sm/"
 	}
+	
+	static let BusStopNameBlacklist = [ "?" ]
 }

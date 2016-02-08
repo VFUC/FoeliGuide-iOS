@@ -11,14 +11,18 @@ import UIKit
 class DestinationSelectionTableViewController: UITableViewController {
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-	var busStops = [BusStop]()
-	
+
+	var busStopNames = [String]() {
+		didSet {
+			busStopNames.sortInPlace( { $0 < $1 } )
+		}
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		if let delegateStops = appDelegate.busStops {
-			busStops = delegateStops
+		if let delegateStops = appDelegate.busStopNames {
+			busStopNames = delegateStops
 		}
 		
         // Uncomment the following line to preserve selection between presentations
@@ -33,36 +37,45 @@ class DestinationSelectionTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+	
+	
+	
+	
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return busStops.count
+        return busStopNames.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("busStopCell", forIndexPath: indexPath)
 
-		if (0..<busStops.count).contains(indexPath.row) {
-			let stop = busStops[indexPath.row]
-			cell.textLabel?.text = stop.name
+		if (0..<busStopNames.count).contains(indexPath.row) {
+			cell.textLabel?.text = busStopNames[indexPath.row]
 		}
 		
         return cell
     }
 
-
-    /*
+	
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
-    */
+	
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		
+		let stop = busStopNames[indexPath.row]
+		print(stop)
+		
+		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+	}
+
 
     /*
     // Override to support editing the table view.

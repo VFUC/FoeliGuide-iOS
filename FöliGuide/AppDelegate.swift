@@ -16,8 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var locationController: LocationController? //Do not init until main view appeared, because segues might need do be initiated
 	var loopRunning = false
-	var busStops : [BusStop]?
-	
+	var busStops : [BusStop]? {
+		didSet {
+			if let stops = busStops {
+				busStopNames = namesForBusStops(stops)
+			}
+			
+		}
+	}
+	var busStopNames : [String]?
 	
 	
 	//MARK: VC Adapters
@@ -126,6 +133,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 	
+	
+	func namesForBusStops(stops: [BusStop]) -> [String] {
+		var names = Set<String>()
+		
+		for stop in stops {
+			if Constants.BusStopNameBlacklist.contains(stop.name){
+				continue
+			}
+			
+			names.insert(stop.name)
+		}
+		
+		return Array(names)
+	}
 
 }
 
