@@ -186,7 +186,7 @@ Therefore, please activate location services.</string>
                     <navigationItem key="navigationItem" title="Next Bus Stop" id="ELB-ey-m2b">
                         <barButtonItem key="rightBarButtonItem" image="bell" id="h7u-wV-wYc">
                             <connections>
-                                <segue destination="h8i-tE-EnK" kind="show" id="7w9-YB-9Mg"/>
+                                <segue destination="3UE-6S-kYb" kind="show" id="dSQ-LR-BXs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -200,23 +200,33 @@ Therefore, please activate location services.</string>
             </objects>
             <point key="canvasLocation" x="1941" y="448"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Obv-r0-JuI">
+        <!--Destination Selection Table View Controller-->
+        <scene sceneID="F3k-Vn-7p1">
             <objects>
-                <viewController id="h8i-tE-EnK" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EvC-FQ-PF3"/>
-                        <viewControllerLayoutGuide type="bottom" id="e5k-7c-mOm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yby-r7-kSV">
+                <tableViewController id="3UE-6S-kYb" customClass="DestinationSelectionTableViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LuZ-8d-OOi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bDw-Sx-NwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="busStopCell" id="BXL-Li-beY">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BXL-Li-beY" id="cd5-a9-EOr">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3UE-6S-kYb" id="vdD-X4-Xvk"/>
+                            <outlet property="delegate" destination="3UE-6S-kYb" id="PlH-Ck-sLk"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bq5-Jx-vpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2597" y="448"/>
+            <point key="canvasLocation" x="2593" y="448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dLb-hh-eL6">
