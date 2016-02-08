@@ -17,6 +17,8 @@ class DestinationSelectionTableViewController: UITableViewController {
 			busStopNames.sortInPlace( { $0 < $1 } )
 		}
 	}
+	
+	var nextStopVC : NextBusStopViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,10 +72,11 @@ class DestinationSelectionTableViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		
-		let stop = busStopNames[indexPath.row]
-		print(stop)
+		let selectedStop = busStopNames[indexPath.row]
 		
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+		nextStopVC?.destinationStop = selectedStop
+		self.navigationController?.popViewControllerAnimated(true)
 	}
 
 
