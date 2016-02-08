@@ -253,8 +253,19 @@ Therefore, please activate location services.</string>
                             <outlet property="delegate" destination="3UE-6S-kYb" id="PlH-Ck-sLk"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Uey-8P-mX2" id="4h4-ji-Leo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bq5-Jx-vpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Uey-8P-mX2">
+                    <connections>
+                        <outlet property="delegate" destination="3UE-6S-kYb" id="chM-17-wcq"/>
+                        <outlet property="searchContentsController" destination="3UE-6S-kYb" id="coB-fN-cLD"/>
+                        <outlet property="searchResultsDataSource" destination="3UE-6S-kYb" id="4Pq-VF-DaY"/>
+                        <outlet property="searchResultsDelegate" destination="3UE-6S-kYb" id="Fvr-3P-Jse"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2593" y="448"/>
         </scene>

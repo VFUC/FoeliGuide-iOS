@@ -18,14 +18,28 @@ class DestinationSelectionTableViewController: UITableViewController {
 		}
 	}
 	
+	var filteredBusStopNames = [String]()
+	
 	var nextStopVC : NextBusStopViewController?
 
+	
+	let searchController = UISearchController(searchResultsController: nil)
+	
+	
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		if let delegateStops = appDelegate.busStopNames {
 			busStopNames = delegateStops
 		}
+		
+		searchController.searchResultsUpdater = self
+		searchController.dimsBackgroundDuringPresentation = false
+		definesPresentationContext = false
+		tableView.tableHeaderView = searchController.searchBar
+		
 		
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,14 +64,24 @@ class DestinationSelectionTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return busStopNames.count
+		if searchController.active && searchController.searchBar.text != "" {
+			return filteredBusStopNames.count
+		}
+		
+		return busStopNames.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("busStopCell", forIndexPath: indexPath)
-
-		if (0..<busStopNames.count).contains(indexPath.row) {
-			cell.textLabel?.text = busStopNames[indexPath.row]
+		
+		var stopNames = busStopNames
+		
+		if searchController.active && searchController.searchBar.text != "" {
+			stopNames = filteredBusStopNames
+		}
+		
+		if (0..<stopNames.count).contains(indexPath.row) {
+			cell.textLabel?.text = stopNames[indexPath.row]
 		}
 		
         return cell
@@ -72,8 +96,16 @@ class DestinationSelectionTableViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		
-		let selectedStop = busStopNames[indexPath.row]
+		var selectedStop = ""
 		
+		if searchController.active && searchController.searchBar.text != "" {
+			selectedStop = filteredBusStopNames[indexPath.row]
+		} else {
+			selectedStop = busStopNames[indexPath.row]
+		}
+		
+		
+		searchController.active = false
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 		nextStopVC?.destinationStop = selectedStop
 		self.navigationController?.popViewControllerAnimated(true)
@@ -116,5 +148,24 @@ class DestinationSelectionTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+	
+	
+	
+	
+	func filterBusStopsForSearchText(searchText: String){
+		filteredBusStopNames = busStopNames.filter({ (stop) -> Bool in
+			return stop.lowercaseString.containsString(searchText.lowercaseString)
+		})
+		
+		tableView.reloadData()
+	}
+}
 
+
+
+
+extension DestinationSelectionTableViewController : UISearchResultsUpdating {
+	func updateSearchResultsForSearchController(searchController: UISearchController) {
+		filterBusStopsForSearchText(searchController.searchBar.text!)
+	}
 }
