@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 
-class BusLoopParameters {
+class BusByLocationLoopParameters {
 	var locationSource: UserLocationDataSource
 	var count: Int
 	var completionHandler: [Bus]? -> ()
@@ -22,11 +22,20 @@ class BusLoopParameters {
 	}
 }
 
+class BusLoopParameters {
+	var completionHandler: [Bus]? -> ()
+	
+	init(completionHandler: ([Bus]? -> ())){
+		self.completionHandler = completionHandler
+	}
+}
+
 class BusDataController: NSObject {
 	
 	private var timer: NSTimer? = nil
+	var currentUserBus : Bus = Bus(vehicleRef: "60043", location: CLLocation(latitude: CLLocationDegrees(60.407118), longitude: CLLocationDegrees(22.319192)), name: "7", nextStop: BusStop(name: "nextStop", number: "Num", location: nil), distanceToUser: nil)
 	
-	func getCurrentBusData(completionHandler: [Bus]? -> () ){
+	private func getCurrentBusData(completionHandler: [Bus]? -> () ){
 		NetworkController.getCurrentRealtimeBusData { (json) -> () in
 			
 			guard let json = json else {
@@ -46,9 +55,10 @@ class BusDataController: NSObject {
 					let longitude = vehicle["longitude"].float,
 					let latitude = vehicle["latitude"].float,
 					let nextStopNumber = vehicle["next_stoppointref"].string,
-					let nextStopName = vehicle["next_stoppointname"].string {
+					let nextStopName = vehicle["next_stoppointname"].string,
+					let vehicleRef = vehicle["vehicleref"].string {
 						
-						let bus = Bus(location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: BusStop(name: nextStopName, number: nextStopNumber, location: nil), distanceToUser: nil)
+						let bus = Bus(vehicleRef: vehicleRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: BusStop(name: nextStopName, number: nextStopNumber, location: nil), distanceToUser: nil)
 						busses.append(bus)
 				}
 			}
@@ -57,7 +67,7 @@ class BusDataController: NSObject {
 		}
 	}
 	
-	func getBussesNearLocation(location: CLLocation, count: Int, completionHandler: [Bus]? -> ()){
+	private func getBussesNearLocation(location: CLLocation, count: Int, completionHandler: [Bus]? -> ()){
 		getCurrentBusData { (busses) -> () in
 			
 			guard let busses = busses else {
@@ -99,7 +109,7 @@ class BusDataController: NSObject {
 	
 	
 	
-	func setDistanceToUserOnBusses(busses: [Bus], location: CLLocation) -> [Bus]{
+	private func setDistanceToUserOnBusses(busses: [Bus], location: CLLocation) -> [Bus]{
 		var mutable = busses
 		
 		for (index, bus) in busses.enumerate() {
@@ -109,7 +119,7 @@ class BusDataController: NSObject {
 		return mutable
 	}
 	
-	func isOrderedBeforeByDistanceToUser(bus1: Bus, bus2: Bus) -> Bool {
+	private func isOrderedBeforeByDistanceToUser(bus1: Bus, bus2: Bus) -> Bool {
 		return bus1.distanceToUser < bus2.distanceToUser
 	}
 	
@@ -128,25 +138,53 @@ class BusDataController: NSObject {
 		timer.invalidate()
 		self.timer = nil
 	}
-
-	// Location must be passed via data source, so it can be dynamically updated.
-	// Passing the location directly would call the loop with the same parameter each time
-	func getBussesInLoopFromLocationDataSource(source: UserLocationDataSource, count: Int, intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
+	
+	
+	
+	func getBussesInLoop(intervalInSeconds intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
 		guard timer == nil else {
 			print("[BusDataController] Timer is set -> not starting again")
 			return
 		}
 		
-		let parameters = BusLoopParameters(locationSource: source, count: count, completionHandler: completionHandler)
+		let parameters = BusLoopParameters(completionHandler: completionHandler)
 		
-		timer = NSTimer.scheduledTimerWithTimeInterval(intervalInSeconds, target: self, selector: "getBusLoop:", userInfo: parameters, repeats: true)
+		timer = NSTimer.scheduledTimerWithTimeInterval(intervalInSeconds, target: self, selector: "getBussesLoop:", userInfo: parameters, repeats: true)
 		timer?.fire() // start right away
 	}
 	
+	func getBussesLoop(timer: NSTimer) {
+		guard let parameters = timer.userInfo as? BusLoopParameters else {
+			print("[BusDataController] Sending parameter of unrecognized type to busLoop")
+			return
+		}
+		
+		NetworkController.cancelActiveRequest() // in case a request is still running
+		
+		getCurrentBusData(parameters.completionHandler)
+	}
+	
+	
+	
+	
+
+	// Location must be passed via data source, so it can be dynamically updated.
+	// Passing the location directly would call the loop with the same parameter each time
+	func getNearbyBussesInLoopFromLocationDataSource(source: UserLocationDataSource, count: Int, intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
+		guard timer == nil else {
+			print("[BusDataController] Timer is set -> not starting again")
+			return
+		}
+		
+		let parameters = BusByLocationLoopParameters(locationSource: source, count: count, completionHandler: completionHandler)
+		
+		timer = NSTimer.scheduledTimerWithTimeInterval(intervalInSeconds, target: self, selector: "getNearbyBussesLoop:", userInfo: parameters, repeats: true)
+		timer?.fire() // start right away
+	}
 	
 	// Method, which is repeadetly called while loop is running
-	func getBusLoop(timer: NSTimer) {
-		guard let parameters = timer.userInfo as? BusLoopParameters else {
+	func getNearbyBussesLoop(timer: NSTimer) {
+		guard let parameters = timer.userInfo as? BusByLocationLoopParameters else {
 			print("[BusDataController] Sending parameter of unrecognized type to busLoop")
 			return
 		}

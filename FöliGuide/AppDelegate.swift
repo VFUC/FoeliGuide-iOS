@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	var busStopNames : [String]?
 	
-	
 	//MARK: VC Adapters
 	var mainVC: MainViewController? {
 		didSet {
@@ -89,7 +88,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 			if let locationController = self.locationController {
 				userLocationUpdateHandler = { [unowned self](location: CLLocation) in
-					if !self.loopRunning {
+					if !self.loopRunning { //only start once, not on every user location update
+						
+						self.busController.getBussesInLoop(intervalInSeconds: 10, completionHandler: { (busses) -> () in
+							guard let busses = busses else { // failure getting busses
+								return
+							}
+							
+							for bus in busses where bus.vehicleRef == self.busController.currentUserBus.vehicleRef {
+								self.nextBusStopVC?.busNumberLabel.text = bus.name
+								self.nextBusStopVC?.nextStationNameLabel.text = bus.nextStop.name
+							}
+							
+						})
+						
+						
+						/*
 						self.busController.getBussesInLoopFromLocationDataSource(locationController, count: 1, intervalInSeconds: 10, completionHandler: { (busses) -> () in
 							
 							guard let busses = busses else { // failure getting busses
@@ -109,6 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 								
 							}
 						})
+						*/
 						
 						self.loopRunning = true
 					}
