@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var locationController: LocationController? //Do not init until main view appeared, because segues might need do be initiated
 	var loopRunning = false
+	var busStops : [BusStop]?
+	
+	
 	
 	//MARK: VC Adapters
 	var mainVC: MainViewController? {
@@ -72,39 +75,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	func mainViewControllerDidAppear(){
-		locationController = LocationController()
-		locationController?.start()
-		
-		
-		if let locationController = self.locationController {
-			userLocationUpdateHandler = { [unowned self](location: CLLocation) in
-				if !self.loopRunning {
-					self.busController.getBussesInLoopFromLocationDataSource(locationController, count: 1, intervalInSeconds: 10, completionHandler: { (busses) -> () in
-						
-						guard let busses = busses else { // failure getting busses
-							return
-						}
-						
-						if busses.count > 0 {
-							self.nextBusStopVC?.busNumberLabel.text = busses[0].name
-							self.nextBusStopVC?.nextStationNameLabel.text = busses[0].nextStop.name
+		if locationController == nil { //only if not set yet
+			locationController = LocationController()
+			locationController?.start()
+			
+			
+			if let locationController = self.locationController {
+				userLocationUpdateHandler = { [unowned self](location: CLLocation) in
+					if !self.loopRunning {
+						self.busController.getBussesInLoopFromLocationDataSource(locationController, count: 1, intervalInSeconds: 10, completionHandler: { (busses) -> () in
 							
-							if let distance = busses[0].distanceToUser {
-								self.nextBusStopVC?.busDistanceDebugLabel.text = "Distance to bus: \(Int(distance))m"
-							} else {
-								self.nextBusStopVC?.busDistanceDebugLabel.text = "Distance to bus unknown"
+							guard let busses = busses else { // failure getting busses
+								return
 							}
 							
-							
-						}
-					})
-					
-					self.loopRunning = true
+							if busses.count > 0 {
+								self.nextBusStopVC?.busNumberLabel.text = busses[0].name
+								self.nextBusStopVC?.nextStationNameLabel.text = busses[0].nextStop.name
+								
+								if let distance = busses[0].distanceToUser {
+									self.nextBusStopVC?.busDistanceDebugLabel.text = "Distance to bus: \(Int(distance))m"
+								} else {
+									self.nextBusStopVC?.busDistanceDebugLabel.text = "Distance to bus unknown"
+								}
+								
+								
+							}
+						})
+						
+						self.loopRunning = true
+					}
 				}
 			}
 		}
 		
-		
+		if busStops == nil {
+			busController.getBusStops { (stops) -> () in
+				self.busStops = stops
+			}
+		}
 	}
 	
 	func handleApplicationEvent(event: ApplicationEvent){
