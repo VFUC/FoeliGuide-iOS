@@ -17,19 +17,18 @@ class NetworkController: NSObject {
 	
 	class func getCurrentRealtimeBusData(completionHandler: JSON? -> () ){
 		
-		getDataFromAPI { apiData -> () in
+		getBusDataFromAPI { apiData -> () in
 			guard let apidata = apiData else { //check if data returns nil
 				completionHandler(nil)
 				return
 			}
 			
-			let json = JSON(data: apidata)
-			completionHandler(json)
+			completionHandler(JSON(data: apidata))
 		}
 	}
 	
 	
-	private class func getDataFromAPI(completionHandler: NSData? -> () ) {
+	private class func getBusDataFromAPI(completionHandler: NSData? -> () ) {
 		requestActive = true
 		
 		latestRequest = Alamofire.request(.GET, Constants.API.RealTimeBusURL)
@@ -41,6 +40,25 @@ class NetworkController: NSObject {
 				print(response.response)
 				print(response.result)
 				completionHandler(response.data)
+		}
+	}
+	
+	
+	class func getBusStopData(completionHandler: JSON? -> () ) {
+		
+		Alamofire.request(.GET, Constants.API.BusStopURL)
+			.responseData { response in
+				
+				print(response.request)
+				print(response.response)
+				print(response.result)
+				
+				guard let data = response.data else { //check if data returns nil
+					completionHandler(nil)
+					return
+				}
+				
+				completionHandler(JSON(data: data))
 		}
 	}
 	

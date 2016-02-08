@@ -11,5 +11,6 @@ import Foundation
 struct Constants {
 	struct API {
 		static let RealTimeBusURL = "http://data.foli.fi/siri/vm"
+		static let BusStopURL = "http://data.foli.fi/siri/sm/"
 	}
 }

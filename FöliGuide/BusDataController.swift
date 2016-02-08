@@ -69,10 +69,35 @@ class BusDataController: NSObject {
 			
 			let sorted = bussesWithDistance.sort(self.isOrderedBeforeByDistanceToUser)
 			
-			
 			completionHandler(Array(sorted[0..<count]))
 		}
 	}
+	
+	func getBusStops(completionHandler completionHandler: [BusStop]? -> ()){
+		NetworkController.getBusStopData { (json) -> () in
+			guard let json = json else {
+				completionHandler(nil)
+				return
+			}
+			
+			guard let dict = json.dictionary else {
+				completionHandler(nil)
+				return
+			}
+			
+			var stops = [BusStop]()
+			
+			for (key, value) in dict { //key: station number, value: dict{ "stop_name": name }
+				if let name = value["stop_name"].string {
+					stops.append(BusStop(name: name, number: key, location: nil))
+				}
+			}
+			
+			completionHandler(stops)
+		}
+	}
+	
+	
 	
 	func setDistanceToUserOnBusses(busses: [Bus], location: CLLocation) -> [Bus]{
 		var mutable = busses
