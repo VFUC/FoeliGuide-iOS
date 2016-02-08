@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 struct Bus {
+	var vehicleRef : String
 	var location: CLLocation
 	var name: String //name == "Bus number"
 	var nextStop: BusStop
