@@ -33,7 +33,9 @@ class BusLoopParameters {
 class BusDataController: NSObject {
 	
 	private var timer: NSTimer? = nil
-	var currentUserBus : Bus = Bus(vehicleRef: "60043", location: CLLocation(latitude: CLLocationDegrees(60.407118), longitude: CLLocationDegrees(22.319192)), name: "7", nextStop: BusStop(name: "nextStop", number: "Num", location: nil), distanceToUser: nil)
+	var currentUserBus : Bus? = nil
+//	Bus(vehicleRef: "60043", location: CLLocation(latitude: CLLocationDegrees(60.407118), longitude: CLLocationDegrees(22.319192)), name: "7", nextStop: BusStop(name: "nextStop", number: "Num", location: nil), distanceToUser: nil)
+	var currentBusData : [Bus]?
 	
 	private func getCurrentBusData(completionHandler: [Bus]? -> () ){
 		NetworkController.getCurrentRealtimeBusData { (json) -> () in
@@ -63,6 +65,7 @@ class BusDataController: NSObject {
 				}
 			}
 			
+			self.currentBusData = busses
 			completionHandler(busses)
 		}
 	}
@@ -192,6 +195,18 @@ class BusDataController: NSObject {
 		NetworkController.cancelActiveRequest() // in case a request is still running
 		
 		getBussesNearLocation(parameters.locationSource.getLastStoredUserLocation(), count: parameters.count, completionHandler: parameters.completionHandler)
+	}
+	
+	
+	
+	
+	
+	func sortBussesByDistanceToUser(busses busses: [Bus], userLocation: CLLocation) -> [Bus] {
+		let bussesWithDistance = setDistanceToUserOnBusses(busses, location: userLocation)
+		
+		let sorted = bussesWithDistance.sort(self.isOrderedBeforeByDistanceToUser)
+		
+		return Array(sorted)
 	}
 	
 	
