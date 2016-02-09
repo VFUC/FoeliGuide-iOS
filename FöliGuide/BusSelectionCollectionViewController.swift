@@ -13,12 +13,19 @@ private let reuseIdentifierSectionHeader = "Header"
 
 class BusSelectionCollectionViewController: UICollectionViewController {
 	
-	var busses = ["36", "167", "171", "5", "168"]
+	var busses = [Bus]()
 	
+	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		if let currentBusData = appDelegate.busController.currentBusData ,
+			let currentUserLocation = appDelegate.locationController?.userLocation {
+				busses = appDelegate.busController.sortBussesByDistanceToUser(busses: currentBusData, userLocation: currentUserLocation)
+		}
+		
+		
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -60,7 +67,7 @@ class BusSelectionCollectionViewController: UICollectionViewController {
         // Configure the cell
 		
 		if let busStopCell = cell as? BusSelectionCollectionViewCell {
-			busStopCell.numberLabel.text = busses[indexPath.row]
+			busStopCell.numberLabel.text = busses[indexPath.row].name
 			return busStopCell
 		}
 		
@@ -108,7 +115,8 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 		let cell = collectionView.cellForItemAtIndexPath(indexPath) as! BusSelectionCollectionViewCell
 		cell.selectionAnimation()
 		
-		let busName = busses[indexPath.row]
+		let busName = busses[indexPath.row].name
+		appDelegate.busController.currentUserBus = busses[indexPath.row]
 		
 		performSegueWithIdentifier("showNextBusStop", sender: nil)
 	}

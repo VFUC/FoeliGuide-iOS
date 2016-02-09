@@ -95,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 								return
 							}
 							
-							for bus in busses where bus.vehicleRef == self.busController.currentUserBus.vehicleRef {
+							for bus in busses where bus.vehicleRef == self.busController.currentUserBus?.vehicleRef {
 								self.nextBusStopVC?.busNumberLabel.text = bus.name
 								self.nextBusStopVC?.nextStationNameLabel.text = bus.nextStop.name
 							}
