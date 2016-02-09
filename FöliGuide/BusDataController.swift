@@ -32,10 +32,9 @@ class BusLoopParameters {
 
 class BusDataController: NSObject {
 	
-	private var timer: NSTimer? = nil
-	var currentUserBus : Bus? = nil
-//	Bus(vehicleRef: "60043", location: CLLocation(latitude: CLLocationDegrees(60.407118), longitude: CLLocationDegrees(22.319192)), name: "7", nextStop: BusStop(name: "nextStop", number: "Num", location: nil), distanceToUser: nil)
-	var currentBusData : [Bus]?
+	private var timer: NSTimer? = nil // used for running network loop
+	var currentUserBus : Bus? = nil // current bus the user has selected
+	var currentBusData : [Bus]? // last saved bus data
 	
 	private func getCurrentBusData(completionHandler: [Bus]? -> () ){
 		NetworkController.getCurrentRealtimeBusData { (json) -> () in
@@ -58,9 +57,10 @@ class BusDataController: NSObject {
 					let latitude = vehicle["latitude"].float,
 					let nextStopNumber = vehicle["next_stoppointref"].string,
 					let nextStopName = vehicle["next_stoppointname"].string,
-					let vehicleRef = vehicle["vehicleref"].string {
+					let vehicleRef = vehicle["vehicleref"].string,
+					let finalStop = vehicle["destinationname"].string{
 						
-						let bus = Bus(vehicleRef: vehicleRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: BusStop(name: nextStopName, number: nextStopNumber, location: nil), distanceToUser: nil)
+						let bus = Bus(vehicleRef: vehicleRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: BusStop(name: nextStopName, number: nextStopNumber, location: nil), finalStop: finalStop, distanceToUser: nil)
 						busses.append(bus)
 				}
 			}
@@ -170,7 +170,7 @@ class BusDataController: NSObject {
 	
 	
 	
-
+	
 	// Location must be passed via data source, so it can be dynamically updated.
 	// Passing the location directly would call the loop with the same parameter each time
 	func getNearbyBussesInLoopFromLocationDataSource(source: UserLocationDataSource, count: Int, intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
@@ -210,5 +210,5 @@ class BusDataController: NSObject {
 	}
 	
 	
-
+	
 }
