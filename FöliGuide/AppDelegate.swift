@@ -53,6 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		applicationEventHandler = handleApplicationEvent
 		
+		
+		//register for local notifications
+		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil))
+		//TODO: check
+		
 		return true
 	}
 
@@ -78,6 +83,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
 	
+//	func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+//		let alertController = UIAlertController(title: notification.alertTitle, message: notification.alertBody, preferredStyle: .Alert)
+//		alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//		//TODO: sound?
+//		self.mainVC?.presentViewController(alertController, animated: true, completion: nil)
+//	}
+	
 	
 	
 	func mainViewControllerDidAppear(){
@@ -96,8 +108,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 							}
 							
 							for bus in busses where bus.vehicleRef == self.busController.currentUserBus?.vehicleRef {
-								self.nextBusStopVC?.busNumberLabel.text = bus.name
-								self.nextBusStopVC?.nextStationNameLabel.text = bus.nextStop.name
+								
+								if self.nextBusStopVC?.busNumberLabel.text != bus.name || self.nextBusStopVC?.nextStationNameLabel.text != bus.nextStop.name {
+									self.nextBusStopVC?.busNumberLabel.text = bus.name
+									self.nextBusStopVC?.nextStationNameLabel.text = bus.nextStop.name
+									self.nextBusStopVC?.didUpdateData()
+								}
+								
 							}
 							
 						})

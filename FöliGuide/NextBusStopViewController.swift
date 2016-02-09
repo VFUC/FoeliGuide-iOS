@@ -11,16 +11,7 @@ import UIKit
 class NextBusStopViewController: UIViewController {
 
 	@IBOutlet weak var busNumberLabel: UILabel!
-	@IBOutlet weak var nextStationNameLabel: UILabel! {
-		didSet {
-			if nextStationNameLabel.text == destinationStop {
-				print("NEXT STOP IS DESTINATION")
-			} else {
-				print("NEXT STOP IS NOT DESTINATION")
-			}
-		}
-	}
-	
+	@IBOutlet weak var nextStationNameLabel: UILabel!
 	@IBOutlet weak var destinationLabel: UILabel!
 	@IBOutlet weak var destinationHeader: UILabel!
 	@IBOutlet weak var destinationStackView: UIStackView!
@@ -58,7 +49,14 @@ class NextBusStopViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	
+	func didUpdateData(){
+		if nextStationNameLabel.text == destinationStop {
+			NotificationController.showNextBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
+		}
+	}
+	
 
 	// MARK: - Navigation
 
