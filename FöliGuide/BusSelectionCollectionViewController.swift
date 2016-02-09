@@ -41,6 +41,7 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 			let currentUserLocation = appDelegate.locationController?.userLocation {
 				busses = appDelegate.busController.sortBussesByDistanceToUser(busses: currentBusData, userLocation: currentUserLocation)
 		}
+		collectionView?.reloadData()
 	}
 
     /*
@@ -70,6 +71,7 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 		
 		if let busStopCell = cell as? BusSelectionCollectionViewCell {
 			busStopCell.numberLabel.text = busses[indexPath.row].name
+			busStopCell.finalStopLabel.text = busses[indexPath.row].finalStop
 			return busStopCell
 		}
 		

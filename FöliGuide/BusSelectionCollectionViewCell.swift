@@ -10,12 +10,22 @@ import UIKit
 
 class BusSelectionCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var numberLabel: UILabel!
+	@IBOutlet weak var finalStopLabel: UILabel!
+	
+	@IBOutlet var allLabels: [UILabel]!
 	
 	
+	// visual feedback to look like a button when cell is tapped
 	func selectionAnimation() {
-		numberLabel.layer.opacity = 0.18
+		
+		for label in allLabels {
+			label.layer.opacity = 0.18
+		}
+		
 		UIView.animateWithDuration(0.420) { () -> Void in
-			self.numberLabel.layer.opacity = 1
+			for label in self.allLabels {
+				label.layer.opacity = 1
+			}
 		}
 	}
 	
