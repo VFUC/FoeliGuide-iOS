@@ -21,7 +21,6 @@ class NextBusStopViewController: UIViewController {
 		}
 	}
 	
-	@IBOutlet weak var busDistanceDebugLabel: UILabel!
 	@IBOutlet weak var destinationLabel: UILabel!
 	@IBOutlet weak var destinationHeader: UILabel!
 	@IBOutlet weak var destinationStackView: UIStackView!
