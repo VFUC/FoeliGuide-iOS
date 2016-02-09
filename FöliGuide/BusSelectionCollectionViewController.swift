@@ -20,11 +20,6 @@ class BusSelectionCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		if let currentBusData = appDelegate.busController.currentBusData ,
-			let currentUserLocation = appDelegate.locationController?.userLocation {
-				busses = appDelegate.busController.sortBussesByDistanceToUser(busses: currentBusData, userLocation: currentUserLocation)
-		}
-		
 		
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -40,6 +35,13 @@ class BusSelectionCollectionViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	override func viewWillAppear(animated: Bool) {
+		if let currentBusData = appDelegate.busController.currentBusData ,
+			let currentUserLocation = appDelegate.locationController?.userLocation {
+				busses = appDelegate.busController.sortBussesByDistanceToUser(busses: currentBusData, userLocation: currentUserLocation)
+		}
+	}
 
     /*
     // MARK: - Navigation
