@@ -112,6 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 								if self.nextBusStopVC?.busNumberLabel.text != bus.name || self.nextBusStopVC?.nextStationNameLabel.text != bus.nextStop.name {
 									self.nextBusStopVC?.busNumberLabel.text = bus.name
 									self.nextBusStopVC?.nextStationNameLabel.text = bus.nextStop.name
+									self.nextBusStopVC?.afterThatStationNameLabel.text = bus.afterThatStop?.name ?? "--"
 									self.nextBusStopVC?.didUpdateData()
 								}
 								

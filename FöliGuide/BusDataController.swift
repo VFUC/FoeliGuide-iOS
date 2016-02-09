@@ -58,9 +58,21 @@ class BusDataController: NSObject {
 					let nextStopNumber = vehicle["next_stoppointref"].string,
 					let nextStopName = vehicle["next_stoppointname"].string,
 					let vehicleRef = vehicle["vehicleref"].string,
-					let finalStop = vehicle["destinationname"].string{
+					let finalStop = vehicle["destinationname"].string
+				{
 						
-						let bus = Bus(vehicleRef: vehicleRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: BusStop(name: nextStopName, number: nextStopNumber, location: nil), finalStop: finalStop, distanceToUser: nil)
+					let nextStop = BusStop(name: nextStopName, number: nextStopNumber, location: nil)
+					var afterThatStop : BusStop? = nil
+					
+					if let onwardCalls = vehicle["onwardcalls"].array where onwardCalls.count > 0 {
+						if let name = onwardCalls[0]["stoppointname"].string,
+						let number = onwardCalls[0]["visitnumber"].int {
+							afterThatStop = BusStop(name: name, number: "\(number)", location: nil)
+						}
+					}
+					
+						
+					let bus = Bus(vehicleRef: vehicleRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: nextStop, afterThatStop: afterThatStop, finalStop: finalStop, distanceToUser: nil)
 						busses.append(bus)
 				}
 			}

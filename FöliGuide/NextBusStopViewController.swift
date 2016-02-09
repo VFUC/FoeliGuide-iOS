@@ -12,9 +12,9 @@ class NextBusStopViewController: UIViewController {
 
 	@IBOutlet weak var busNumberLabel: UILabel!
 	@IBOutlet weak var nextStationNameLabel: UILabel!
-	@IBOutlet weak var destinationLabel: UILabel!
-	@IBOutlet weak var destinationHeader: UILabel!
-	@IBOutlet weak var destinationStackView: UIStackView!
+	@IBOutlet weak var afterThatStationNameLabel: UILabel!
+	@IBOutlet weak var selectedBusStationNameLabel: UILabel!
+	@IBOutlet weak var selectedBusStationStackView: UIStackView!
 	@IBOutlet weak var mainStackView: UIStackView!
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -22,9 +22,9 @@ class NextBusStopViewController: UIViewController {
 	var destinationVisible = false {
 		didSet {
 			if destinationVisible {
-				mainStackView.addArrangedSubview(destinationStackView)
+				mainStackView.addArrangedSubview(selectedBusStationStackView)
 			} else {
-				mainStackView.removeArrangedSubview(destinationStackView)
+				mainStackView.removeArrangedSubview(selectedBusStationStackView)
 			}
 		}
 	}
@@ -32,7 +32,7 @@ class NextBusStopViewController: UIViewController {
 	var destinationStop : String? {
 		didSet {
 			destinationVisible = !(destinationStop == nil)
-			destinationLabel.text = destinationStop
+			selectedBusStationNameLabel.text = destinationStop
 		}
 	}
 	
@@ -42,6 +42,7 @@ class NextBusStopViewController: UIViewController {
 		destinationStop = nil
 		busNumberLabel.text = ""
 		nextStationNameLabel.text = ""
+		afterThatStationNameLabel.text = ""
 		appDelegate.nextBusStopVC = self
     }
 
