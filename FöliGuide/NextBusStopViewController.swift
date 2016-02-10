@@ -13,6 +13,7 @@ class NextBusStopViewController: UIViewController {
 	@IBOutlet weak var busNumberLabel: UILabel!
 	@IBOutlet weak var nextStationNameLabel: UILabel!
 	@IBOutlet weak var afterThatStationNameLabel: UILabel!
+	@IBOutlet weak var finalStationName: UILabel!
 	@IBOutlet weak var selectedBusStationNameLabel: UILabel!
 	@IBOutlet weak var selectedBusStationStackView: UIStackView!
 	@IBOutlet weak var mainStackView: UIStackView!
