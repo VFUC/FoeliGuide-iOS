@@ -112,8 +112,8 @@
 				721C90391C561BEE001027EC /* MainViewController.swift */,
 				727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */,
 				72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */,
-				72D9B3681C689BD5009CF956 /* DestinationSelectionTableViewController.swift */,
 				72D9B36A1C68F826009CF956 /* BusSelectionCollectionViewController.swift */,
+				72D9B3681C689BD5009CF956 /* DestinationSelectionTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -141,6 +141,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		721D5F8D1C6B1F9E00061181 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				72D9B36C1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		722D30551C5139BF00CAEE90 = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +174,7 @@
 		722D30601C5139BF00CAEE90 /* FöliGuide */ = {
 			isa = PBXGroup;
 			children = (
-				72D9B36C1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift */,
+				721D5F8D1C6B1F9E00061181 /* Views */,
 				721C903E1C561EB1001027EC /* Controllers */,
 				721C90381C561A2B001027EC /* ViewControllers */,
 				721C903D1C561EA7001027EC /* Models */,
