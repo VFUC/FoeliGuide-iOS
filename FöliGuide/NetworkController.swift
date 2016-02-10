@@ -13,22 +13,11 @@ import SwiftyJSON
 class NetworkController: NSObject {
 	
 	static var requestActive = false
-	static var latestRequest : Request?
+	static var latestRequest : Request? // Latest request, so it can be cancelled if new one comes in
 	
-	class func getCurrentRealtimeBusData(completionHandler: JSON? -> () ){
+	// Gets bus data from API, calls completionhandler with nil if data invalid
+	class func getBusData(completionHandler: JSON? -> () ){
 		
-		getBusDataFromAPI { apiData -> () in
-			guard let apidata = apiData else { //check if data returns nil
-				completionHandler(nil)
-				return
-			}
-			
-			completionHandler(JSON(data: apidata))
-		}
-	}
-	
-	
-	private class func getBusDataFromAPI(completionHandler: NSData? -> () ) {
 		requestActive = true
 		
 		latestRequest = Alamofire.request(.GET, Constants.API.RealTimeBusURL)
@@ -39,11 +28,19 @@ class NetworkController: NSObject {
 				print(response.request)
 				print(response.response)
 				print(response.result)
-				completionHandler(response.data)
+				
+				guard let apidata = response.data else { //check if data returns nil
+					completionHandler(nil)
+					return
+				}
+				
+				completionHandler(JSON(data: apidata))
+				
+				
 		}
 	}
 	
-	
+	// Gets bus stop data from API, calls completionhandler with nil if data invalid
 	class func getBusStopData(completionHandler: JSON? -> () ) {
 		
 		Alamofire.request(.GET, Constants.API.BusStopURL)
@@ -62,8 +59,8 @@ class NetworkController: NSObject {
 		}
 	}
 	
-	
-	class func cancelActiveRequest() {
+	// Cancel Active (bus data) request, if still running
+	class func cancelActiveBusDataRequest() {
 		if requestActive {
 			latestRequest?.cancel()
 		}

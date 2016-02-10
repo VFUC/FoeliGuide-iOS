@@ -28,7 +28,7 @@ class BusDataController: NSObject {
 	var currentBusData : [Bus]? // last saved bus data
 	
 	private func getCurrentBusData(completionHandler: [Bus]? -> () ){
-		NetworkController.getCurrentRealtimeBusData { (json) -> () in
+		NetworkController.getBusData { (json) -> () in
 			
 			guard let json = json else {
 				completionHandler(nil)
@@ -152,7 +152,7 @@ class BusDataController: NSObject {
 			return
 		}
 		
-		NetworkController.cancelActiveRequest() // in case a request is still running
+		NetworkController.cancelActiveBusDataRequest() // in case a request is still running
 		
 		getCurrentBusData(parameters.completionHandler)
 	}

@@ -109,7 +109,6 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 		let cell = collectionView.cellForItemAtIndexPath(indexPath) as! BusSelectionCollectionViewCell
 		cell.selectionAnimation()
 		
-		let busName = busses[indexPath.row].name
 		appDelegate.busController.currentUserBus = busses[indexPath.row]
 		
 		performSegueWithIdentifier("showNextBusStop", sender: nil)
