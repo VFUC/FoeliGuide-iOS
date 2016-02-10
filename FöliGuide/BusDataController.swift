@@ -10,18 +10,8 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 
-class BusByLocationLoopParameters {
-	var locationSource: UserLocationDataSource
-	var count: Int
-	var completionHandler: [Bus]? -> ()
-	
-	init(locationSource: UserLocationDataSource, count: Int, completionHandler: ([Bus]? -> ())){
-		self.locationSource = locationSource
-		self.count = count
-		self.completionHandler = completionHandler
-	}
-}
 
+// Used to pass parameters to the bus data retrieval loop
 class BusLoopParameters {
 	var completionHandler: [Bus]? -> ()
 	
@@ -29,6 +19,7 @@ class BusLoopParameters {
 		self.completionHandler = completionHandler
 	}
 }
+
 
 class BusDataController: NSObject {
 	
@@ -82,22 +73,7 @@ class BusDataController: NSObject {
 		}
 	}
 	
-	private func getBussesNearLocation(location: CLLocation, count: Int, completionHandler: [Bus]? -> ()){
-		getCurrentBusData { (busses) -> () in
-			
-			guard let busses = busses else {
-				completionHandler(nil)
-				return
-			}
-			
-			let bussesWithDistance = self.setDistanceToUserOnBusses(busses, location: location)
-			
-			let sorted = bussesWithDistance.sort(self.isOrderedBeforeByDistanceToUser)
-			
-			completionHandler(Array(sorted[0..<count]))
-		}
-	}
-	
+	// Gets the current bus stop data
 	func getBusStops(completionHandler completionHandler: [BusStop]? -> ()){
 		NetworkController.getBusStopData { (json) -> () in
 			guard let json = json else {
@@ -123,7 +99,7 @@ class BusDataController: NSObject {
 	}
 	
 	
-	
+	// Sets the distance to the user property on all the input busses
 	private func setDistanceToUserOnBusses(busses: [Bus], location: CLLocation) -> [Bus]{
 		var mutable = busses
 		
@@ -138,12 +114,12 @@ class BusDataController: NSObject {
 		return bus1.distanceToUser < bus2.distanceToUser
 	}
 	
-	
+	// Runs loop action immediately (if timer set)
 	func runNow(){
 		self.timer?.fire()
 	}
 	
-	
+	// Stops the currently running loop
 	func stopRunningLoop(){
 		guard let timer = timer else {
 			print("[BusDataController] Trying to stop a timer that has not been set anyways")
@@ -155,7 +131,7 @@ class BusDataController: NSObject {
 	}
 	
 	
-	
+	// Periodically retrieves bus data
 	func getBussesInLoop(intervalInSeconds intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
 		guard timer == nil else {
 			print("[BusDataController] Timer is set -> not starting again")
@@ -168,6 +144,8 @@ class BusDataController: NSObject {
 		timer?.fire() // start right away
 	}
 	
+	
+	// Function used in timer loop to periodically retrieve bus data, arguments passed via BusLoopParameter struct
 	func getBussesLoop(timer: NSTimer) {
 		guard let parameters = timer.userInfo as? BusLoopParameters else {
 			print("[BusDataController] Sending parameter of unrecognized type to busLoop")
@@ -183,36 +161,7 @@ class BusDataController: NSObject {
 	
 	
 	
-	// Location must be passed via data source, so it can be dynamically updated.
-	// Passing the location directly would call the loop with the same parameter each time
-	func getNearbyBussesInLoopFromLocationDataSource(source: UserLocationDataSource, count: Int, intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
-		guard timer == nil else {
-			print("[BusDataController] Timer is set -> not starting again")
-			return
-		}
-		
-		let parameters = BusByLocationLoopParameters(locationSource: source, count: count, completionHandler: completionHandler)
-		
-		timer = NSTimer.scheduledTimerWithTimeInterval(intervalInSeconds, target: self, selector: "getNearbyBussesLoop:", userInfo: parameters, repeats: true)
-		timer?.fire() // start right away
-	}
-	
-	// Method, which is repeadetly called while loop is running
-	func getNearbyBussesLoop(timer: NSTimer) {
-		guard let parameters = timer.userInfo as? BusByLocationLoopParameters else {
-			print("[BusDataController] Sending parameter of unrecognized type to busLoop")
-			return
-		}
-		
-		NetworkController.cancelActiveRequest() // in case a request is still running
-		
-		getBussesNearLocation(parameters.locationSource.getLastStoredUserLocation(), count: parameters.count, completionHandler: parameters.completionHandler)
-	}
-	
-	
-	
-	
-	
+	// Returns input bus array, sorted by distance to user
 	func sortBussesByDistanceToUser(busses busses: [Bus], userLocation: CLLocation) -> [Bus] {
 		let bussesWithDistance = setDistanceToUserOnBusses(busses, location: userLocation)
 		
