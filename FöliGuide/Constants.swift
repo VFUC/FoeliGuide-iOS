@@ -15,4 +15,5 @@ struct Constants {
 	}
 	
 	static let BusStopNameBlacklist = [ "?" ]
+	static let DataRefreshIntervalInSeconds = 10.0
 }

@@ -170,6 +170,20 @@ class BusDataController: NSObject {
 		return Array(sorted)
 	}
 	
+	// Returns array of bus stop names, based on input busstops, checked against blacklist and filtered out duplicates
+	class func namesForBusStops(stops: [BusStop]) -> [String] {
+		var names = Set<String>()
+		
+		for stop in stops {
+			if Constants.BusStopNameBlacklist.contains(stop.name){
+				continue
+			}
+			
+			names.insert(stop.name)
+		}
+		
+		return Array(names)
+	}
 	
 	
 }

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var busStops : [BusStop]? {
 		didSet {
 			if let stops = busStops {
-				busStopNames = namesForBusStops(stops)
+				busStopNames = BusDataController.namesForBusStops(stops)
 			}
 			
 		}
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		//register for local notifications
 		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil))
-		//TODO: check
+		//TODO: check for permissions
 		
 		return true
 	}
@@ -93,66 +93,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	func mainViewControllerDidAppear(){
+		
+		if busStops == nil { //Get bus stop data once, if not retrieved yet
+			busController.getBusStops { (stops) -> () in
+				self.busStops = stops
+			}
+		}
+		
+		
 		if locationController == nil { //only if not set yet
 			locationController = LocationController()
 			locationController?.start()
 			
 			
-			if let locationController = self.locationController {
-				userLocationUpdateHandler = { [unowned self](location: CLLocation) in
-					if !self.loopRunning { //only start once, not on every user location update
+			// when user location is updated, start data update loop
+			userLocationUpdateHandler = { [unowned self](location: CLLocation) in
+				
+				if !self.loopRunning { //only start once, not on every user location update
+					
+					self.busController.getBussesInLoop(intervalInSeconds: Constants.DataRefreshIntervalInSeconds, completionHandler: { (busses) -> () in
+						guard let busses = busses else { // failure getting busses
+							return
+						}
 						
-						self.busController.getBussesInLoop(intervalInSeconds: 10, completionHandler: { (busses) -> () in
-							guard let busses = busses else { // failure getting busses
-								return
+						// find the bus with the matching vehicleRef
+						for bus in busses where bus.vehicleRef == self.busController.currentUserBus?.vehicleRef {
+							
+							// if busNumber or nextStation has changed, update
+							if self.nextBusStopVC?.busNumberLabel.text != bus.name || self.nextBusStopVC?.nextStationNameLabel.text != bus.nextStop.name {
+								self.nextBusStopVC?.busNumberLabel.text = bus.name
+								self.nextBusStopVC?.finalStationName.text = bus.finalStop
+								self.nextBusStopVC?.nextStationNameLabel.text = bus.nextStop.name
+								self.nextBusStopVC?.afterThatStationNameLabel.text = bus.afterThatStop?.name ?? "--"
+								self.nextBusStopVC?.didUpdateData() // Notify the VC, so it can act on new data if needed
 							}
 							
-							for bus in busses where bus.vehicleRef == self.busController.currentUserBus?.vehicleRef {
-								
-								if self.nextBusStopVC?.busNumberLabel.text != bus.name || self.nextBusStopVC?.nextStationNameLabel.text != bus.nextStop.name {
-									self.nextBusStopVC?.busNumberLabel.text = bus.name
-									self.nextBusStopVC?.finalStationName.text = bus.finalStop
-									self.nextBusStopVC?.nextStationNameLabel.text = bus.nextStop.name
-									self.nextBusStopVC?.afterThatStationNameLabel.text = bus.afterThatStop?.name ?? "--"
-									self.nextBusStopVC?.didUpdateData()
-								}
-								
-							}
-							
-						})
+						}
 						
-						
-						/*
-						self.busController.getBussesInLoopFromLocationDataSource(locationController, count: 1, intervalInSeconds: 10, completionHandler: { (busses) -> () in
-							
-							guard let busses = busses else { // failure getting busses
-								return
-							}
-							
-							if busses.count > 0 {
-								self.nextBusStopVC?.busNumberLabel.text = busses[0].name
-								self.nextBusStopVC?.nextStationNameLabel.text = busses[0].nextStop.name
-								
-								if let distance = busses[0].distanceToUser {
-									self.nextBusStopVC?.busDistanceDebugLabel.text = "Distance to bus: \(Int(distance))m"
-								} else {
-									self.nextBusStopVC?.busDistanceDebugLabel.text = "Distance to bus unknown"
-								}
-								
-								
-							}
-						})
-						*/
-						
-						self.loopRunning = true
-					}
+					})
+					
+					
+					self.loopRunning = true
 				}
-			}
-		}
-		
-		if busStops == nil {
-			busController.getBusStops { (stops) -> () in
-				self.busStops = stops
 			}
 		}
 	}
@@ -165,21 +147,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		case .LocationAuthorizationSuccessful:
 			mainVC?.dismissViewControllerAnimated(true, completion: nil)
 		}
-	}
-	
-	
-	func namesForBusStops(stops: [BusStop]) -> [String] {
-		var names = Set<String>()
-		
-		for stop in stops {
-			if Constants.BusStopNameBlacklist.contains(stop.name){
-				continue
-			}
-			
-			names.insert(stop.name)
-		}
-		
-		return Array(names)
 	}
 
 }
