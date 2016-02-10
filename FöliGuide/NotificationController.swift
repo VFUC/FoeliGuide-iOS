@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class NotificationController: NSObject {
 	
@@ -22,7 +23,8 @@ class NotificationController: NSObject {
 		
 		let alertController = UIAlertController(title: notification.alertTitle, message: notification.alertBody, preferredStyle: .Alert)
 		alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-		//TODO: sound?
+		
+		AudioServicesPlayAlertSound(kSystemSoundID_Vibrate) //TODO: Sound too, not only vibration
 		viewController.presentViewController(alertController, animated: true, completion: nil)
 	}
 	
