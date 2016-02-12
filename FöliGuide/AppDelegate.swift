@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 	var busStopNames : [String]?
-	var userData : UserData? = UserData(recentSearches: ["Kauppatori"])
+	var userDataController = UserDataController()
 	
 	//MARK: VC Adapters
 	var mainVC: MainViewController? {
