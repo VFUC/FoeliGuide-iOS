@@ -53,6 +53,7 @@ class NextBusStopViewController: UIViewController {
     }
 	
 	
+	// Data has been updated, check if notification is necessary
 	func didUpdateData(){
 		if nextStationNameLabel.text == destinationStop {
 			NotificationController.showNextBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
