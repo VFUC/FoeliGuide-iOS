@@ -17,22 +17,25 @@ class NextBusStopViewController: UIViewController {
 	@IBOutlet weak var selectedBusStationNameLabel: UILabel!
 	@IBOutlet weak var selectedBusStationStackView: UIStackView!
 	@IBOutlet weak var mainStackView: UIStackView!
+	@IBOutlet weak var alarmBarButton: UIBarButtonItem!
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
-	var destinationVisible = false {
+	var alarmSet = false {
 		didSet {
-			if destinationVisible {
+			if alarmSet {
 				mainStackView.addArrangedSubview(selectedBusStationStackView)
+				alarmBarButton.image = UIImage(named: Constants.Assets.Images.AlarmBarButton.Filled)
 			} else {
 				mainStackView.removeArrangedSubview(selectedBusStationStackView)
+				alarmBarButton.image = UIImage(named: Constants.Assets.Images.AlarmBarButton.Outline)
 			}
 		}
 	}
 	
 	var destinationStop : String? {
 		didSet {
-			destinationVisible = !(destinationStop == nil)
+			alarmSet = !(destinationStop == nil)
 			selectedBusStationNameLabel.text = destinationStop
 		}
 	}
@@ -62,6 +65,19 @@ class NextBusStopViewController: UIViewController {
 		if afterThatStationNameLabel.text == destinationStop {
 			NotificationController.showAfterThatBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
 		}
+	}
+	
+	
+	
+	@IBAction func alarmButtonPressed(sender: UIBarButtonItem) {
+		if alarmSet {
+			//show alertcontroller
+		} else {
+			//performSegue showDestinationSelectionVC
+		}
+		
+//		showDestinationSelectionVC
+		
 	}
 	
 

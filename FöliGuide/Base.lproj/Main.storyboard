@@ -233,18 +233,20 @@ Therefore, please activate location services.</string>
                     <navigationItem key="navigationItem" title="Next Bus Stop" id="ELB-ey-m2b">
                         <barButtonItem key="rightBarButtonItem" image="bell" id="h7u-wV-wYc">
                             <connections>
-                                <segue destination="3UE-6S-kYb" kind="show" id="dSQ-LR-BXs"/>
+                                <action selector="alarmButtonPressed:" destination="T07-fV-tdV" id="QxL-uB-GCx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="afterThatStationNameLabel" destination="N4D-eN-5ol" id="OMv-yl-dIH"/>
+                        <outlet property="alarmBarButton" destination="h7u-wV-wYc" id="Zp7-fE-Lnz"/>
                         <outlet property="busNumberLabel" destination="MLR-QD-Fsv" id="nJc-JA-7Ym"/>
                         <outlet property="finalStationName" destination="oRV-EZ-wBd" id="r9K-Wt-jAq"/>
                         <outlet property="mainStackView" destination="Ebn-tl-nGN" id="pks-k6-Fh4"/>
                         <outlet property="nextStationNameLabel" destination="CpP-ZQ-Sld" id="61H-ON-2oc"/>
                         <outlet property="selectedBusStationNameLabel" destination="wuc-be-t5M" id="5Fc-XZ-kjr"/>
                         <outlet property="selectedBusStationStackView" destination="1rc-Wx-2Cg" id="dhn-cQ-ucy"/>
+                        <segue destination="3UE-6S-kYb" kind="show" identifier="showDestinationSelectionVC" id="wky-zc-Pep"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXm-Pr-v1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
