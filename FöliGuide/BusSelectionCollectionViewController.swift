@@ -19,6 +19,7 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
 	}
 
     override func didReceiveMemoryWarning() {
@@ -27,12 +28,29 @@ class BusSelectionCollectionViewController: UICollectionViewController {
     }
 	
 	override func viewWillAppear(animated: Bool) {
-		if let currentBusData = appDelegate.busController.currentBusData ,
-			let currentUserLocation = appDelegate.locationController?.userLocation {
-				busses = appDelegate.busController.sortBussesByDistanceToUser(busses: currentBusData, userLocation: currentUserLocation)
+		appDelegate.busSelectionVC = self // should be here, so appDelegate reloads user data
+		loadData()
+	}
+	
+	
+	
+	func loadData(){
+		print("loadData")
+		if let currentBusData = appDelegate.busController.currentBusData {
+			busses = currentBusData
 		}
+		
+		if let currentUserLocation = appDelegate.locationController?.userLocation {
+			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: currentUserLocation)
+		}
+		
 		collectionView?.reloadData()
 	}
+	
+	
+	
+	
+	
 
     /*
     // MARK: - Navigation
