@@ -35,7 +35,6 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 	
 	
 	func loadData(){
-		print("loadData")
 		if let currentBusData = appDelegate.busController.currentBusData {
 			busses = currentBusData
 		}

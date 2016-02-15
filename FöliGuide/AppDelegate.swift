@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var busSelectionVC: BusSelectionCollectionViewController? {
 		didSet {
 			locationController?.requestLocationUpdate()
-			print("SelectionVC!")
 		}
 	}
 	var authorizationVC: AuthorizationRequestViewController?
