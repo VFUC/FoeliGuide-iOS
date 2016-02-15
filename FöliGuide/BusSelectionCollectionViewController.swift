@@ -15,11 +15,11 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 	
 	var busses = [Bus]()
 	
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 	}
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +28,12 @@ class BusSelectionCollectionViewController: UICollectionViewController {
     }
 	
 	override func viewWillAppear(animated: Bool) {
+		activityIndicator.startAnimating()
+		
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		activityIndicator.stopAnimating()
 		appDelegate.busSelectionVC = self // should be here, so appDelegate reloads user data
 		loadData()
 	}
