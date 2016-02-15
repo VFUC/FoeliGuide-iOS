@@ -10,12 +10,16 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	
+	@IBOutlet weak var nextBusStopButton: UIButton!
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		//
+		
+		nextBusStopButton.hidden = true
     }
 	
 	override func viewDidAppear(animated: Bool) {

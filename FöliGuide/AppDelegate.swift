@@ -98,21 +98,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func mainViewControllerDidAppear(){
 		
 		if busStops == nil { //Get bus stop data once, if not retrieved yet
+			self.mainVC?.activityIndicator.startAnimating()
 			busController.getBusStops { (stops) -> () in
 				self.busStops = stops
+				self.mainVC?.activityIndicator.stopAnimating()
+				self.mainVC?.nextBusStopButton.hidden = false
 			}
 		}
 		
 		
 		if locationController == nil { //only if not set yet
-			
 			locationController = LocationController()
 			locationController?.start()
 		}
 		
 		
 		
-		//TODO: Only when displaying next bus stop
+		//TODO: Only when displaying next bus stop ?
 		
 		self.busController.getBussesInLoop(intervalInSeconds: Constants.DataRefreshIntervalInSeconds, completionHandler: { (busses) -> () in
 			guard let busses = busses else { // failure getting busses
@@ -134,7 +136,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 			
 		})
-		
 	}
 	
 	func handleApplicationEvent(event: ApplicationEvent){
