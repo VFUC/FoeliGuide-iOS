@@ -58,6 +58,10 @@ class NextBusStopViewController: UIViewController {
 		if nextStationNameLabel.text == destinationStop {
 			NotificationController.showNextBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
 		}
+	
+		if afterThatStationNameLabel.text == destinationStop {
+			NotificationController.showAfterThatBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
+		}
 	}
 	
 
