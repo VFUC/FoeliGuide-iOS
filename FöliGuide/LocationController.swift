@@ -44,10 +44,13 @@ class LocationController: NSObject{
 			return
 		}
 		
-		
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.distanceFilter = kCLDistanceFilterNone //get notified on any gps movement
-		locationManager.startUpdatingLocation()
+		locationManager.requestLocation() // Only once, no continuous update
+	}
+	
+	func requestLocationUpdate() {
+		locationManager.requestLocation()
 	}
 	
 }
@@ -62,7 +65,22 @@ extension LocationController : CLLocationManagerDelegate {
 	
 	func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
 		userLocation = newLocation
-		appDelegate.userLocationUpdateHandler?(newLocation)
+		appDelegate.applicationEventHandler?(.UserLocationDidUpdate)
+	}
+	
+	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		//last location = most recent
+		guard let newLocation = locations.last else {
+			print("[LocationManager] didUpdateLocations failed to provide locations")
+			return
+		}
+		
+		userLocation = newLocation
+		appDelegate.applicationEventHandler?(.UserLocationDidUpdate)
+	}
+	
+	func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+		print("[LocationManager] Error getting location! \(error.debugDescription)")
 	}
 }
 
