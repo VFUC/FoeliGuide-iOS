@@ -71,12 +71,18 @@ class NextBusStopViewController: UIViewController {
 	
 	@IBAction func alarmButtonPressed(sender: UIBarButtonItem) {
 		if alarmSet {
-			//show alertcontroller
+			
+			let alertController = UIAlertController(title: "Remove Alarm?", message: "Do you want to remove the alarm for \(destinationStop ?? "--")", preferredStyle: .Alert)
+			alertController.addAction(UIAlertAction(title: "Remove", style: .Destructive, handler: { _ -> Void in
+				self.destinationStop = nil
+			}))
+			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+			
+			presentViewController(alertController, animated: true, completion: nil)
+			
 		} else {
-			//performSegue showDestinationSelectionVC
+			self.performSegueWithIdentifier("showDestinationSelectionVC", sender: nil)
 		}
-		
-//		showDestinationSelectionVC
 		
 	}
 	
