@@ -26,9 +26,11 @@ class NextBusStopViewController: UIViewController {
 			if alarmSet {
 				mainStackView.addArrangedSubview(selectedBusStationStackView)
 				alarmBarButton.image = UIImage(named: Constants.Assets.Images.AlarmBarButton.Filled)
+				appDelegate.alarmIsSet = true
 			} else {
 				mainStackView.removeArrangedSubview(selectedBusStationStackView)
 				alarmBarButton.image = UIImage(named: Constants.Assets.Images.AlarmBarButton.Outline)
+				appDelegate.alarmIsSet = false
 			}
 		}
 	}

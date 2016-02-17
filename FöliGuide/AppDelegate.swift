@@ -26,6 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var busStopNames : [String]?
 	var userDataController = UserDataController()
 	
+	var alarmIsSet = false {
+		didSet {
+			didShowBackgroundWarning = false //Reset once new alarm has been set
+		}
+	}
+	var didShowBackgroundWarning = false //Only show once
+	
 	//MARK: VC Adapters
 	var mainVC: MainViewController? {
 		didSet {
@@ -72,6 +79,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidEnterBackground(application: UIApplication) {
 		// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
 		// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+		
+		if alarmIsSet && !didShowBackgroundWarning {
+			NotificationController.showAppInBackgroundWithAlarmWarning()
+			didShowBackgroundWarning = true
+		}
 	}
 	
 	func applicationWillEnterForeground(application: UIApplication) {
@@ -85,13 +97,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-	
-	//	func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-	//		let alertController = UIAlertController(title: notification.alertTitle, message: notification.alertBody, preferredStyle: .Alert)
-	//		alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-	//		//TODO: sound?
-	//		self.mainVC?.presentViewController(alertController, animated: true, completion: nil)
-	//	}
 	
 	
 	

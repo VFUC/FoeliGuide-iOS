@@ -25,19 +25,21 @@ class NotificationController: NSObject {
 	
 	
 	private class func notificationWithTitle(title: String, body: String, viewController: UIViewController){
-		let notification = UILocalNotification()
 		
-		notification.alertTitle = title
-		notification.alertBody = body
-		
-		//		UIApplication.sharedApplication().presentLocalNotificationNow(notification)
-		
-		let alertController = UIAlertController(title: notification.alertTitle, message: notification.alertBody, preferredStyle: .Alert)
+		let alertController = UIAlertController(title: title, message: body, preferredStyle: .Alert)
 		alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
 		
 		AudioServicesPlayAlertSound(kSystemSoundID_Vibrate) //TODO: Sound too, not only vibration
 		viewController.presentViewController(alertController, animated: true, completion: nil)
 	
+	}
+	
+	class func showAppInBackgroundWithAlarmWarning(){
+		let notification = UILocalNotification()
+		
+		notification.alertTitle = "Your alarm is still set!"
+		notification.alertBody = "Bus station alarms do not work when app is in background"
+		UIApplication.sharedApplication().presentLocalNotificationNow(notification)
 	}
 	
 	
