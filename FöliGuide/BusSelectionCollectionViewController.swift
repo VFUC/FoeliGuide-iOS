@@ -9,6 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "Cell"
+private let reuseIdentifierHorizontal = "CellHorizontal"
 private let reuseIdentifierSectionHeader = "Header"
 
 class BusSelectionCollectionViewController: UICollectionViewController {
@@ -37,7 +38,7 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 	override func viewDidAppear(animated: Bool) {
 		activityIndicator.stopAnimating()
 		headerView?.showLoadingLocationState()
-		appDelegate.busSelectionVC = self // should be here, so appDelegate reloads user data
+//		appDelegate.busSelectionVC = self // should be here, so appDelegate reloads user data
 		loadData()
 	}
 	
@@ -55,7 +56,7 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 		collectionView?.reloadData()
 	}
 	
-	func userLocationUpdated(){
+	func didUpdateUserLocation(){
 		if let currentUserLocation = appDelegate.locationController?.userLocation {
 			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: currentUserLocation)
 			headerView?.showNormalState()
@@ -90,15 +91,30 @@ class BusSelectionCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-        // Configure the cell
+		
+		/*
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
 		
 		if let busStopCell = cell as? BusSelectionCollectionViewCell {
 			busStopCell.numberLabel.text = busses[indexPath.row].name
 			busStopCell.finalStopLabel.text = busses[indexPath.row].finalStop
 //			busStopCell.finalStopLabel.text = "\(Int(busses[indexPath.row].distanceToUser!))"
 			return busStopCell
+		} 
+		
+		*/
+		
+		
+		
+		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifierHorizontal, forIndexPath: indexPath)
+		
+		if let busStopCell = cell as? BusSelectionHorizontalCollectionViewCell {
+		busStopCell.numberLabel.text = busses[indexPath.row].name
+		busStopCell.finalStopLabel.text = "to \(busses[indexPath.row].finalStop)"
+		busStopCell.distanceLabel.text = "\(Int(busses[indexPath.row].distanceToUser ?? -1))m away"
+		return busStopCell
 		}
+		
 		
         return cell
     }
@@ -144,6 +160,8 @@ class BusSelectionCollectionViewController: UICollectionViewController {
     
     }
     */
+	
+	
 	
 	override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		let cell = collectionView.cellForItemAtIndexPath(indexPath) as! BusSelectionCollectionViewCell

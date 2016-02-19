@@ -23,6 +23,9 @@
 		72C6F6691C58BA5700DEDD53 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F6681C58BA5700DEDD53 /* Bus.swift */; };
 		72C6F66B1C58BACC00DEDD53 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F66A1C58BACC00DEDD53 /* BusStop.swift */; };
 		72C6F66D1C58BD5A00DEDD53 /* BusDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F66C1C58BD5A00DEDD53 /* BusDataController.swift */; };
+		72D3B0B01C77072B004491F5 /* BusSelectionHorizontalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D3B0AF1C77072B004491F5 /* BusSelectionHorizontalCollectionViewCell.swift */; };
+		72D3B0B21C770AD8004491F5 /* BusSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D3B0B11C770AD8004491F5 /* BusSelectionTableViewController.swift */; };
+		72D3B0B41C770CA9004491F5 /* BusSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D3B0B31C770CA9004491F5 /* BusSelectionTableViewCell.swift */; };
 		72D9B3691C689BD5009CF956 /* DestinationSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D9B3681C689BD5009CF956 /* DestinationSelectionTableViewController.swift */; };
 		72D9B36B1C68F826009CF956 /* BusSelectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D9B36A1C68F826009CF956 /* BusSelectionCollectionViewController.swift */; };
 		72D9B36D1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D9B36C1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift */; };
@@ -74,6 +77,9 @@
 		72C6F6681C58BA5700DEDD53 /* Bus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
 		72C6F66A1C58BACC00DEDD53 /* BusStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
 		72C6F66C1C58BD5A00DEDD53 /* BusDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusDataController.swift; sourceTree = "<group>"; };
+		72D3B0AF1C77072B004491F5 /* BusSelectionHorizontalCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionHorizontalCollectionViewCell.swift; sourceTree = "<group>"; };
+		72D3B0B11C770AD8004491F5 /* BusSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionTableViewController.swift; sourceTree = "<group>"; };
+		72D3B0B31C770CA9004491F5 /* BusSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		72D9B3681C689BD5009CF956 /* DestinationSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationSelectionTableViewController.swift; sourceTree = "<group>"; };
 		72D9B36A1C68F826009CF956 /* BusSelectionCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionCollectionViewController.swift; sourceTree = "<group>"; };
 		72D9B36C1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -81,7 +87,7 @@
 		72DF00C21C57898D00AFBCCD /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		72DF00C61C578BBA00AFBCCD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusSelectionHeaderCollectionReusableView.swift; path = "FöliGuide/BusSelectionHeaderCollectionReusableView.swift"; sourceTree = "<group>"; };
+		72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		72F07E9F1C6DC11E00CDE64D /* UserDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +158,10 @@
 		721D5F8D1C6B1F9E00061181 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */,
+				72D3B0AF1C77072B004491F5 /* BusSelectionHorizontalCollectionViewCell.swift */,
+				72D3B0B11C770AD8004491F5 /* BusSelectionTableViewController.swift */,
+				72D3B0B31C770CA9004491F5 /* BusSelectionTableViewCell.swift */,
 				72D9B36C1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift */,
 			);
 			name = Views;
@@ -160,7 +170,6 @@
 		722D30551C5139BF00CAEE90 = {
 			isa = PBXGroup;
 			children = (
-				72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */,
 				72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */,
 				72DF00BD1C57873300AFBCCD /* Alamofire.framework */,
 				722D30601C5139BF00CAEE90 /* FöliGuide */,
@@ -376,12 +385,15 @@
 				72DF00C31C57898D00AFBCCD /* NetworkController.swift in Sources */,
 				72D9B3691C689BD5009CF956 /* DestinationSelectionTableViewController.swift in Sources */,
 				721C903A1C561BEE001027EC /* MainViewController.swift in Sources */,
+				72D3B0B01C77072B004491F5 /* BusSelectionHorizontalCollectionViewCell.swift in Sources */,
 				72D9B36B1C68F826009CF956 /* BusSelectionCollectionViewController.swift in Sources */,
 				72DF00C71C578BBA00AFBCCD /* Constants.swift in Sources */,
+				72D3B0B41C770CA9004491F5 /* BusSelectionTableViewCell.swift in Sources */,
 				721C903C1C561E78001027EC /* ApplicationEvent.swift in Sources */,
 				72D9B36D1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift in Sources */,
 				72E7FD861C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift in Sources */,
 				72C6F66B1C58BACC00DEDD53 /* BusStop.swift in Sources */,
+				72D3B0B21C770AD8004491F5 /* BusSelectionTableViewController.swift in Sources */,
 				72C6F6691C58BA5700DEDD53 /* Bus.swift in Sources */,
 				72C6F66D1C58BD5A00DEDD53 /* BusDataController.swift in Sources */,
 				72418BBE1C5F4FAF002E7262 /* NextBusStopViewController.swift in Sources */,

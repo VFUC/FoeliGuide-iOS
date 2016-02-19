@@ -45,11 +45,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			busController.runNow()
 		}
 	}
-	var busSelectionVC: BusSelectionCollectionViewController? {
+//	var busSelectionVC: BusSelectionCollectionViewController? {
+//		didSet {
+//			locationController?.requestLocationUpdate()
+//		}
+//	}
+
+	var busSelectionVC: BusSelectionTableViewController? {
 		didSet {
 			locationController?.requestLocationUpdate()
 		}
 	}
+	
 	var authorizationVC: AuthorizationRequestViewController?
 	let busController = BusDataController()
 	
@@ -151,7 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		case .LocationAuthorizationSuccessful:
 			mainVC?.dismissViewControllerAnimated(true, completion: nil)
 		case .UserLocationDidUpdate:
-			busSelectionVC?.userLocationUpdated()
+			busSelectionVC?.didUpdateUserLocation()
 		}
 	}
 	
