@@ -16,6 +16,9 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 	var busses = [Bus]()
 	
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+	var headerView: BusSelectionHeaderCollectionReusableView?
+	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
     override func viewDidLoad() {
@@ -29,11 +32,11 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 	
 	override func viewWillAppear(animated: Bool) {
 		activityIndicator.startAnimating()
-		
 	}
 	
 	override func viewDidAppear(animated: Bool) {
 		activityIndicator.stopAnimating()
+		headerView?.showLoadingLocationState()
 		appDelegate.busSelectionVC = self // should be here, so appDelegate reloads user data
 		loadData()
 	}
@@ -49,6 +52,14 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: currentUserLocation)
 		}
 		
+		collectionView?.reloadData()
+	}
+	
+	func userLocationUpdated(){
+		if let currentUserLocation = appDelegate.locationController?.userLocation {
+			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: currentUserLocation)
+			headerView?.showNormalState()
+		}
 		collectionView?.reloadData()
 	}
 	
@@ -85,6 +96,7 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 		if let busStopCell = cell as? BusSelectionCollectionViewCell {
 			busStopCell.numberLabel.text = busses[indexPath.row].name
 			busStopCell.finalStopLabel.text = busses[indexPath.row].finalStop
+//			busStopCell.finalStopLabel.text = "\(Int(busses[indexPath.row].distanceToUser!))"
 			return busStopCell
 		}
 		
@@ -94,6 +106,11 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 	
 	override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
 		let reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: reuseIdentifierSectionHeader, forIndexPath: indexPath)
+		
+		if let header = reusableView as? BusSelectionHeaderCollectionReusableView {
+			headerView = header
+		}
+		
 		return reusableView
 	}
 

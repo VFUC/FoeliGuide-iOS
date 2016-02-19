@@ -151,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		case .LocationAuthorizationSuccessful:
 			mainVC?.dismissViewControllerAnimated(true, completion: nil)
 		case .UserLocationDidUpdate:
-			busSelectionVC?.loadData()
+			busSelectionVC?.userLocationUpdated()
 		}
 	}
 	
