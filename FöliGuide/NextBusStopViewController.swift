@@ -67,6 +67,15 @@ class NextBusStopViewController: UIViewController {
 		if afterThatStationNameLabel.text == destinationStop {
 			NotificationController.showAfterThatBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
 		}
+		
+		if let nextStation = nextStationNameLabel.text {
+			SpeechController.announceNextBusStop(nextStation)
+		}
+		
+		if let afterThatStation = afterThatStationNameLabel.text {
+			SpeechController.announceFollowingBusStop(afterThatStation)
+		}
+		
 	}
 	
 	

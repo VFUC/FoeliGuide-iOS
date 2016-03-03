@@ -18,6 +18,7 @@
 		722D30771C5139BF00CAEE90 /* Fo_liGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30761C5139BF00CAEE90 /* Fo_liGuideTests.swift */; };
 		722D30821C5139BF00CAEE90 /* Fo_liGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */; };
 		72418BBE1C5F4FAF002E7262 /* NextBusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */; };
+		724917D81C885FDC006C7114 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724917D71C885FDC006C7114 /* SpeechController.swift */; };
 		727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */; };
 		72A599A01C69ECBD0059D9C1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5999F1C69ECBD0059D9C1 /* NotificationController.swift */; };
 		72C6F6691C58BA5700DEDD53 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F6681C58BA5700DEDD53 /* Bus.swift */; };
@@ -72,6 +73,7 @@
 		722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fo_liGuideUITests.swift; sourceTree = "<group>"; };
 		722D30831C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextBusStopViewController.swift; sourceTree = "<group>"; };
+		724917D71C885FDC006C7114 /* SpeechController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 		727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
 		72A5999F1C69ECBD0059D9C1 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		72C6F6681C58BA5700DEDD53 /* Bus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				72C6F66C1C58BD5A00DEDD53 /* BusDataController.swift */,
 				721C90341C5619E6001027EC /* LocationController.swift */,
 				72DF00C21C57898D00AFBCCD /* NetworkController.swift */,
+				724917D71C885FDC006C7114 /* SpeechController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				721D5F8F1C6B2B4300061181 /* UserData.swift in Sources */,
 				722D30621C5139BF00CAEE90 /* AppDelegate.swift in Sources */,
 				72F07EA01C6DC11E00CDE64D /* UserDataController.swift in Sources */,
+				724917D81C885FDC006C7114 /* SpeechController.swift in Sources */,
 				72DF00C31C57898D00AFBCCD /* NetworkController.swift in Sources */,
 				72D9B3691C689BD5009CF956 /* DestinationSelectionTableViewController.swift in Sources */,
 				721C903A1C561BEE001027EC /* MainViewController.swift in Sources */,
