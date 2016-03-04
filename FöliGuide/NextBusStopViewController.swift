@@ -62,6 +62,7 @@ class NextBusStopViewController: UIViewController {
 	func didUpdateData(){
 		if nextStationNameLabel.text == destinationStop {
 			NotificationController.showNextBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
+			destinationStop = nil
 		}
 	
 		if afterThatStationNameLabel.text == destinationStop {
