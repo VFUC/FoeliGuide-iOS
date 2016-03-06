@@ -11,7 +11,7 @@ import Foundation
 struct Constants {
 	struct API { //API Endpoint URLS
 		static let RealTimeBusURL = "http://data.foli.fi/siri/vm"
-		static let BusStopURL = "http://data.foli.fi/siri/sm/"
+		static let BusStopURL = "http://data.foli.fi/siri/sm"
 	}
 	
 	static let BusStopNameBlacklist = [ "?" ] //Bus stops that won't be displayed
