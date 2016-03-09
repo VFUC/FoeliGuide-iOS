@@ -19,7 +19,12 @@ class NextBusStopViewController: UIViewController {
 	@IBOutlet weak var mainStackView: UIStackView!
 	@IBOutlet weak var alarmBarButton: UIBarButtonItem!
 	
+	@IBOutlet weak var volumeButton: UIButton!
+	
+	@IBOutlet weak var initialConstraint: NSLayoutConstraint!
+
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	var currentConstraint : NSLayoutConstraint? = nil
 	
 	var alarmSet = false {
 		didSet {
@@ -39,6 +44,34 @@ class NextBusStopViewController: UIViewController {
 		didSet {
 			alarmSet = !(destinationStop == nil)
 			selectedBusStationNameLabel.text = destinationStop
+		}
+	}
+	
+	var volumeEnabled = false {
+		didSet {
+
+			volumeButton.removeConstraint(initialConstraint)
+			
+			if currentConstraint != nil {
+				volumeButton.removeConstraint(currentConstraint!)
+			}
+			
+			if volumeEnabled {
+				volumeButton.setImage(UIImage(named: "ios-volume-high"), forState: .Normal)
+				
+				
+				
+				currentConstraint = NSLayoutConstraint(item: volumeButton, attribute: .Width, relatedBy: .Equal, toItem: volumeButton, attribute: .Height, multiplier: 5/4, constant: 0)
+				volumeButton.addConstraint(currentConstraint!)
+				
+				
+			} else {
+				volumeButton.setImage(UIImage(named: "ios-volume-low"), forState: .Normal)
+				
+				currentConstraint = NSLayoutConstraint(item: volumeButton, attribute: .Width, relatedBy: .Equal, toItem: volumeButton, attribute: .Height, multiplier: 2/3, constant: 0)
+					
+				volumeButton.addConstraint(currentConstraint!)
+			}
 		}
 	}
 	
@@ -66,17 +99,19 @@ class NextBusStopViewController: UIViewController {
 		}
 	
 		if afterThatStationNameLabel.text == destinationStop {
-			NotificationController.showAfterThatBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
+			NotificationController.showAfterThatBusStationNotification(stopName: afterThatStationNameLabel.text!, viewController: self)
 		}
 		
-		if let nextStation = nextStationNameLabel.text {
-			SpeechController.announceNextBusStop(nextStation)
-		}
 		
-		if let afterThatStation = afterThatStationNameLabel.text {
-			SpeechController.announceFollowingBusStop(afterThatStation)
+		if volumeEnabled {
+			if let nextStation = nextStationNameLabel.text {
+				SpeechController.announceNextBusStop(nextStation)
+			}
+			
+			if let afterThatStation = afterThatStationNameLabel.text {
+				SpeechController.announceFollowingBusStop(afterThatStation)
+			}
 		}
-		
 	}
 	
 	
@@ -98,6 +133,9 @@ class NextBusStopViewController: UIViewController {
 		
 	}
 	
+	@IBAction func volumeButtonPressed(sender: UIButton) {
+		volumeEnabled = !volumeEnabled
+	}
 
 	// MARK: - Navigation
 

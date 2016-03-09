@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15E33e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Asx-y5-jmL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E33e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Asx-y5-jmL">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -94,7 +93,7 @@ Therefore, please activate location services.</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="pha-m9-pwI" kind="show" id="78Q-h2-rlQ"/>
+                                            <segue destination="Np8-Nd-AHn" kind="show" id="uG5-hP-lXK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -136,31 +135,31 @@ Therefore, please activate location services.</string>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-tl-nGN">
                                 <rect key="frame" x="142" y="115" width="137" height="429"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yh4-0C-srK">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yh4-0C-srK">
                                         <rect key="frame" x="27" y="1" width="84" height="145"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Bus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezw-7Y-ucp">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Bus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezw-7Y-ucp">
                                                 <rect key="frame" x="25" y="1" width="34" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="51" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-QD-Fsv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="51" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-QD-Fsv">
                                                 <rect key="frame" x="10" y="29" width="64" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ByR-8P-e2G">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ByR-8P-e2G">
                                                 <rect key="frame" x="0.0" y="105" width="84" height="41"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" misplaced="YES" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z05-tv-KDh">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z05-tv-KDh">
                                                         <rect key="frame" x="34" y="1" width="16" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRV-EZ-wBd">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRV-EZ-wBd">
                                                         <rect key="frame" x="0.0" y="21" width="84" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -170,16 +169,16 @@ Therefore, please activate location services.</string>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9u3-xo-pAe">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9u3-xo-pAe">
                                         <rect key="frame" x="0.0" y="185" width="137" height="56"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Next bus station:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVf-y6-Hyu">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Next bus station:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVf-y6-Hyu">
                                                 <rect key="frame" x="0.0" y="1" width="137" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpP-ZQ-Sld">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpP-ZQ-Sld">
                                                 <rect key="frame" x="6" y="26" width="125" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -187,16 +186,16 @@ Therefore, please activate location services.</string>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="gWj-NZ-avW">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="gWj-NZ-avW">
                                         <rect key="frame" x="6" y="279" width="125" height="56"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="After that:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5v-B4-0wy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="After that:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5v-B4-0wy">
                                                 <rect key="frame" x="22" y="1" width="82" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4D-eN-5ol">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4D-eN-5ol">
                                                 <rect key="frame" x="0.0" y="26" width="125" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -204,7 +203,7 @@ Therefore, please activate location services.</string>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-Wx-2Cg">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-Wx-2Cg">
                                         <rect key="frame" x="6" y="374" width="125" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Alarm set for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHY-nE-FB2">
@@ -223,9 +222,32 @@ Therefore, please activate location services.</string>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42B-4m-1LY">
+                                <rect key="frame" x="20" y="86" width="20" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="84B-sp-56Z"/>
+                                    <constraint firstAttribute="width" constant="100" id="B8s-3I-gqO"/>
+                                    <constraint firstAttribute="width" secondItem="42B-4m-1LY" secondAttribute="height" multiplier="2:3" id="JO5-Yk-XCu"/>
+                                    <constraint firstAttribute="width" secondItem="42B-4m-1LY" secondAttribute="height" multiplier="2:3" id="neq-fW-2Ym"/>
+                                    <constraint firstAttribute="width" secondItem="42B-4m-1LY" secondAttribute="height" multiplier="67:60" id="qJL-uw-eQP"/>
+                                </constraints>
+                                <state key="normal" image="ios-volume-low"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="B8s-3I-gqO"/>
+                                        <exclude reference="JO5-Yk-XCu"/>
+                                        <exclude reference="qJL-uw-eQP"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="volumeButtonPressed:" destination="T07-fV-tdV" eventType="touchUpInside" id="23Z-uj-aW5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="42B-4m-1LY" firstAttribute="top" secondItem="5LT-Wr-7w3" secondAttribute="bottom" constant="22" id="DVa-69-Fwl"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="42B-4m-1LY" secondAttribute="leading" id="Dbt-dY-CkQ"/>
                             <constraint firstItem="Ebn-tl-nGN" firstAttribute="centerX" secondItem="mVO-Jw-AqP" secondAttribute="centerX" id="vHx-oN-PTJ"/>
                             <constraint firstItem="Ebn-tl-nGN" firstAttribute="centerY" secondItem="mVO-Jw-AqP" secondAttribute="centerY" constant="30" id="xZU-Op-LAk"/>
                         </constraints>
@@ -242,10 +264,12 @@ Therefore, please activate location services.</string>
                         <outlet property="alarmBarButton" destination="h7u-wV-wYc" id="Zp7-fE-Lnz"/>
                         <outlet property="busNumberLabel" destination="MLR-QD-Fsv" id="nJc-JA-7Ym"/>
                         <outlet property="finalStationName" destination="oRV-EZ-wBd" id="r9K-Wt-jAq"/>
+                        <outlet property="initialConstraint" destination="neq-fW-2Ym" id="PGg-D5-wR6"/>
                         <outlet property="mainStackView" destination="Ebn-tl-nGN" id="pks-k6-Fh4"/>
                         <outlet property="nextStationNameLabel" destination="CpP-ZQ-Sld" id="61H-ON-2oc"/>
                         <outlet property="selectedBusStationNameLabel" destination="wuc-be-t5M" id="5Fc-XZ-kjr"/>
                         <outlet property="selectedBusStationStackView" destination="1rc-Wx-2Cg" id="dhn-cQ-ucy"/>
+                        <outlet property="volumeButton" destination="42B-4m-1LY" id="Oyp-Mt-yKi"/>
                         <segue destination="3UE-6S-kYb" kind="show" identifier="showDestinationSelectionVC" id="wky-zc-Pep"/>
                     </connections>
                 </viewController>
@@ -262,36 +286,36 @@ Therefore, please activate location services.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ndw-bd-jO4">
-                            <size key="itemSize" width="114" height="115"/>
+                            <size key="itemSize" width="223" height="73.5"/>
                             <size key="headerReferenceSize" width="50" height="55"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                         </collectionViewFlowLayout>
                         <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="Cg0-Hh-7DQ">
-                            <rect key="frame" x="0.0" y="-64" width="600" height="600"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Zzw-Rj-IQX" customClass="BusSelectionCollectionViewCell" customModule="Fo_liGuide" customModuleProvider="target">
-                                <rect key="frame" x="20" y="139" width="114" height="115"/>
+                                <rect key="frame" x="20" y="75" width="223" height="73.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="114" height="115"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="223" height="73.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-Qv-2Do">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-Qv-2Do">
                                             <rect key="frame" x="48.5" y="63" width="16" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fn2-H1-Ppa">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fn2-H1-Ppa">
                                             <rect key="frame" x="14.5" y="86" width="83.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="512" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7G-Wz-Wm7">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="512" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7G-Wz-Wm7">
                                             <rect key="frame" x="16" y="2" width="82.5" height="61"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -324,9 +348,69 @@ Therefore, please activate location services.</string>
                                     <outletCollection property="allLabels" destination="fn2-H1-Ppa" collectionClass="NSMutableArray" id="Dy7-Kt-1Cp"/>
                                 </connections>
                             </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellHorizontal" id="aUn-F4-EwV" customClass="BusSelectionHorizontalCollectionViewCell" customModule="Fo_liGuide" customModuleProvider="target">
+                                <rect key="frame" x="357" y="75" width="223" height="73.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="223" height="73.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to Kauppatori" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="793-ka-DeL">
+                                            <rect key="frame" x="106" y="16.5" width="104" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="420m away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srb-72-TXK">
+                                            <rect key="frame" x="106" y="38.5" width="83.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="512" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFg-ww-mBI">
+                                            <rect key="frame" x="14" y="6.5" width="82.5" height="61"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="51"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="793-ka-DeL" firstAttribute="top" secondItem="CFg-ww-mBI" secondAttribute="top" constant="10" id="0yX-JF-JL3"/>
+                                    <constraint firstItem="CFg-ww-mBI" firstAttribute="centerX" secondItem="aUn-F4-EwV" secondAttribute="centerX" id="8or-qB-m2O"/>
+                                    <constraint firstItem="793-ka-DeL" firstAttribute="top" secondItem="CFg-ww-mBI" secondAttribute="bottom" id="BDr-MK-LeL"/>
+                                    <constraint firstItem="CFg-ww-mBI" firstAttribute="centerY" secondItem="aUn-F4-EwV" secondAttribute="centerY" id="CZd-PR-6eC"/>
+                                    <constraint firstItem="CFg-ww-mBI" firstAttribute="leading" secondItem="aUn-F4-EwV" secondAttribute="leadingMargin" constant="6" id="DnW-5D-3MO"/>
+                                    <constraint firstItem="srb-72-TXK" firstAttribute="top" secondItem="793-ka-DeL" secondAttribute="bottom" constant="1" id="M8H-Qw-3vx"/>
+                                    <constraint firstItem="CFg-ww-mBI" firstAttribute="top" secondItem="aUn-F4-EwV" secondAttribute="topMargin" constant="-6" id="Tey-wP-San"/>
+                                    <constraint firstItem="793-ka-DeL" firstAttribute="centerX" secondItem="CFg-ww-mBI" secondAttribute="centerX" id="Z5x-XJ-jdY"/>
+                                    <constraint firstItem="793-ka-DeL" firstAttribute="leading" secondItem="CFg-ww-mBI" secondAttribute="trailing" constant="9.5" id="iXY-xJ-LWQ"/>
+                                    <constraint firstItem="srb-72-TXK" firstAttribute="leading" secondItem="793-ka-DeL" secondAttribute="leading" id="mJP-wu-eow"/>
+                                    <constraint firstItem="CFg-ww-mBI" firstAttribute="centerY" secondItem="aUn-F4-EwV" secondAttribute="centerY" id="zY1-Ea-IhS"/>
+                                </constraints>
+                                <size key="customSize" width="223" height="73.5"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8or-qB-m2O"/>
+                                        <exclude reference="CZd-PR-6eC"/>
+                                        <exclude reference="Tey-wP-San"/>
+                                        <exclude reference="BDr-MK-LeL"/>
+                                        <exclude reference="Z5x-XJ-jdY"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="distanceLabel" destination="srb-72-TXK" id="zma-HQ-yOD"/>
+                                    <outlet property="finalStopLabel" destination="793-ka-DeL" id="xAy-zz-wxD"/>
+                                    <outlet property="numberLabel" destination="CFg-ww-mBI" id="APd-Zg-RAB"/>
+                                    <outletCollection property="allLabels" destination="793-ka-DeL" collectionClass="NSMutableArray" id="oiC-4r-8X0"/>
+                                    <outletCollection property="allLabels" destination="CFg-ww-mBI" collectionClass="NSMutableArray" id="eXX-VM-R0P"/>
+                                    <outletCollection property="allLabels" destination="srb-72-TXK" collectionClass="NSMutableArray" id="IvX-ak-pNe"/>
+                                </connections>
+                            </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="I8d-gE-FQD" customClass="BusSelectionHeaderCollectionReusableView" customModule="Fo_liGuide" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="64" width="600" height="55"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EHG-iO-oyV">
@@ -369,7 +453,88 @@ Therefore, please activate location services.</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWq-HN-6tG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1995" y="416"/>
+            <point key="canvasLocation" x="2019" y="415"/>
+        </scene>
+        <!--Bus Selection Table View Controller-->
+        <scene sceneID="SU0-G6-qMd">
+            <objects>
+                <tableViewController id="Np8-Nd-AHn" customClass="BusSelectionTableViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="wJl-Tx-Tit">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusCell" rowHeight="70" id="fjW-hn-TaY" customClass="BusSelectionTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fjW-hn-TaY" id="9fE-H7-58c">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZiI-nz-KfA">
+                                            <rect key="frame" x="28" y="8" width="184" height="54"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="801" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmX-op-bbL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="77" height="54"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="-13" translatesAutoresizingMaskIntoConstraints="NO" id="tT0-TH-f3C">
+                                                    <rect key="frame" x="81" y="0.0" width="104" height="54"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to Kauppatori" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6h-Fc-tCE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="420m away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-lb-jBg">
+                                                            <rect key="frame" x="0.0" y="21" width="89" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.77265625000000004" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ZiI-nz-KfA" secondAttribute="bottom" id="EgY-hg-gvX"/>
+                                        <constraint firstItem="ZiI-nz-KfA" firstAttribute="top" secondItem="9fE-H7-58c" secondAttribute="topMargin" id="GiS-6r-jM3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ZiI-nz-KfA" secondAttribute="trailing" id="RKo-zg-5pO"/>
+                                        <constraint firstItem="ZiI-nz-KfA" firstAttribute="centerX" secondItem="9fE-H7-58c" secondAttribute="centerX" id="di2-xl-G0R"/>
+                                        <constraint firstItem="ZiI-nz-KfA" firstAttribute="leading" secondItem="9fE-H7-58c" secondAttribute="leadingMargin" id="jTh-qp-XyI"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="RKo-zg-5pO"/>
+                                            <exclude reference="jTh-qp-XyI"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="busNumberLabel" destination="LmX-op-bbL" id="eVV-9N-d2M"/>
+                                    <outlet property="distanceLabel" destination="LfR-lb-jBg" id="Tb2-if-Tel"/>
+                                    <outlet property="finalStopLabel" destination="q6h-Fc-tCE" id="Rb5-tZ-QmD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Np8-Nd-AHn" id="OCh-ZE-JeO"/>
+                            <outlet property="delegate" destination="Np8-Nd-AHn" id="ZRR-cT-jmo"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="T07-fV-tdV" kind="show" identifier="showNextBusStopController" id="ZzK-g3-Kkl"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oME-4h-kyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="1129"/>
         </scene>
         <!--Destination Selection Table View Controller-->
         <scene sceneID="F3k-Vn-7p1">
@@ -441,5 +606,9 @@ Therefore, please activate location services.</string>
     <resources>
         <image name="bell" width="22" height="22"/>
         <image name="foli-guide-transparent" width="1024" height="1024"/>
+        <image name="ios-volume-low" width="80" height="120"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZzK-g3-Kkl"/>
+    </inferredMetricsTieBreakers>
 </document>
