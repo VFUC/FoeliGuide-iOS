@@ -142,6 +142,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					self.nextBusStopVC?.finalStationName.text = bus.finalStop
 					self.nextBusStopVC?.nextStationNameLabel.text = bus.nextStop.name
 					self.nextBusStopVC?.afterThatStationNameLabel.text = bus.afterThatStop?.name ?? "--"
+					
+					if self.nextBusStopVC?.nextStationNameLabel.text == self.nextBusStopVC?.afterThatStationNameLabel.text {
+						self.nextBusStopVC?.afterThatStationNameLabel.text = "--" //Hide maybe?
+					}
+					
 					self.nextBusStopVC?.didUpdateData() // Notify the VC, so it can act on new data if needed
 				}
 				
