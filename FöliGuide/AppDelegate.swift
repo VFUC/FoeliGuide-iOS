@@ -9,6 +9,10 @@
 import UIKit
 import CoreLocation
 
+protocol BusUpdateDelegate {
+	func didUpdateBusData()
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
@@ -33,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	var didShowBackgroundWarning = false //Only show once
 	
+	var busDataUpdateDelegates = [BusUpdateDelegate]()
+	
 	//MARK: VC Adapters
 	var mainVC: MainViewController? {
 		didSet {
@@ -40,11 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 	
-	var nextBusStopVC: NextBusStopViewController? {
-		didSet {
-			busController.runNow()
-		}
-	}
+//	var nextBusStopVC: NextBusStopViewController? {
+//		didSet {
+//			busController.runNow()
+//		}
+//	}
 
 	var busSelectionVC: BusSelectionTableViewController? {
 		didSet {
@@ -131,6 +137,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			// find the bus with the matching vehicleRef
 			for bus in busses where bus.vehicleRef == self.busController.currentUserBus?.vehicleRef {
 				
+				var updatedBus = bus
+				
+				updatedBus.route = self.busController.currentUserBus?.route
+				
+				self.busController.currentUserBus = updatedBus
+				
+				for delegate in self.busDataUpdateDelegates {
+					delegate.didUpdateBusData()
+				}
+				
+				/*
 				// if busNumber or nextStation has changed, update
 				if self.nextBusStopVC?.busNumberLabel.text != bus.name || self.nextBusStopVC?.nextStationNameLabel.text != bus.nextStop.name {
 					self.nextBusStopVC?.busNumberLabel.text = bus.name
@@ -144,6 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					
 					self.nextBusStopVC?.didUpdateData() // Notify the VC, so it can act on new data if needed
 				}
+				*/
 				
 			}
 			
