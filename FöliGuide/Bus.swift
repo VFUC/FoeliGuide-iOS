@@ -18,5 +18,5 @@ struct Bus {
 	var afterThatStop: BusStop?
 	var finalStop: String
 	var distanceToUser: CLLocationDistance?
-	//TODO: Estimated arrival?
+	var route: [BusStop]?
 }

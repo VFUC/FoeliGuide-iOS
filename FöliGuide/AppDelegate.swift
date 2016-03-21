@@ -131,12 +131,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			// find the bus with the matching vehicleRef
 			for bus in busses where bus.vehicleRef == self.busController.currentUserBus?.vehicleRef {
 				
-				self.busController.getBusRoute(forBus: bus, completionHandler: { (stops) -> () in
-					for stop in stops! {
-						print(stop.name)
-					}
-				})
-				
 				// if busNumber or nextStation has changed, update
 				if self.nextBusStopVC?.busNumberLabel.text != bus.name || self.nextBusStopVC?.nextStationNameLabel.text != bus.nextStop.name {
 					self.nextBusStopVC?.busNumberLabel.text = bus.name

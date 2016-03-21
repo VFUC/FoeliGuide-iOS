@@ -64,7 +64,7 @@ class BusDataController: NSObject {
 					}
 					
 						
-					let bus = Bus(vehicleRef: vehicleRef, blockRef: blockRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: nextStop, afterThatStop: afterThatStop, finalStop: finalStop, distanceToUser: nil)
+					let bus = Bus(vehicleRef: vehicleRef, blockRef: blockRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: nextStop, afterThatStop: afterThatStop, finalStop: finalStop, distanceToUser: nil, route: nil)
 						busses.append(bus)
 				}
 			}
@@ -168,20 +168,52 @@ class BusDataController: NSObject {
 						return
 					}
 					
+					var busStopIDs = [String]()
+					
 					for stop in stops {
 						if let dictionary = stop.dictionary,
 							let stopID = dictionary["stop_id"]?.string {
-								print(stopID)
+								busStopIDs.append(stopID)
 						}
 					}
+					
+					self.getBusStops(fromIDs: busStopIDs, completionHandler: completionHandler)
 				})
 				
 			})
 			
 		}
-	
-	
 	}
+	
+	
+	
+	func getBusStops(fromIDs ids: [String], completionHandler: [BusStop]? -> ()){
+		
+		NetworkController.getBusStopData { (json) -> () in
+			guard let json = json else {
+				completionHandler(nil)
+				return
+			}
+			
+			guard let dict = json.dictionary else {
+				completionHandler(nil)
+				return
+			}
+			
+			var stops = [BusStop]()
+			
+			for id in ids {
+				//look for name in dict
+				if let name = dict[id]?["stop_name"].string {
+					stops.append(BusStop(name: name, number: id, location: nil))
+				}
+			}
+			completionHandler(stops)
+		}
+	}
+	
+	
+	
 	
 	
 	// Sets the distance to the user property on all the input busses
