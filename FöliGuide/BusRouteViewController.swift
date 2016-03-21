@@ -29,8 +29,6 @@ class BusRouteViewController: UIViewController {
         busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? ""
 		appDelegate.busDataUpdateDelegates.append(self)
     }
-	
-	
 }
 
 extension BusRouteViewController : UITableViewDataSource {
@@ -41,6 +39,21 @@ extension BusRouteViewController : UITableViewDataSource {
 		if let stops = appDelegate.busController.currentUserBus?.route where indexPath.row < stops.count ,
 		let stopCell = cell as? RouteStopTableViewCell
 		{
+			var nextStopIndex : Int? = nil
+			
+			for (index, stop) in stops.enumerate() {
+				if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
+					nextStopIndex = index
+					break
+				}
+			}
+			
+			if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
+				stopCell.nameLabel.layer.opacity = 0.5
+			} else {
+				stopCell.nameLabel.layer.opacity = 1
+			}
+			
 			stopCell.nameLabel.text = stops[indexPath.row].name
 			return stopCell
 		}
@@ -65,5 +78,6 @@ extension BusRouteViewController : UITableViewDelegate {
 extension BusRouteViewController : BusUpdateDelegate {
 	func didUpdateBusData() {
 		print("[BusRouteVC] bus data did update!")
+		busStopsTableView.reloadData()
 	}
 }
