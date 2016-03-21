@@ -19,6 +19,7 @@
 		722D30821C5139BF00CAEE90 /* Fo_liGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */; };
 		72418BBE1C5F4FAF002E7262 /* NextBusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */; };
 		724917D81C885FDC006C7114 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724917D71C885FDC006C7114 /* SpeechController.swift */; };
+		725419CF1C9BF08B005A3476 /* NetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725419CE1C9BF08B005A3476 /* NetworkEvent.swift */; };
 		727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */; };
 		72A599A01C69ECBD0059D9C1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5999F1C69ECBD0059D9C1 /* NotificationController.swift */; };
 		72C6F6691C58BA5700DEDD53 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F6681C58BA5700DEDD53 /* Bus.swift */; };
@@ -74,6 +75,7 @@
 		722D30831C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextBusStopViewController.swift; sourceTree = "<group>"; };
 		724917D71C885FDC006C7114 /* SpeechController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
+		725419CE1C9BF08B005A3476 /* NetworkEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
 		727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
 		72A5999F1C69ECBD0059D9C1 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		72C6F6681C58BA5700DEDD53 /* Bus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				72C6F66A1C58BACC00DEDD53 /* BusStop.swift */,
 				72DF00C61C578BBA00AFBCCD /* Constants.swift */,
 				721C903B1C561E78001027EC /* ApplicationEvent.swift */,
+				725419CE1C9BF08B005A3476 /* NetworkEvent.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				72DF00C31C57898D00AFBCCD /* NetworkController.swift in Sources */,
 				72D9B3691C689BD5009CF956 /* DestinationSelectionTableViewController.swift in Sources */,
 				721C903A1C561BEE001027EC /* MainViewController.swift in Sources */,
+				725419CF1C9BF08B005A3476 /* NetworkEvent.swift in Sources */,
 				72D3B0B01C77072B004491F5 /* BusSelectionHorizontalCollectionViewCell.swift in Sources */,
 				72D9B36B1C68F826009CF956 /* BusSelectionCollectionViewController.swift in Sources */,
 				72DF00C71C578BBA00AFBCCD /* Constants.swift in Sources */,
@@ -546,9 +550,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "FöliGuide/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.innovationproject.routeguidance.Fo-liGuide";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -561,9 +567,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "FöliGuide/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.innovationproject.routeguidance.Fo-liGuide";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

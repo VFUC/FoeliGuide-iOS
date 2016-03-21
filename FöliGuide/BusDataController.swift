@@ -45,6 +45,7 @@ class BusDataController: NSObject {
 			for (_, vehicle) in vehicles {
 				if let name = vehicle["lineref"].string,
 					let longitude = vehicle["longitude"].float,
+					let blockRef = vehicle["blockref"].string,
 					let latitude = vehicle["latitude"].float,
 					let nextStopNumber = vehicle["next_stoppointref"].string,
 					let nextStopName = vehicle["next_stoppointname"].string,
@@ -63,7 +64,7 @@ class BusDataController: NSObject {
 					}
 					
 						
-					let bus = Bus(vehicleRef: vehicleRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: nextStop, afterThatStop: afterThatStop, finalStop: finalStop, distanceToUser: nil)
+					let bus = Bus(vehicleRef: vehicleRef, blockRef: blockRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: nextStop, afterThatStop: afterThatStop, finalStop: finalStop, distanceToUser: nil)
 						busses.append(bus)
 				}
 			}
@@ -96,6 +97,90 @@ class BusDataController: NSObject {
 			
 			completionHandler(stops)
 		}
+	}
+	
+	func getBusRoute(forBus bus: Bus, completionHandler: [BusStop]? -> ()){
+		print("bus block ref: \(bus.blockRef)")
+		NetworkController.getRoutesData { (json) -> () in
+			guard let json = json else {
+				completionHandler(nil)
+				return
+			}
+			
+			guard let routes = json.array else {
+				completionHandler(nil)
+				return
+			}
+			
+			var matchingRouteID: String? = nil
+			
+			for route in routes {
+				if let dictionary = route.dictionary,
+					let routeID = dictionary["route_id"]?.string,
+					let shortName = dictionary["route_short_name"]?.string where shortName == bus.name {
+						matchingRouteID = routeID
+						break
+				}
+			}
+			
+			guard let routeID = matchingRouteID else {
+				print("[BusDataController] No routeID found for bus \(bus.name)")
+				completionHandler(nil)
+				return
+			}
+			
+			NetworkController.getTripsData(withRouteID: routeID, completionHandler: { (json) -> () in
+				guard let json = json else {
+					completionHandler(nil)
+					return
+				}
+				
+				guard let trips = json.array else {
+					completionHandler(nil)
+					return
+				}
+				
+				var matchingTripID: String? = nil
+				
+				for trip in trips {
+					if let dictionary = trip.dictionary,
+						let tripID = dictionary["trip_id"]?.string,
+						let blockID = dictionary["block_id"]?.string where blockID == bus.blockRef {
+							matchingTripID = tripID
+							break
+					}
+				}
+				
+				guard let tripID = matchingTripID else {
+					print("[BusDataController] No Trip found for bus \(bus.name) with route id \(routeID)")
+					completionHandler(nil)
+					return
+				}
+				
+				NetworkController.getTripData(withTripID: tripID, completionHandler: { (json) -> () in
+					guard let json = json else {
+						completionHandler(nil)
+						return
+					}
+					
+					guard let stops = json.array else {
+						completionHandler(nil)
+						return
+					}
+					
+					for stop in stops {
+						if let dictionary = stop.dictionary,
+							let stopID = dictionary["stop_id"]?.string {
+								print(stopID)
+						}
+					}
+				})
+				
+			})
+			
+		}
+	
+	
 	}
 	
 	

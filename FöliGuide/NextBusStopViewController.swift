@@ -18,9 +18,8 @@ class NextBusStopViewController: UIViewController {
 	@IBOutlet weak var selectedBusStationStackView: UIStackView!
 	@IBOutlet weak var mainStackView: UIStackView!
 	@IBOutlet weak var alarmBarButton: UIBarButtonItem!
-	
+	@IBOutlet weak var lastUpdatedLabel: UILabel!
 	@IBOutlet weak var volumeButton: UIButton!
-	
 	@IBOutlet weak var initialConstraint: NSLayoutConstraint!
 
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
