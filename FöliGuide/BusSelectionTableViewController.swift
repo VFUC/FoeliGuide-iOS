@@ -115,7 +115,20 @@ class BusSelectionTableViewController: UITableViewController {
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		appDelegate.busController.currentUserBus = busses[indexPath.row]
-		performSegueWithIdentifier("showNextBusStopController", sender: nil)
+		
+		
+		appDelegate.busController.getBusRoute(forBus: appDelegate.busController.currentUserBus!) { (busStops) -> () in
+			guard busStops != nil else {
+				//TODO: show user error (?)
+				
+				//fall back to next/afterthat view
+				self.performSegueWithIdentifier("showNextBusStopController", sender: nil)
+				return
+			}
+			self.appDelegate.busController.currentUserBus?.route = busStops
+			
+			self.performSegueWithIdentifier("showBusRouteController", sender: nil)
+		}
 	}
 	
 	

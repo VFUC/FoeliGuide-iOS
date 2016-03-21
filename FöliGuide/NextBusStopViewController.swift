@@ -81,7 +81,7 @@ class NextBusStopViewController: UIViewController {
 		busNumberLabel.text = ""
 		nextStationNameLabel.text = ""
 		afterThatStationNameLabel.text = ""
-		appDelegate.nextBusStopVC = self
+//		appDelegate.nextBusStopVC = self
     }
 
     override func didReceiveMemoryWarning() {

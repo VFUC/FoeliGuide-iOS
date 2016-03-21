@@ -17,6 +17,8 @@
 		722D306C1C5139BF00CAEE90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722D306A1C5139BF00CAEE90 /* LaunchScreen.storyboard */; };
 		722D30771C5139BF00CAEE90 /* Fo_liGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30761C5139BF00CAEE90 /* Fo_liGuideTests.swift */; };
 		722D30821C5139BF00CAEE90 /* Fo_liGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */; };
+		7235E07D1CA0114400C25ECA /* BusRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7235E07C1CA0114400C25ECA /* BusRouteViewController.swift */; };
+		7235E0831CA0475800C25ECA /* RouteStopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */; };
 		72418BBE1C5F4FAF002E7262 /* NextBusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */; };
 		724917D81C885FDC006C7114 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724917D71C885FDC006C7114 /* SpeechController.swift */; };
 		725419CF1C9BF08B005A3476 /* NetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725419CE1C9BF08B005A3476 /* NetworkEvent.swift */; };
@@ -73,6 +75,8 @@
 		722D307D1C5139BF00CAEE90 /* FöliGuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FöliGuideUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fo_liGuideUITests.swift; sourceTree = "<group>"; };
 		722D30831C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7235E07C1CA0114400C25ECA /* BusRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRouteViewController.swift; sourceTree = "<group>"; };
+		7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteStopTableViewCell.swift; path = "FöliGuide/RouteStopTableViewCell.swift"; sourceTree = "<group>"; };
 		72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextBusStopViewController.swift; sourceTree = "<group>"; };
 		724917D71C885FDC006C7114 /* SpeechController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 		725419CE1C9BF08B005A3476 /* NetworkEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
@@ -129,7 +133,9 @@
 				727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */,
 				72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */,
 				72D9B36A1C68F826009CF956 /* BusSelectionCollectionViewController.swift */,
+				72D3B0B11C770AD8004491F5 /* BusSelectionTableViewController.swift */,
 				72D9B3681C689BD5009CF956 /* DestinationSelectionTableViewController.swift */,
+				7235E07C1CA0114400C25ECA /* BusRouteViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -166,7 +172,6 @@
 			children = (
 				72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */,
 				72D3B0AF1C77072B004491F5 /* BusSelectionHorizontalCollectionViewCell.swift */,
-				72D3B0B11C770AD8004491F5 /* BusSelectionTableViewController.swift */,
 				72D3B0B31C770CA9004491F5 /* BusSelectionTableViewCell.swift */,
 				72D9B36C1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift */,
 			);
@@ -176,6 +181,7 @@
 		722D30551C5139BF00CAEE90 = {
 			isa = PBXGroup;
 			children = (
+				7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */,
 				72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */,
 				72DF00BD1C57873300AFBCCD /* Alamofire.framework */,
 				722D30601C5139BF00CAEE90 /* FöliGuide */,
@@ -383,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7235E0831CA0475800C25ECA /* RouteStopTableViewCell.swift in Sources */,
 				72A599A01C69ECBD0059D9C1 /* NotificationController.swift in Sources */,
 				721C90351C5619E6001027EC /* LocationController.swift in Sources */,
 				721D5F8F1C6B2B4300061181 /* UserData.swift in Sources */,
@@ -390,6 +397,7 @@
 				72F07EA01C6DC11E00CDE64D /* UserDataController.swift in Sources */,
 				724917D81C885FDC006C7114 /* SpeechController.swift in Sources */,
 				72DF00C31C57898D00AFBCCD /* NetworkController.swift in Sources */,
+				7235E07D1CA0114400C25ECA /* BusRouteViewController.swift in Sources */,
 				72D9B3691C689BD5009CF956 /* DestinationSelectionTableViewController.swift in Sources */,
 				721C903A1C561BEE001027EC /* MainViewController.swift in Sources */,
 				725419CF1C9BF08B005A3476 /* NetworkEvent.swift in Sources */,
