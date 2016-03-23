@@ -76,7 +76,7 @@
 		722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fo_liGuideUITests.swift; sourceTree = "<group>"; };
 		722D30831C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7235E07C1CA0114400C25ECA /* BusRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRouteViewController.swift; sourceTree = "<group>"; };
-		7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteStopTableViewCell.swift; path = "FöliGuide/RouteStopTableViewCell.swift"; sourceTree = "<group>"; };
+		7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteStopTableViewCell.swift; sourceTree = "<group>"; };
 		72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextBusStopViewController.swift; sourceTree = "<group>"; };
 		724917D71C885FDC006C7114 /* SpeechController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 		725419CE1C9BF08B005A3476 /* NetworkEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
@@ -173,6 +173,7 @@
 				72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */,
 				72D3B0AF1C77072B004491F5 /* BusSelectionHorizontalCollectionViewCell.swift */,
 				72D3B0B31C770CA9004491F5 /* BusSelectionTableViewCell.swift */,
+				7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */,
 				72D9B36C1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift */,
 			);
 			name = Views;
@@ -181,7 +182,6 @@
 		722D30551C5139BF00CAEE90 = {
 			isa = PBXGroup;
 			children = (
-				7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */,
 				72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */,
 				72DF00BD1C57873300AFBCCD /* Alamofire.framework */,
 				722D30601C5139BF00CAEE90 /* FöliGuide */,

@@ -11,6 +11,7 @@ import UIKit
 class RouteStopTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var nameLabel: UILabel!
+	@IBOutlet weak var iconImageView: UIImageView!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +23,15 @@ class RouteStopTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+	
+	func dimSubViews(){
+		nameLabel.layer.opacity = 0.5
+		iconImageView.layer.opacity = 0.5
+	}
+	
+	func brightenSubViews(){
+		nameLabel.layer.opacity = 1
+		iconImageView.layer.opacity = 1
+	}
 
 }

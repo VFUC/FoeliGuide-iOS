@@ -34,24 +34,45 @@ class BusRouteViewController: UIViewController {
 extension BusRouteViewController : UITableViewDataSource {
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCellWithIdentifier("busStopCell", forIndexPath: indexPath)
+		var nextStopIndex : Int? = nil
+		guard let stops = appDelegate.busController.currentUserBus?.route where indexPath.row < stops.count else {
+			return tableView.dequeueReusableCellWithIdentifier("defaultCell", forIndexPath: indexPath)
+		}
 		
-		if let stops = appDelegate.busController.currentUserBus?.route where indexPath.row < stops.count ,
-		let stopCell = cell as? RouteStopTableViewCell
-		{
-			var nextStopIndex : Int? = nil
-			
-			for (index, stop) in stops.enumerate() {
-				if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
-					nextStopIndex = index
-					break
-				}
+		for (index, stop) in stops.enumerate() {
+			if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
+				nextStopIndex = index
+				break
 			}
+		}
+		
+		var reuseIdentifier = "defaultCell" //TODO: make a default cell
+		
+		switch indexPath.row {
+		case 0:
+			reuseIdentifier = "firstBusStopCell"
+		case 1..<stops.count - 1:
+			reuseIdentifier = "middleBusStopCell"
+		case stops.count - 1:
+			reuseIdentifier = "lastBusStopCell"
+		default:
+			reuseIdentifier = "defaultCell"
+		}
+		
+		if indexPath.row == nextStopIndex {
+			reuseIdentifier = "nextStopCell"
+		}
+		
+		let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
+		
+		
+		
+		if let stopCell = cell as? RouteStopTableViewCell {
 			
 			if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
-				stopCell.nameLabel.layer.opacity = 0.5
+				stopCell.dimSubViews()
 			} else {
-				stopCell.nameLabel.layer.opacity = 1
+				stopCell.brightenSubViews()
 			}
 			
 			stopCell.nameLabel.text = stops[indexPath.row].name
