@@ -18,17 +18,17 @@ class BusRouteViewController: UIViewController {
 		}
 	}
 	
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate 
+	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
 	
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		
-        busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? ""
+		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? ""
 		appDelegate.busDataUpdateDelegates.append(self)
-    }
+	}
 }
 
 extension BusRouteViewController : UITableViewDataSource {
@@ -66,20 +66,31 @@ extension BusRouteViewController : UITableViewDataSource {
 		let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
 		
 		
-		
-		if let stopCell = cell as? RouteStopTableViewCell {
-			
-			if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
-				stopCell.dimSubViews()
-			} else {
-				stopCell.brightenSubViews()
-			}
-			
-			stopCell.nameLabel.text = stops[indexPath.row].name
-			return stopCell
+		guard let stopCell = cell as? RouteStopTableViewCell else {
+			return cell
 		}
 		
-		return cell
+		
+		stopCell.nameLabel.text = stops[indexPath.row].name
+		
+		//Put cell on half opacity if the bus stop has already been passed
+		if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
+			stopCell.dimSubViews()
+		} else {
+			stopCell.brightenSubViews()
+		}
+		
+		//Change icons if next stop cell is first or last
+		if indexPath.row == nextStopIndex  { // cell is nextStopCell
+			if indexPath.row == 0 {
+				stopCell.iconImageView.image = UIImage(named: "route-icon-top")
+			}
+			if indexPath.row == (stops.count - 1) {
+				stopCell.iconImageView.image = UIImage(named: "route-icon-next-bottom")
+			}
+		}
+		
+		return stopCell
 	}
 	
 	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
