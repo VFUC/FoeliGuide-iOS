@@ -100,7 +100,6 @@ class BusDataController: NSObject {
 	}
 	
 	func getBusRoute(forBus bus: Bus, completionHandler: [BusStop]? -> ()){
-		print("bus block ref: \(bus.blockRef)")
 		NetworkController.getRoutesData { (json) -> () in
 			guard let json = json else {
 				completionHandler(nil)
