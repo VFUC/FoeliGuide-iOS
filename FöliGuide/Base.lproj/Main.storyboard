@@ -607,24 +607,66 @@ Therefore, please activate location services.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnY-lG-Msc">
-                                                    <rect key="frame" x="258.5" y="11.5" width="84" height="21"/>
+                                                    <rect key="frame" x="260" y="12" width="83.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-top" translatesAutoresizingMaskIntoConstraints="NO" id="DMB-ZZ-jt8">
+                                                    <rect key="frame" x="230" y="0.0" width="20" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="DMB-ZZ-jt8" secondAttribute="height" multiplier="40:88" id="127-S3-Wub"/>
+                                                        <constraint firstAttribute="width" secondItem="DMB-ZZ-jt8" secondAttribute="height" multiplier="40:58" id="G3M-dN-Mgu"/>
+                                                        <constraint firstAttribute="width" secondItem="DMB-ZZ-jt8" secondAttribute="height" multiplier="40:58" id="mWG-d4-Lx8"/>
+                                                        <constraint firstAttribute="width" constant="25" id="xDQ-Kd-7P7"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="G3M-dN-Mgu"/>
+                                                            <exclude reference="mWG-d4-Lx8"/>
+                                                            <exclude reference="xDQ-Kd-7P7"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="xtc-dC-KaX" secondAttribute="centerY" id="0NW-Ff-JHy"/>
                                                 <constraint firstItem="GnY-lG-Msc" firstAttribute="centerY" secondItem="xtc-dC-KaX" secondAttribute="centerY" id="66R-Rw-NgC"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="GnY-lG-Msc" secondAttribute="centerY" id="EOA-wW-S3o"/>
                                                 <constraint firstItem="GnY-lG-Msc" firstAttribute="centerX" secondItem="xtc-dC-KaX" secondAttribute="centerX" id="FN6-64-A24"/>
+                                                <constraint firstItem="GnY-lG-Msc" firstAttribute="leading" secondItem="DMB-ZZ-jt8" secondAttribute="trailing" constant="10" id="Jln-Bs-w8m"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="top" secondItem="xtc-dC-KaX" secondAttribute="topMargin" constant="-8" id="Vnb-Lg-aMA"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="GnY-lG-Msc" secondAttribute="centerY" id="YHa-gI-zGn"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="leading" secondItem="xtc-dC-KaX" secondAttribute="leadingMargin" constant="7" id="ZdG-SR-dNH"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="leading" secondItem="xtc-dC-KaX" secondAttribute="leadingMargin" constant="8" id="esZ-HQ-MCH"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="GnY-lG-Msc" secondAttribute="centerY" id="iNq-lZ-MEt"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DMB-ZZ-jt8" secondAttribute="bottom" constant="-8" id="nv5-eg-4r7"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="xtc-dC-KaX" secondAttribute="centerY" constant="5" id="q70-PF-1eD"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerX" secondItem="xtc-dC-KaX" secondAttribute="centerX" constant="-60" id="qv3-0h-Z6V"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="leading" secondItem="xtc-dC-KaX" secondAttribute="leadingMargin" constant="16" id="s1b-st-RKV"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="0NW-Ff-JHy"/>
+                                                    <exclude reference="EOA-wW-S3o"/>
+                                                    <exclude reference="YHa-gI-zGn"/>
+                                                    <exclude reference="ZdG-SR-dNH"/>
+                                                    <exclude reference="esZ-HQ-MCH"/>
+                                                    <exclude reference="iNq-lZ-MEt"/>
+                                                    <exclude reference="q70-PF-1eD"/>
+                                                    <exclude reference="s1b-st-RKV"/>
+                                                    <exclude reference="FN6-64-A24"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="iconImageView" destination="DMB-ZZ-jt8" id="B6d-v5-Eca"/>
                                             <outlet property="nameLabel" destination="GnY-lG-Msc" id="PJf-nz-HqZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="busStopCell" id="S9w-EP-whF" customClass="RouteStopTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="nextStopCell" id="S9w-EP-whF" customClass="RouteStopTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S9w-EP-whF" id="mE7-8N-B26">
@@ -632,20 +674,44 @@ Therefore, please activate location services.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paavaistentie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-PN-iJp">
-                                                    <rect key="frame" x="250" y="11" width="101" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="260" y="10" width="123" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-next" translatesAutoresizingMaskIntoConstraints="NO" id="Gsv-Rd-53w">
+                                                    <rect key="frame" x="230" y="0.0" width="20" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="l2X-wB-5Wc"/>
+                                                        <constraint firstAttribute="width" secondItem="Gsv-Rd-53w" secondAttribute="height" multiplier="40:88" id="xrL-Qz-laY"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="l2X-wB-5Wc"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="3iO-PN-iJp" firstAttribute="centerX" secondItem="mE7-8N-B26" secondAttribute="centerX" id="7Mh-Rh-iRM"/>
+                                                <constraint firstItem="Gsv-Rd-53w" firstAttribute="centerX" secondItem="mE7-8N-B26" secondAttribute="centerX" constant="-60" id="KVf-A3-KEe"/>
                                                 <constraint firstItem="3iO-PN-iJp" firstAttribute="centerY" secondItem="mE7-8N-B26" secondAttribute="centerY" id="bjb-WY-0RA"/>
+                                                <constraint firstItem="3iO-PN-iJp" firstAttribute="leading" secondItem="Gsv-Rd-53w" secondAttribute="trailing" constant="10" id="eMM-N2-qeu"/>
+                                                <constraint firstItem="Gsv-Rd-53w" firstAttribute="leading" secondItem="mE7-8N-B26" secondAttribute="leadingMargin" constant="16" id="hvS-vX-ShD"/>
+                                                <constraint firstItem="Gsv-Rd-53w" firstAttribute="top" secondItem="mE7-8N-B26" secondAttribute="topMargin" constant="-8" id="iPg-ps-V5e"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Gsv-Rd-53w" secondAttribute="bottom" constant="-8" id="oD1-Ov-2bq"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="hvS-vX-ShD"/>
+                                                    <exclude reference="7Mh-Rh-iRM"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="iconImageView" destination="Gsv-Rd-53w" id="EOS-Zb-EQ2"/>
                                             <outlet property="nameLabel" destination="3iO-PN-iJp" id="CAj-IK-Zq2"/>
                                         </connections>
                                     </tableViewCell>
@@ -657,21 +723,107 @@ Therefore, please activate location services.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luhtikatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oL-fu-F5I">
-                                                    <rect key="frame" x="264.5" y="11.5" width="71" height="21"/>
+                                                    <rect key="frame" x="260" y="12" width="71" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-middle" translatesAutoresizingMaskIntoConstraints="NO" id="ZiQ-3Z-i9u">
+                                                    <rect key="frame" x="230" y="0.0" width="20" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ZiQ-3Z-i9u" secondAttribute="height" multiplier="40:88" id="QqM-me-Mar"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="ZiQ-3Z-i9u" firstAttribute="top" secondItem="hl5-Lv-O3N" secondAttribute="topMargin" constant="-8" id="72K-mh-qrD"/>
+                                                <constraint firstItem="ZiQ-3Z-i9u" firstAttribute="leading" secondItem="hl5-Lv-O3N" secondAttribute="leadingMargin" constant="16" id="8SH-xm-3pk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZiQ-3Z-i9u" secondAttribute="bottom" constant="-8" id="Uay-8K-XSQ"/>
+                                                <constraint firstItem="1oL-fu-F5I" firstAttribute="leading" secondItem="ZiQ-3Z-i9u" secondAttribute="trailing" constant="10" id="WEh-cb-1EG"/>
+                                                <constraint firstItem="1oL-fu-F5I" firstAttribute="centerX" secondItem="hl5-Lv-O3N" secondAttribute="centerX" id="eY4-gu-W2O"/>
+                                                <constraint firstItem="1oL-fu-F5I" firstAttribute="centerY" secondItem="hl5-Lv-O3N" secondAttribute="centerY" id="gUM-LA-47O"/>
+                                                <constraint firstItem="ZiQ-3Z-i9u" firstAttribute="centerX" secondItem="hl5-Lv-O3N" secondAttribute="centerX" constant="-60" id="lBC-GH-pED"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="8SH-xm-3pk"/>
+                                                    <exclude reference="eY4-gu-W2O"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="ZiQ-3Z-i9u" id="qgY-YA-tJC"/>
+                                            <outlet property="nameLabel" destination="1oL-fu-F5I" id="o11-Gx-Lvx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="lastBusStopCell" id="BMe-bV-ENi" customClass="RouteStopTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="160" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BMe-bV-ENi" id="qMt-IH-9SV">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brahenkatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRZ-Ou-99k">
+                                                    <rect key="frame" x="260" y="12" width="87.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Aio-pX-2dh">
+                                                    <rect key="frame" x="230" y="0.0" width="20" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Aio-pX-2dh" secondAttribute="height" multiplier="40:88" id="edY-7v-K48"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="Aio-pX-2dh" firstAttribute="top" secondItem="qMt-IH-9SV" secondAttribute="topMargin" constant="-8" id="MCx-aB-gMc"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Aio-pX-2dh" secondAttribute="bottom" constant="-8" id="UFa-Ol-5vb"/>
+                                                <constraint firstItem="Aio-pX-2dh" firstAttribute="leading" secondItem="qMt-IH-9SV" secondAttribute="leadingMargin" constant="16" id="eSK-xN-WiZ"/>
+                                                <constraint firstItem="sRZ-Ou-99k" firstAttribute="leading" secondItem="Aio-pX-2dh" secondAttribute="trailing" constant="10" id="hOb-F6-XP1"/>
+                                                <constraint firstItem="sRZ-Ou-99k" firstAttribute="centerX" secondItem="qMt-IH-9SV" secondAttribute="centerX" id="jsV-CO-YXL"/>
+                                                <constraint firstItem="sRZ-Ou-99k" firstAttribute="centerY" secondItem="qMt-IH-9SV" secondAttribute="centerY" id="pde-mK-g4T"/>
+                                                <constraint firstItem="Aio-pX-2dh" firstAttribute="centerX" secondItem="qMt-IH-9SV" secondAttribute="centerX" constant="-60" id="vx0-8e-21s"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="eSK-xN-WiZ"/>
+                                                    <exclude reference="jsV-CO-YXL"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="Aio-pX-2dh" id="TEH-n7-P83"/>
+                                            <outlet property="nameLabel" destination="sRZ-Ou-99k" id="mlK-WX-WUZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="defaultBusStopCell" id="kkE-Kx-dXe" customClass="RouteStopTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="204" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kkE-Kx-dXe" id="Z87-dt-2Om">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inspehtorinkatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-wE-7dU">
+                                                    <rect key="frame" x="241.5" y="12" width="117.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                    <color key="textColor" red="0.91066666666666662" green="0.91066666666666662" blue="0.91066666666666662" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="1oL-fu-F5I" firstAttribute="centerX" secondItem="hl5-Lv-O3N" secondAttribute="centerX" id="eY4-gu-W2O"/>
-                                                <constraint firstItem="1oL-fu-F5I" firstAttribute="centerY" secondItem="hl5-Lv-O3N" secondAttribute="centerY" id="gUM-LA-47O"/>
+                                                <constraint firstItem="Xhw-wE-7dU" firstAttribute="centerX" secondItem="Z87-dt-2Om" secondAttribute="centerX" id="KZC-el-5IC"/>
+                                                <constraint firstItem="Xhw-wE-7dU" firstAttribute="centerY" secondItem="Z87-dt-2Om" secondAttribute="centerY" id="lWF-UW-a62"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
-                                            <outlet property="nameLabel" destination="1oL-fu-F5I" id="o11-Gx-Lvx"/>
+                                            <outlet property="nameLabel" destination="Xhw-wE-7dU" id="HY0-6e-yhE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -767,6 +919,10 @@ Therefore, please activate location services.</string>
         <image name="bell" width="22" height="22"/>
         <image name="foli-guide-transparent" width="1024" height="1024"/>
         <image name="ios-volume-low" width="80" height="120"/>
+        <image name="route-icon-bottom" width="40" height="88"/>
+        <image name="route-icon-middle" width="40" height="88"/>
+        <image name="route-icon-next" width="40" height="88"/>
+        <image name="route-icon-top" width="40" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZzK-g3-Kkl"/>
