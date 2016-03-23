@@ -587,11 +587,16 @@ Therefore, please activate location services.</string>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="51" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXM-u4-eBV">
                                         <rect key="frame" x="0.0" y="24" width="64" height="72"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aeX-lC-RDj" appends="YES" id="1S0-sF-zxu"/>
+                                </connections>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="av8-rd-1p3">
                                 <rect key="frame" x="0.0" y="149" width="600" height="451"/>
@@ -830,6 +835,7 @@ Therefore, please activate location services.</string>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="av8-rd-1p3" firstAttribute="top" secondItem="EXM-u4-eBV" secondAttribute="bottom" constant="17" id="FKy-8D-rWC"/>
                             <constraint firstItem="iWl-By-NBL" firstAttribute="top" secondItem="av8-rd-1p3" secondAttribute="bottom" id="FTa-YI-mE7"/>
@@ -845,6 +851,11 @@ Therefore, please activate location services.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LrO-0B-XRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aeX-lC-RDj">
+                    <connections>
+                        <action selector="headTouched:" destination="fDO-ru-w4g" id="Dvx-6A-yNj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2715" y="1129"/>
         </scene>

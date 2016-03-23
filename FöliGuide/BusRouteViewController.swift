@@ -25,11 +25,42 @@ class BusRouteViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
 		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? ""
 		appDelegate.busDataUpdateDelegates.append(self)
+		
+		scrollToNextBusStop(animated: true)
+	}
+	
+	func scrollToNextBusStop(animated animated: Bool){
+		
+		var nextStopIndex : Int? = nil
+		guard let stops = appDelegate.busController.currentUserBus?.route else {
+			return
+		}
+		
+		for (index, stop) in stops.enumerate() {
+			if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
+				nextStopIndex = index
+				break
+			}
+		}
+		
+		guard let index = nextStopIndex else {
+			return
+		}
+		
+		self.busStopsTableView.scrollToRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0), atScrollPosition: .Top, animated: animated)
+		
+	}
+	
+	@IBAction func headTouched(sender: AnyObject) {
+		scrollToNextBusStop(animated: true)
 	}
 }
+
+
+
+
 
 extension BusRouteViewController : UITableViewDataSource {
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -100,6 +131,8 @@ extension BusRouteViewController : UITableViewDataSource {
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return appDelegate.busController.currentUserBus?.route?.count ?? 0
 	}
+	
+	
 }
 
 extension BusRouteViewController : UITableViewDelegate {
@@ -109,7 +142,6 @@ extension BusRouteViewController : UITableViewDelegate {
 
 extension BusRouteViewController : BusUpdateDelegate {
 	func didUpdateBusData() {
-		print("[BusRouteVC] bus data did update!")
 		busStopsTableView.reloadData()
 	}
 }
