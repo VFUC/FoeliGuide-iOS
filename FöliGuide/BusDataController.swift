@@ -262,7 +262,8 @@ class BusDataController: NSObject {
 		
 		let parameters = BusLoopParameters(completionHandler: completionHandler)
 		
-		timer = NSTimer.scheduledTimerWithTimeInterval(intervalInSeconds, target: self, selector: "getBussesLoop:", userInfo: parameters, repeats: true)
+		timer = NSTimer.scheduledTimerWithTimeInterval(intervalInSeconds, target: self, selector: #selector(BusDataController.getBussesLoop(_:)), userInfo: parameters, repeats: true)
+		
 		timer?.fire() // start right away
 	}
 	
