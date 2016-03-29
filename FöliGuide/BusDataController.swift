@@ -52,14 +52,20 @@ class BusDataController: NSObject {
 					let vehicleRef = vehicle["vehicleref"].string,
 					let finalStop = vehicle["destinationname"].string
 				{
-						
-					let nextStop = BusStop(name: nextStopName, number: nextStopNumber, location: nil)
+					
+					
+					var expectedArrivalDate : NSDate? = nil
+					if let expectedArrival = vehicle["next_expectedarrivaltime"].float {
+						expectedArrivalDate = NSDate(timeIntervalSince1970: NSTimeInterval(expectedArrival))
+					}
+					
+					let nextStop = BusStop(name: nextStopName, number: nextStopNumber, location: nil, expectedArrival: expectedArrivalDate)
 					var afterThatStop : BusStop? = nil
 					
 					if let onwardCalls = vehicle["onwardcalls"].array where onwardCalls.count > 0 {
 						if let name = onwardCalls[0]["stoppointname"].string,
 						let number = onwardCalls[0]["visitnumber"].int {
-							afterThatStop = BusStop(name: name, number: "\(number)", location: nil)
+							afterThatStop = BusStop(name: name, number: "\(number)", location: nil, expectedArrival: nil)
 						}
 					}
 					
@@ -91,7 +97,7 @@ class BusDataController: NSObject {
 			
 			for (key, value) in dict { //key: station number, value: dict{ "stop_name": name }
 				if let name = value["stop_name"].string {
-					stops.append(BusStop(name: name, number: key, location: nil))
+					stops.append(BusStop(name: name, number: key, location: nil, expectedArrival: nil))
 				}
 			}
 			
@@ -204,7 +210,7 @@ class BusDataController: NSObject {
 			for id in ids {
 				//look for name in dict
 				if let name = dict[id]?["stop_name"].string {
-					stops.append(BusStop(name: name, number: id, location: nil))
+					stops.append(BusStop(name: name, number: id, location: nil, expectedArrival: nil))
 				}
 			}
 			completionHandler(stops)

@@ -113,6 +113,17 @@ extension BusRouteViewController : UITableViewDataSource {
 		
 		//Change icons if next stop cell is first or last
 		if indexPath.row == nextStopIndex  { // cell is nextStopCell
+			
+			if let nextStopArrivalDate = appDelegate.busController.currentUserBus?.nextStop.expectedArrival {
+				let intervalInSeconds = nextStopArrivalDate.timeIntervalSinceNow
+				let minutes = Int(intervalInSeconds / 60)
+				
+				stopCell.arrivalDateLabel.text = (minutes <= 0) ? "now" : "in \(minutes) min"
+				
+			} else {
+				stopCell.arrivalDateLabel.text = ""
+			}
+			
 			if indexPath.row == 0 {
 				stopCell.iconImageView.image = UIImage(named: "route-icon-top")
 			}

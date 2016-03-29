@@ -13,4 +13,5 @@ struct BusStop {
 	var name: String
 	var number: String
 	var location: CLLocation?
+	var expectedArrival: NSDate?
 }

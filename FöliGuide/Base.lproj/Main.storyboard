@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E33e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Asx-y5-jmL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Asx-y5-jmL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -135,31 +135,31 @@ Therefore, please activate location services.</string>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-tl-nGN">
                                 <rect key="frame" x="142" y="115" width="137" height="429"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yh4-0C-srK">
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yh4-0C-srK">
                                         <rect key="frame" x="27" y="1" width="84" height="145"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Bus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezw-7Y-ucp">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Bus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezw-7Y-ucp">
                                                 <rect key="frame" x="25" y="1" width="34" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="51" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-QD-Fsv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="51" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-QD-Fsv">
                                                 <rect key="frame" x="10" y="29" width="64" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ByR-8P-e2G">
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ByR-8P-e2G">
                                                 <rect key="frame" x="0.0" y="105" width="84" height="41"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z05-tv-KDh">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" misplaced="YES" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z05-tv-KDh">
                                                         <rect key="frame" x="34" y="1" width="16" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRV-EZ-wBd">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRV-EZ-wBd">
                                                         <rect key="frame" x="0.0" y="21" width="84" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -169,16 +169,16 @@ Therefore, please activate location services.</string>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9u3-xo-pAe">
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9u3-xo-pAe">
                                         <rect key="frame" x="0.0" y="185" width="137" height="56"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Next bus station:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVf-y6-Hyu">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Next bus station:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVf-y6-Hyu">
                                                 <rect key="frame" x="0.0" y="1" width="137" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpP-ZQ-Sld">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpP-ZQ-Sld">
                                                 <rect key="frame" x="6" y="26" width="125" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -186,16 +186,16 @@ Therefore, please activate location services.</string>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="gWj-NZ-avW">
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="gWj-NZ-avW">
                                         <rect key="frame" x="6" y="279" width="125" height="56"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="After that:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5v-B4-0wy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="After that:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5v-B4-0wy">
                                                 <rect key="frame" x="22" y="1" width="82" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4D-eN-5ol">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4D-eN-5ol">
                                                 <rect key="frame" x="0.0" y="26" width="125" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,7 +203,7 @@ Therefore, please activate location services.</string>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-Wx-2Cg">
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-Wx-2Cg">
                                         <rect key="frame" x="6" y="374" width="125" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Alarm set for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHY-nE-FB2">
@@ -501,22 +501,22 @@ Therefore, please activate location services.</string>
                                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZiI-nz-KfA">
                                             <rect key="frame" x="28" y="8" width="184" height="54"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="801" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmX-op-bbL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="801" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmX-op-bbL">
                                                     <rect key="frame" x="0.0" y="0.0" width="77" height="54"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="-13" translatesAutoresizingMaskIntoConstraints="NO" id="tT0-TH-f3C">
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="top" spacing="-13" translatesAutoresizingMaskIntoConstraints="NO" id="tT0-TH-f3C">
                                                     <rect key="frame" x="81" y="0.0" width="104" height="54"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to Kauppatori" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6h-Fc-tCE">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="to Kauppatori" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6h-Fc-tCE">
                                                             <rect key="frame" x="0.0" y="0.0" width="104" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="420m away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-lb-jBg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="420m away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-lb-jBg">
                                                             <rect key="frame" x="0.0" y="21" width="89" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.77265625000000004" colorSpace="calibratedRGB"/>
@@ -576,8 +576,8 @@ Therefore, please activate location services.</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iT7-IG-vqq">
-                                <rect key="frame" x="268" y="36" width="64" height="96"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iT7-IG-vqq">
+                                <rect key="frame" x="268" y="80" width="64" height="96"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Bus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dt0-FE-xnh">
                                         <rect key="frame" x="0.0" y="0.0" width="64" height="24"/>
@@ -598,8 +598,8 @@ Therefore, please activate location services.</string>
                                     <outletCollection property="gestureRecognizers" destination="aeX-lC-RDj" appends="YES" id="1S0-sF-zxu"/>
                                 </connections>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="av8-rd-1p3">
-                                <rect key="frame" x="0.0" y="149" width="600" height="451"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="av8-rd-1p3">
+                                <rect key="frame" x="0.0" y="193" width="600" height="407"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -612,13 +612,13 @@ Therefore, please activate location services.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnY-lG-Msc">
-                                                    <rect key="frame" x="260" y="12" width="83.5" height="20.5"/>
+                                                    <rect key="frame" x="275" y="12" width="83.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-top" translatesAutoresizingMaskIntoConstraints="NO" id="DMB-ZZ-jt8">
-                                                    <rect key="frame" x="230" y="0.0" width="20" height="44"/>
+                                                    <rect key="frame" x="245" y="0.0" width="20" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="DMB-ZZ-jt8" secondAttribute="height" multiplier="40:88" id="127-S3-Wub"/>
                                                         <constraint firstAttribute="width" secondItem="DMB-ZZ-jt8" secondAttribute="height" multiplier="40:58" id="G3M-dN-Mgu"/>
@@ -648,7 +648,7 @@ Therefore, please activate location services.</string>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="GnY-lG-Msc" secondAttribute="centerY" id="iNq-lZ-MEt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="DMB-ZZ-jt8" secondAttribute="bottom" constant="-8" id="nv5-eg-4r7"/>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="xtc-dC-KaX" secondAttribute="centerY" constant="5" id="q70-PF-1eD"/>
-                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerX" secondItem="xtc-dC-KaX" secondAttribute="centerX" constant="-60" id="qv3-0h-Z6V"/>
+                                                <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerX" secondItem="xtc-dC-KaX" secondAttribute="centerX" constant="-45" id="qv3-0h-Z6V"/>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="leading" secondItem="xtc-dC-KaX" secondAttribute="leadingMargin" constant="16" id="s1b-st-RKV"/>
                                             </constraints>
                                             <variation key="default">
@@ -679,13 +679,13 @@ Therefore, please activate location services.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paavaistentie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-PN-iJp">
-                                                    <rect key="frame" x="260" y="10" width="123" height="24"/>
+                                                    <rect key="frame" x="275" y="10" width="123" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-next" translatesAutoresizingMaskIntoConstraints="NO" id="Gsv-Rd-53w">
-                                                    <rect key="frame" x="230" y="0.0" width="20" height="44"/>
+                                                    <rect key="frame" x="245" y="0.0" width="20" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="l2X-wB-5Wc"/>
                                                         <constraint firstAttribute="width" secondItem="Gsv-Rd-53w" secondAttribute="height" multiplier="40:88" id="xrL-Qz-laY"/>
@@ -696,16 +696,24 @@ Therefore, please activate location services.</string>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in 5 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XQ-cT-Yb3">
+                                                    <rect key="frame" x="178" y="12" width="57" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="3iO-PN-iJp" firstAttribute="centerX" secondItem="mE7-8N-B26" secondAttribute="centerX" id="7Mh-Rh-iRM"/>
-                                                <constraint firstItem="Gsv-Rd-53w" firstAttribute="centerX" secondItem="mE7-8N-B26" secondAttribute="centerX" constant="-60" id="KVf-A3-KEe"/>
+                                                <constraint firstItem="Gsv-Rd-53w" firstAttribute="centerX" secondItem="mE7-8N-B26" secondAttribute="centerX" constant="-45" id="KVf-A3-KEe"/>
                                                 <constraint firstItem="3iO-PN-iJp" firstAttribute="centerY" secondItem="mE7-8N-B26" secondAttribute="centerY" id="bjb-WY-0RA"/>
                                                 <constraint firstItem="3iO-PN-iJp" firstAttribute="leading" secondItem="Gsv-Rd-53w" secondAttribute="trailing" constant="10" id="eMM-N2-qeu"/>
+                                                <constraint firstItem="2XQ-cT-Yb3" firstAttribute="centerY" secondItem="Gsv-Rd-53w" secondAttribute="centerY" id="fO7-qy-0UG"/>
                                                 <constraint firstItem="Gsv-Rd-53w" firstAttribute="leading" secondItem="mE7-8N-B26" secondAttribute="leadingMargin" constant="16" id="hvS-vX-ShD"/>
                                                 <constraint firstItem="Gsv-Rd-53w" firstAttribute="top" secondItem="mE7-8N-B26" secondAttribute="topMargin" constant="-8" id="iPg-ps-V5e"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Gsv-Rd-53w" secondAttribute="bottom" constant="-8" id="oD1-Ov-2bq"/>
+                                                <constraint firstItem="Gsv-Rd-53w" firstAttribute="leading" secondItem="2XQ-cT-Yb3" secondAttribute="trailing" constant="10" id="qEN-jx-obf"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -716,6 +724,7 @@ Therefore, please activate location services.</string>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="arrivalDateLabel" destination="2XQ-cT-Yb3" id="Z8S-Iw-YbP"/>
                                             <outlet property="iconImageView" destination="Gsv-Rd-53w" id="EOS-Zb-EQ2"/>
                                             <outlet property="nameLabel" destination="3iO-PN-iJp" id="CAj-IK-Zq2"/>
                                         </connections>
@@ -728,13 +737,13 @@ Therefore, please activate location services.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luhtikatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oL-fu-F5I">
-                                                    <rect key="frame" x="260" y="12" width="71" height="20.5"/>
+                                                    <rect key="frame" x="275" y="12" width="71" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-middle" translatesAutoresizingMaskIntoConstraints="NO" id="ZiQ-3Z-i9u">
-                                                    <rect key="frame" x="230" y="0.0" width="20" height="44"/>
+                                                    <rect key="frame" x="245" y="0.0" width="20" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ZiQ-3Z-i9u" secondAttribute="height" multiplier="40:88" id="QqM-me-Mar"/>
                                                     </constraints>
@@ -748,7 +757,7 @@ Therefore, please activate location services.</string>
                                                 <constraint firstItem="1oL-fu-F5I" firstAttribute="leading" secondItem="ZiQ-3Z-i9u" secondAttribute="trailing" constant="10" id="WEh-cb-1EG"/>
                                                 <constraint firstItem="1oL-fu-F5I" firstAttribute="centerX" secondItem="hl5-Lv-O3N" secondAttribute="centerX" id="eY4-gu-W2O"/>
                                                 <constraint firstItem="1oL-fu-F5I" firstAttribute="centerY" secondItem="hl5-Lv-O3N" secondAttribute="centerY" id="gUM-LA-47O"/>
-                                                <constraint firstItem="ZiQ-3Z-i9u" firstAttribute="centerX" secondItem="hl5-Lv-O3N" secondAttribute="centerX" constant="-60" id="lBC-GH-pED"/>
+                                                <constraint firstItem="ZiQ-3Z-i9u" firstAttribute="centerX" secondItem="hl5-Lv-O3N" secondAttribute="centerX" constant="-45" id="lBC-GH-pED"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -771,13 +780,13 @@ Therefore, please activate location services.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brahenkatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRZ-Ou-99k">
-                                                    <rect key="frame" x="260" y="12" width="87.5" height="20.5"/>
+                                                    <rect key="frame" x="275" y="12" width="87.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Aio-pX-2dh">
-                                                    <rect key="frame" x="230" y="0.0" width="20" height="44"/>
+                                                    <rect key="frame" x="245" y="0.0" width="20" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Aio-pX-2dh" secondAttribute="height" multiplier="40:88" id="edY-7v-K48"/>
                                                     </constraints>
@@ -791,7 +800,7 @@ Therefore, please activate location services.</string>
                                                 <constraint firstItem="sRZ-Ou-99k" firstAttribute="leading" secondItem="Aio-pX-2dh" secondAttribute="trailing" constant="10" id="hOb-F6-XP1"/>
                                                 <constraint firstItem="sRZ-Ou-99k" firstAttribute="centerX" secondItem="qMt-IH-9SV" secondAttribute="centerX" id="jsV-CO-YXL"/>
                                                 <constraint firstItem="sRZ-Ou-99k" firstAttribute="centerY" secondItem="qMt-IH-9SV" secondAttribute="centerY" id="pde-mK-g4T"/>
-                                                <constraint firstItem="Aio-pX-2dh" firstAttribute="centerX" secondItem="qMt-IH-9SV" secondAttribute="centerX" constant="-60" id="vx0-8e-21s"/>
+                                                <constraint firstItem="Aio-pX-2dh" firstAttribute="centerX" secondItem="qMt-IH-9SV" secondAttribute="centerX" constant="-45" id="vx0-8e-21s"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -814,7 +823,7 @@ Therefore, please activate location services.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inspehtorinkatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-wE-7dU">
-                                                    <rect key="frame" x="241.5" y="12" width="117.5" height="20.5"/>
+                                                    <rect key="frame" x="241" y="12" width="117.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <color key="textColor" red="0.91066666666666662" green="0.91066666666666662" blue="0.91066666666666662" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
