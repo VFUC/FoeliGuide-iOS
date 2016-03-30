@@ -170,14 +170,14 @@ extension BusRouteViewController : UITableViewDataSource {
 		stopCell.alarmImageView.hidden = !(stop.name == destinationStop)
 		
 		//Put cell on half opacity if the bus stop has already been passed
-		if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
+		if let nextStopIndex = nextStopIndex where indexPath.row <= nextStopIndex {
 			stopCell.dimSubViews()
 			stopCell.userInteractionEnabled = false
 		} else {
 			stopCell.brightenSubViews()
 			stopCell.userInteractionEnabled = true
+			stopCell.selectionStyle = .None
 		}
-		
 		
 		
 		
