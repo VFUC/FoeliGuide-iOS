@@ -13,6 +13,12 @@ class RouteStopTableViewCell: UITableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var iconImageView: UIImageView!
 	@IBOutlet weak var arrivalDateLabel: UILabel!
+	@IBOutlet weak var alarmImageView: UIImageView! {
+		didSet {
+			alarmImageView.tintColor = UIColor.whiteColor()
+			alarmImageView.image = alarmImageView.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+		}
+	}
 	
     override func awakeFromNib() {
         super.awakeFromNib()

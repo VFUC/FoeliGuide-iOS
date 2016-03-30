@@ -29,6 +29,25 @@ class BusRouteViewController: UIViewController {
 	}
 	
 	
+	var alarmSet = false {
+		didSet {
+			if alarmSet {
+				appDelegate.alarmIsSet = true
+			} else {
+				appDelegate.alarmIsSet = false
+			}
+		}
+	}
+	
+	var destinationStop : String? {
+		didSet {
+			alarmSet = !(destinationStop == nil)
+		}
+	}
+	
+	
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -105,14 +124,16 @@ extension BusRouteViewController : UITableViewDataSource {
 		var nextStopIndex : Int? = nil
 		
 		guard let _ = appDelegate.busController.currentUserBus?.route else {
-			return tableView.dequeueReusableCellWithIdentifier("defaultCell", forIndexPath: indexPath)
+			return tableView.dequeueReusableCellWithIdentifier("defaultBusStopCell", forIndexPath: indexPath)
 		}
 		
 		displayStops = appDelegate.busController.currentUserBus!.route!
 		
 		guard indexPath.row < displayStops.count else {
-			return tableView.dequeueReusableCellWithIdentifier("defaultCell", forIndexPath: indexPath)
+			return tableView.dequeueReusableCellWithIdentifier("defaultBusStopCell", forIndexPath: indexPath)
 		}
+		
+		let stop = displayStops[indexPath.row]
 		
 		for (index, stop) in displayStops.enumerate() {
 			if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
@@ -121,7 +142,7 @@ extension BusRouteViewController : UITableViewDataSource {
 			}
 		}
 		
-		var reuseIdentifier = "defaultCell" //TODO: make a default cell
+		var reuseIdentifier = "defaultBusStopCell"
 		
 		switch indexPath.row {
 		case 0:
@@ -131,7 +152,7 @@ extension BusRouteViewController : UITableViewDataSource {
 		case displayStops.count - 1:
 			reuseIdentifier = "lastBusStopCell"
 		default:
-			reuseIdentifier = "defaultCell"
+			reuseIdentifier = "defaultBusStopCell"
 		}
 		
 		if indexPath.row == nextStopIndex {
@@ -145,14 +166,20 @@ extension BusRouteViewController : UITableViewDataSource {
 			return cell
 		}
 		
-		stopCell.nameLabel.text = displayStops[indexPath.row].name
+		stopCell.nameLabel.text = stop.name
+		stopCell.alarmImageView.hidden = !(stop.name == destinationStop)
 		
 		//Put cell on half opacity if the bus stop has already been passed
 		if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
 			stopCell.dimSubViews()
+			stopCell.userInteractionEnabled = false
 		} else {
 			stopCell.brightenSubViews()
+			stopCell.userInteractionEnabled = true
 		}
+		
+		
+		
 		
 		//Change icons if next stop cell is first or last
 		if indexPath.row == nextStopIndex  { // cell is nextStopCell
@@ -175,6 +202,7 @@ extension BusRouteViewController : UITableViewDataSource {
 			}
 		}
 		
+		
 		return stopCell
 	}
 	
@@ -196,11 +224,106 @@ extension BusRouteViewController : UITableViewDataSource {
 
 extension BusRouteViewController : UITableViewDelegate {
 	
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		guard indexPath.row < displayStops.count else {
+			return
+		}
+		
+		
+		// Already passed bus stops are not selectable
+		var nextStopIndex : Int? = nil
+		for (index, stop) in displayStops.enumerate() {
+			if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
+				nextStopIndex = index
+				break
+			}
+		}
+		guard indexPath.row > nextStopIndex else {
+			return
+		}
+		
+		
+		
+		
+		let selectedStop = displayStops[indexPath.row]
+		
+		if selectedStop.name == destinationStop {
+			let message = "Do you want to remove the alarm for \(selectedStop.name)?"
+			
+			let alertController = UIAlertController(title: "Remove alarm?", message: message, preferredStyle: .Alert)
+			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+			alertController.addAction(UIAlertAction(title: "Remove", style: .Destructive, handler: { _ -> Void in
+				for (index,stop) in self.displayStops.enumerate() {
+					if stop.name == self.destinationStop {
+						
+						if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
+							cell.alarmImageView.hidden = true
+						}
+						
+					}
+				}
+				
+				self.destinationStop = nil
+			}))
+			
+			presentViewController(alertController, animated: true, completion: nil)
+		} else {
+			var message = "Do you want to set an alarm for \(selectedStop.name)?"
+			
+			if destinationStop != nil {
+				message += "\nThis will overwrite the alarm for \(destinationStop!)"
+			}
+			
+			let alertController = UIAlertController(title: "Set alarm?", message: message, preferredStyle: .Alert)
+			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+			alertController.addAction(UIAlertAction(title: "Set", style: .Default, handler: { _ -> Void in
+				let previousDestinationStop = self.destinationStop
+				self.destinationStop = selectedStop.name
+				
+				//add alarm icon to newly selected alarm
+				if let cell = self.busStopsTableView.cellForRowAtIndexPath(indexPath) as? RouteStopTableViewCell {
+					cell.alarmImageView.hidden = false
+				}
+				
+				//remove alarm icon if previous alarm existed
+				if previousDestinationStop != nil {
+					for (index,stop) in self.displayStops.enumerate() {
+						if stop.name == previousDestinationStop {
+							
+							if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
+								cell.alarmImageView.hidden = true
+							}
+							
+						}
+					}
+				}
+				
+				
+			}))
+			
+			presentViewController(alertController, animated: true, completion: nil)
+		}
+		
+	}
+	
+	
+	
 }
 
 
 extension BusRouteViewController : BusUpdateDelegate {
 	func didUpdateBusData() {
 		busStopsTableView.reloadData()
+		
+		if let nextStop = appDelegate.busController.currentUserBus?.nextStop where nextStop.name == destinationStop{
+			NotificationController.showNextBusStationNotification(stopName: destinationStop!, viewController: self)
+			destinationStop = nil
+		}
+		
+		
+		if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop where afterThatStop.name == destinationStop{
+			NotificationController.showAfterThatBusStationNotification(stopName: destinationStop!, viewController: self)
+			destinationStop = nil
+		}
 	}
 }

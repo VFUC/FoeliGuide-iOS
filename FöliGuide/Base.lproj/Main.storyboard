@@ -633,6 +633,14 @@ Therefore, please activate location services.</string>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="ggp-2u-CB8">
+                                                    <rect key="frame" x="368.5" y="13" width="20" height="20"/>
+                                                    <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="2OU-Cw-lDR"/>
+                                                        <constraint firstAttribute="width" secondItem="ggp-2u-CB8" secondAttribute="height" multiplier="1:1" id="aL3-yE-9mB"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -644,9 +652,11 @@ Therefore, please activate location services.</string>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="top" secondItem="xtc-dC-KaX" secondAttribute="topMargin" constant="-8" id="Vnb-Lg-aMA"/>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="GnY-lG-Msc" secondAttribute="centerY" id="YHa-gI-zGn"/>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="leading" secondItem="xtc-dC-KaX" secondAttribute="leadingMargin" constant="7" id="ZdG-SR-dNH"/>
+                                                <constraint firstItem="ggp-2u-CB8" firstAttribute="leading" secondItem="GnY-lG-Msc" secondAttribute="trailing" constant="10" id="bBF-Ld-lY9"/>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="leading" secondItem="xtc-dC-KaX" secondAttribute="leadingMargin" constant="8" id="esZ-HQ-MCH"/>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="GnY-lG-Msc" secondAttribute="centerY" id="iNq-lZ-MEt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="DMB-ZZ-jt8" secondAttribute="bottom" constant="-8" id="nv5-eg-4r7"/>
+                                                <constraint firstItem="ggp-2u-CB8" firstAttribute="centerY" secondItem="GnY-lG-Msc" secondAttribute="centerY" id="oHs-nI-klF"/>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerY" secondItem="xtc-dC-KaX" secondAttribute="centerY" constant="5" id="q70-PF-1eD"/>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="centerX" secondItem="xtc-dC-KaX" secondAttribute="centerX" constant="-45" id="qv3-0h-Z6V"/>
                                                 <constraint firstItem="DMB-ZZ-jt8" firstAttribute="leading" secondItem="xtc-dC-KaX" secondAttribute="leadingMargin" constant="16" id="s1b-st-RKV"/>
@@ -667,6 +677,7 @@ Therefore, please activate location services.</string>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="alarmImageView" destination="ggp-2u-CB8" id="uCp-Yv-Jch"/>
                                             <outlet property="iconImageView" destination="DMB-ZZ-jt8" id="B6d-v5-Eca"/>
                                             <outlet property="nameLabel" destination="GnY-lG-Msc" id="PJf-nz-HqZ"/>
                                         </connections>
@@ -702,14 +713,24 @@ Therefore, please activate location services.</string>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="06u-Fj-Enb">
+                                                    <rect key="frame" x="408" y="12" width="20" height="20"/>
+                                                    <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="ER1-zz-kJm"/>
+                                                        <constraint firstAttribute="width" secondItem="06u-Fj-Enb" secondAttribute="height" multiplier="1:1" id="Ig3-x6-epl"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="3iO-PN-iJp" firstAttribute="centerX" secondItem="mE7-8N-B26" secondAttribute="centerX" id="7Mh-Rh-iRM"/>
+                                                <constraint firstItem="06u-Fj-Enb" firstAttribute="leading" secondItem="3iO-PN-iJp" secondAttribute="trailing" constant="10" id="I80-7u-tUe"/>
                                                 <constraint firstItem="Gsv-Rd-53w" firstAttribute="centerX" secondItem="mE7-8N-B26" secondAttribute="centerX" constant="-45" id="KVf-A3-KEe"/>
                                                 <constraint firstItem="3iO-PN-iJp" firstAttribute="centerY" secondItem="mE7-8N-B26" secondAttribute="centerY" id="bjb-WY-0RA"/>
                                                 <constraint firstItem="3iO-PN-iJp" firstAttribute="leading" secondItem="Gsv-Rd-53w" secondAttribute="trailing" constant="10" id="eMM-N2-qeu"/>
                                                 <constraint firstItem="2XQ-cT-Yb3" firstAttribute="centerY" secondItem="Gsv-Rd-53w" secondAttribute="centerY" id="fO7-qy-0UG"/>
+                                                <constraint firstItem="06u-Fj-Enb" firstAttribute="centerY" secondItem="3iO-PN-iJp" secondAttribute="centerY" id="hcf-R0-aKU"/>
                                                 <constraint firstItem="Gsv-Rd-53w" firstAttribute="leading" secondItem="mE7-8N-B26" secondAttribute="leadingMargin" constant="16" id="hvS-vX-ShD"/>
                                                 <constraint firstItem="Gsv-Rd-53w" firstAttribute="top" secondItem="mE7-8N-B26" secondAttribute="topMargin" constant="-8" id="iPg-ps-V5e"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Gsv-Rd-53w" secondAttribute="bottom" constant="-8" id="oD1-Ov-2bq"/>
@@ -724,6 +745,7 @@ Therefore, please activate location services.</string>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="alarmImageView" destination="06u-Fj-Enb" id="49H-xO-8m6"/>
                                             <outlet property="arrivalDateLabel" destination="2XQ-cT-Yb3" id="Z8S-Iw-YbP"/>
                                             <outlet property="iconImageView" destination="Gsv-Rd-53w" id="EOS-Zb-EQ2"/>
                                             <outlet property="nameLabel" destination="3iO-PN-iJp" id="CAj-IK-Zq2"/>
@@ -748,16 +770,27 @@ Therefore, please activate location services.</string>
                                                         <constraint firstAttribute="width" secondItem="ZiQ-3Z-i9u" secondAttribute="height" multiplier="40:88" id="QqM-me-Mar"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="aTD-dj-JVr">
+                                                    <rect key="frame" x="356" y="13" width="20" height="20"/>
+                                                    <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="b9c-1f-Dry"/>
+                                                        <constraint firstAttribute="width" secondItem="aTD-dj-JVr" secondAttribute="height" multiplier="1:1" id="sZg-AJ-mIQ"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="ZiQ-3Z-i9u" firstAttribute="top" secondItem="hl5-Lv-O3N" secondAttribute="topMargin" constant="-8" id="72K-mh-qrD"/>
                                                 <constraint firstItem="ZiQ-3Z-i9u" firstAttribute="leading" secondItem="hl5-Lv-O3N" secondAttribute="leadingMargin" constant="16" id="8SH-xm-3pk"/>
+                                                <constraint firstItem="aTD-dj-JVr" firstAttribute="width" secondItem="aTD-dj-JVr" secondAttribute="height" multiplier="1:1" id="HSf-a3-8dd"/>
+                                                <constraint firstItem="aTD-dj-JVr" firstAttribute="centerY" secondItem="1oL-fu-F5I" secondAttribute="centerY" id="HUB-EJ-w4g"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ZiQ-3Z-i9u" secondAttribute="bottom" constant="-8" id="Uay-8K-XSQ"/>
                                                 <constraint firstItem="1oL-fu-F5I" firstAttribute="leading" secondItem="ZiQ-3Z-i9u" secondAttribute="trailing" constant="10" id="WEh-cb-1EG"/>
                                                 <constraint firstItem="1oL-fu-F5I" firstAttribute="centerX" secondItem="hl5-Lv-O3N" secondAttribute="centerX" id="eY4-gu-W2O"/>
                                                 <constraint firstItem="1oL-fu-F5I" firstAttribute="centerY" secondItem="hl5-Lv-O3N" secondAttribute="centerY" id="gUM-LA-47O"/>
                                                 <constraint firstItem="ZiQ-3Z-i9u" firstAttribute="centerX" secondItem="hl5-Lv-O3N" secondAttribute="centerX" constant="-45" id="lBC-GH-pED"/>
+                                                <constraint firstItem="aTD-dj-JVr" firstAttribute="leading" secondItem="1oL-fu-F5I" secondAttribute="trailing" constant="10" id="w7y-uu-6As"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -768,6 +801,7 @@ Therefore, please activate location services.</string>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="alarmImageView" destination="aTD-dj-JVr" id="8df-yl-WtH"/>
                                             <outlet property="iconImageView" destination="ZiQ-3Z-i9u" id="qgY-YA-tJC"/>
                                             <outlet property="nameLabel" destination="1oL-fu-F5I" id="o11-Gx-Lvx"/>
                                         </connections>
@@ -791,15 +825,26 @@ Therefore, please activate location services.</string>
                                                         <constraint firstAttribute="width" secondItem="Aio-pX-2dh" secondAttribute="height" multiplier="40:88" id="edY-7v-K48"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="2R0-UD-DXg">
+                                                    <rect key="frame" x="372.5" y="13" width="20" height="20"/>
+                                                    <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="5Hl-UE-iZa"/>
+                                                        <constraint firstAttribute="width" secondItem="2R0-UD-DXg" secondAttribute="height" multiplier="1:1" id="qmu-97-Z7O"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="2R0-UD-DXg" firstAttribute="leading" secondItem="sRZ-Ou-99k" secondAttribute="trailing" constant="10" id="80n-K7-Zf5"/>
                                                 <constraint firstItem="Aio-pX-2dh" firstAttribute="top" secondItem="qMt-IH-9SV" secondAttribute="topMargin" constant="-8" id="MCx-aB-gMc"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Aio-pX-2dh" secondAttribute="bottom" constant="-8" id="UFa-Ol-5vb"/>
                                                 <constraint firstItem="Aio-pX-2dh" firstAttribute="leading" secondItem="qMt-IH-9SV" secondAttribute="leadingMargin" constant="16" id="eSK-xN-WiZ"/>
                                                 <constraint firstItem="sRZ-Ou-99k" firstAttribute="leading" secondItem="Aio-pX-2dh" secondAttribute="trailing" constant="10" id="hOb-F6-XP1"/>
                                                 <constraint firstItem="sRZ-Ou-99k" firstAttribute="centerX" secondItem="qMt-IH-9SV" secondAttribute="centerX" id="jsV-CO-YXL"/>
+                                                <constraint firstItem="2R0-UD-DXg" firstAttribute="centerY" secondItem="sRZ-Ou-99k" secondAttribute="centerY" id="ou8-mK-f6f"/>
                                                 <constraint firstItem="sRZ-Ou-99k" firstAttribute="centerY" secondItem="qMt-IH-9SV" secondAttribute="centerY" id="pde-mK-g4T"/>
+                                                <constraint firstItem="2R0-UD-DXg" firstAttribute="width" secondItem="2R0-UD-DXg" secondAttribute="height" multiplier="1:1" id="r8V-Iu-Eo4"/>
                                                 <constraint firstItem="Aio-pX-2dh" firstAttribute="centerX" secondItem="qMt-IH-9SV" secondAttribute="centerX" constant="-45" id="vx0-8e-21s"/>
                                             </constraints>
                                             <variation key="default">
@@ -811,6 +856,7 @@ Therefore, please activate location services.</string>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="alarmImageView" destination="2R0-UD-DXg" id="TOJ-vT-v2N"/>
                                             <outlet property="iconImageView" destination="Aio-pX-2dh" id="TEH-n7-P83"/>
                                             <outlet property="nameLabel" destination="sRZ-Ou-99k" id="mlK-WX-WUZ"/>
                                         </connections>
@@ -937,6 +983,7 @@ Therefore, please activate location services.</string>
     </scenes>
     <resources>
         <image name="bell" width="22" height="22"/>
+        <image name="bell-filled" width="22" height="22"/>
         <image name="foli-guide-transparent" width="1024" height="1024"/>
         <image name="ios-volume-low" width="80" height="120"/>
         <image name="route-icon-bottom" width="40" height="88"/>
