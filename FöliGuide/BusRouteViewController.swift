@@ -19,7 +19,14 @@ class BusRouteViewController: UIViewController {
 	}
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-	
+	var displayStops = [BusStop]() {
+		
+		didSet {
+			if hasDuplicateStops(displayStops){ //Will be recursively called until no more duplicates
+				displayStops = removeFirstDuplicateStop(displayStops)
+			}
+		}
+	}
 	
 	
 	override func viewDidLoad() {
@@ -34,11 +41,14 @@ class BusRouteViewController: UIViewController {
 	func scrollToNextBusStop(animated animated: Bool){
 		
 		var nextStopIndex : Int? = nil
-		guard let stops = appDelegate.busController.currentUserBus?.route else {
+		guard let _ = appDelegate.busController.currentUserBus?.route else {
 			return
 		}
 		
-		for (index, stop) in stops.enumerate() {
+		displayStops = appDelegate.busController.currentUserBus!.route!
+		
+		
+		for (index, stop) in displayStops.enumerate() {
 			if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
 				nextStopIndex = index
 				break
@@ -56,6 +66,33 @@ class BusRouteViewController: UIViewController {
 	@IBAction func headTouched(sender: AnyObject) {
 		scrollToNextBusStop(animated: true)
 	}
+	
+	
+	func hasDuplicateStops(stops: [BusStop]) -> Bool {
+		for (index, stop) in stops.enumerate() {
+			if index - 1  >= 0 {
+				if stops[index - 1].name == stop.name {
+					return true
+				}
+			}
+		}
+		
+		return false
+	}
+	
+	func removeFirstDuplicateStop(stops: [BusStop]) -> [BusStop]{
+		var stopCopy = stops
+		for (index, stop) in stopCopy.enumerate() {
+			if index - 1  >= 0 {
+				if stopCopy[index - 1].name == stop.name {
+					stopCopy.removeAtIndex(index)
+					return stopCopy
+				}
+			}
+		}
+		
+		return stopCopy
+	}
 }
 
 
@@ -66,11 +103,18 @@ extension BusRouteViewController : UITableViewDataSource {
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
 		var nextStopIndex : Int? = nil
-		guard let stops = appDelegate.busController.currentUserBus?.route where indexPath.row < stops.count else {
+		
+		guard let _ = appDelegate.busController.currentUserBus?.route else {
 			return tableView.dequeueReusableCellWithIdentifier("defaultCell", forIndexPath: indexPath)
 		}
 		
-		for (index, stop) in stops.enumerate() {
+		displayStops = appDelegate.busController.currentUserBus!.route!
+		
+		guard indexPath.row < displayStops.count else {
+			return tableView.dequeueReusableCellWithIdentifier("defaultCell", forIndexPath: indexPath)
+		}
+		
+		for (index, stop) in displayStops.enumerate() {
 			if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
 				nextStopIndex = index
 				break
@@ -82,9 +126,9 @@ extension BusRouteViewController : UITableViewDataSource {
 		switch indexPath.row {
 		case 0:
 			reuseIdentifier = "firstBusStopCell"
-		case 1..<stops.count - 1:
+		case 1..<displayStops.count - 1:
 			reuseIdentifier = "middleBusStopCell"
-		case stops.count - 1:
+		case displayStops.count - 1:
 			reuseIdentifier = "lastBusStopCell"
 		default:
 			reuseIdentifier = "defaultCell"
@@ -101,8 +145,7 @@ extension BusRouteViewController : UITableViewDataSource {
 			return cell
 		}
 		
-		
-		stopCell.nameLabel.text = stops[indexPath.row].name
+		stopCell.nameLabel.text = displayStops[indexPath.row].name
 		
 		//Put cell on half opacity if the bus stop has already been passed
 		if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
@@ -127,7 +170,7 @@ extension BusRouteViewController : UITableViewDataSource {
 			if indexPath.row == 0 {
 				stopCell.iconImageView.image = UIImage(named: "route-icon-top")
 			}
-			if indexPath.row == (stops.count - 1) {
+			if indexPath.row == (displayStops.count - 1) {
 				stopCell.iconImageView.image = UIImage(named: "route-icon-next-bottom")
 			}
 		}
@@ -140,7 +183,12 @@ extension BusRouteViewController : UITableViewDataSource {
 	}
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return appDelegate.busController.currentUserBus?.route?.count ?? 0
+		guard let _ = appDelegate.busController.currentUserBus?.route else {
+			return 0
+		}
+		
+		displayStops = appDelegate.busController.currentUserBus!.route!
+		return displayStops.count
 	}
 	
 	
