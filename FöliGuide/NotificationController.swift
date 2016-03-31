@@ -13,7 +13,6 @@ class NotificationController: NSObject {
 	
 	
 	class func showNextBusStationNotification(stopName stopName: String, viewController: UIViewController){
-		
 		notificationWithTitle("Destination upcoming!", body: "Next stop is \(stopName)", viewController: viewController)
 	}
 	
@@ -29,9 +28,8 @@ class NotificationController: NSObject {
 		let alertController = UIAlertController(title: title, message: body, preferredStyle: .Alert)
 		alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
 		
-		AudioServicesPlayAlertSound(kSystemSoundID_Vibrate) //TODO: Sound too, not only vibration
+		AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
 		viewController.presentViewController(alertController, animated: true, completion: nil)
-	
 	}
 	
 	class func showAppInBackgroundWithAlarmWarning(){

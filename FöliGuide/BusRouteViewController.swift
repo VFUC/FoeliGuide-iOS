@@ -22,6 +22,7 @@ class BusRouteViewController: UIViewController {
 	var displayStops = [BusStop]() {
 		
 		didSet {
+			//remove duplicate stop names in route
 			if hasDuplicateStops(displayStops){ //Will be recursively called until no more duplicates
 				displayStops = removeFirstDuplicateStop(displayStops)
 			}
@@ -126,6 +127,7 @@ extension BusRouteViewController : UITableViewDataSource {
 		guard let _ = appDelegate.busController.currentUserBus?.route else {
 			return tableView.dequeueReusableCellWithIdentifier("defaultBusStopCell", forIndexPath: indexPath)
 		}
+		
 		
 		displayStops = appDelegate.busController.currentUserBus!.route!
 		
