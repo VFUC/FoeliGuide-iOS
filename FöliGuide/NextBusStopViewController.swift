@@ -81,7 +81,7 @@ class NextBusStopViewController: UIViewController {
 		busNumberLabel.text = ""
 		nextStationNameLabel.text = ""
 		afterThatStationNameLabel.text = ""
-//		appDelegate.nextBusStopVC = self
+		appDelegate.busDataUpdateDelegates.append(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,28 +90,8 @@ class NextBusStopViewController: UIViewController {
     }
 	
 	
-	// Data has been updated, check if notification is necessary
-	func didUpdateData(){
-		if nextStationNameLabel.text == destinationStop {
-			NotificationController.showNextBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
-			destinationStop = nil
-		}
+
 	
-		if afterThatStationNameLabel.text == destinationStop {
-			NotificationController.showAfterThatBusStationNotification(stopName: afterThatStationNameLabel.text!, viewController: self)
-		}
-		
-		
-		if volumeEnabled {
-			if let nextStation = nextStationNameLabel.text {
-				SpeechController.announceNextBusStop(nextStation)
-			}
-			
-			if let afterThatStation = afterThatStationNameLabel.text {
-				SpeechController.announceFollowingBusStop(afterThatStation)
-			}
-		}
-	}
 	
 	
 	
@@ -146,5 +126,53 @@ class NextBusStopViewController: UIViewController {
 			vc.nextStopVC = self
 		}
 	}
-	
+}
+
+
+
+// Data has been updated, check if notification is necessary
+extension NextBusStopViewController : BusUpdateDelegate {
+	func didUpdateBusData(){
+		
+		guard let bus = appDelegate.busController.currentUserBus else {
+			return
+		}
+		
+		
+		guard busNumberLabel.text != bus.name || nextStationNameLabel.text != bus.nextStop.name else {
+			//Data did not change
+			return
+		}
+		
+		busNumberLabel.text = bus.name
+		finalStationName.text = bus.finalStop
+		nextStationNameLabel.text = bus.nextStop.name
+		afterThatStationNameLabel.text = bus.afterThatStop?.name ?? "--"
+		
+		if nextStationNameLabel.text == afterThatStationNameLabel.text {
+			afterThatStationNameLabel.text = "--" //TODO: Hide
+		}
+		
+		
+		
+		if nextStationNameLabel.text == destinationStop {
+			NotificationController.showNextBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
+			destinationStop = nil
+		}
+		
+		if afterThatStationNameLabel.text == destinationStop {
+			NotificationController.showAfterThatBusStationNotification(stopName: afterThatStationNameLabel.text!, viewController: self)
+		}
+		
+		
+		if volumeEnabled {
+			if let nextStation = nextStationNameLabel.text {
+				SpeechController.announceNextBusStop(nextStation)
+			}
+			
+			if let afterThatStation = afterThatStationNameLabel.text {
+				SpeechController.announceFollowingBusStop(afterThatStation)
+			}
+		}
+	}
 }

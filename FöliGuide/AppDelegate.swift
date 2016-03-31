@@ -45,12 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			mainViewControllerDidAppear()
 		}
 	}
-	
-//	var nextBusStopVC: NextBusStopViewController? {
-//		didSet {
-//			busController.runNow()
-//		}
-//	}
 
 	var busSelectionVC: BusSelectionTableViewController? {
 		didSet {
@@ -143,25 +137,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				
 				self.busController.currentUserBus = updatedBus
 				
+				
 				for delegate in self.busDataUpdateDelegates {
 					delegate.didUpdateBusData()
 				}
-				
-				/*
-				// if busNumber or nextStation has changed, update
-				if self.nextBusStopVC?.busNumberLabel.text != bus.name || self.nextBusStopVC?.nextStationNameLabel.text != bus.nextStop.name {
-					self.nextBusStopVC?.busNumberLabel.text = bus.name
-					self.nextBusStopVC?.finalStationName.text = bus.finalStop
-					self.nextBusStopVC?.nextStationNameLabel.text = bus.nextStop.name
-					self.nextBusStopVC?.afterThatStationNameLabel.text = bus.afterThatStop?.name ?? "--"
-					
-					if self.nextBusStopVC?.nextStationNameLabel.text == self.nextBusStopVC?.afterThatStationNameLabel.text {
-						self.nextBusStopVC?.afterThatStationNameLabel.text = "--" //Hide maybe?
-					}
-					
-					self.nextBusStopVC?.didUpdateData() // Notify the VC, so it can act on new data if needed
-				}
-				*/
 				
 			}
 			
