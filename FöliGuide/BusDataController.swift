@@ -146,12 +146,15 @@ class BusDataController: NSObject {
 				}
 				
 				var matchingTripID: String? = nil
+				var directionID: Int? = nil
 				
 				for trip in trips {
 					if let dictionary = trip.dictionary,
 						let tripID = dictionary["trip_id"]?.string,
+						let dirID = dictionary["direction_id"]?.int,
 						let blockID = dictionary["block_id"]?.string where blockID == bus.blockRef {
 							matchingTripID = tripID
+							directionID = dirID
 							break
 					}
 				}
@@ -180,6 +183,11 @@ class BusDataController: NSObject {
 							let stopID = dictionary["stop_id"]?.string {
 								busStopIDs.append(stopID)
 						}
+					}
+					
+					//Reverse stops if directionID implies so
+					if directionID == 0 {
+						busStopIDs = busStopIDs.reverse()
 					}
 					
 					self.getBusStops(fromIDs: busStopIDs, completionHandler: completionHandler)
