@@ -21,6 +21,7 @@ class NextBusStopViewController: UIViewController {
 	@IBOutlet weak var lastUpdatedLabel: UILabel!
 	@IBOutlet weak var volumeButton: UIButton!
 	@IBOutlet weak var initialConstraint: NSLayoutConstraint!
+	@IBOutlet weak var networkActivityIndicator: UIActivityIndicatorView!
 
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	var currentConstraint : NSLayoutConstraint? = nil
@@ -82,6 +83,7 @@ class NextBusStopViewController: UIViewController {
 		nextStationNameLabel.text = ""
 		afterThatStationNameLabel.text = ""
 		appDelegate.busDataUpdateDelegates.append(self)
+		appDelegate.networkActivityDelegates.append(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -173,6 +175,19 @@ extension NextBusStopViewController : BusUpdateDelegate {
 			if let afterThatStation = afterThatStationNameLabel.text {
 				SpeechController.announceFollowingBusStop(afterThatStation)
 			}
+		}
+	}
+}
+
+
+extension NextBusStopViewController : NetworkActivityDelegate {
+	func handleEvent(event: NetworkEvent) {
+		switch event {
+		case .BusLoadingStarted:
+			networkActivityIndicator.startAnimating()
+		case .BusLoadingFinished:
+			networkActivityIndicator.stopAnimating()
+		default: break
 		}
 	}
 }

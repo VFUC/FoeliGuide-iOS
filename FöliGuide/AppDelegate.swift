@@ -13,6 +13,10 @@ protocol BusUpdateDelegate {
 	func didUpdateBusData()
 }
 
+protocol NetworkActivityDelegate {
+	func handleEvent(event: NetworkEvent)
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
@@ -38,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var didShowBackgroundWarning = false //Only show once
 	
 	var busDataUpdateDelegates = [BusUpdateDelegate]()
+	var networkActivityDelegates = [NetworkActivityDelegate]()
 	
 	//MARK: VC Adapters
 	var mainVC: MainViewController? {
@@ -160,11 +165,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func handleNetworkEvent(event: NetworkEvent){
-//		switch event {
-//		case NetworkEvent.BusLoading.Finished:
-//			print("uuh")
-//		
-//		}
+		for delegate in networkActivityDelegates {
+			delegate.handleEvent(event)
+		}
 	}
 	
 }

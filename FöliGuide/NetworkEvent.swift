@@ -13,4 +13,5 @@ enum NetworkEvent {
 	case BusLoadingFinished
 	case BusStopLoadingStarted
 	case BusStopLoadingFinished
+	case LoadingFailed
 }

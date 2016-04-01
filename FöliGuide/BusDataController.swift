@@ -27,10 +27,15 @@ class BusDataController: NSObject {
 	var currentUserBus : Bus? = nil // current bus the user has selected
 	var currentBusData : [Bus]? // last saved bus data
 	
+	
 	private func getCurrentBusData(completionHandler: [Bus]? -> () ){
+		let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		appdelegate.handleNetworkEvent(.BusLoadingStarted)
+		
 		NetworkController.getBusData { (json) -> () in
 			
 			guard let json = json else {
+				appdelegate.handleNetworkEvent(.LoadingFailed)
 				completionHandler(nil)
 				return
 			}
@@ -76,14 +81,19 @@ class BusDataController: NSObject {
 			}
 			
 			self.currentBusData = busses
+			
+			appdelegate.handleNetworkEvent(.BusLoadingFinished)
 			completionHandler(busses)
 		}
 	}
 	
 	// Gets the current bus stop data
 	func getBusStops(completionHandler completionHandler: [BusStop]? -> ()){
+		let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		appdelegate.handleNetworkEvent(.BusStopLoadingStarted)
 		NetworkController.getBusStopData { (json) -> () in
 			guard let json = json else {
+				appdelegate.handleNetworkEvent(.LoadingFailed)
 				completionHandler(nil)
 				return
 			}
@@ -101,6 +111,7 @@ class BusDataController: NSObject {
 				}
 			}
 			
+			appdelegate.handleNetworkEvent(.BusStopLoadingStarted)
 			completionHandler(stops)
 		}
 	}

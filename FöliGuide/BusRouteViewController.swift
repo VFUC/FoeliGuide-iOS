@@ -17,6 +17,7 @@ class BusRouteViewController: UIViewController {
 			busStopsTableView.dataSource = self
 		}
 	}
+	@IBOutlet weak var networkActivityIndicator: UIActivityIndicatorView!
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	var displayStops = [BusStop]() {
@@ -54,6 +55,7 @@ class BusRouteViewController: UIViewController {
 		
 		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? ""
 		appDelegate.busDataUpdateDelegates.append(self)
+		appDelegate.networkActivityDelegates.append(self)
 		
 		scrollToNextBusStop(animated: true)
 	}
@@ -330,6 +332,19 @@ extension BusRouteViewController : BusUpdateDelegate {
 		if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop where afterThatStop.name == destinationStop{
 			NotificationController.showAfterThatBusStationNotification(stopName: destinationStop!, viewController: self)
 			destinationStop = nil
+		}
+	}
+}
+
+
+extension BusRouteViewController : NetworkActivityDelegate {
+	func handleEvent(event: NetworkEvent) {
+		switch event {
+		case .BusLoadingStarted:
+			networkActivityIndicator.startAnimating()
+		case .BusLoadingFinished:
+			networkActivityIndicator.stopAnimating()
+		default: break
 		}
 	}
 }

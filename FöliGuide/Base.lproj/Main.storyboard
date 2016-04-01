@@ -133,7 +133,7 @@ Therefore, please activate location services.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-tl-nGN">
-                                <rect key="frame" x="142" y="115" width="137" height="429"/>
+                                <rect key="frame" x="142" y="114" width="137" height="429"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yh4-0C-srK">
                                         <rect key="frame" x="27" y="1" width="84" height="145"/>
@@ -223,7 +223,7 @@ Therefore, please activate location services.</string>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42B-4m-1LY">
-                                <rect key="frame" x="20" y="112" width="20" height="30"/>
+                                <rect key="frame" x="20" y="82" width="20" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="84B-sp-56Z"/>
                                     <constraint firstAttribute="width" constant="100" id="B8s-3I-gqO"/>
@@ -243,32 +243,31 @@ Therefore, please activate location services.</string>
                                     <action selector="volumeButtonPressed:" destination="T07-fV-tdV" eventType="touchUpInside" id="23Z-uj-aW5"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sab-E6-CNc">
-                                <rect key="frame" x="0.0" y="64" width="600" height="28"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="updated 6 seconds ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7m6-28-3pp">
-                                        <rect key="frame" x="209" y="3" width="181" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.74112500000000003" green="0.74112500000000003" blue="0.74112500000000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="QeR-iZ-ro9">
+                                <rect key="frame" x="550" y="76" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstItem="7m6-28-3pp" firstAttribute="centerY" secondItem="Sab-E6-CNc" secondAttribute="centerY" id="1v3-aq-Jkd"/>
-                                    <constraint firstItem="7m6-28-3pp" firstAttribute="centerX" secondItem="Sab-E6-CNc" secondAttribute="centerX" id="Ojg-rL-1f5"/>
-                                    <constraint firstAttribute="height" constant="28" id="wnh-wg-yqt"/>
+                                    <constraint firstAttribute="width" secondItem="QeR-iZ-ro9" secondAttribute="height" multiplier="1:1" id="0tH-Mb-7SR"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="nSv-xw-8dN"/>
+                                    <constraint firstAttribute="width" constant="30" id="nk7-Bc-mJy"/>
+                                    <constraint firstAttribute="width" secondItem="QeR-iZ-ro9" secondAttribute="height" multiplier="1:1" id="wP4-J9-sQA"/>
                                 </constraints>
-                            </view>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0tH-Mb-7SR"/>
+                                        <exclude reference="nSv-xw-8dN"/>
+                                        <exclude reference="wP4-J9-sQA"/>
+                                    </mask>
+                                </variation>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="QeR-iZ-ro9" firstAttribute="width" secondItem="QeR-iZ-ro9" secondAttribute="height" multiplier="1:1" id="2N8-aU-eOw"/>
                             <constraint firstItem="42B-4m-1LY" firstAttribute="top" secondItem="5LT-Wr-7w3" secondAttribute="bottom" constant="22" id="DVa-69-Fwl"/>
                             <constraint firstAttribute="leadingMargin" secondItem="42B-4m-1LY" secondAttribute="leading" id="Dbt-dY-CkQ"/>
-                            <constraint firstItem="42B-4m-1LY" firstAttribute="top" secondItem="Sab-E6-CNc" secondAttribute="bottom" constant="20" id="E4h-3R-35H"/>
-                            <constraint firstItem="Sab-E6-CNc" firstAttribute="top" secondItem="5LT-Wr-7w3" secondAttribute="bottom" id="NeU-mm-l0v"/>
-                            <constraint firstItem="Sab-E6-CNc" firstAttribute="leading" secondItem="mVO-Jw-AqP" secondAttribute="leadingMargin" constant="-20" id="WhL-Xf-lRx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Sab-E6-CNc" secondAttribute="trailing" constant="-20" id="uPO-bD-4bv"/>
+                            <constraint firstItem="42B-4m-1LY" firstAttribute="top" secondItem="5LT-Wr-7w3" secondAttribute="bottom" constant="18" id="JbV-c2-Juv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QeR-iZ-ro9" secondAttribute="trailing" id="O4K-gI-OVv"/>
+                            <constraint firstItem="QeR-iZ-ro9" firstAttribute="top" secondItem="5LT-Wr-7w3" secondAttribute="bottom" constant="12" id="ncy-Mx-Geg"/>
                             <constraint firstItem="Ebn-tl-nGN" firstAttribute="centerX" secondItem="mVO-Jw-AqP" secondAttribute="centerX" id="vHx-oN-PTJ"/>
                             <constraint firstItem="Ebn-tl-nGN" firstAttribute="centerY" secondItem="mVO-Jw-AqP" secondAttribute="centerY" constant="30" id="xZU-Op-LAk"/>
                         </constraints>
@@ -291,8 +290,8 @@ Therefore, please activate location services.</string>
                         <outlet property="busNumberLabel" destination="MLR-QD-Fsv" id="nJc-JA-7Ym"/>
                         <outlet property="finalStationName" destination="oRV-EZ-wBd" id="r9K-Wt-jAq"/>
                         <outlet property="initialConstraint" destination="neq-fW-2Ym" id="PGg-D5-wR6"/>
-                        <outlet property="lastUpdatedLabel" destination="7m6-28-3pp" id="epw-76-mga"/>
                         <outlet property="mainStackView" destination="Ebn-tl-nGN" id="pks-k6-Fh4"/>
+                        <outlet property="networkActivityIndicator" destination="QeR-iZ-ro9" id="NlO-V4-RVL"/>
                         <outlet property="nextStationNameLabel" destination="CpP-ZQ-Sld" id="61H-ON-2oc"/>
                         <outlet property="selectedBusStationNameLabel" destination="wuc-be-t5M" id="5Fc-XZ-kjr"/>
                         <outlet property="selectedBusStationStackView" destination="1rc-Wx-2Cg" id="dhn-cQ-ucy"/>
@@ -634,7 +633,7 @@ Therefore, please activate location services.</string>
                                                     </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="ggp-2u-CB8">
-                                                    <rect key="frame" x="368.5" y="13" width="20" height="20"/>
+                                                    <rect key="frame" x="368" y="13" width="20" height="20"/>
                                                     <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="2OU-Cw-lDR"/>
@@ -826,7 +825,7 @@ Therefore, please activate location services.</string>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="2R0-UD-DXg">
-                                                    <rect key="frame" x="372.5" y="13" width="20" height="20"/>
+                                                    <rect key="frame" x="372" y="13" width="20" height="20"/>
                                                     <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="5Hl-UE-iZa"/>
@@ -888,21 +887,31 @@ Therefore, please activate location services.</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="hDA-lL-wD2">
+                                <rect key="frame" x="550" y="76" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hDA-lL-wD2" secondAttribute="height" multiplier="1:1" id="fcx-F9-NnF"/>
+                                    <constraint firstAttribute="width" constant="30" id="nQo-N6-AAU"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="hDA-lL-wD2" firstAttribute="top" secondItem="6R1-3k-Atk" secondAttribute="bottom" constant="12" id="Ahw-93-hL3"/>
                             <constraint firstItem="av8-rd-1p3" firstAttribute="top" secondItem="EXM-u4-eBV" secondAttribute="bottom" constant="17" id="FKy-8D-rWC"/>
                             <constraint firstItem="iWl-By-NBL" firstAttribute="top" secondItem="av8-rd-1p3" secondAttribute="bottom" id="FTa-YI-mE7"/>
                             <constraint firstItem="iT7-IG-vqq" firstAttribute="top" secondItem="6R1-3k-Atk" secondAttribute="bottom" constant="16" id="I4M-Cb-uyV"/>
                             <constraint firstItem="iT7-IG-vqq" firstAttribute="centerX" secondItem="G3a-BC-R9Z" secondAttribute="centerX" id="MDa-Ak-gTf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="av8-rd-1p3" secondAttribute="trailing" constant="-20" id="Nhz-o6-eup"/>
+                            <constraint firstItem="hDA-lL-wD2" firstAttribute="trailing" secondItem="G3a-BC-R9Z" secondAttribute="trailingMargin" id="ULl-8y-gb9"/>
                             <constraint firstItem="av8-rd-1p3" firstAttribute="leading" secondItem="G3a-BC-R9Z" secondAttribute="leadingMargin" constant="-20" id="XrQ-78-mGl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="busNumberLabel" destination="EXM-u4-eBV" id="DPC-wd-saY"/>
                         <outlet property="busStopsTableView" destination="av8-rd-1p3" id="eBG-Ad-vNl"/>
+                        <outlet property="networkActivityIndicator" destination="hDA-lL-wD2" id="xdo-qt-LR8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LrO-0B-XRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
