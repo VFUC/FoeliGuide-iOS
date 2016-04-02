@@ -49,18 +49,18 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 			busses = currentBusData
 		}
 		
-		if let currentUserLocation = appDelegate.locationController?.userLocation {
-			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: currentUserLocation)
-		}
+//		if let currentUserLocation = appDelegate.locationController.userLocation {
+			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: appDelegate.locationController.userLocation)
+//		}
 		
 		collectionView?.reloadData()
 	}
 	
 	func didUpdateUserLocation(){
-		if let currentUserLocation = appDelegate.locationController?.userLocation {
-			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: currentUserLocation)
+//		if let currentUserLocation = appDelegate.locationController?.userLocation {
+			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: appDelegate.locationController.userLocation)
 			headerView?.showNormalState()
-		}
+//		}
 		collectionView?.reloadData()
 	}
 	

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import PermissionScope
 
 protocol BusUpdateDelegate {
 	func didUpdateBusData()
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var window: UIWindow?
 	
-	var locationController: LocationController? //Do not init until main view appeared, because segues might need do be initiated
+	let locationController = LocationController()
 	var busStops : [BusStop]? {
 		didSet {
 			if let stops = busStops {
@@ -51,13 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 
-	var busSelectionVC: BusSelectionTableViewController? {
-		didSet {
-			locationController?.requestLocationUpdate()
-		}
-	}
+	var busSelectionVC: BusSelectionTableViewController?
 	
-	var authorizationVC: AuthorizationRequestViewController?
 	let busController = BusDataController()
 	
 	// MARK: Event Handlers
@@ -74,6 +70,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		//register for local notifications
 		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil))
 		//TODO: check for permissions
+		
+		
+		
+		switch PermissionScope().statusLocationInUse() {
+		case .Authorized:
+			locationController.authorized = true
+			locationController.requestLocationUpdate()
+		default:
+			locationController.authorized = false
+		}
+		
+		
 		
 		return true
 	}
@@ -107,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	
-	func mainViewControllerDidAppear(){
+	func mainViewControllerDidAppear(){ //TODO: necessary??
 		
 		if busStops == nil { //Get bus stop data once, if not retrieved yet
 			self.mainVC?.activityIndicator.startAnimating()
@@ -117,14 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				self.mainVC?.nextBusStopButton.hidden = false
 			}
 		}
-		
-		
-		if locationController == nil { //only if not set yet
-			locationController = LocationController()
-			locationController?.start()
-		}
-		
-		
+
 		
 		//TODO: Only when displaying next bus stop ?
 		
@@ -155,12 +156,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func handleApplicationEvent(event: ApplicationEvent){
 		switch event {
 			
-		case .LocationAuthorizationNotDetermined, .LocationAuthorizationDenied, .LocationServicesDisabled: //TODO: test - can all cases be treated the same? Nope: Denied needs different interaction
-			mainVC?.performSegueWithIdentifier("showAuthorizationRequestVC", sender: nil)
-		case .LocationAuthorizationSuccessful:
-			mainVC?.dismissViewControllerAnimated(true, completion: nil)
+//		case .LocationAuthorizationDenied, .LocationServicesDisabled: //TODO: test - can all cases be treated the same? Nope: Denied needs different interaction
+			
+//			mainVC?.performSegueWithIdentifier("showAuthorizationRequestVC", sender: nil)
+//		case .LocationAuthorizationSuccessful:
+//			mainVC?.dismissViewControllerAnimated(true, completion: nil)
 		case .UserLocationDidUpdate:
 			busSelectionVC?.didUpdateUserLocation()
+		default:
+			break
 		}
 	}
 	

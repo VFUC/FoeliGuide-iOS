@@ -20,6 +20,8 @@
 		7235E07D1CA0114400C25ECA /* BusRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7235E07C1CA0114400C25ECA /* BusRouteViewController.swift */; };
 		7235E0831CA0475800C25ECA /* RouteStopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */; };
 		72418BBE1C5F4FAF002E7262 /* NextBusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */; };
+		7245F9B01CAE5B6400FAEA69 /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7245F9AF1CAE5B6400FAEA69 /* PermissionScope.framework */; };
+		7245F9B11CAE5B6400FAEA69 /* PermissionScope.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7245F9AF1CAE5B6400FAEA69 /* PermissionScope.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		724917D81C885FDC006C7114 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724917D71C885FDC006C7114 /* SpeechController.swift */; };
 		725419CF1C9BF08B005A3476 /* NetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725419CE1C9BF08B005A3476 /* NetworkEvent.swift */; };
 		727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */; };
@@ -58,6 +60,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7245F9B21CAE5B6400FAEA69 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7245F9B11CAE5B6400FAEA69 /* PermissionScope.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		721C90341C5619E6001027EC /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		721C90391C561BEE001027EC /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +94,7 @@
 		7235E07C1CA0114400C25ECA /* BusRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRouteViewController.swift; sourceTree = "<group>"; };
 		7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteStopTableViewCell.swift; sourceTree = "<group>"; };
 		72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextBusStopViewController.swift; sourceTree = "<group>"; };
+		7245F9AF1CAE5B6400FAEA69 /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = Carthage/Build/iOS/PermissionScope.framework; sourceTree = "<group>"; };
 		724917D71C885FDC006C7114 /* SpeechController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 		725419CE1C9BF08B005A3476 /* NetworkEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
 		727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +123,7 @@
 			files = (
 				72A6F2C31CA2A19F004778AE /* Alamofire.framework in Frameworks */,
 				72A6F2C41CA2A1A4004778AE /* SwiftyJSON.framework in Frameworks */,
+				7245F9B01CAE5B6400FAEA69 /* PermissionScope.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +200,7 @@
 		722D30551C5139BF00CAEE90 = {
 			isa = PBXGroup;
 			children = (
+				7245F9AF1CAE5B6400FAEA69 /* PermissionScope.framework */,
 				72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */,
 				72DF00BD1C57873300AFBCCD /* Alamofire.framework */,
 				722D30601C5139BF00CAEE90 /* FöliGuide */,
@@ -245,6 +264,7 @@
 				722D305B1C5139BF00CAEE90 /* Frameworks */,
 				722D305C1C5139BF00CAEE90 /* Resources */,
 				72DF00C11C57874A00AFBCCD /* ShellScript */,
+				7245F9B21CAE5B6400FAEA69 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

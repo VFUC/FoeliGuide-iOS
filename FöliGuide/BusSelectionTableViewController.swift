@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import PermissionScope
 
 private let cellReuseIdentifier = "BusCell"
+private let cellReuseIdentifierWithDistance = "BusCellWithDistance"
 
 class BusSelectionTableViewController: UITableViewController {
 
 	var busses = [Bus]()
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
-	
+	@IBOutlet weak var locationDisabledView: UIView!
+	let permissionScope = PermissionScope()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,14 @@ class BusSelectionTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+		
+		if appDelegate.locationController.authorized {
+			tableView.tableHeaderView = nil
+		}
+		
+		permissionScope.headerLabel.text = "Location Access"
+		permissionScope.bodyLabel.text = "Select your bus quicker and easier"
+		permissionScope.addPermission(LocationWhileInUsePermission(), message: "Your location is used to locate the bus closest to you.")
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,22 +56,31 @@ class BusSelectionTableViewController: UITableViewController {
 			busses = currentBusData
 		}
 		
-		if let currentUserLocation = appDelegate.locationController?.userLocation {
-			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: currentUserLocation)
-		}
+			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: appDelegate.locationController.userLocation)
 		
 		tableView.reloadData()
 	}
 	
 	
 	func didUpdateUserLocation(){
-		if let currentUserLocation = appDelegate.locationController?.userLocation {
-			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: currentUserLocation)
-		}
+			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: appDelegate.locationController.userLocation)
 		tableView?.reloadData()
 	}
 	
 	
+	@IBAction func locationDisabledViewTapped(sender: AnyObject) {
+		
+		permissionScope.show({ finished, results in
+			self.appDelegate.locationController.authorized = true
+			self.tableView.reloadData()
+			UIView.animateWithDuration(0.7, animations: {
+				self.tableView.tableHeaderView = nil
+			})
+			
+			}, cancelled: { (results) -> Void in
+				self.appDelegate.locationController.authorized = false
+		})
+	}
 	
 	
 	
@@ -89,28 +109,40 @@ class BusSelectionTableViewController: UITableViewController {
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath)
-
 		
-		if let busStopCell = cell as? BusSelectionTableViewCell {
-			busStopCell.busNumberLabel.text = busses[indexPath.row].name
-			busStopCell.finalStopLabel.text = "to \(busses[indexPath.row].finalStop)"
+		
+		
+		if appDelegate.locationController.authorized {
+			let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifierWithDistance, forIndexPath: indexPath)
 			
-			if let distance = busses[indexPath.row].distanceToUser {
-				if distance > 1000 {
-					busStopCell.distanceLabel.text = String(format: "%.2f km away", distance / 1000)
-				} else {
-					busStopCell.distanceLabel.text = "\(Int(distance))m away"
+			if let busStopCell = cell as? BusSelectionTableViewCell {
+				busStopCell.busNumberLabel.text = busses[indexPath.row].name
+				busStopCell.finalStopLabel.text = "to \(busses[indexPath.row].finalStop)"
+				
+				if let distance = busses[indexPath.row].distanceToUser {
+					if distance > 1000 {
+						busStopCell.distanceLabel.text = String(format: "%.2f km away", distance / 1000)
+					} else {
+						busStopCell.distanceLabel.text = "\(Int(distance))m away"
+					}
 				}
-			} else {
-				busStopCell.distanceLabel.text = ""
+				
+				return busStopCell
 			}
 			
+			return cell
 			
-			return busStopCell
+		} else {
+			let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath)
+			
+			if let busStopCell = cell as? BusSelectionTableViewCell {
+				busStopCell.busNumberLabel.text = busses[indexPath.row].name
+				busStopCell.finalStopLabel.text = "to \(busses[indexPath.row].finalStop)"
+				return busStopCell
+			}
+			
+			return cell
 		}
-
-        return cell
     }
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

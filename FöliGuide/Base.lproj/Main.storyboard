@@ -489,9 +489,53 @@ Therefore, please activate location services.</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="UFm-8L-Oj4">
+                            <rect key="frame" x="0.0" y="64" width="600" height="49"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find your bus - enable location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ron-uz-8Li">
+                                    <rect key="frame" x="201" y="14" width="246" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-icon" translatesAutoresizingMaskIntoConstraints="NO" id="M9b-9c-85B">
+                                    <rect key="frame" x="154" y="8" width="33" height="33"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="3tR-ye-w27"/>
+                                        <constraint firstAttribute="width" secondItem="M9b-9c-85B" secondAttribute="height" multiplier="10:7" constant="1" id="UrO-qQ-TBz"/>
+                                        <constraint firstAttribute="width" secondItem="M9b-9c-85B" secondAttribute="height" multiplier="1:1" id="wme-aQ-LmZ"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="3tR-ye-w27"/>
+                                            <exclude reference="UrO-qQ-TBz"/>
+                                        </mask>
+                                    </variation>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstItem="M9b-9c-85B" firstAttribute="centerX" secondItem="UFm-8L-Oj4" secondAttribute="centerX" id="1BR-T8-mQY"/>
+                                <constraint firstItem="M9b-9c-85B" firstAttribute="top" secondItem="UFm-8L-Oj4" secondAttribute="top" constant="8" id="B91-W2-QfU"/>
+                                <constraint firstAttribute="bottom" secondItem="M9b-9c-85B" secondAttribute="bottom" constant="8" id="BGr-ZJ-pij"/>
+                                <constraint firstItem="ron-uz-8Li" firstAttribute="centerY" secondItem="UFm-8L-Oj4" secondAttribute="centerY" id="Gd2-da-8N3"/>
+                                <constraint firstItem="ron-uz-8Li" firstAttribute="leading" secondItem="M9b-9c-85B" secondAttribute="trailing" constant="14" id="Wrr-4d-8XC"/>
+                                <constraint firstItem="ron-uz-8Li" firstAttribute="centerX" secondItem="UFm-8L-Oj4" secondAttribute="centerX" constant="24" id="axF-gh-NJm"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="1BR-T8-mQY"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="HW6-C9-4ou" appends="YES" id="8ex-cc-vCD"/>
+                            </connections>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusCell" rowHeight="70" id="fjW-hn-TaY" customClass="BusSelectionTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusCellWithDistance" rowHeight="70" id="fjW-hn-TaY" customClass="BusSelectionTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="141" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fjW-hn-TaY" id="9fE-H7-58c">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
@@ -548,6 +592,52 @@ Therefore, please activate location services.</string>
                                     <outlet property="finalStopLabel" destination="q6h-Fc-tCE" id="Rb5-tZ-QmD"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusCell" rowHeight="70" id="Wax-jf-XWF" customClass="BusSelectionTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="211" width="600" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wax-jf-XWF" id="Vcu-ku-ba7">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="we3-7Q-I51">
+                                            <rect key="frame" x="28" y="8" width="184" height="54"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="801" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-mo-M3m">
+                                                    <rect key="frame" x="0.0" y="0.0" width="77" height="54"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="to Kauppatori" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckg-bh-Aat">
+                                                    <rect key="frame" x="81" y="0.0" width="104" height="54"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="we3-7Q-I51" firstAttribute="leading" secondItem="Vcu-ku-ba7" secondAttribute="leadingMargin" id="35X-C6-nBh"/>
+                                        <constraint firstItem="we3-7Q-I51" firstAttribute="top" secondItem="Vcu-ku-ba7" secondAttribute="topMargin" id="5AS-8K-iqy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="we3-7Q-I51" secondAttribute="trailing" id="JN9-rG-Vtv"/>
+                                        <constraint firstItem="we3-7Q-I51" firstAttribute="centerX" secondItem="Vcu-ku-ba7" secondAttribute="centerX" id="Yyn-bj-duS"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="we3-7Q-I51" secondAttribute="bottom" id="rdg-mQ-6JL"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="JN9-rG-Vtv"/>
+                                            <exclude reference="35X-C6-nBh"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="busNumberLabel" destination="eY1-mo-M3m" id="7wI-7e-4vk"/>
+                                    <outlet property="finalStopLabel" destination="Ckg-bh-Aat" id="Aos-mj-em9"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Np8-Nd-AHn" id="OCh-ZE-JeO"/>
@@ -555,11 +645,17 @@ Therefore, please activate location services.</string>
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="locationDisabledView" destination="UFm-8L-Oj4" id="ADn-mr-KWq"/>
                         <segue destination="T07-fV-tdV" kind="show" identifier="showNextBusStopController" id="ZzK-g3-Kkl"/>
                         <segue destination="fDO-ru-w4g" kind="show" identifier="showBusRouteController" id="k21-dV-aS4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oME-4h-kyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HW6-C9-4ou">
+                    <connections>
+                        <action selector="locationDisabledViewTapped:" destination="Np8-Nd-AHn" id="0us-Zs-8bf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2019" y="1129"/>
         </scene>
@@ -995,6 +1091,7 @@ Therefore, please activate location services.</string>
         <image name="bell-filled" width="22" height="22"/>
         <image name="foli-guide-transparent" width="1024" height="1024"/>
         <image name="ios-volume-low" width="80" height="120"/>
+        <image name="location-icon" width="208" height="208"/>
         <image name="route-icon-bottom" width="40" height="88"/>
         <image name="route-icon-middle" width="40" height="88"/>
         <image name="route-icon-next" width="40" height="88"/>
