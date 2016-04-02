@@ -46,11 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var networkActivityDelegates = [NetworkActivityDelegate]()
 	
 	//MARK: VC Adapters
-	var mainVC: MainViewController? {
-		didSet {
-			mainViewControllerDidAppear()
-		}
-	}
+	var mainVC: MainViewController?
 
 	var busSelectionVC: BusSelectionTableViewController?
 	
@@ -71,7 +67,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil))
 		//TODO: check for permissions
 		
-		
+		if busStops == nil { //Get bus stop data once, if not retrieved yet
+			self.mainVC?.activityIndicator.startAnimating()
+			busController.getBusStops { (stops) -> () in //TODO: error handling
+				self.busStops = stops
+				self.mainVC?.activityIndicator.stopAnimating()
+				self.mainVC?.nextBusStopButton.hidden = false
+			}
+		}
 		
 		switch PermissionScope().statusLocationInUse() {
 		case .Authorized:
@@ -80,6 +83,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		default:
 			locationController.authorized = false
 		}
+		
+		self.busController.getBussesOnce({ (busses) -> () in
+			guard let busses = busses else { // failure getting busses
+				return
+			}
+			
+			// find the bus with the matching vehicleRef
+			for bus in busses where bus.vehicleRef == self.busController.currentUserBus?.vehicleRef {
+				
+				var updatedBus = bus
+				
+				updatedBus.route = self.busController.currentUserBus?.route
+				
+				self.busController.currentUserBus = updatedBus
+				
+				
+				for delegate in self.busDataUpdateDelegates {
+					delegate.didUpdateBusData()
+				}
+				
+			}
+			
+		})
 		
 		
 		
@@ -115,20 +141,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	
-	func mainViewControllerDidAppear(){ //TODO: necessary??
-		
-		if busStops == nil { //Get bus stop data once, if not retrieved yet
-			self.mainVC?.activityIndicator.startAnimating()
-			busController.getBusStops { (stops) -> () in
-				self.busStops = stops
-				self.mainVC?.activityIndicator.stopAnimating()
-				self.mainVC?.nextBusStopButton.hidden = false
-			}
+	func handleApplicationEvent(event: ApplicationEvent){
+		switch event {
+			
+//		case .LocationAuthorizationDenied, .LocationServicesDisabled: //TODO: test - can all cases be treated the same? Nope: Denied needs different interaction
+			
+//			mainVC?.performSegueWithIdentifier("showAuthorizationRequestVC", sender: nil)
+//		case .LocationAuthorizationSuccessful:
+//			mainVC?.dismissViewControllerAnimated(true, completion: nil)
+		case .UserLocationDidUpdate:
+			busSelectionVC?.didUpdateUserLocation()
+		default:
+			break
 		}
-
-		
-		//TODO: Only when displaying next bus stop ?
-		
+	}
+	
+	
+	
+	
+	func startBusDataLoop(){
 		self.busController.getBussesInLoop(intervalInSeconds: Constants.DataRefreshIntervalInSeconds, completionHandler: { (busses) -> () in
 			guard let busses = busses else { // failure getting busses
 				return
@@ -153,19 +184,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		})
 	}
 	
-	func handleApplicationEvent(event: ApplicationEvent){
-		switch event {
-			
-//		case .LocationAuthorizationDenied, .LocationServicesDisabled: //TODO: test - can all cases be treated the same? Nope: Denied needs different interaction
-			
-//			mainVC?.performSegueWithIdentifier("showAuthorizationRequestVC", sender: nil)
-//		case .LocationAuthorizationSuccessful:
-//			mainVC?.dismissViewControllerAnimated(true, completion: nil)
-		case .UserLocationDidUpdate:
-			busSelectionVC?.didUpdateUserLocation()
-		default:
-			break
-		}
+	func stopBusDataLoop(){
+		self.busController.stopRunningLoop()
 	}
 	
 	func handleNetworkEvent(event: NetworkEvent){

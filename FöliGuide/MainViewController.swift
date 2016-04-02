@@ -16,11 +16,12 @@ class MainViewController: UIViewController {
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+		activityIndicator.startAnimating()
 		nextBusStopButton.hidden = true
-    }
+	}
 	
 	override func viewDidAppear(animated: Bool) {
 		appDelegate.mainVC = self

@@ -286,9 +286,13 @@ class BusDataController: NSObject {
 		timer?.fire() // start right away
 	}
 	
+	func getBussesOnce(completionHandler: [Bus]? -> ()){
+		getCurrentBusData(completionHandler)
+	}
+	
 	
 	// Function used in timer loop to periodically retrieve bus data, arguments passed via BusLoopParameter struct
-	func getBussesLoop(timer: NSTimer) {
+	@objc private func getBussesLoop(timer: NSTimer) {
 		guard let parameters = timer.userInfo as? BusLoopParameters else {
 			print("[BusDataController] Sending parameter of unrecognized type to busLoop")
 			return

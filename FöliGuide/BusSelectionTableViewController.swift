@@ -22,6 +22,8 @@ class BusSelectionTableViewController: UITableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		appDelegate.startBusDataLoop()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,6 +39,10 @@ class BusSelectionTableViewController: UITableViewController {
 		permissionScope.bodyLabel.text = "Select your bus quicker and easier"
 		permissionScope.addPermission(LocationWhileInUsePermission(), message: "Your location is used to locate the bus closest to you.")
     }
+	
+	override func viewWillDisappear(animated: Bool) {
+		appDelegate.stopBusDataLoop()
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
