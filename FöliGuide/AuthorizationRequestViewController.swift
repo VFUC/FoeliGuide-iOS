@@ -15,7 +15,7 @@ class AuthorizationRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		appDelegate.authorizationVC = self
+//		appDelegate.authorizationVC = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +35,7 @@ class AuthorizationRequestViewController: UIViewController {
     */
 	
 	@IBAction func activateButtonPressed(sender: UIButton) {
-			appDelegate.locationController?.locationManager.requestWhenInUseAuthorization()
+			appDelegate.locationController.locationManager.requestWhenInUseAuthorization()
 	}
 	
 
