@@ -10,6 +10,7 @@ import UIKit
 
 class BusRouteViewController: UIViewController {
 	
+	@IBOutlet weak var volumeButton: UIButton!
 	@IBOutlet weak var busNumberLabel: UILabel!
 	@IBOutlet weak var busStopsTableView: UITableView! {
 		didSet {
@@ -37,6 +38,38 @@ class BusRouteViewController: UIViewController {
 				appDelegate.alarmIsSet = true
 			} else {
 				appDelegate.alarmIsSet = false
+			}
+		}
+	}
+	
+	@IBOutlet weak var initialConstraint: NSLayoutConstraint!
+	var currentConstraint : NSLayoutConstraint? = nil
+	var volumeEnabled = false {
+		didSet {
+			
+			if initialConstraint != nil {
+				volumeButton.removeConstraint(initialConstraint)
+			}
+			
+			if currentConstraint != nil {
+				volumeButton.removeConstraint(currentConstraint!)
+			}
+			
+			if volumeEnabled {
+				volumeButton.setImage(UIImage(named: "ios-volume-high"), forState: .Normal)
+				
+				
+				
+				currentConstraint = NSLayoutConstraint(item: volumeButton, attribute: .Width, relatedBy: .Equal, toItem: volumeButton, attribute: .Height, multiplier: 5/4, constant: 0)
+				volumeButton.addConstraint(currentConstraint!)
+				
+				
+			} else {
+				volumeButton.setImage(UIImage(named: "ios-volume-low"), forState: .Normal)
+				
+				currentConstraint = NSLayoutConstraint(item: volumeButton, attribute: .Width, relatedBy: .Equal, toItem: volumeButton, attribute: .Height, multiplier: 2/3, constant: 0)
+				
+				volumeButton.addConstraint(currentConstraint!)
 			}
 		}
 	}
@@ -87,6 +120,10 @@ class BusRouteViewController: UIViewController {
 	
 	@IBAction func headTouched(sender: AnyObject) {
 		scrollToNextBusStop(animated: true)
+	}
+	
+	@IBAction func volumeButtonPressed(sender: UIButton) {
+		volumeEnabled = !volumeEnabled
 	}
 	
 	

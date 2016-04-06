@@ -49,7 +49,9 @@ class NextBusStopViewController: UIViewController {
 	var volumeEnabled = false {
 		didSet {
 
-			volumeButton.removeConstraint(initialConstraint)
+			if initialConstraint != nil {
+				volumeButton.removeConstraint(initialConstraint)
+			}
 			
 			if currentConstraint != nil {
 				volumeButton.removeConstraint(currentConstraint!)
