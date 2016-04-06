@@ -111,7 +111,7 @@ class BusDataController: NSObject {
 				}
 			}
 			
-			appdelegate.handleNetworkEvent(.BusStopLoadingStarted)
+			appdelegate.handleNetworkEvent(.BusStopLoadingFinished)
 			completionHandler(stops)
 		}
 	}
