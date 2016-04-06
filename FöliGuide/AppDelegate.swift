@@ -14,8 +14,12 @@ protocol BusUpdateDelegate {
 	func didUpdateBusData()
 }
 
-protocol NetworkActivityDelegate {
+protocol NetworkEventHandler {
 	func handleEvent(event: NetworkEvent)
+}
+
+protocol ApplicationEventHandler {
+	func handleEvent(event: ApplicationEvent)
 }
 
 @UIApplicationMain
@@ -23,7 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var window: UIWindow?
 	
+	// MARK: Controllers
 	let locationController = LocationController()
+	let busController = BusDataController()
+	var userDataController = UserDataController()
+	
+	// MARK: Data
 	var busStops : [BusStop]? {
 		didSet {
 			if let stops = busStops {
@@ -33,8 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 	var busStopNames : [String]?
-	var userDataController = UserDataController()
 	
+	
+	// MARK: Flags
 	var alarmIsSet = false {
 		didSet {
 			didShowBackgroundWarning = false //Reset once new alarm has been set
@@ -42,23 +52,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	var didShowBackgroundWarning = false //Only show once
 	
-	var busDataUpdateDelegates = [BusUpdateDelegate]()
-	var networkActivityDelegates = [NetworkActivityDelegate]()
-	
-	//MARK: VC Adapters
-	var busSelectionVC: BusSelectionTableViewController?
-	
-	let busController = BusDataController()
 	
 	// MARK: Event Handlers
-	var applicationEventHandler: ((ApplicationEvent) -> ())?
-	
+	var busDataUpdateDelegates = [BusUpdateDelegate]()
+	var networkEventHandlers = [NetworkEventHandler]()
+	var applicationEventHandlers = [ApplicationEventHandler]()
 	
 	
 	//MARK: Application Cycle
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		applicationEventHandler = handleApplicationEvent
 		
 		
 		//register for local notifications
@@ -136,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	
-	
+	/*
 	func handleApplicationEvent(event: ApplicationEvent){
 		switch event {
 			
@@ -150,7 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		default:
 			break
 		}
-	}
+	} */
 	
 	
 	
@@ -184,9 +187,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.busController.stopRunningLoop()
 	}
 	
-	func handleNetworkEvent(event: NetworkEvent){
-		for delegate in networkActivityDelegates {
-			delegate.handleEvent(event)
+	
+	
+	
+	
+	//MARK: Event Handlers
+	
+	func callNetworkEvent(event: NetworkEvent){
+		for handler in networkEventHandlers {
+			handler.handleEvent(event)
+		}
+	}
+	
+	func callApplicationEvent(event: ApplicationEvent){
+		for handler in applicationEventHandlers {
+			handler.handleEvent(event)
 		}
 	}
 	

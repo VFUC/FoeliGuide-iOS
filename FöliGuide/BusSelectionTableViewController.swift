@@ -23,13 +23,8 @@ class BusSelectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		appDelegate.applicationEventHandlers.append(self)
 		appDelegate.startBusDataLoop()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		
 		self.navigationItem.title = "Select your bus"
 		
@@ -46,17 +41,10 @@ class BusSelectionTableViewController: UITableViewController {
 		appDelegate.stopBusDataLoop()
 	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-	
 	
 	override func viewDidAppear(animated: Bool) {
-		appDelegate.busSelectionVC = self
 		loadData()
 	}
-	
 	
 	
 	func loadData(){
@@ -219,7 +207,14 @@ class BusSelectionTableViewController: UITableViewController {
     }
     */
 	
-	
-	
 
+}
+
+
+extension BusSelectionTableViewController : ApplicationEventHandler {
+	func handleEvent(event: ApplicationEvent) {
+		if event == .UserLocationDidUpdate {
+			didUpdateUserLocation()
+		}
+	}
 }

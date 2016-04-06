@@ -82,7 +82,7 @@ class NextBusStopViewController: UIViewController {
 		nextStationNameLabel.text = ""
 		afterThatStationNameLabel.text = ""
 		appDelegate.busDataUpdateDelegates.append(self)
-		appDelegate.networkActivityDelegates.append(self)
+		appDelegate.networkEventHandlers.append(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -179,7 +179,7 @@ extension NextBusStopViewController : BusUpdateDelegate {
 }
 
 
-extension NextBusStopViewController : NetworkActivityDelegate {
+extension NextBusStopViewController : NetworkEventHandler {
 	func handleEvent(event: NetworkEvent) {
 		switch event {
 		case .BusLoadingStarted:

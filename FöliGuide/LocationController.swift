@@ -50,7 +50,7 @@ extension LocationController : CLLocationManagerDelegate {
 	func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
 		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 		userLocation = newLocation
-		appDelegate.applicationEventHandler?(.UserLocationDidUpdate)
+		appDelegate.callApplicationEvent(.UserLocationDidUpdate)
 	}
 	
 	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -62,7 +62,7 @@ extension LocationController : CLLocationManagerDelegate {
 		}
 		
 		userLocation = newLocation
-		appDelegate.applicationEventHandler?(.UserLocationDidUpdate)
+		appDelegate.callApplicationEvent(.UserLocationDidUpdate)
 	}
 	
 	func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {

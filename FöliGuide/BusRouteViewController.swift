@@ -55,7 +55,7 @@ class BusRouteViewController: UIViewController {
 		
 		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? ""
 		appDelegate.busDataUpdateDelegates.append(self)
-		appDelegate.networkActivityDelegates.append(self)
+		appDelegate.networkEventHandlers.append(self)
 		
 		scrollToNextBusStop(animated: true)
 	}
@@ -337,7 +337,7 @@ extension BusRouteViewController : BusUpdateDelegate {
 }
 
 
-extension BusRouteViewController : NetworkActivityDelegate {
+extension BusRouteViewController : NetworkEventHandler {
 	func handleEvent(event: NetworkEvent) {
 		switch event {
 		case .BusLoadingStarted:

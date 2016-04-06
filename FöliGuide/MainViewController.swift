@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		appDelegate.networkActivityDelegates.append(self)
+		appDelegate.networkEventHandlers.append(self)
 		
 		if appDelegate.busStops == nil {
 			setBusStopLoadingStartedState()
@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
 
 }
 
-extension MainViewController : NetworkActivityDelegate {
+extension MainViewController : NetworkEventHandler {
 	func handleEvent(event: NetworkEvent) {
 		switch event {
 		case .BusStopLoadingStarted:
