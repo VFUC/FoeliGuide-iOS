@@ -84,7 +84,7 @@ Therefore, please activate location services.</string>
                                         </constraints>
                                     </imageView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-SO-EZK">
-                                        <rect key="frame" x="61" y="120" width="37" height="0.0"/>
+                                        <rect key="frame" x="60" y="120" width="37" height="0.0"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lqf-wh-60x">
                                         <rect key="frame" x="0.0" y="120" width="158" height="42"/>
@@ -627,8 +627,8 @@ Therefore, please activate location services.</string>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="JN9-rG-Vtv"/>
                                             <exclude reference="35X-C6-nBh"/>
+                                            <exclude reference="JN9-rG-Vtv"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -1075,6 +1075,11 @@ Therefore, please activate location services.</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aFc-Np-LyP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="barTintColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -21,6 +21,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 		activityIndicator.startAnimating()
 		nextBusStopButton.hidden = true
+		
+		let topImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
+		topImageView.image = UIImage(named: "appicon-transparent-landscape-400")
+		topImageView.contentMode = .ScaleAspectFit
+		
+		self.navigationItem.titleView = topImageView
+		
 	}
 	
 	override func viewDidAppear(animated: Bool) {

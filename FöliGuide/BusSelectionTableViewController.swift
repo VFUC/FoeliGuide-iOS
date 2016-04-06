@@ -31,6 +31,8 @@ class BusSelectionTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		
+		self.navigationItem.title = "Select your bus"
+		
 		if appDelegate.locationController.authorized {
 			tableView.tableHeaderView = nil
 		}
