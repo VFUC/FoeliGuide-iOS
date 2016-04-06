@@ -118,7 +118,8 @@ Therefore, please activate location services.</string>
                     <navigationItem key="navigationItem" id="wnQ-7r-bV2"/>
                     <connections>
                         <outlet property="activityIndicator" destination="AGI-SO-EZK" id="ML1-oL-BL2"/>
-                        <outlet property="nextBusStopButton" destination="lqf-wh-60x" id="Jgy-Bz-DWX"/>
+                        <outlet property="selectBusImageButton" destination="Ve3-hd-MUx" id="FP0-ul-06P"/>
+                        <outlet property="selectBusLabelButton" destination="lqf-wh-60x" id="O7T-va-wXz"/>
                         <segue destination="jQH-yQ-9MS" kind="presentation" identifier="showAuthorizationRequestVC" id="Stf-As-h4F"/>
                     </connections>
                 </viewController>

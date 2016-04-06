@@ -12,15 +12,22 @@ class MainViewController: UIViewController {
 
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
-	@IBOutlet weak var nextBusStopButton: UIButton!
+	@IBOutlet weak var selectBusImageButton: UIButton!
+	@IBOutlet weak var selectBusLabelButton: UIButton!
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		activityIndicator.startAnimating()
-		nextBusStopButton.hidden = true
+		appDelegate.networkActivityDelegates.append(self)
+		
+		if appDelegate.busStops == nil {
+			setBusStopLoadingStartedState()
+		}
+		
+		
+		
 		
 		let topImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
 		topImageView.image = UIImage(named: "appicon-transparent-landscape-400")
@@ -29,16 +36,24 @@ class MainViewController: UIViewController {
 		self.navigationItem.titleView = topImageView
 		
 	}
-	
-	override func viewDidAppear(animated: Bool) {
-		appDelegate.mainVC = self
-	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	
+	func setBusStopLoadingStartedState(){
+		activityIndicator.startAnimating()
+		selectBusLabelButton.hidden = true
+		selectBusImageButton.hidden = true
+	}
+	
+	func setBusStopLoadingFinishedState(){
+		activityIndicator.stopAnimating()
+		selectBusLabelButton.hidden = false
+		selectBusImageButton.hidden = false
+	}
 
     /*
     // MARK: - Navigation
@@ -50,4 +65,17 @@ class MainViewController: UIViewController {
     }
     */
 
+}
+
+extension MainViewController : NetworkActivityDelegate {
+	func handleEvent(event: NetworkEvent) {
+		switch event {
+		case .BusStopLoadingStarted:
+			setBusStopLoadingStartedState()
+		case .BusStopLoadingFinished:
+			setBusStopLoadingFinishedState()
+		default:
+			break
+		}
+	}
 }

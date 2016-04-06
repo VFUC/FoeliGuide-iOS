@@ -46,8 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var networkActivityDelegates = [NetworkActivityDelegate]()
 	
 	//MARK: VC Adapters
-	var mainVC: MainViewController?
-
 	var busSelectionVC: BusSelectionTableViewController?
 	
 	let busController = BusDataController()
@@ -68,11 +66,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		//TODO: check for permissions
 		
 		if busStops == nil { //Get bus stop data once, if not retrieved yet
-			self.mainVC?.activityIndicator.startAnimating()
+
 			busController.getBusStops { (stops) -> () in //TODO: error handling
 				self.busStops = stops
-				self.mainVC?.activityIndicator.stopAnimating()
-				self.mainVC?.nextBusStopButton.hidden = false
 			}
 		}
 		
