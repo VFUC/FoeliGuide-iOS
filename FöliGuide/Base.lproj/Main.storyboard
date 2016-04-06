@@ -130,7 +130,7 @@ Therefore, please activate location services.</string>
         <!--Next Bus Stop-->
         <scene sceneID="FQK-1J-6Tg">
             <objects>
-                <viewController title="Next Bus Stop" id="T07-fV-tdV" customClass="NextBusStopViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NextStopVC" title="Next Bus Stop" id="T07-fV-tdV" customClass="NextBusStopViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5LT-Wr-7w3"/>
                         <viewControllerLayoutGuide type="bottom" id="2xH-J7-mK5"/>
@@ -655,6 +655,7 @@ Therefore, please activate location services.</string>
                         <outlet property="locationDisabledView" destination="UFm-8L-Oj4" id="ADn-mr-KWq"/>
                         <segue destination="T07-fV-tdV" kind="show" identifier="showNextBusStopController" id="ZzK-g3-Kkl"/>
                         <segue destination="fDO-ru-w4g" kind="show" identifier="showBusRouteController" id="k21-dV-aS4"/>
+                        <segue destination="anu-en-mqH" kind="show" identifier="showBusDetailViewController" id="H89-Ah-nyA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oME-4h-kyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -669,7 +670,7 @@ Therefore, please activate location services.</string>
         <!--Bus Route View Controller-->
         <scene sceneID="4bS-Nq-td8">
             <objects>
-                <viewController id="fDO-ru-w4g" customClass="BusRouteViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BusRouteVC" id="fDO-ru-w4g" customClass="BusRouteViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6R1-3k-Atk"/>
                         <viewControllerLayoutGuide type="bottom" id="iWl-By-NBL"/>
@@ -1040,6 +1041,137 @@ Therefore, please activate location services.</string>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2715" y="1129"/>
+        </scene>
+        <!--Bus Detail View Controller-->
+        <scene sceneID="RgP-5B-o3j">
+            <objects>
+                <viewController id="anu-en-mqH" customClass="BusDetailViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hjR-61-DF2"/>
+                        <viewControllerLayoutGuide type="bottom" id="rhv-cQ-lkC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e9z-Ic-aSm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpm-dq-r6t">
+                                <rect key="frame" x="0.0" y="164" width="600" height="436"/>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oc9-oS-l6Y">
+                                <rect key="frame" x="0.0" y="64" width="600" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aPn-GD-nfI">
+                                        <rect key="frame" x="268" y="2" width="64" height="96"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Bus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC5-pa-vpB">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="51" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqs-wZ-MVy">
+                                                <rect key="frame" x="0.0" y="24" width="64" height="72"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="60"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <gestureRecognizers/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="aPn-GD-nfI" firstAttribute="centerX" secondItem="Oc9-oS-l6Y" secondAttribute="centerX" id="AR4-XW-Ipy"/>
+                                    <constraint firstAttribute="height" constant="100" id="i1T-bj-KQE"/>
+                                    <constraint firstItem="aPn-GD-nfI" firstAttribute="centerY" secondItem="Oc9-oS-l6Y" secondAttribute="centerY" id="sAN-jX-B5w"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tpm-dq-r6t" secondAttribute="trailing" constant="-20" id="4Ce-Kj-uKA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oc9-oS-l6Y" secondAttribute="trailing" constant="-20" id="8RG-wd-1YZ"/>
+                            <constraint firstItem="Oc9-oS-l6Y" firstAttribute="top" secondItem="hjR-61-DF2" secondAttribute="bottom" id="AS1-nx-HyE"/>
+                            <constraint firstItem="Oc9-oS-l6Y" firstAttribute="leading" secondItem="e9z-Ic-aSm" secondAttribute="leadingMargin" constant="-20" id="FzD-VG-DaA"/>
+                            <constraint firstItem="Tpm-dq-r6t" firstAttribute="leading" secondItem="e9z-Ic-aSm" secondAttribute="leadingMargin" constant="-20" id="JT0-xo-G6Z"/>
+                            <constraint firstItem="Tpm-dq-r6t" firstAttribute="top" secondItem="hjR-61-DF2" secondAttribute="bottom" id="hGg-BZ-xOK"/>
+                            <constraint firstItem="rhv-cQ-lkC" firstAttribute="top" secondItem="Tpm-dq-r6t" secondAttribute="bottom" id="l8f-Jg-DNz"/>
+                            <constraint firstItem="Tpm-dq-r6t" firstAttribute="top" secondItem="Oc9-oS-l6Y" secondAttribute="bottom" id="q9a-lg-3Pc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hGg-BZ-xOK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="Tpm-dq-r6t" id="Nfo-7b-QZo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H1R-DD-4ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="2199"/>
+        </scene>
+        <!--Bus Route Sub View Controller-->
+        <scene sceneID="nh6-19-hdd">
+            <objects>
+                <viewController storyboardIdentifier="BusRouteSubViewController" id="5cY-ZD-MDs" customClass="BusRouteSubViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cf1-dB-EGL"/>
+                        <viewControllerLayoutGuide type="bottom" id="sjs-vS-KGR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wQc-yK-TtX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BusRoute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOE-pm-5Aa">
+                                <rect key="frame" x="263" y="289" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JOE-pm-5Aa" firstAttribute="centerX" secondItem="wQc-yK-TtX" secondAttribute="centerX" id="N87-AL-GCv"/>
+                            <constraint firstItem="JOE-pm-5Aa" firstAttribute="centerY" secondItem="wQc-yK-TtX" secondAttribute="centerY" id="v3M-wK-7eJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZ3-iD-HN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2715" y="1909"/>
+        </scene>
+        <!--Next Stop Sub View Controller-->
+        <scene sceneID="ySP-3o-Q5x">
+            <objects>
+                <viewController storyboardIdentifier="NextStopSubViewController" id="V0t-Xg-TKh" customClass="NextStopSubViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NxJ-4s-TZb"/>
+                        <viewControllerLayoutGuide type="bottom" id="rdd-OD-rna"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3f0-5e-srt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NextStop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV3-To-g9e">
+                                <rect key="frame" x="264" y="289.5" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZV3-To-g9e" firstAttribute="centerX" secondItem="3f0-5e-srt" secondAttribute="centerX" id="HcT-9z-Rzm"/>
+                            <constraint firstItem="ZV3-To-g9e" firstAttribute="centerY" secondItem="3f0-5e-srt" secondAttribute="centerY" id="TnG-3I-FVr"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tV8-UP-V0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2715" y="2584"/>
         </scene>
         <!--Destination Selection Table View Controller-->
         <scene sceneID="F3k-Vn-7p1">

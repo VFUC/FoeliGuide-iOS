@@ -147,8 +147,12 @@ class BusSelectionTableViewController: UITableViewController {
 		appDelegate.busController.currentUserBus = busses[indexPath.row]
 		
 		
+		performSegueWithIdentifier("showBusDetailViewController", sender: nil)
+		appDelegate.busController.runNow()
+		
+		/*
 		appDelegate.busController.getBusRoute(forBus: appDelegate.busController.currentUserBus!) { (busStops) -> () in
-			self.appDelegate.busController.runNow()
+		
 			
 			guard busStops != nil else {
 				//fall back to next/afterthat view
@@ -159,6 +163,7 @@ class BusSelectionTableViewController: UITableViewController {
 			self.appDelegate.busController.currentUserBus?.route = busStops
 			self.performSegueWithIdentifier("showBusRouteController", sender: nil)
 		}
+		*/
 	}
 	
 	
