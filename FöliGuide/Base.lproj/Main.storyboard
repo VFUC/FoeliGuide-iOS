@@ -1106,6 +1106,7 @@ Therefore, please activate location services.</string>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="busNumberLabel" destination="tqs-wZ-MVy" id="s0C-Bn-CfA"/>
                         <outlet property="containerView" destination="Tpm-dq-r6t" id="Nfo-7b-QZo"/>
                     </connections>
                 </viewController>

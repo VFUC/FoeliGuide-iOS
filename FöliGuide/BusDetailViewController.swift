@@ -12,11 +12,14 @@ class BusDetailViewController: UIViewController {
 
 	@IBOutlet weak var containerView: UIView!
 	
+	@IBOutlet weak var busNumberLabel: UILabel!
+	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? "?"
 		
 		appDelegate.busController.getBusRoute(forBus: appDelegate.busController.currentUserBus!) { (busStops) -> () in
 			
