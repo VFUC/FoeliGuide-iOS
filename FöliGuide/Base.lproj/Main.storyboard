@@ -74,22 +74,28 @@ Therefore, please activate location services.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QwB-Os-2gg">
-                                <rect key="frame" x="221" y="219" width="158" height="162"/>
+                                <rect key="frame" x="211.5" y="219" width="177" height="162"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foli-guide-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="1lE-bp-6JT">
-                                        <rect key="frame" x="19" y="0.0" width="120" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="POH-WT-0z3"/>
-                                            <constraint firstAttribute="width" secondItem="1lE-bp-6JT" secondAttribute="height" multiplier="1:1" id="j3A-wQ-HKB"/>
-                                        </constraints>
-                                    </imageView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-SO-EZK">
-                                        <rect key="frame" x="60" y="120" width="37" height="0.0"/>
+                                        <rect key="frame" x="70" y="0.0" width="37" height="0.0"/>
                                     </activityIndicatorView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-hd-MUx">
+                                        <rect key="frame" x="28" y="0.0" width="120" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Ve3-hd-MUx" secondAttribute="height" multiplier="1:1" id="AXz-B1-aIm"/>
+                                            <constraint firstAttribute="width" constant="120" id="dDQ-sP-dwP"/>
+                                        </constraints>
+                                        <state key="normal" image="bus">
+                                            <color key="titleColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Np8-Nd-AHn" kind="show" id="AmT-Iq-9zj"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lqf-wh-60x">
-                                        <rect key="frame" x="0.0" y="120" width="158" height="42"/>
+                                        <rect key="frame" x="0.0" y="120" width="177" height="42"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                        <state key="normal" title="Next bus stop">
+                                        <state key="normal" title="Select your bus">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1094,7 +1100,7 @@ Therefore, please activate location services.</string>
     <resources>
         <image name="bell" width="22" height="22"/>
         <image name="bell-filled" width="22" height="22"/>
-        <image name="foli-guide-transparent" width="1024" height="1024"/>
+        <image name="bus" width="256" height="256"/>
         <image name="ios-volume-low" width="80" height="120"/>
         <image name="location-icon" width="208" height="208"/>
         <image name="route-icon-bottom" width="40" height="88"/>
@@ -1103,6 +1109,7 @@ Therefore, please activate location services.</string>
         <image name="route-icon-top" width="40" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="AmT-Iq-9zj"/>
         <segue reference="ZzK-g3-Kkl"/>
     </inferredMetricsTieBreakers>
 </document>
