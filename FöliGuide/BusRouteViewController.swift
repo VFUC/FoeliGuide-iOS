@@ -323,15 +323,22 @@ extension BusRouteViewController : BusUpdateDelegate {
 	func didUpdateBusData() {
 		busStopsTableView.reloadData()
 		
-		if let nextStop = appDelegate.busController.currentUserBus?.nextStop where nextStop.name == destinationStop{
-			NotificationController.showNextBusStationNotification(stopName: destinationStop!, viewController: self)
-			destinationStop = nil
+		if let nextStop = appDelegate.busController.currentUserBus?.nextStop.name {
+			SpeechController.announceNextBusStop(nextStop)
+			
+			if nextStop == destinationStop {
+				NotificationController.showNextBusStationNotification(stopName: nextStop, viewController: self)
+				destinationStop = nil
+			}
 		}
 		
 		
-		if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop where afterThatStop.name == destinationStop{
-			NotificationController.showAfterThatBusStationNotification(stopName: destinationStop!, viewController: self)
-			destinationStop = nil
+		if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop?.name {
+			SpeechController.announceFollowingBusStop(afterThatStop)
+			
+			if afterThatStop == destinationStop {
+				NotificationController.showAfterThatBusStationNotification(stopName: afterThatStop, viewController: self)
+			}
 		}
 	}
 }
