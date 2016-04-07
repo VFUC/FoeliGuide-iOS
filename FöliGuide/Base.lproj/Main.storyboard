@@ -1054,9 +1054,6 @@ Therefore, please activate location services.</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpm-dq-r6t">
-                                <rect key="frame" x="0.0" y="164" width="600" height="436"/>
-                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oc9-oS-l6Y">
                                 <rect key="frame" x="0.0" y="64" width="600" height="100"/>
                                 <subviews>
@@ -1087,6 +1084,17 @@ Therefore, please activate location services.</string>
                                     <constraint firstItem="aPn-GD-nfI" firstAttribute="centerY" secondItem="Oc9-oS-l6Y" secondAttribute="centerY" id="sAN-jX-B5w"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpm-dq-r6t">
+                                <rect key="frame" x="0.0" y="164" width="600" height="436"/>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PvI-Jb-Rah" customClass="ALThreeCircleSpinner" customModule="Fo_liGuide" customModuleProvider="target">
+                                <rect key="frame" x="270" y="290" width="60" height="20"/>
+                                <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ezu-D2-BXh"/>
+                                    <constraint firstAttribute="height" constant="20" id="GxG-kk-HiC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1097,7 +1105,9 @@ Therefore, please activate location services.</string>
                             <constraint firstItem="Tpm-dq-r6t" firstAttribute="leading" secondItem="e9z-Ic-aSm" secondAttribute="leadingMargin" constant="-20" id="JT0-xo-G6Z"/>
                             <constraint firstItem="Tpm-dq-r6t" firstAttribute="top" secondItem="hjR-61-DF2" secondAttribute="bottom" id="hGg-BZ-xOK"/>
                             <constraint firstItem="rhv-cQ-lkC" firstAttribute="top" secondItem="Tpm-dq-r6t" secondAttribute="bottom" id="l8f-Jg-DNz"/>
+                            <constraint firstItem="PvI-Jb-Rah" firstAttribute="centerX" secondItem="e9z-Ic-aSm" secondAttribute="centerX" id="mVf-G5-mRf"/>
                             <constraint firstItem="Tpm-dq-r6t" firstAttribute="top" secondItem="Oc9-oS-l6Y" secondAttribute="bottom" id="q9a-lg-3Pc"/>
+                            <constraint firstItem="PvI-Jb-Rah" firstAttribute="centerY" secondItem="e9z-Ic-aSm" secondAttribute="centerY" id="qVh-Pa-kHC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1108,6 +1118,7 @@ Therefore, please activate location services.</string>
                     <connections>
                         <outlet property="busNumberLabel" destination="tqs-wZ-MVy" id="s0C-Bn-CfA"/>
                         <outlet property="containerView" destination="Tpm-dq-r6t" id="Nfo-7b-QZo"/>
+                        <outlet property="loadingSpinner" destination="PvI-Jb-Rah" id="kdv-FF-3Ho"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1R-DD-4ix" userLabel="First Responder" sceneMemberID="firstResponder"/>

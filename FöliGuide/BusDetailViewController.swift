@@ -11,6 +11,7 @@ import UIKit
 class BusDetailViewController: UIViewController {
 
 	@IBOutlet weak var containerView: UIView!
+	@IBOutlet weak var loadingSpinner: ALThreeCircleSpinner!
 	
 	@IBOutlet weak var busNumberLabel: UILabel!
 	
@@ -19,9 +20,14 @@ class BusDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		self.loadingSpinner.startAnimating()
 		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? "?"
 		
+
 		appDelegate.busController.getBusRoute(forBus: appDelegate.busController.currentUserBus!) { (busStops) -> () in
+			
+			self.loadingSpinner.stopAnimating()
+			
 			
 			guard busStops != nil else {
 				self.loadSubViewController(withIdentifier: "NextStopSubViewController")
