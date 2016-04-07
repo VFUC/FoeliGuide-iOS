@@ -1167,8 +1167,8 @@ Therefore, please activate location services.</string>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="Agd-gk-EX0"/>
-                                                            <exclude reference="tIQ-T0-ssc"/>
                                                             <exclude reference="Xnh-QI-jef"/>
+                                                            <exclude reference="tIQ-T0-ssc"/>
                                                         </mask>
                                                     </variation>
                                                 </imageView>
@@ -1202,14 +1202,14 @@ Therefore, please activate location services.</string>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="zH1-lX-mqR"/>
                                                     <exclude reference="EEV-8A-jei"/>
-                                                    <exclude reference="fjF-O0-2UT"/>
-                                                    <exclude reference="uZu-E7-iAP"/>
-                                                    <exclude reference="Roo-OC-USU"/>
                                                     <exclude reference="PdJ-MA-cZ3"/>
+                                                    <exclude reference="Roo-OC-USU"/>
                                                     <exclude reference="bdG-wh-hdy"/>
+                                                    <exclude reference="fjF-O0-2UT"/>
                                                     <exclude reference="oQD-zh-Hjk"/>
+                                                    <exclude reference="uZu-E7-iAP"/>
+                                                    <exclude reference="zH1-lX-mqR"/>
                                                     <exclude reference="xbM-To-FIW"/>
                                                 </mask>
                                             </variation>
@@ -1456,7 +1456,7 @@ Therefore, please activate location services.</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="h6w-GU-DaA">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="h6w-GU-DaA">
                                 <rect key="frame" x="142" y="177" width="137" height="245"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="IHV-lm-y33">

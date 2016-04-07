@@ -40,6 +40,16 @@ class BusRouteSubViewController: UIViewController {
 		scrollToNextBusStop(animated: true)
 	}
 	
+	override func willMoveToParentViewController(parent: UIViewController?) {
+		if parent == nil {
+			for (index, delegate) in appDelegate.busDataUpdateDelegates.enumerate() {
+				if let _ = delegate as? BusRouteSubViewController {
+					appDelegate.busDataUpdateDelegates.removeAtIndex(index)
+				}
+			}
+		}
+	}
+	
 	
 	
 	

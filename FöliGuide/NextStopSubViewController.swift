@@ -28,6 +28,17 @@ class NextStopSubViewController: UIViewController {
 		afterThatStationNameLabel.text = ""
 		appDelegate.busDataUpdateDelegates.append(self)
     }
+	
+	
+	override func willMoveToParentViewController(parent: UIViewController?) {
+		if parent == nil {
+			for (index, delegate) in appDelegate.busDataUpdateDelegates.enumerate() {
+				if let _ = delegate as? NextStopSubViewController {
+					appDelegate.busDataUpdateDelegates.removeAtIndex(index)
+				}
+			}
+		}
+	}
 }
 
 // Data has been updated, check if notification is necessary
