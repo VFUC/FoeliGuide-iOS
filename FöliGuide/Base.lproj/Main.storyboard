@@ -303,7 +303,6 @@ Therefore, please activate location services.</string>
                         <outlet property="selectedBusStationNameLabel" destination="wuc-be-t5M" id="5Fc-XZ-kjr"/>
                         <outlet property="selectedBusStationStackView" destination="1rc-Wx-2Cg" id="dhn-cQ-ucy"/>
                         <outlet property="volumeButton" destination="42B-4m-1LY" id="Oyp-Mt-yKi"/>
-                        <segue destination="3UE-6S-kYb" kind="show" identifier="showDestinationSelectionVC" id="wky-zc-Pep"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXm-Pr-v1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1042,7 +1041,7 @@ Therefore, please activate location services.</string>
             </objects>
             <point key="canvasLocation" x="2715" y="1129"/>
         </scene>
-        <!--Bus Detail View Controller-->
+        <!--Title-->
         <scene sceneID="RgP-5B-o3j">
             <objects>
                 <viewController id="anu-en-mqH" customClass="BusDetailViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
@@ -1119,10 +1118,19 @@ Therefore, please activate location services.</string>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Tci-SN-yeg">
+                        <barButtonItem key="rightBarButtonItem" image="bell" id="Uze-gD-4ik">
+                            <connections>
+                                <action selector="didTapAlarmButton:" destination="anu-en-mqH" id="ydk-6R-D2r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="alarmBarButton" destination="Uze-gD-4ik" id="KdF-zi-e7K"/>
                         <outlet property="busNumberLabel" destination="tqs-wZ-MVy" id="s0C-Bn-CfA"/>
                         <outlet property="containerView" destination="Tpm-dq-r6t" id="Nfo-7b-QZo"/>
                         <outlet property="loadingSpinner" destination="PvI-Jb-Rah" id="kdv-FF-3Ho"/>
+                        <segue destination="3UE-6S-kYb" kind="show" identifier="showDestinationSelectionVC" id="rSy-hu-R7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1R-DD-4ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1586,7 +1594,7 @@ Therefore, please activate location services.</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3367" y="416"/>
+            <point key="canvasLocation" x="2019" y="2958"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dLb-hh-eL6">

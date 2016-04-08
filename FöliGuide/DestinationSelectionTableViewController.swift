@@ -14,7 +14,9 @@ class DestinationSelectionTableViewController: UITableViewController {
 	
 	var busStopNames = [String]() {
 		didSet {
-			busStopNames.sortInPlace( { $0 < $1 } )
+			if !routeDataAvailable {
+				busStopNames.sortInPlace( { $0 < $1 } )
+			}
 		}
 	}
 	var recentSearchEntries = [String]()
@@ -23,7 +25,7 @@ class DestinationSelectionTableViewController: UITableViewController {
 	var filteredBusStopNames = [String]()
 	
 	var nextStopVC : NextBusStopViewController?
-	
+	var routeDataAvailable = false
 	
 	let searchController = UISearchController(searchResultsController: nil)
 	
@@ -32,8 +34,16 @@ class DestinationSelectionTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		if let delegateStops = appDelegate.busStopNames {
+		if let route = appDelegate.busController.currentUserBus?.route {
+			routeDataAvailable = true
+			busStopNames = BusDataController.namesForBusStops(route)
+		} else if let delegateStops = appDelegate.busStopNames {
+			routeDataAvailable = false
 			busStopNames = delegateStops
+		}
+		
+		if routeDataAvailable, let nextStop = appDelegate.busController.currentUserBus?.nextStop {
+			busStopNames = filterAlreadyPassedBusStops(busStopNames, nextStop: nextStop.name)
 		}
 		
 		let userData = appDelegate.userDataController.userData
@@ -132,44 +142,17 @@ class DestinationSelectionTableViewController: UITableViewController {
 	}
 	
 	
-	/*
-	// Override to support editing the table view.
-	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-	if editingStyle == .Delete {
-	// Delete the row from the data source
-	tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-	} else if editingStyle == .Insert {
-	// Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+
+	
+	func filterAlreadyPassedBusStops(stops: [String], nextStop: String) -> [String] {
+		for (index, stop) in stops.enumerate() {
+			if stop == nextStop {
+				return Array(stops[(index + 1)..<stops.count])
+			}
+		}
+		
+		return stops
 	}
-	}
-	*/
-	
-	/*
-	// Override to support rearranging the table view.
-	override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-	
-	}
-	*/
-	
-	/*
-	// Override to support conditional rearranging of the table view.
-	override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-	// Return false if you do not want the item to be re-orderable.
-	return true
-	}
-	*/
-	
-	/*
-	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-	// Get the new view controller using segue.destinationViewController.
-	// Pass the selected object to the new view controller.
-	}
-	*/
-	
-	
 	
 	
 	func filterBusStopsForSearchText(searchText: String){

@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol BusDetailViewControllerChild {
 	optional func didTapHead()
+	optional func didSetAlarm(alarmSet: Bool)
 }
 
 
@@ -17,12 +18,32 @@ class BusDetailViewController: UIViewController {
 
 	@IBOutlet weak var containerView: UIView!
 	@IBOutlet weak var loadingSpinner: ALThreeCircleSpinner!
+	@IBOutlet weak var alarmBarButton: UIBarButtonItem!
 	
 	@IBOutlet weak var busNumberLabel: UILabel!
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	var subViewController : UIViewController?
 	var children = [BusDetailViewControllerChild]()
+	
+	var alarmSet = false {
+		didSet {
+			appDelegate.alarmIsSet = alarmSet
+			
+			alarmBarButton.image = alarmSet ? UIImage(named: Constants.Assets.Images.AlarmBarButton.Filled) : UIImage(named: Constants.Assets.Images.AlarmBarButton.Outline)
+			
+			for child in children {
+				child.didSetAlarm?(alarmSet)
+			}
+		}
+	}
+	
+	var destinationStop : String? {
+		didSet {
+			alarmSet = !(destinationStop == nil)
+			//TODO: notify children ?
+		}
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,10 +89,6 @@ class BusDetailViewController: UIViewController {
 		vc.didMoveToParentViewController(self)
 	}
 	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 	
 	
 	
@@ -80,4 +97,32 @@ class BusDetailViewController: UIViewController {
 			child.didTapHead?()
 		}
 	}
+	
+	@IBAction func didTapAlarmButton(sender: UIBarButtonItem) {
+		if alarmSet {
+			
+			//TODO : get destinationStop
+			let alertController = UIAlertController(title: "Remove Alarm?", message: "Do you want to remove the alarm for \(destinationStop ?? "--")", preferredStyle: .Alert)
+			alertController.addAction(UIAlertAction(title: "Remove", style: .Destructive, handler: { _ -> Void in
+				self.destinationStop = nil
+			}))
+			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+			
+			presentViewController(alertController, animated: true, completion: nil)
+			
+		} else {
+			self.performSegueWithIdentifier("showDestinationSelectionVC", sender: nil)
+		}
+	}
+	
+	
+	
+	
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if let vc = segue.destinationViewController as? DestinationSelectionTableViewController {
+			//TODO
+		}
+	}
+	
 }
