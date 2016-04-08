@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol DestinationSetDelegate {
+	func didSetDestination(destination: String)
+}
+
+
 class DestinationSelectionTableViewController: UITableViewController {
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -24,7 +29,7 @@ class DestinationSelectionTableViewController: UITableViewController {
 	var filteredRecentSearchEntries = [String]()
 	var filteredBusStopNames = [String]()
 	
-	var nextStopVC : NextBusStopViewController?
+	var destinationDelegates = [DestinationSetDelegate]()
 	var routeDataAvailable = false
 	
 	let searchController = UISearchController(searchResultsController: nil)
@@ -137,9 +142,26 @@ class DestinationSelectionTableViewController: UITableViewController {
 		
 		searchController.active = false
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
-		nextStopVC?.destinationStop = selectedStop
+		
+		for delegate in destinationDelegates {
+			delegate.didSetDestination(selectedStop)
+		}
+		
 		self.navigationController?.popViewControllerAnimated(true)
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

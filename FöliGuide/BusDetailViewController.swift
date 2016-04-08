@@ -11,6 +11,7 @@ import UIKit
 @objc protocol BusDetailViewControllerChild {
 	optional func didTapHead()
 	optional func didSetAlarm(alarmSet: Bool)
+	optional func didSelectDestination(destination: String)
 }
 
 
@@ -41,7 +42,12 @@ class BusDetailViewController: UIViewController {
 	var destinationStop : String? {
 		didSet {
 			alarmSet = !(destinationStop == nil)
-			//TODO: notify children ?
+			
+			if let stop = destinationStop {
+				for child in children {
+					child.didSelectDestination?(stop)
+				}
+			}
 		}
 	}
 	
@@ -121,8 +127,17 @@ class BusDetailViewController: UIViewController {
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if let vc = segue.destinationViewController as? DestinationSelectionTableViewController {
-			//TODO
+			vc.destinationDelegates.append(self)
 		}
 	}
 	
+}
+
+
+
+
+extension BusDetailViewController : DestinationSetDelegate {
+	func didSetDestination(destination: String) {
+		destinationStop = destination
+	}
 }
