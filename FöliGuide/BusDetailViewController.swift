@@ -8,6 +8,11 @@
 
 import UIKit
 
+@objc protocol BusDetailViewControllerChild {
+	optional func didTapHead()
+}
+
+
 class BusDetailViewController: UIViewController {
 
 	@IBOutlet weak var containerView: UIView!
@@ -17,6 +22,7 @@ class BusDetailViewController: UIViewController {
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	var subViewController : UIViewController?
+	var children = [BusDetailViewControllerChild]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +53,9 @@ class BusDetailViewController: UIViewController {
 			subViewController!.willMoveToParentViewController(nil)
 			subViewController!.view.removeFromSuperview()
 			subViewController!.removeFromParentViewController()
-			
 		}
 	}
+	
 	
 	func loadSubViewController(withIdentifier identifier: String){
 		let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
@@ -66,16 +72,12 @@ class BusDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
+	
+	
+	@IBAction func didTapHead(sender: UITapGestureRecognizer) {
+		for child in children {
+			child.didTapHead?()
+		}
+	}
 }
