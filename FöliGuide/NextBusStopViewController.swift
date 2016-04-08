@@ -126,7 +126,7 @@ class NextBusStopViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 		if let vc = segue.destinationViewController as? DestinationSelectionTableViewController {
-			vc.nextStopVC = self
+//			vc.nextStopVC = self
 		}
 	}
 }
