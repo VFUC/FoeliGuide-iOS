@@ -29,7 +29,7 @@ class BusRouteSubViewController: UIViewController {
 			}
 		}
 	}
-	
+	var destinationStop : String? = nil
 	
 	
 	
@@ -160,8 +160,7 @@ extension BusRouteSubViewController : UITableViewDataSource {
 		}
 		
 		stopCell.nameLabel.text = stop.name
-//		stopCell.alarmImageView.hidden = !(stop.name == destinationStop)
-		stopCell.alarmImageView.hidden = true //TODO
+		stopCell.alarmImageView.hidden = !(stop.name == destinationStop)
 		
 		//Put cell on half opacity if the bus stop has already been passed
 		if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
@@ -239,69 +238,6 @@ extension BusRouteSubViewController : UITableViewDelegate {
 			return
 		}
 		
-		/*
-		
-		
-		let selectedStop = displayStops[indexPath.row]
-		
-		if selectedStop.name == destinationStop {
-			let message = "Do you want to remove the alarm for \(selectedStop.name)?"
-			
-			let alertController = UIAlertController(title: "Remove alarm?", message: message, preferredStyle: .Alert)
-			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-			alertController.addAction(UIAlertAction(title: "Remove", style: .Destructive, handler: { _ -> Void in
-				for (index,stop) in self.displayStops.enumerate() {
-					if stop.name == self.destinationStop {
-						
-						if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
-							cell.alarmImageView.hidden = true
-						}
-						
-					}
-				}
-				
-				self.destinationStop = nil
-			}))
-			
-			presentViewController(alertController, animated: true, completion: nil)
-		} else {
-			var message = "Do you want to set an alarm for \(selectedStop.name)?"
-			
-			if destinationStop != nil {
-				message += "\nThis will overwrite the alarm for \(destinationStop!)"
-			}
-			
-			let alertController = UIAlertController(title: "Set alarm?", message: message, preferredStyle: .Alert)
-			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-			alertController.addAction(UIAlertAction(title: "Set", style: .Default, handler: { _ -> Void in
-				let previousDestinationStop = self.destinationStop
-				self.destinationStop = selectedStop.name
-				
-				//add alarm icon to newly selected alarm
-				if let cell = self.busStopsTableView.cellForRowAtIndexPath(indexPath) as? RouteStopTableViewCell {
-					cell.alarmImageView.hidden = false
-				}
-				
-				//remove alarm icon if previous alarm existed
-				if previousDestinationStop != nil {
-					for (index,stop) in self.displayStops.enumerate() {
-						if stop.name == previousDestinationStop {
-							
-							if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
-								cell.alarmImageView.hidden = true
-							}
-							
-						}
-					}
-				}
-				
-				
-			}))
-			
-			presentViewController(alertController, animated: true, completion: nil)
-		}
-		*/
-		
 	}
 	
 }
@@ -337,5 +273,42 @@ extension BusRouteSubViewController : BusUpdateDelegate {
 extension BusRouteSubViewController : BusDetailViewControllerChild {
 	func didTapHead() {
 		scrollToNextBusStop(animated: true)
+	}
+	
+	func didSetAlarm(alarmSet: Bool) {
+		if alarmSet == false {
+			
+			if let previousStop = destinationStop { //previously set a stop
+				//remove alarm icon
+				for (index, stop) in self.displayStops.enumerate() where stop.name == previousStop {
+					if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
+						cell.alarmImageView.hidden = true
+					}
+				}
+			}
+			destinationStop = nil
+		}
+	}
+	
+	func didSelectDestination(destination: String) {
+		
+		if let previousStop = destinationStop { //previously set a stop
+			//remove alarm icon
+			for (index, stop) in self.displayStops.enumerate() where stop.name == previousStop {
+				if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
+					cell.alarmImageView.hidden = true
+				}
+			}
+		}
+		
+		
+		//set alarm icon on selected alarm
+		for (index, stop) in self.displayStops.enumerate() where stop.name == destination {
+			if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
+				cell.alarmImageView.hidden = false
+			}
+		}
+		
+		destinationStop = destination
 	}
 }
