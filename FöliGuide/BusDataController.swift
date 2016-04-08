@@ -316,19 +316,24 @@ class BusDataController: NSObject {
 		return Array(sorted)
 	}
 	
-	// Returns array of bus stop names, based on input busstops, checked against blacklist and filtered out duplicates
+	// Returns array of bus stop names, based on input busstops, checked against blacklist and filtered out duplicates (next to each other)
 	class func namesForBusStops(stops: [BusStop]) -> [String] {
-		var names = Set<String>()
+		var names = [String]()
 		
 		for stop in stops {
 			if Constants.BusStopNameBlacklist.contains(stop.name){
 				continue
 			}
-			
-			names.insert(stop.name)
+			names.append(stop.name)
 		}
 		
-		return Array(names)
+		for (index, name) in names.enumerate() {
+			if index < names.count - 1 && names[index + 1] == name {
+				names.removeAtIndex(index)
+			}
+		}
+		
+		return names
 	}
 	
 	
