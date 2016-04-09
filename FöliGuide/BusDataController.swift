@@ -69,14 +69,14 @@ class BusDataController: NSObject {
 					
 					if let onwardCalls = vehicle["onwardcalls"].array where onwardCalls.count > 0 {
 						if let name = onwardCalls[0]["stoppointname"].string,
-						let number = onwardCalls[0]["visitnumber"].int {
+							let number = onwardCalls[0]["visitnumber"].int {
 							afterThatStop = BusStop(name: name, number: "\(number)", location: nil, expectedArrival: nil)
 						}
 					}
 					
-						
+					
 					let bus = Bus(vehicleRef: vehicleRef, blockRef: blockRef, location: CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude)), name: name, nextStop: nextStop, afterThatStop: afterThatStop, finalStop: finalStop, distanceToUser: nil, route: nil)
-						busses.append(bus)
+					busses.append(bus)
 				}
 			}
 			
@@ -134,8 +134,8 @@ class BusDataController: NSObject {
 				if let dictionary = route.dictionary,
 					let routeID = dictionary["route_id"]?.string,
 					let shortName = dictionary["route_short_name"]?.string where shortName == bus.name {
-						matchingRouteID = routeID
-						break
+					matchingRouteID = routeID
+					break
 				}
 			}
 			
@@ -164,9 +164,9 @@ class BusDataController: NSObject {
 						let tripID = dictionary["trip_id"]?.string,
 						let dirID = dictionary["direction_id"]?.int,
 						let blockID = dictionary["block_id"]?.string where blockID == bus.blockRef {
-							matchingTripID = tripID
-							directionID = dirID
-							break
+						matchingTripID = tripID
+						directionID = dirID
+						break
 					}
 				}
 				
@@ -192,7 +192,7 @@ class BusDataController: NSObject {
 					for stop in stops {
 						if let dictionary = stop.dictionary,
 							let stopID = dictionary["stop_id"]?.string {
-								busStopIDs.append(stopID)
+							busStopIDs.append(stopID)
 						}
 					}
 					
@@ -317,23 +317,36 @@ class BusDataController: NSObject {
 	}
 	
 	// Returns array of bus stop names, based on input busstops, checked against blacklist and filtered out duplicates (next to each other)
-	class func namesForBusStops(stops: [BusStop]) -> [String] {
-		var names = [String]()
-		
-		for stop in stops {
-			if Constants.BusStopNameBlacklist.contains(stop.name){
-				continue
+	class func namesForBusStops(stops: [BusStop], preserveOrder: Bool) -> [String] {
+		if preserveOrder {
+			var names = [String]()
+			for stop in stops {
+				if Constants.BusStopNameBlacklist.contains(stop.name){
+					continue
+				}
+				names.append(stop.name)
 			}
-			names.append(stop.name)
-		}
-		
-		for (index, name) in names.enumerate() {
-			if index < names.count - 1 && names[index + 1] == name {
-				names.removeAtIndex(index)
+			
+			for (index, name) in names.enumerate() {
+				if index < names.count - 1 && names[index + 1] == name {
+					names.removeAtIndex(index)
+				}
 			}
+			
+			return names
+			
+		} else {
+			var names = Set<String>()
+			
+			for stop in stops {
+				if names.contains(stop.name){
+					continue
+				}
+				names.insert(stop.name)
+			}
+			
+			return Array(names)
 		}
-		
-		return names
 	}
 	
 	

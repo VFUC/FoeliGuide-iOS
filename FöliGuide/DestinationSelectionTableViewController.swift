@@ -41,10 +41,10 @@ class DestinationSelectionTableViewController: UITableViewController {
 		
 		if let route = appDelegate.busController.currentUserBus?.route {
 			routeDataAvailable = true
-			busStopNames = BusDataController.namesForBusStops(route)
-		} else if let delegateStops = appDelegate.busStopNames {
+			busStopNames = BusDataController.namesForBusStops(route, preserveOrder: true)
+		} else if let delegateStops = appDelegate.busStops {
 			routeDataAvailable = false
-			busStopNames = delegateStops
+			busStopNames = BusDataController.namesForBusStops(delegateStops, preserveOrder: false)
 		}
 		
 		if routeDataAvailable, let nextStop = appDelegate.busController.currentUserBus?.nextStop {

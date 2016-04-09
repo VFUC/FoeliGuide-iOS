@@ -33,15 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var userDataController = UserDataController()
 	
 	// MARK: Data
-	var busStops : [BusStop]? {
-		didSet {
+	var busStops : [BusStop]?
+//	{
+		/* didSet {
 			if let stops = busStops {
 				busStopNames = BusDataController.namesForBusStops(stops)
 			}
 			
-		}
-	}
-	var busStopNames : [String]?
+		} */
+//	}
+//	var busStopNames : [String]?
 	
 	
 	// MARK: Flags
