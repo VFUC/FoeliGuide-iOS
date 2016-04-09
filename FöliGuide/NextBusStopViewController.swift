@@ -153,7 +153,7 @@ extension NextBusStopViewController : BusUpdateDelegate {
 		afterThatStationNameLabel.text = bus.afterThatStop?.name ?? "--"
 		
 		if nextStationNameLabel.text == afterThatStationNameLabel.text {
-			afterThatStationNameLabel.text = "--" //TODO: Hide
+			afterThatStationNameLabel.text = "--"
 		}
 		
 		
