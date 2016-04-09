@@ -34,7 +34,7 @@ class NextStopSubViewController: UIViewController {
 
 		
 		if let detailVC = parentViewController as? BusDetailViewController {
-			detailVC.children.append(self)
+			detailVC.delegates.append(self)
 		}
     }
 	
@@ -102,7 +102,7 @@ extension NextStopSubViewController : BusUpdateDelegate {
 	}
 }
 
-extension NextStopSubViewController : BusDetailViewControllerChild {
+extension NextStopSubViewController : BusDetailViewControllerDelegate {
 	
 	func didSetAlarm(alarmSet: Bool) {
 		if alarmSet {

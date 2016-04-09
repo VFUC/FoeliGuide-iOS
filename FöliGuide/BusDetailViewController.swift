@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol BusDetailViewControllerChild {
+@objc protocol BusDetailViewControllerDelegate {
 	optional func didTapHead()
 	optional func didSetAlarm(alarmSet: Bool)
 	optional func didSelectDestination(destination: String)
@@ -25,7 +25,7 @@ class BusDetailViewController: UIViewController {
 	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	var subViewController : UIViewController?
-	var children = [BusDetailViewControllerChild]()
+	var delegates = [BusDetailViewControllerDelegate]()
 	
 	var alarmSet = false {
 		didSet {
@@ -33,8 +33,8 @@ class BusDetailViewController: UIViewController {
 			
 			alarmBarButton.image = alarmSet ? UIImage(named: Constants.Assets.Images.AlarmBarButton.Filled) : UIImage(named: Constants.Assets.Images.AlarmBarButton.Outline)
 			
-			for child in children {
-				child.didSetAlarm?(alarmSet)
+			for delegate in delegates {
+				delegate.didSetAlarm?(alarmSet)
 			}
 		}
 	}
@@ -44,8 +44,8 @@ class BusDetailViewController: UIViewController {
 			alarmSet = !(destinationStop == nil)
 			
 			if let stop = destinationStop {
-				for child in children {
-					child.didSelectDestination?(stop)
+				for delegate in delegates {
+					delegate.didSelectDestination?(stop)
 				}
 			}
 		}
@@ -57,6 +57,7 @@ class BusDetailViewController: UIViewController {
 		self.loadingSpinner.startAnimating()
 		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? "?"
 		
+		delegates = [BusDetailViewControllerDelegate]() //Reset delegates
 
 		appDelegate.busController.getBusRoute(forBus: appDelegate.busController.currentUserBus!) { (busStops) -> () in
 			
@@ -99,8 +100,8 @@ class BusDetailViewController: UIViewController {
 	
 	
 	@IBAction func didTapHead(sender: UITapGestureRecognizer) {
-		for child in children {
-			child.didTapHead?()
+		for delegate in delegates {
+			delegate.didTapHead?()
 		}
 	}
 	
