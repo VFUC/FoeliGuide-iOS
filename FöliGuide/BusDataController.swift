@@ -339,9 +339,6 @@ class BusDataController: NSObject {
 			var names = Set<String>()
 			
 			for stop in stops {
-				if names.contains(stop.name){
-					continue
-				}
 				names.insert(stop.name)
 			}
 			
