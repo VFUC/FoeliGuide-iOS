@@ -51,8 +51,12 @@ class BusDetailViewController: UIViewController {
 		}
 	}
 	
+	var nextStop : String?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		appDelegate.busDataUpdateDelegates.append(self) // TODO: remove on popping?
 		
 		self.loadingSpinner.startAnimating()
 		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? "?"
@@ -108,7 +112,6 @@ class BusDetailViewController: UIViewController {
 	@IBAction func didTapAlarmButton(sender: UIBarButtonItem) {
 		if alarmSet {
 			
-			//TODO : get destinationStop
 			let alertController = UIAlertController(title: "Remove Alarm?", message: "Do you want to remove the alarm for \(destinationStop ?? "--")", preferredStyle: .Alert)
 			alertController.addAction(UIAlertAction(title: "Remove", style: .Destructive, handler: { _ -> Void in
 				self.destinationStop = nil
@@ -135,10 +138,49 @@ class BusDetailViewController: UIViewController {
 }
 
 
-
-
 extension BusDetailViewController : DestinationSetDelegate {
 	func didSetDestination(destination: String) {
 		destinationStop = destination
+	}
+}
+
+
+extension BusDetailViewController : BusUpdateDelegate {
+	func didUpdateBusData() {
+		if let newNextStop = appDelegate.busController.currentUserBus?.nextStop.name {
+			if nextStop != newNextStop { //Next stop has changed
+				nextStop = newNextStop
+				
+				if newNextStop == destinationStop {
+					NotificationController.showNextBusStationNotification(stopName: newNextStop, viewController: self)
+					destinationStop = nil
+				}
+				
+				if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop?.name where afterThatStop == destinationStop {
+					NotificationController.showAfterThatBusStationNotification(stopName: afterThatStop, viewController: self)
+				}
+			}
+		}
+		
+		
+		
+		/* if let nextStop = appDelegate.busController.currentUserBus?.nextStop.name {
+		SpeechController.announceNextBusStop(nextStop)
+		
+		if nextStop == destinationStop {
+		NotificationController.showNextBusStationNotification(stopName: nextStop, viewController: self)
+		destinationStop = nil
+		}
+		}
+		
+		
+		if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop?.name {
+		SpeechController.announceFollowingBusStop(afterThatStop)
+		
+		if afterThatStop == destinationStop {
+		NotificationController.showAfterThatBusStationNotification(stopName: afterThatStop, viewController: self)
+		}
+		}
+		*/
 	}
 }
