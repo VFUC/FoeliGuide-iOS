@@ -1473,8 +1473,8 @@ Therefore, please activate location services.</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="h6w-GU-DaA">
-                                <rect key="frame" x="142" y="177" width="137" height="245"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="h6w-GU-DaA">
+                                <rect key="frame" x="142" y="50" width="137" height="245"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="IHV-lm-y33">
                                         <rect key="frame" x="0.0" y="0.0" width="137" height="56"/>
@@ -1513,8 +1513,8 @@ Therefore, please activate location services.</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="weh-1e-jfh">
                                         <rect key="frame" x="6" y="189" width="125" height="56"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Alarm set for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPj-b1-jxf">
-                                                <rect key="frame" x="8" y="1" width="109" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Alarm set for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPj-b1-jxf">
+                                                <rect key="frame" x="8" y="0.0" width="109" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -1532,9 +1532,15 @@ Therefore, please activate location services.</string>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="h6w-GU-DaA" firstAttribute="top" secondItem="NxJ-4s-TZb" secondAttribute="bottom" constant="30" id="LkB-pQ-v9c"/>
                             <constraint firstItem="h6w-GU-DaA" firstAttribute="centerY" secondItem="3f0-5e-srt" secondAttribute="centerY" id="sKF-lz-kAX"/>
                             <constraint firstItem="h6w-GU-DaA" firstAttribute="centerX" secondItem="3f0-5e-srt" secondAttribute="centerX" id="xp7-QT-WxF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="sKF-lz-kAX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="afterThatStationNameLabel" destination="TKh-GS-8xJ" id="Xwq-mP-7GJ"/>
