@@ -27,6 +27,15 @@ class NextStopSubViewController: UIViewController {
 		nextStationNameLabel.text = ""
 		afterThatStationNameLabel.text = ""
 		appDelegate.busDataUpdateDelegates.append(self)
+		
+		//remove initially
+		mainStackView.removeArrangedSubview(selectedBusStationStackView)
+		selectedBusStationStackView.hidden = true
+
+		
+		if let detailVC = parentViewController as? BusDetailViewController {
+			detailVC.children.append(self)
+		}
     }
 	
 	
@@ -90,6 +99,23 @@ extension NextStopSubViewController : BusUpdateDelegate {
 			}
 		}
 		*/
+	}
+}
+
+extension NextStopSubViewController : BusDetailViewControllerChild {
+	
+	func didSetAlarm(alarmSet: Bool) {
+		if alarmSet {
+			mainStackView.addArrangedSubview(selectedBusStationStackView)
+			selectedBusStationStackView.hidden = false
+		} else {
+			mainStackView.removeArrangedSubview(selectedBusStationStackView)
+			selectedBusStationStackView.hidden = true
+		}
+	}
+	
+	func didSelectDestination(destination: String) {
+		selectedBusStationNameLabel.text = destination
 	}
 }
 
