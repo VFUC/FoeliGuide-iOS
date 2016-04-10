@@ -620,46 +620,55 @@ Therefore, please activate location services.</string>
                             </tableViewSection>
                             <tableViewSection headerTitle="Help" id="KWk-JJ-Lxf">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="58" id="0BA-A1-sOF">
-                                        <rect key="frame" x="0.0" y="269" width="600" height="58"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="130" id="0BA-A1-sOF">
+                                        <rect key="frame" x="0.0" y="269" width="600" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0BA-A1-sOF" id="peb-wa-9ev">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="129.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Why do some busses only show the next two bus stops?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17D-A8-gpP">
-                                                    <rect key="frame" x="16" y="8" width="408.5" height="41.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="er9-Xb-tyO"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mb-7S-RlA">
-                                                    <rect key="frame" x="540" y="14" width="38" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="38" id="c2R-JV-fn4"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Show"/>
-                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1J6-t7-I18">
+                                                    <rect key="frame" x="16" y="8" width="568" height="114"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why do some busses only show the next two bus stops?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17D-A8-gpP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="er9-Xb-tyO"/>
+                                                                <constraint firstAttribute="height" constant="40" id="ery-Ri-b8k"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="er9-Xb-tyO"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEO-C6-uBv">
+                                                            <rect key="frame" x="0.0" y="40" width="545" height="74"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="cD0-Nq-oEa"/>
+                                                            </constraints>
+                                                            <string key="text">The data is retrieved directly from the Föli servers. If the app only shows the next two stops it is because Föli does not provide more accurate information for that bus.</string>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="cD0-Nq-oEa"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="2Mb-7S-RlA" secondAttribute="trailing" constant="14" id="2sg-ec-J1q"/>
-                                                <constraint firstItem="2Mb-7S-RlA" firstAttribute="leading" secondItem="peb-wa-9ev" secondAttribute="leadingMargin" constant="8" id="LAr-9b-h7f"/>
-                                                <constraint firstItem="2Mb-7S-RlA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="17D-A8-gpP" secondAttribute="trailing" constant="8" id="cPl-Sk-3KT"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="17D-A8-gpP" secondAttribute="bottom" id="eg8-7w-a2H"/>
-                                                <constraint firstItem="17D-A8-gpP" firstAttribute="leading" secondItem="2Mb-7S-RlA" secondAttribute="trailing" constant="8" id="h1l-ty-GMW"/>
-                                                <constraint firstItem="2Mb-7S-RlA" firstAttribute="centerY" secondItem="peb-wa-9ev" secondAttribute="centerY" id="hki-cE-JCS"/>
-                                                <constraint firstItem="17D-A8-gpP" firstAttribute="centerY" secondItem="peb-wa-9ev" secondAttribute="centerY" id="m5M-r8-dGe"/>
-                                                <constraint firstItem="17D-A8-gpP" firstAttribute="leading" secondItem="peb-wa-9ev" secondAttribute="leadingMargin" constant="8" id="zyF-1b-EA6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1J6-t7-I18" secondAttribute="trailing" constant="8" id="9E2-GB-v5b"/>
+                                                <constraint firstItem="1J6-t7-I18" firstAttribute="leading" secondItem="peb-wa-9ev" secondAttribute="leadingMargin" constant="8" id="SnX-q8-LBa"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1J6-t7-I18" secondAttribute="bottom" id="g8f-vi-ez5"/>
+                                                <constraint firstItem="1J6-t7-I18" firstAttribute="top" secondItem="peb-wa-9ev" secondAttribute="topMargin" id="uI2-k1-Lax"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="h1l-ty-GMW"/>
-                                                    <exclude reference="LAr-9b-h7f"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -667,7 +676,7 @@ Therefore, please activate location services.</string>
                             <tableViewSection headerTitle="Credits" id="fwo-dP-ZU3">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="BSr-W5-MBo">
-                                        <rect key="frame" x="0.0" y="355" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="427" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BSr-W5-MBo" id="gkS-CV-zMj">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -702,7 +711,7 @@ Therefore, please activate location services.</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="IRH-8p-A1I">
-                                        <rect key="frame" x="0.0" y="399" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="471" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IRH-8p-A1I" id="Ihf-0U-Rag">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -714,8 +723,8 @@ Therefore, please activate location services.</string>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLl-56-m2Q">
-                                                    <rect key="frame" x="535" y="8" width="36" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLl-56-m2Q">
+                                                    <rect key="frame" x="541" y="7" width="36" height="30"/>
                                                     <state key="normal" title="More"/>
                                                     <connections>
                                                         <action selector="creditsShowMorePressedSwiftyJSON:" destination="eVb-4u-m1Z" eventType="touchUpInside" id="gnl-cu-bbS"/>
@@ -737,7 +746,7 @@ Therefore, please activate location services.</string>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Rrv-jk-eKL">
-                                        <rect key="frame" x="0.0" y="443" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="515" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rrv-jk-eKL" id="PC6-V4-9XM">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
