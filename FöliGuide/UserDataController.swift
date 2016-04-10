@@ -12,22 +12,27 @@ class UserDataController: NSObject {
 	
 	private struct Keys {
 		static let recentSearches = "recentSearches"
+		static let refreshDataLessFrequently = "refreshDataLessFrequently"
+		static let onlyNotifyOnce = "onlyNotifyOnce"
 	}
 	
 	let defaults = NSUserDefaults.standardUserDefaults()
 	
-	var userData : UserData
+	var userData : UserData {
+		didSet {
+			saveToDefaults()
+		}
+	}
 	
 	override init() {
-		
 		// Check if settings have been stored in defaults already
 		// loadFromDefaults can't be called before super.init()
-		if let recentSearchesObject = defaults.objectForKey(Keys.recentSearches),
-			let recentSearches = recentSearchesObject as? [String] {
-				userData = UserData(recentSearches: recentSearches)
-		} else {
-			userData = UserData(recentSearches: []) //initialize empty if no defaults saved
-		}
+		
+		let recentSearches : [String]? = defaults.objectForKey(Keys.recentSearches) as? [String]
+		let refreshDataLessFrequently : Bool? = defaults.objectForKey(Keys.refreshDataLessFrequently) as? Bool
+		let onlyNotifyOnce : Bool? = defaults.objectForKey(Keys.onlyNotifyOnce) as? Bool
+
+		userData = UserData(recentSearches: recentSearches ?? [], refreshDataLessFrequently: refreshDataLessFrequently ?? false, onlyNotifyOnce: onlyNotifyOnce ?? false) //initialize empty if no defaults saved
 		
 		super.init()
 	}
@@ -46,23 +51,23 @@ class UserDataController: NSObject {
 		}
 		
 		userData.recentSearches.insert(search, atIndex: 0)
-		saveToDefaults()
 	}
 	
 	
 	
 	private func loadFromDefaults() -> UserData? {
-		guard let recentSearchesObject = defaults.objectForKey(Keys.recentSearches),
-			let recentSearches = recentSearchesObject as? [String] else {
-				return nil
-		}
-		return UserData(recentSearches: recentSearches)
+		let recentSearches : [String]? = defaults.objectForKey(Keys.recentSearches) as? [String]
+		let refreshDataLessFrequently : Bool? = defaults.objectForKey(Keys.refreshDataLessFrequently) as? Bool
+		let onlyNotifyOnce : Bool? = defaults.objectForKey(Keys.onlyNotifyOnce) as? Bool
+		
+		return UserData(recentSearches: recentSearches ?? [], refreshDataLessFrequently: refreshDataLessFrequently ?? false, onlyNotifyOnce: onlyNotifyOnce ?? false) //initialize empty if no defaults saved
 	}
 	
 	
 	private func saveToDefaults(){
 		defaults.setObject(userData.recentSearches, forKey: Keys.recentSearches)
-		
+		defaults.setObject(userData.refreshDataLessFrequently, forKey: Keys.refreshDataLessFrequently)
+		defaults.setObject(userData.onlyNotifyOnce, forKey: Keys.onlyNotifyOnce)
 	}
 	
 }

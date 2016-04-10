@@ -160,7 +160,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	func startBusDataLoop(){
-		self.busController.getBussesInLoop(intervalInSeconds: Constants.DataRefreshIntervalInSeconds, completionHandler: { (busses) -> () in
+		let refreshInterval = userDataController.userData.refreshDataLessFrequently ? Constants.DataRefreshIntervalLessFrequentlyInSeconds :  Constants.DataRefreshIntervalInSeconds
+		
+		self.busController.getBussesInLoop(intervalInSeconds: refreshInterval, completionHandler: { (busses) -> () in
 			guard let busses = busses else { // failure getting busses
 				return
 			}

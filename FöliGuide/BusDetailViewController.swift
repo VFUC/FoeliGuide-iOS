@@ -44,12 +44,15 @@ class BusDetailViewController: UIViewController {
 			alarmSet = !(destinationStop == nil)
 			
 			if let stop = destinationStop {
+				didNotifyUserAboutUpcomingDestination = false
 				for delegate in delegates {
 					delegate.didSelectDestination?(stop)
 				}
 			}
 		}
 	}
+	
+	var didNotifyUserAboutUpcomingDestination = false //Used when user wants to be notified only once
 	
 	var nextStop : String?
 	
@@ -151,13 +154,23 @@ extension BusDetailViewController : BusUpdateDelegate {
 			if nextStop != newNextStop { //Next stop has changed
 				nextStop = newNextStop
 				
+				
 				if newNextStop == destinationStop {
-					NotificationController.showNextBusStationNotification(stopName: newNextStop, viewController: self)
+					
+					if !appDelegate.userDataController.userData.onlyNotifyOnce ||  (appDelegate.userDataController.userData.onlyNotifyOnce && !didNotifyUserAboutUpcomingDestination ) {
+						NotificationController.showNextBusStationNotification(stopName: newNextStop, viewController: self)
+						didNotifyUserAboutUpcomingDestination = true
+					}
+					
 					destinationStop = nil
 				}
 				
 				if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop?.name where afterThatStop == destinationStop {
-					NotificationController.showAfterThatBusStationNotification(stopName: afterThatStop, viewController: self)
+					
+					if !appDelegate.userDataController.userData.onlyNotifyOnce ||  (appDelegate.userDataController.userData.onlyNotifyOnce && !didNotifyUserAboutUpcomingDestination ) {
+						NotificationController.showAfterThatBusStationNotification(stopName: afterThatStop, viewController: self)
+						didNotifyUserAboutUpcomingDestination = true
+					}
 				}
 			}
 		}

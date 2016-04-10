@@ -10,4 +10,6 @@ import Foundation
 
 struct UserData {
 	var recentSearches : [String]
+	var refreshDataLessFrequently = false
+	var onlyNotifyOnce = false
 }
