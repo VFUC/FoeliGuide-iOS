@@ -25,7 +25,7 @@ class SpeechController: NSObject {
 	
 	
 	class func announceNextBusStop(busStop: String){
-		let nextStopUtterance = AVSpeechUtterance(string: "Next Stop")
+		let nextStopUtterance = AVSpeechUtterance(string: NSLocalizedString("Next Stop", comment: "Used when announcing the next stop to the user, e.g. Next Stop - Kauppatori - After that - Brahenkatu"))
 		let stopUtterance = AVSpeechUtterance(string: busStop)
 		stopUtterance.rate = 0.4
 		stopUtterance.voice = AVSpeechSynthesisVoice(language: "fi-FI")
@@ -35,7 +35,7 @@ class SpeechController: NSObject {
 	}
 	
 	class func announceFollowingBusStop(busStop: String){
-		let afterThatUtterance = AVSpeechUtterance(string: "After that")
+		let afterThatUtterance = AVSpeechUtterance(string: NSLocalizedString("After that", comment: "Used when announcing the next stop to the user, e.g. Next Stop - Kauppatori - After that - Brahenkatu"))
 		let stopUtterance = AVSpeechUtterance(string: busStop)
 		stopUtterance.rate = 0.4
 		stopUtterance.voice = AVSpeechSynthesisVoice(language: "fi-FI")

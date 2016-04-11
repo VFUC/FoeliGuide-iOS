@@ -16,12 +16,12 @@ class BusSelectionHeaderCollectionReusableView: UICollectionReusableView {
 	
 	func showLoadingLocationState(){
 		loadingIndicator.startAnimating()
-		headerLabel.text = "Loading nearby busses"
+		headerLabel.text = NSLocalizedString("Loading nearby busses", comment: "used on loading indicator")
 	}
 	
 	func showNormalState(){
 		loadingIndicator.stopAnimating()
-		headerLabel.text = "Select your bus"
+		headerLabel.text = NSLocalizedString("Select your bus", comment: "user prompt")
 	}
 	
 	

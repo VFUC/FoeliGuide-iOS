@@ -26,15 +26,16 @@ class BusSelectionTableViewController: UITableViewController {
 		appDelegate.applicationEventHandlers.append(self)
 		appDelegate.startBusDataLoop()
 		
-		self.navigationItem.title = "Select your bus"
+		self.navigationItem.title = NSLocalizedString("Select your bus", comment: "Select your bus header")
 		
 		if appDelegate.locationController.authorized {
 			tableView.tableHeaderView = nil
 		}
 		
-		permissionScope.headerLabel.text = "Location Access"
-		permissionScope.bodyLabel.text = "Select your bus quicker and easier"
-		permissionScope.addPermission(LocationWhileInUsePermission(), message: "Your location is used to locate the bus closest to you.")
+		permissionScope.headerLabel.text = NSLocalizedString("Location Access", comment: "Location access header")
+		permissionScope.bodyLabel.text = NSLocalizedString("Select your bus quicker and easier", comment: "Select your bus quicker and easier")
+		let message = NSLocalizedString("Your location is used to locate the bus closest to you.", comment: "Your location is used to locate the bus closest to you.")
+		permissionScope.addPermission(LocationWhileInUsePermission(), message: message)
     }
 	
 	override func viewWillDisappear(animated: Bool) {
@@ -119,9 +120,9 @@ class BusSelectionTableViewController: UITableViewController {
 				
 				if let distance = busses[indexPath.row].distanceToUser {
 					if distance > 1000 {
-						busStopCell.distanceLabel.text = String(format: "%.2f km away", distance / 1000)
+						busStopCell.distanceLabel.text = String.localizedStringWithFormat(NSLocalizedString("%.2f km away", comment: "Show how far the bus is away, in km (abbreviated)"), distance / 1000)
 					} else {
-						busStopCell.distanceLabel.text = "\(Int(distance))m away"
+						busStopCell.distanceLabel.text = "\(Int(distance))" + NSLocalizedString("m away", comment: "Distance to bus, in meters (abbreviated)")
 					}
 				}
 				

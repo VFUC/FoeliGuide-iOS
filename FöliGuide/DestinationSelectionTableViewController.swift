@@ -62,6 +62,7 @@ class DestinationSelectionTableViewController: UITableViewController {
 		}
 		
 		searchController.searchResultsUpdater = self
+		searchController.searchBar.placeholder = NSLocalizedString("Search bus stops", comment: "Destination search placeholder")
 		searchController.dimsBackgroundDuringPresentation = false
 		definesPresentationContext = false
 		tableView.tableHeaderView = searchController.searchBar

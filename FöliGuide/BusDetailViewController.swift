@@ -115,11 +115,14 @@ class BusDetailViewController: UIViewController {
 	@IBAction func didTapAlarmButton(sender: UIBarButtonItem) {
 		if alarmSet {
 			
-			let alertController = UIAlertController(title: "Remove Alarm?", message: "Do you want to remove the alarm for \(destinationStop ?? "--")", preferredStyle: .Alert)
-			alertController.addAction(UIAlertAction(title: "Remove", style: .Destructive, handler: { _ -> Void in
+			let title = NSLocalizedString("Remove alarm?", comment: "Asking the user if he's sure to remove the alarm")
+			let message = String.localizedStringWithFormat(NSLocalizedString("Do you want to remove the alarm for %@?", comment: "Name the bus station the user is about to delete the alarm for"), (destinationStop ?? "--"))
+			
+			let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+			alertController.addAction(UIAlertAction(title: NSLocalizedString("Remove", comment: "Remove button label"), style: .Destructive, handler: { _ -> Void in
 				self.destinationStop = nil
 			}))
-			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+			alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel button label"), style: .Cancel, handler: nil))
 			
 			presentViewController(alertController, animated: true, completion: nil)
 			
