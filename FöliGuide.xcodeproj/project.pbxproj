@@ -219,7 +219,6 @@
 		722D30551C5139BF00CAEE90 = {
 			isa = PBXGroup;
 			children = (
-				729416FE1CBBC6F600F2D07F /* Localizable.strings */,
 				7245F9AF1CAE5B6400FAEA69 /* PermissionScope.framework */,
 				72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */,
 				72DF00BD1C57873300AFBCCD /* Alamofire.framework */,
@@ -249,6 +248,7 @@
 				721C903D1C561EA7001027EC /* Models */,
 				722D30651C5139BF00CAEE90 /* Main.storyboard */,
 				722D306A1C5139BF00CAEE90 /* LaunchScreen.storyboard */,
+				729416FE1CBBC6F600F2D07F /* Localizable.strings */,
 				722D306D1C5139BF00CAEE90 /* Info.plist */,
 				722D30681C5139BF00CAEE90 /* Assets.xcassets */,
 			);
@@ -520,7 +520,6 @@
 				729416FF1CBBC70D00F2D07F /* de */,
 			);
 			name = Localizable.strings;
-			path = "FöliGuide";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
