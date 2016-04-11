@@ -25,7 +25,7 @@
                                         <rect key="frame" x="70" y="0.0" width="37" height="0.0"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-hd-MUx">
-                                        <rect key="frame" x="29" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="28.5" y="0.0" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ve3-hd-MUx" secondAttribute="height" multiplier="1:1" id="AXz-B1-aIm"/>
                                             <constraint firstAttribute="width" constant="120" id="dDQ-sP-dwP"/>
@@ -49,29 +49,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="df9-I9-eHl">
-                                <rect key="frame" x="272" y="550" width="57" height="30"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </state>
-                                <connections>
-                                    <segue destination="eVb-4u-m1Z" kind="presentation" id="B1o-BA-hqd"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.6705882352941176" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QwB-Os-2gg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3f5-k6-hk4"/>
                             <constraint firstItem="QwB-Os-2gg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="4" id="4uQ-dD-fGz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="df9-I9-eHl" secondAttribute="bottom" constant="20" id="4v5-57-HWR"/>
                             <constraint firstItem="QwB-Os-2gg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OyX-dv-GiX"/>
-                            <constraint firstItem="df9-I9-eHl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qy2-SL-bgA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QwB-Os-2gg" secondAttribute="bottom" constant="4" id="bJX-xb-DO3"/>
                             <constraint firstItem="QwB-Os-2gg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="hJ5-Es-mT5"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="QwB-Os-2gg" secondAttribute="trailing" constant="4" id="pRt-f1-zY7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wnQ-7r-bV2"/>
+                    <navigationItem key="navigationItem" id="wnQ-7r-bV2">
+                        <barButtonItem key="leftBarButtonItem" image="empty" id="tvl-9y-COF"/>
+                        <barButtonItem key="rightBarButtonItem" image="gear-icon-barbuttonsize" id="D4G-Hr-iR0">
+                            <connections>
+                                <segue destination="eVb-4u-m1Z" kind="presentation" id="WAU-Do-c09"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="AGI-SO-EZK" id="ML1-oL-BL2"/>
                         <outlet property="selectBusImageButton" destination="Ve3-hd-MUx" id="FP0-ul-06P"/>
@@ -148,7 +144,7 @@
                                                     </variation>
                                                 </stackView>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wd1-tw-tyh">
-                                                    <rect key="frame" x="535" y="23.5" width="51" height="31"/>
+                                                    <rect key="frame" x="535" y="23" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="dataRefreshRateSwitchChanged:" destination="eVb-4u-m1Z" eventType="valueChanged" id="08b-gN-GXZ"/>
                                                     </connections>
@@ -214,8 +210,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1J6-t7-I18">
                                                     <rect key="frame" x="16" y="8" width="568" height="114"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why do some busses only show the next two bus stops?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17D-A8-gpP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="40"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why do some busses only show the next two bus stops?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17D-A8-gpP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="568" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="er9-Xb-tyO"/>
                                                                 <constraint firstAttribute="height" constant="40" id="ery-Ri-b8k"/>
@@ -229,8 +225,8 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEO-C6-uBv">
-                                                            <rect key="frame" x="0.0" y="40" width="545" height="74"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEO-C6-uBv">
+                                                            <rect key="frame" x="0.0" y="40" width="568" height="74"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="70" id="cD0-Nq-oEa"/>
                                                             </constraints>
@@ -245,6 +241,10 @@
                                                             </variation>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="17D-A8-gpP" firstAttribute="centerX" secondItem="1J6-t7-I18" secondAttribute="centerX" id="2Ub-fq-w6f"/>
+                                                        <constraint firstItem="gEO-C6-uBv" firstAttribute="centerX" secondItem="1J6-t7-I18" secondAttribute="centerX" id="KVV-lF-M3B"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -255,19 +255,74 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="146" id="bZ0-yR-swh">
+                                        <rect key="frame" x="0.0" y="399" width="600" height="146"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bZ0-yR-swh" id="LJc-gZ-Kde">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="145.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="KsW-df-cqs">
+                                                    <rect key="frame" x="16" y="8" width="568" height="130"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why can I not get notifications when the app is closed?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECL-Jv-spL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="568" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="BgL-PZ-IQ1"/>
+                                                                <constraint firstAttribute="height" constant="40" id="Fux-Xo-ki8"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="BgL-PZ-IQ1"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYc-Hr-suS">
+                                                            <rect key="frame" x="0.0" y="40" width="568" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="nvU-Ol-8Tn"/>
+                                                            </constraints>
+                                                            <string key="text">In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check that often anymore and the data would be inaccurate.</string>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="nvU-Ol-8Tn"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="ECL-Jv-spL" firstAttribute="centerX" secondItem="KsW-df-cqs" secondAttribute="centerX" id="7Co-7L-2tB"/>
+                                                        <constraint firstItem="PYc-Hr-suS" firstAttribute="centerX" secondItem="KsW-df-cqs" secondAttribute="centerX" id="YMY-BQ-yWK"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="KsW-df-cqs" secondAttribute="trailing" constant="8" id="4dx-PM-aUX"/>
+                                                <constraint firstItem="KsW-df-cqs" firstAttribute="leading" secondItem="LJc-gZ-Kde" secondAttribute="leadingMargin" constant="8" id="8Go-i9-FFY"/>
+                                                <constraint firstItem="KsW-df-cqs" firstAttribute="top" secondItem="LJc-gZ-Kde" secondAttribute="topMargin" id="HrV-YY-qmV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="KsW-df-cqs" secondAttribute="bottom" id="tsZ-ca-s0J"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Credits" id="fwo-dP-ZU3">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="BSr-W5-MBo">
-                                        <rect key="frame" x="0.0" y="427" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="573" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BSr-W5-MBo" id="gkS-CV-zMj">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Alamofire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwC-lX-LBg">
-                                                    <rect key="frame" x="16" y="11" width="73" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamofire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwC-lX-LBg">
+                                                    <rect key="frame" x="16" y="12" width="69" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -295,14 +350,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="IRH-8p-A1I">
-                                        <rect key="frame" x="0.0" y="471" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="617" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IRH-8p-A1I" id="Ihf-0U-Rag">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SwiftyJSON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALX-Rb-6Au">
-                                                    <rect key="frame" x="16" y="11" width="91" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftyJSON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALX-Rb-6Au">
+                                                    <rect key="frame" x="16" y="12" width="86" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -330,7 +385,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Rrv-jk-eKL">
-                                        <rect key="frame" x="0.0" y="515" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="661" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rrv-jk-eKL" id="PC6-V4-9XM">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -343,8 +398,8 @@
                                                         <action selector="creditsShowMorePressedPermissionScope:" destination="eVb-4u-m1Z" eventType="touchUpInside" id="Dyz-yo-c7w"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PermissionScope" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwr-LK-wVI">
-                                                    <rect key="frame" x="16" y="11" width="133" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PermissionScope" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwr-LK-wVI">
+                                                    <rect key="frame" x="16" y="12" width="125.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1147,6 +1202,8 @@
         <image name="bell" width="22" height="22"/>
         <image name="bell-filled" width="22" height="22"/>
         <image name="bus" width="256" height="256"/>
+        <image name="empty" width="22" height="22"/>
+        <image name="gear-icon-barbuttonsize" width="22" height="22"/>
         <image name="location-icon" width="208" height="208"/>
         <image name="route-icon-bottom" width="40" height="88"/>
         <image name="route-icon-middle" width="40" height="88"/>
