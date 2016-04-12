@@ -69,36 +69,12 @@ extension NextStopSubViewController : BusUpdateDelegate {
 			return
 		}
 		
-//		detailVC.busNumberLabel.text = bus.name
-//		finalStationName.text = bus.finalStop
 		
 		nextStationNameLabel.text = bus.nextStop.name
 		afterThatStationNameLabel.text = bus.afterThatStop?.name ?? "--"
 		
 		afterThatStationNameLabel.hidden = (nextStationNameLabel.text == afterThatStationNameLabel.text) //Hide if both labels are equal
 		
-		
-		/*
-		if nextStationNameLabel.text == destinationStop {
-			NotificationController.showNextBusStationNotification(stopName: nextStationNameLabel.text!, viewController: self)
-			destinationStop = nil
-		}
-		
-		if afterThatStationNameLabel.text == destinationStop {
-			NotificationController.showAfterThatBusStationNotification(stopName: afterThatStationNameLabel.text!, viewController: self)
-		}
-		
-		
-		if volumeEnabled {
-			if let nextStation = nextStationNameLabel.text {
-				SpeechController.announceNextBusStop(nextStation)
-			}
-			
-			if let afterThatStation = afterThatStationNameLabel.text {
-				SpeechController.announceFollowingBusStop(afterThatStation)
-			}
-		}
-		*/
 	}
 }
 

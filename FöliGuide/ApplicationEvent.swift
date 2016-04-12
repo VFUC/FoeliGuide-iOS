@@ -9,9 +9,5 @@
 import Foundation
 
 enum ApplicationEvent {
-	case LocationServicesDisabled
-	case LocationAuthorizationNotDetermined
-	case LocationAuthorizationDenied
-	case LocationAuthorizationSuccessful
 	case UserLocationDidUpdate
 }

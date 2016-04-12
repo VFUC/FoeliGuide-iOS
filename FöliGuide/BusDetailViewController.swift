@@ -177,26 +177,5 @@ extension BusDetailViewController : BusUpdateDelegate {
 				}
 			}
 		}
-		
-		
-		
-		/* if let nextStop = appDelegate.busController.currentUserBus?.nextStop.name {
-		SpeechController.announceNextBusStop(nextStop)
-		
-		if nextStop == destinationStop {
-		NotificationController.showNextBusStationNotification(stopName: nextStop, viewController: self)
-		destinationStop = nil
-		}
-		}
-		
-		
-		if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop?.name {
-		SpeechController.announceFollowingBusStop(afterThatStop)
-		
-		if afterThatStop == destinationStop {
-		NotificationController.showAfterThatBusStationNotification(stopName: afterThatStop, viewController: self)
-		}
-		}
-		*/
 	}
 }

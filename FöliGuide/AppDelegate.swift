@@ -34,15 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	// MARK: Data
 	var busStops : [BusStop]?
-//	{
-		/* didSet {
-			if let stops = busStops {
-				busStopNames = BusDataController.namesForBusStops(stops)
-			}
-			
-		} */
-//	}
-//	var busStopNames : [String]?
 	
 	
 	// MARK: Flags
@@ -66,8 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		
 		//register for local notifications
-		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil))
-		//TODO: check for permissions
+//		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil))
+
 		
 		if busStops == nil { //Get bus stop data once, if not retrieved yet
 
@@ -122,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 		
 		if alarmIsSet && !didShowBackgroundWarning {
-			NotificationController.showAppInBackgroundWithAlarmWarning()
+			NotificationController.showAppInBackgroundWithAlarmWarning() //TODO: show popup once user reopens app
 			didShowBackgroundWarning = true
 		}
 	}
@@ -140,21 +131,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	
-	/*
-	func handleApplicationEvent(event: ApplicationEvent){
-		switch event {
-			
-//		case .LocationAuthorizationDenied, .LocationServicesDisabled: //TODO: test - can all cases be treated the same? Nope: Denied needs different interaction
-			
-//			mainVC?.performSegueWithIdentifier("showAuthorizationRequestVC", sender: nil)
-//		case .LocationAuthorizationSuccessful:
-//			mainVC?.dismissViewControllerAnimated(true, completion: nil)
-		case .UserLocationDidUpdate:
-			busSelectionVC?.didUpdateUserLocation()
-		default:
-			break
-		}
-	} */
 	
 	
 	
