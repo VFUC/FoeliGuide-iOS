@@ -25,6 +25,9 @@ class SettingsTableViewController: UITableViewController {
 		notifyOnceSwitch.on = appDelegate.userDataController.userData.onlyNotifyOnce
 	}
 	
+	override func viewWillAppear(animated: Bool) {
+		UIApplication.sharedApplication().statusBarStyle = .Default
+	}
 	
 	
 	@IBAction func doneButtonPressed(sender: UIButton) {

@@ -26,15 +26,16 @@ class MainViewController: UIViewController {
 			setBusStopLoadingStartedState()
 		}
 		
-		
-		
-		
 		let topImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
 		topImageView.image = UIImage(named: "appicon-transparent-landscape-400")
 		topImageView.contentMode = .ScaleAspectFit
 		
 		self.navigationItem.titleView = topImageView
 		
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		UIApplication.sharedApplication().statusBarStyle = .LightContent
 	}
 
     override func didReceiveMemoryWarning() {
