@@ -186,7 +186,7 @@ extension BusRouteSubViewController : UITableViewDataSource {
 				let minutes = Int(intervalInSeconds / 60)
 				
 				let now = NSLocalizedString("now", comment: "now")
-				stopCell.arrivalDateLabel.text = (minutes <= 0) ? now : String.localizedStringWithFormat(NSLocalizedString("in %@ min", comment: "Arriving at bus station in n minutes"), minutes)
+				stopCell.arrivalDateLabel.text = (minutes <= 0) ? now : String.localizedStringWithFormat(NSLocalizedString("in %d min", comment: "Arriving at bus station in n minutes"), minutes)
 				
 			} else {
 				stopCell.arrivalDateLabel.text = ""

@@ -1,18 +1,18 @@
-"Remove" = "Remove";
-"Cancel" = "Cancel";
-"Search bus stops" = "Search bus stops";
+"Remove" = "Remove"; //Button label
+"Cancel" = "Cancel"; //Button label
+"Search bus stops" = "Search bus stops"; //Search bar label
 "Remove alarm?" = "Remove alarm?";
-"Do you want to remove the alarm for %@?" = "Do you want to remove the alarm for %@?";
-"now" = "now";
-"in %@ min" = "in %@ min"; // use appropriate abbreviation of minutes (e.g. min)
+"Do you want to remove the alarm for %@?" = "Do you want to remove the alarm for %@?"; //Asking user if he's sure
+"now" = "now"; //Next to bus stop if it arrives now
+"in %d min" = "in %d min"; // bus arrives in %@ minutes, use appropriate abbreviation of minutes (e.g. min)
 "Select your bus" = "Select your bus";
 "Location Access" = "Location Access";
 "Select your bus quicker and easier" = "Select your bus quicker and easier";
 "Your location is used to locate the bus closest to you." = "Your location is used to locate the bus closest to you.";
 "%.2f km away" = "%.2f km away"; //Show how far the bus is away, in km (abbreviated)
 "m away" = "m away"; //Show how far the bus is away, in meters (abbreviated, e.g. m)
-"Destination upcoming!" = "Destination upcoming!";
-"Next stop is %@" = "Next stop is %@";
+"Destination upcoming!" = "Destination upcoming!"; //Tell user that destination is close
+"Next stop is %@" = "Next stop is %@"; //%@ = name of bus stop
 "Arriving soon!" = "Arriving soon!";
 "%@ is only 2 stops away" = "%@ is only 2 stops away";
 "You closed the app while an alarm was set" = "You closed the app while an alarm was set";
