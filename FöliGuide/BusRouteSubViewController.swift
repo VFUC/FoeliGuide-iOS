@@ -37,11 +37,14 @@ class BusRouteSubViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		appDelegate.busDataUpdateDelegates.append(self)
-		scrollToNextBusStop(animated: true)
 		
 		if let detailVC = parentViewController as? BusDetailViewController {
 			detailVC.delegates.append(self)
 		}
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		scrollToNextBusStop(animated: true)
 	}
 	
 	
@@ -247,6 +250,7 @@ extension BusRouteSubViewController : UITableViewDelegate {
 extension BusRouteSubViewController : BusUpdateDelegate {
 	func didUpdateBusData() {
 		busStopsTableView.reloadData()
+		scrollToNextBusStop(animated: true)
 	}
 }
 
