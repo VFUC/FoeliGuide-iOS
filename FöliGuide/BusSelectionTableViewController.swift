@@ -27,6 +27,7 @@ class BusSelectionTableViewController: UITableViewController {
 		appDelegate.startBusDataLoop()
 		
 		self.navigationItem.title = NSLocalizedString("Select your bus", comment: "Select your bus header")
+		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: "Back Button") , style: .Plain, target: nil, action: nil)
 		
 		if appDelegate.locationController.authorized {
 			tableView.tableHeaderView = nil
