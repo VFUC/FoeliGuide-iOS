@@ -16,10 +16,15 @@ import UIKit
 
 
 class BusDetailViewController: UIViewController {
-
+	
 	@IBOutlet weak var containerView: UIView!
 	@IBOutlet weak var loadingSpinner: ALThreeCircleSpinner!
 	@IBOutlet weak var alarmBarButton: UIBarButtonItem!
+	@IBOutlet weak var volumeButton: UIButton! {
+		didSet {
+			volumeButton.imageView?.contentMode = .ScaleAspectFit
+		}
+	}
 	
 	@IBOutlet weak var busNumberLabel: UILabel!
 	
@@ -52,20 +57,38 @@ class BusDetailViewController: UIViewController {
 		}
 	}
 	
+	var volumeEnabled = false {
+		didSet {
+			if volumeEnabled {
+				volumeButton.setImage(UIImage(named: "ios-volume-high"), forState: .Normal)
+				
+				dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
+					self.announceNextTwoBusStops()
+				})
+				
+			} else {
+				SpeechController.stopSpeaking()
+				volumeButton.setImage(UIImage(named: "ios-volume-low"), forState: .Normal)
+			}
+		}
+	}
+	
 	var didNotifyUserAboutUpcomingDestination = false //Used when user wants to be notified only once
 	
 	var nextStop : String?
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		appDelegate.busDataUpdateDelegates.append(self) // TODO: remove on popping?
 		
-		self.loadingSpinner.startAnimating()
+		loadingSpinner.startAnimating()
 		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? "?"
 		
-		delegates = [BusDetailViewControllerDelegate]() //Reset delegates
+		volumeEnabled = false
 
+		delegates = [BusDetailViewControllerDelegate]() //Reset delegates
+		
 		appDelegate.busController.getBusRoute(forBus: appDelegate.busController.currentUserBus!) { (busStops) -> () in
 			
 			self.loadingSpinner.stopAnimating()
@@ -80,7 +103,7 @@ class BusDetailViewController: UIViewController {
 			self.loadSubViewController(withIdentifier: "BusRouteSubViewController")
 		}
 		
-    }
+	}
 	
 	
 	override func viewWillDisappear(animated: Bool) {
@@ -88,6 +111,8 @@ class BusDetailViewController: UIViewController {
 			subViewController!.willMoveToParentViewController(nil)
 			subViewController!.view.removeFromSuperview()
 			subViewController!.removeFromParentViewController()
+			
+			volumeEnabled = false
 		}
 	}
 	
@@ -103,6 +128,16 @@ class BusDetailViewController: UIViewController {
 		vc.didMoveToParentViewController(self)
 	}
 	
+	
+	func announceNextTwoBusStops(){
+		if let nextStation = appDelegate.busController.currentUserBus?.nextStop.name {
+			SpeechController.announceNextBusStop(nextStation)
+		}
+		
+		if let afterThatStation = appDelegate.busController.currentUserBus?.afterThatStop?.name {
+			SpeechController.announceFollowingBusStop(afterThatStation)
+		}
+	}
 	
 	
 	
@@ -131,7 +166,9 @@ class BusDetailViewController: UIViewController {
 		}
 	}
 	
-	
+	@IBAction func didTapVolumeButton(sender: UIButton) {
+		volumeEnabled = !volumeEnabled
+	}
 	
 	
 	
@@ -157,6 +194,9 @@ extension BusDetailViewController : BusUpdateDelegate {
 			if nextStop != newNextStop { //Next stop has changed
 				nextStop = newNextStop
 				
+				if volumeEnabled {
+					announceNextTwoBusStops()
+				}
 				
 				if newNextStop == destinationStop {
 					
@@ -175,7 +215,10 @@ extension BusDetailViewController : BusUpdateDelegate {
 						didNotifyUserAboutUpcomingDestination = true
 					}
 				}
-			}
+				
+			}//next stop has changed
 		}
+		
+		
 	}
 }

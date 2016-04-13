@@ -121,7 +121,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Refresh data less frequently" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hat-3P-unU">
                                                             <rect key="frame" x="0.0" y="0.0" width="192" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Less battery consumption, but not as accurate" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dh-aJ-SV2">
@@ -182,7 +182,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only notify once about upcoming bus stops" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYJ-uc-Z7J">
                                                     <rect key="frame" x="16" y="8" width="299" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -217,7 +217,7 @@
                                                                 <constraint firstAttribute="height" constant="40" id="ery-Ri-b8k"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
@@ -272,7 +272,7 @@
                                                                 <constraint firstAttribute="height" constant="40" id="Fux-Xo-ki8"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
@@ -324,7 +324,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamofire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwC-lX-LBg">
                                                     <rect key="frame" x="16" y="12" width="69" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBc-Rc-6de">
@@ -359,7 +359,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftyJSON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALX-Rb-6Au">
                                                     <rect key="frame" x="16" y="12" width="86" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLl-56-m2Q">
@@ -401,7 +401,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PermissionScope" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwr-LK-wVI">
                                                     <rect key="frame" x="16" y="12" width="125.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -613,7 +613,7 @@
             </objects>
             <point key="canvasLocation" x="1913" y="416"/>
         </scene>
-        <!--Title-->
+        <!--Bus Detail View Controller-->
         <scene sceneID="RgP-5B-o3j">
             <objects>
                 <viewController id="anu-en-mqH" customClass="BusDetailViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
@@ -647,11 +647,24 @@
                                         </subviews>
                                         <gestureRecognizers/>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mju-iA-Psd">
+                                        <rect key="frame" x="15" y="15" width="36" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mju-iA-Psd" secondAttribute="height" multiplier="5:4" id="3a4-hM-9P4"/>
+                                            <constraint firstAttribute="width" constant="36" id="khv-UD-Svg"/>
+                                        </constraints>
+                                        <state key="normal" image="ios-volume-low"/>
+                                        <connections>
+                                            <action selector="didTapVolumeButton:" destination="anu-en-mqH" eventType="touchUpInside" id="Vt6-T5-3ka"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="mju-iA-Psd" firstAttribute="top" secondItem="Oc9-oS-l6Y" secondAttribute="top" constant="15" id="64s-NP-qwp"/>
                                     <constraint firstItem="aPn-GD-nfI" firstAttribute="centerX" secondItem="Oc9-oS-l6Y" secondAttribute="centerX" id="AR4-XW-Ipy"/>
+                                    <constraint firstItem="mju-iA-Psd" firstAttribute="leading" secondItem="Oc9-oS-l6Y" secondAttribute="leading" constant="15" id="Cjf-6y-5f1"/>
                                     <constraint firstAttribute="height" constant="120" id="i1T-bj-KQE"/>
                                     <constraint firstItem="aPn-GD-nfI" firstAttribute="centerY" secondItem="Oc9-oS-l6Y" secondAttribute="centerY" id="sAN-jX-B5w"/>
                                 </constraints>
@@ -690,7 +703,10 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Tci-SN-yeg">
+                    <navigationItem key="navigationItem" id="Tci-SN-yeg">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="VJR-jz-JZ2">
+                            <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="bell" id="Uze-gD-4ik">
                             <connections>
                                 <action selector="didTapAlarmButton:" destination="anu-en-mqH" id="ydk-6R-D2r"/>
@@ -702,6 +718,7 @@
                         <outlet property="busNumberLabel" destination="tqs-wZ-MVy" id="s0C-Bn-CfA"/>
                         <outlet property="containerView" destination="Tpm-dq-r6t" id="Nfo-7b-QZo"/>
                         <outlet property="loadingSpinner" destination="PvI-Jb-Rah" id="kdv-FF-3Ho"/>
+                        <outlet property="volumeButton" destination="mju-iA-Psd" id="eVY-Yk-dRS"/>
                         <segue destination="3UE-6S-kYb" kind="show" identifier="showDestinationSelectionVC" id="rSy-hu-R7B"/>
                     </connections>
                 </viewController>
@@ -1204,6 +1221,7 @@
         <image name="bus" width="256" height="256"/>
         <image name="empty" width="22" height="22"/>
         <image name="gear-icon-barbuttonsize" width="22" height="22"/>
+        <image name="ios-volume-low" width="80" height="120"/>
         <image name="location-icon" width="208" height="208"/>
         <image name="route-icon-bottom" width="40" height="88"/>
         <image name="route-icon-middle" width="40" height="88"/>
