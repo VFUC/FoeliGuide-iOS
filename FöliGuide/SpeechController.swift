@@ -23,6 +23,11 @@ class SpeechController: NSObject {
 		speechSynthesizer.speakUtterance(utterance)
 	}
 	
+	class func stopSpeaking(){
+		if speechSynthesizer.speaking {
+			speechSynthesizer.stopSpeakingAtBoundary(.Immediate)
+		}
+	}
 	
 	class func announceNextBusStop(busStop: String){
 		let nextStopUtterance = AVSpeechUtterance(string: NSLocalizedString("Next Stop", comment: "Used when announcing the next stop to the user, e.g. Next Stop - Kauppatori - After that - Brahenkatu"))
