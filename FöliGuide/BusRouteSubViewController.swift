@@ -97,11 +97,9 @@ class BusRouteSubViewController: UIViewController {
 		displayStops = appDelegate.busController.currentUserBus!.route!
 		
 		
-		for (index, stop) in displayStops.enumerate() {
-			if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
-				nextStopIndex = index
-				break
-			}
+		for (index, stop) in displayStops.enumerate() where stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
+			nextStopIndex = index
+			break
 		}
 		
 		guard let index = nextStopIndex else {
