@@ -23,3 +23,4 @@
 "Next Stop" = "Next Stop"; //used during announcement, e.g.: "Next Stop - Kauppatori - After that - Brahenkatu"
 "After that" = "After that"; //used during announcement, e.g.: "Next Stop - Kauppatori - After that - Brahenkatu"
 "Loading nearby busses" = "Loading nearby busses"; //Used on a loading indicator
+"Done" = "Done";

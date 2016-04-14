@@ -111,6 +111,8 @@
 		727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
 		727CC0491CB5213700C96B71 /* ALThreeCircleSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALThreeCircleSpinner.swift; sourceTree = "<group>"; };
 		727CC04B1CB526F200C96B71 /* BusDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusDetailViewController.swift; sourceTree = "<group>"; };
+		7286970E1CBFD82A00E6FA52 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
+		7286970F1CBFD82A00E6FA52 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		729416F51CBA432E00F2D07F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		729416F91CBB925A00F2D07F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		729416FD1CBBC6F600F2D07F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				en,
 				Base,
 				de,
+				fi,
 			);
 			mainGroup = 722D30551C5139BF00CAEE90;
 			productRefGroup = 722D305F1C5139BF00CAEE90 /* Products */;
@@ -517,6 +520,7 @@
 			children = (
 				722D30661C5139BF00CAEE90 /* Base */,
 				729416F91CBB925A00F2D07F /* de */,
+				7286970E1CBFD82A00E6FA52 /* fi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -534,6 +538,7 @@
 			children = (
 				729416FD1CBBC6F600F2D07F /* en */,
 				729416FF1CBBC70D00F2D07F /* de */,
+				7286970F1CBFD82A00E6FA52 /* fi */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

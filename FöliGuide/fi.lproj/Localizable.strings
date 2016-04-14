@@ -1,0 +1,26 @@
+"Remove" = "Poista"; //Button label
+"Cancel" = "Peruuta"; //Button label
+"Back" = "Takaisin"; //Back Button label
+"Search bus stops" = "Etsi pysäkkiä"; //Search bar label
+"Remove alarm?" = "Poista hälytys?";
+"Do you want to remove the alarm for %@?" = "Haluatko poistaa häytyksen %@?"; //Asking user if he's sure
+"now" = "nyt"; //Next to bus stop if it arrives now
+"in %d min" = "%d min kuluttua"; // bus arrives in %@ minutes, use appropriate abbreviation of minutes (e.g. min)
+"Select your bus" = "Valitse bussi";
+"Location Access" = "Sijainnin määritys";
+"Select your bus quicker and easier" = "Valitse bussi nopeammin ja helpommin";
+"Your location is used to locate the bus closest to you." = "Sijaintiasi käytetään paikantamaan sinua lähin bussi.";
+"%.2f km away" = "%.2f km päässä"; //Show how far the bus is away, in km (abbreviated)
+"m away" = "m päässä"; //Show how far the bus is away, in meters (abbreviated, e.g. m)
+"Destination upcoming!" = "Määränpää tulossa!"; //Tell user that destination is close
+"Next stop is %@" = "Seuraava pysäkki on %@"; //%@ = name of bus stop
+"Arriving soon!" = "Kohta perillä";
+"%@ is only 2 stops away" = "%@ on vain kahden pysäkin päässä";
+"You closed the app while an alarm was set" = "Suljit ohjelman hälytyksen ollessa päällä";
+"Alarms can only be sent when the app is open." = "Sinua voidaan muistuttaa vain sovelluksen ollessa auki.";
+"Network error" = "Verkkovirhe";
+"Please check your internet connectivity and try again." = "Tarkista internetyhteytesi ja yritä uudelleen.";
+"Next Stop" = "Seuraava pysäkki"; //used during announcement, e.g.: "Next Stop - Kauppatori - After that - Brahenkatu"
+"After that" = "Sen jälkeen"; //used during announcement, e.g.: "Next Stop - Kauppatori - After that - Brahenkatu"
+"Loading nearby busses" = "Ladataan lähellä olevia busseja"; //Used on a loading indicator
+"Done" = "Valmis";
