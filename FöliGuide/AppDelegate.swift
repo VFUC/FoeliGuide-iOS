@@ -143,20 +143,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				return
 			}
 			
+			
 			// find the bus with the matching vehicleRef
 			for bus in busses where bus.vehicleRef == self.busController.currentUserBus?.vehicleRef {
 				
 				var updatedBus = bus
-				
 				updatedBus.route = self.busController.currentUserBus?.route
+
+				
+				
+				//Check if route is going in wrong direction, needs to be reversed
+				if let route = updatedBus.route {
+					let oldStopName = self.busController.currentUserBus?.nextStop.name
+					let newStopName = updatedBus.nextStop.name
+					
+					var oldBusStopRouteIndex : Int? = nil
+					var newBusStopRouteIndex : Int? = nil
+					
+					for (index, stop) in route.enumerate() {
+						if stop.name == oldStopName {
+							oldBusStopRouteIndex = index
+						}
+						
+						if stop.name == newStopName {
+							newBusStopRouteIndex = index
+						}
+					}
+					
+					// If index of new is < index of old, the bus is moving in the reverse direction of the route => reverse the route
+					if let old = oldBusStopRouteIndex, let new = newBusStopRouteIndex where new < old {
+						print("[YO] \(newStopName) is before \(oldStopName), reversing route!")
+						updatedBus.route = updatedBus.route?.reverse()
+					}
+				}
 				
 				self.busController.currentUserBus = updatedBus
-				
 				
 				for delegate in self.busDataUpdateDelegates {
 					delegate.didUpdateBusData()
 				}
-				
 			}
 			
 		})
