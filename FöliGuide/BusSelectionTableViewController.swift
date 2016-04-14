@@ -17,8 +17,10 @@ class BusSelectionTableViewController: UITableViewController {
 	var busses = [Bus]()
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
-	@IBOutlet weak var locationDisabledView: UIView!
-	let permissionScope = PermissionScope()
+	@IBOutlet weak var headerContainerView: UIView!
+	var headerVC : UIViewController?
+	
+	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +31,21 @@ class BusSelectionTableViewController: UITableViewController {
 		self.navigationItem.title = NSLocalizedString("Select your bus", comment: "Select your bus header")
 		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: "Back Button") , style: .Plain, target: nil, action: nil)
 		
+		
+		
 		if appDelegate.locationController.authorized {
-			tableView.tableHeaderView = nil
+			
+			//show loading indicator until user data loaded
+			if !appDelegate.didGetUserLocationOnce {
+				loadHeaderViewController(withIdentifier: "LocationLoadingHeaderViewController")
+			} else {
+				tableView.tableHeaderView = nil
+			}
+			
+		} else {
+			loadHeaderViewController(withIdentifier: "LocationDisabledHeaderView")
 		}
 		
-		permissionScope.headerLabel.text = NSLocalizedString("Location Access", comment: "Location access header")
-		permissionScope.bodyLabel.text = NSLocalizedString("Select your bus quicker and easier", comment: "Select your bus quicker and easier")
-		let message = NSLocalizedString("Your location is used to locate the bus closest to you.", comment: "Your location is used to locate the bus closest to you.")
-		permissionScope.addPermission(LocationWhileInUsePermission(), message: message)
     }
 	
 	override func viewWillDisappear(animated: Bool) {
@@ -48,6 +57,20 @@ class BusSelectionTableViewController: UITableViewController {
 	
 	override func viewDidAppear(animated: Bool) {
 		loadData()
+	}
+	
+	
+	
+	func loadHeaderViewController(withIdentifier identifier: String){
+		let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+		let vc = storyboard.instantiateViewControllerWithIdentifier(identifier)
+		
+		headerVC = vc
+		
+		addChildViewController(vc)
+		vc.view.frame = CGRect(x: 0,y: 0, width: self.headerContainerView.frame.size.width, height: self.headerContainerView.frame.size.height)
+		headerContainerView.addSubview(vc.view)
+		vc.didMoveToParentViewController(self)
 	}
 	
 	
@@ -63,24 +86,20 @@ class BusSelectionTableViewController: UITableViewController {
 	
 	
 	func didUpdateUserLocation(){
-			busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: appDelegate.locationController.userLocation)
+		print("[BusSelectionTVC] Did receive user location update")
+		if let vc = headerVC {
+			vc.willMoveToParentViewController(nil)
+			vc.view.removeFromSuperview()
+			vc.removeFromParentViewController()
+			tableView.tableHeaderView = nil
+			headerVC = nil
+		}
+		
+		busses = appDelegate.busController.sortBussesByDistanceToUser(busses: busses, userLocation: appDelegate.locationController.userLocation)
 		tableView?.reloadData()
 	}
 	
-	
-	@IBAction func locationDisabledViewTapped(sender: AnyObject) {
-		
-		permissionScope.show({ finished, results in
-			self.appDelegate.locationController.authorized = true
-			self.tableView.reloadData()
-			UIView.animateWithDuration(0.7, animations: {
-				self.tableView.tableHeaderView = nil
-			})
-			
-			}, cancelled: { (results) -> Void in
-				self.appDelegate.locationController.authorized = false
-		})
-	}
+
 	
 	
 	

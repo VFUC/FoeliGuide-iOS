@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 	var didShowBackgroundWarning = false //Only show once
+	var didGetUserLocationOnce = false
 	
 	
 	// MARK: Event Handlers
@@ -58,7 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		//register for local notifications
 //		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil))
-
+		
+		applicationEventHandlers.append(self)
 		
 		if busStops == nil { //Get bus stop data once, if not retrieved yet
 
@@ -172,7 +174,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					
 					// If index of new is < index of old, the bus is moving in the reverse direction of the route => reverse the route
 					if let old = oldBusStopRouteIndex, let new = newBusStopRouteIndex where new < old {
-						print("[YO] \(newStopName) is before \(oldStopName), reversing route!")
 						updatedBus.route = updatedBus.route?.reverse()
 					}
 				}
@@ -209,5 +210,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 	
+}
+
+extension AppDelegate : ApplicationEventHandler {
+	func handleEvent(event: ApplicationEvent) {
+		if event == .UserLocationDidUpdate {
+			didGetUserLocationOnce = true
+		}
+	}
 }
 

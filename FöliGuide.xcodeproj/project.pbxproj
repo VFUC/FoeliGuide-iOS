@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7216D0DD1CBF7EA200F31F45 /* LocationDisabledHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216D0DC1CBF7EA200F31F45 /* LocationDisabledHeaderViewController.swift */; };
 		721C90351C5619E6001027EC /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C90341C5619E6001027EC /* LocationController.swift */; };
 		721C903A1C561BEE001027EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C90391C561BEE001027EC /* MainViewController.swift */; };
 		721C903C1C561E78001027EC /* ApplicationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721C903B1C561E78001027EC /* ApplicationEvent.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7216D0DC1CBF7EA200F31F45 /* LocationDisabledHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDisabledHeaderViewController.swift; sourceTree = "<group>"; };
 		721C90341C5619E6001027EC /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		721C90391C561BEE001027EC /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		721C903B1C561E78001027EC /* ApplicationEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationEvent.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		721C90381C561A2B001027EC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7216D0DC1CBF7EA200F31F45 /* LocationDisabledHeaderViewController.swift */,
 				729416F51CBA432E00F2D07F /* SettingsTableViewController.swift */,
 				723521721CB55109008BB1CE /* BusRouteSubViewController.swift */,
 				723521741CB55119008BB1CE /* NextStopSubViewController.swift */,
@@ -450,6 +453,7 @@
 				722D30621C5139BF00CAEE90 /* AppDelegate.swift in Sources */,
 				72F07EA01C6DC11E00CDE64D /* UserDataController.swift in Sources */,
 				724917D81C885FDC006C7114 /* SpeechController.swift in Sources */,
+				7216D0DD1CBF7EA200F31F45 /* LocationDisabledHeaderViewController.swift in Sources */,
 				72DF00C31C57898D00AFBCCD /* NetworkController.swift in Sources */,
 				7235E07D1CA0114400C25ECA /* BusRouteViewController.swift in Sources */,
 				723521751CB55119008BB1CE /* NextStopSubViewController.swift in Sources */,

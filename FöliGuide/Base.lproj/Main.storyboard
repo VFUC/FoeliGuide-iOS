@@ -436,6 +436,68 @@
             </objects>
             <point key="canvasLocation" x="1233" y="1213"/>
         </scene>
+        <!--Location Disabled Header View Controller-->
+        <scene sceneID="UcS-L3-ehm">
+            <objects>
+                <viewController storyboardIdentifier="LocationDisabledHeaderView" id="Z66-vG-ilt" customClass="LocationDisabledHeaderViewController" customModule="Fo_liGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xY0-3A-dfX"/>
+                        <viewControllerLayoutGuide type="bottom" id="lH8-GW-tCq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="07j-7z-mca">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find your bus - enable location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cua-hC-fAh">
+                                <rect key="frame" x="201" y="289" width="246" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-icon" translatesAutoresizingMaskIntoConstraints="NO" id="r9G-76-g4f">
+                                <rect key="frame" x="154" y="283" width="33" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="3L3-tp-sah"/>
+                                    <constraint firstAttribute="width" secondItem="r9G-76-g4f" secondAttribute="height" multiplier="1:1" id="T6K-Gh-abh"/>
+                                    <constraint firstAttribute="width" secondItem="r9G-76-g4f" secondAttribute="height" multiplier="10:7" constant="1" id="bMw-rd-AVf"/>
+                                    <constraint firstAttribute="width" constant="40" id="lFA-FU-ccs"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bMw-rd-AVf"/>
+                                        <exclude reference="lFA-FU-ccs"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="cua-hC-fAh" firstAttribute="leading" secondItem="r9G-76-g4f" secondAttribute="trailing" constant="14" id="4xZ-LX-SuQ"/>
+                            <constraint firstItem="r9G-76-g4f" firstAttribute="centerY" secondItem="cua-hC-fAh" secondAttribute="centerY" id="8wS-Li-HHM"/>
+                            <constraint firstItem="cua-hC-fAh" firstAttribute="centerY" secondItem="07j-7z-mca" secondAttribute="centerY" id="Neg-Ki-2oo"/>
+                            <constraint firstItem="r9G-76-g4f" firstAttribute="width" secondItem="r9G-76-g4f" secondAttribute="height" multiplier="1:1" id="jbj-gY-skM"/>
+                            <constraint firstItem="cua-hC-fAh" firstAttribute="centerX" secondItem="07j-7z-mca" secondAttribute="centerX" constant="24" id="lY2-Zh-GcX"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jbj-gY-skM"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="udT-k0-VNz" appends="YES" id="caB-rW-4Sr"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rIH-uL-ary" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="udT-k0-VNz">
+                    <connections>
+                        <action selector="didTapView:" destination="Z66-vG-ilt" id="40F-Hn-Zzm"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1913" y="-275"/>
+        </scene>
         <!--Bus Selection Table View Controller-->
         <scene sceneID="SU0-G6-qMd">
             <objects>
@@ -444,53 +506,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="UFm-8L-Oj4">
-                            <rect key="frame" x="0.0" y="64" width="600" height="49"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find your bus - enable location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ron-uz-8Li">
-                                    <rect key="frame" x="201" y="14" width="246" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-icon" translatesAutoresizingMaskIntoConstraints="NO" id="M9b-9c-85B">
-                                    <rect key="frame" x="154" y="8" width="33" height="33"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="40" id="3tR-ye-w27"/>
-                                        <constraint firstAttribute="width" secondItem="M9b-9c-85B" secondAttribute="height" multiplier="10:7" constant="1" id="UrO-qQ-TBz"/>
-                                        <constraint firstAttribute="width" secondItem="M9b-9c-85B" secondAttribute="height" multiplier="1:1" id="wme-aQ-LmZ"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="3tR-ye-w27"/>
-                                            <exclude reference="UrO-qQ-TBz"/>
-                                        </mask>
-                                    </variation>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstItem="M9b-9c-85B" firstAttribute="centerX" secondItem="UFm-8L-Oj4" secondAttribute="centerX" id="1BR-T8-mQY"/>
-                                <constraint firstItem="M9b-9c-85B" firstAttribute="top" secondItem="UFm-8L-Oj4" secondAttribute="top" constant="8" id="B91-W2-QfU"/>
-                                <constraint firstAttribute="bottom" secondItem="M9b-9c-85B" secondAttribute="bottom" constant="8" id="BGr-ZJ-pij"/>
-                                <constraint firstItem="ron-uz-8Li" firstAttribute="centerY" secondItem="UFm-8L-Oj4" secondAttribute="centerY" id="Gd2-da-8N3"/>
-                                <constraint firstItem="ron-uz-8Li" firstAttribute="leading" secondItem="M9b-9c-85B" secondAttribute="trailing" constant="14" id="Wrr-4d-8XC"/>
-                                <constraint firstItem="ron-uz-8Li" firstAttribute="centerX" secondItem="UFm-8L-Oj4" secondAttribute="centerX" constant="24" id="axF-gh-NJm"/>
-                            </constraints>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="1BR-T8-mQY"/>
-                                </mask>
-                            </variation>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="HW6-C9-4ou" appends="YES" id="8ex-cc-vCD"/>
-                            </connections>
-                        </view>
+                        <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="DIk-qi-v2h">
+                            <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        </containerView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusCellWithDistance" rowHeight="70" id="fjW-hn-TaY" customClass="BusSelectionTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="141" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="142" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fjW-hn-TaY" id="9fE-H7-58c">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
@@ -548,7 +570,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusCell" rowHeight="70" id="Wax-jf-XWF" customClass="BusSelectionTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="211" width="600" height="70"/>
+                                <rect key="frame" x="0.0" y="212" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wax-jf-XWF" id="Vcu-ku-ba7">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
@@ -600,16 +622,12 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="locationDisabledView" destination="UFm-8L-Oj4" id="ADn-mr-KWq"/>
+                        <outlet property="headerContainerView" destination="DIk-qi-v2h" id="7su-Os-yet"/>
                         <segue destination="anu-en-mqH" kind="show" identifier="showBusDetailViewController" id="H89-Ah-nyA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oME-4h-kyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="HW6-C9-4ou">
-                    <connections>
-                        <action selector="locationDisabledViewTapped:" destination="Np8-Nd-AHn" id="0us-Zs-8bf"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HW6-C9-4ou"/>
             </objects>
             <point key="canvasLocation" x="1913" y="416"/>
         </scene>
@@ -1213,6 +1231,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9v-we-ShJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="473" y="416"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jwu-2M-Pmg">
+            <objects>
+                <viewController storyboardIdentifier="LocationLoadingHeaderViewController" id="ELg-m1-fuL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w2M-c0-zHs"/>
+                        <viewControllerLayoutGuide type="bottom" id="u5m-qn-bFI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Exd-a1-Z6u">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fD-gZ-Gkp" customClass="ALThreeCircleSpinner" customModule="Fo_liGuide" customModuleProvider="target">
+                                <rect key="frame" x="175.5" y="289" width="41.5" height="22"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="CpD-f7-xhE"/>
+                                    <constraint firstAttribute="width" secondItem="2fD-gZ-Gkp" secondAttribute="height" multiplier="15:8" id="M3z-Dd-TMd"/>
+                                    <constraint firstAttribute="width" constant="240" id="fzz-1k-l5m"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fzz-1k-l5m"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking bus locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qu5-Zz-joP">
+                                <rect key="frame" x="231" y="289" width="186" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fD-gZ-Gkp" firstAttribute="top" secondItem="Exd-a1-Z6u" secondAttribute="topMargin" constant="10" id="9IO-vA-t04"/>
+                            <constraint firstItem="2fD-gZ-Gkp" firstAttribute="centerX" secondItem="Exd-a1-Z6u" secondAttribute="centerX" id="9JM-e0-sMX"/>
+                            <constraint firstItem="2fD-gZ-Gkp" firstAttribute="centerY" secondItem="Exd-a1-Z6u" secondAttribute="centerY" id="A1n-IL-ugG"/>
+                            <constraint firstItem="2fD-gZ-Gkp" firstAttribute="centerY" secondItem="Exd-a1-Z6u" secondAttribute="centerY" id="ADE-Vf-Tbi"/>
+                            <constraint firstItem="qu5-Zz-joP" firstAttribute="leading" secondItem="2fD-gZ-Gkp" secondAttribute="trailing" constant="14" id="FA3-ck-HGq"/>
+                            <constraint firstItem="qu5-Zz-joP" firstAttribute="centerX" secondItem="Exd-a1-Z6u" secondAttribute="centerX" constant="24" id="kGF-dS-L2P"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="2fD-gZ-Gkp" secondAttribute="bottom" constant="4" id="mMD-3z-Zln"/>
+                            <constraint firstItem="qu5-Zz-joP" firstAttribute="centerY" secondItem="Exd-a1-Z6u" secondAttribute="centerY" id="pG8-uz-Lzf"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9IO-vA-t04"/>
+                                <exclude reference="9JM-e0-sMX"/>
+                                <exclude reference="A1n-IL-ugG"/>
+                                <exclude reference="mMD-3z-Zln"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7oT-8d-Rgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2585" y="-275"/>
         </scene>
     </scenes>
     <resources>
