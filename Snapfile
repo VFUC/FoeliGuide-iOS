@@ -11,6 +11,7 @@
  ])
 
 languages([
+  "fi",
   "en-US",
   "de-DE"
 #  "it-IT",

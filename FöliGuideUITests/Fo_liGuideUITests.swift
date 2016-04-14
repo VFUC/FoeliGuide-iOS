@@ -26,7 +26,9 @@ class Fo_liGuideUITests: XCTestCase {
 		
 		snapshot("1Settings")
 		let tablesQuery2 = app.tables
-		tablesQuery2.buttons["Done"].tap()
+		tablesQuery2.buttons.elementBoundByIndex(0).tap()
+
+		
 		app.buttons["bus"].tap()
 		
 		snapshot("2BusSelectionScreen")
