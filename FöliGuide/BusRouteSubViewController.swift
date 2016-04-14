@@ -30,7 +30,7 @@ class BusRouteSubViewController: UIViewController {
 		}
 	}
 	var destinationStop : String? = nil
-	
+	var lastReceivedNextBusStopName : String? = nil
 	
 	
 	
@@ -248,7 +248,14 @@ extension BusRouteSubViewController : UITableViewDelegate {
 extension BusRouteSubViewController : BusUpdateDelegate {
 	func didUpdateBusData() {
 		busStopsTableView.reloadData()
-		scrollToNextBusStop(animated: true)
+		
+		//Check if next stop did Change
+		if let newNextBusStop = appDelegate.busController.currentUserBus?.nextStop.name {
+			if newNextBusStop != lastReceivedNextBusStopName { //didChange
+				scrollToNextBusStop(animated: true)
+				lastReceivedNextBusStopName = newNextBusStop
+			}
+		}
 	}
 }
 
