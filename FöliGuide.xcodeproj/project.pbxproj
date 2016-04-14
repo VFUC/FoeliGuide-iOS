@@ -23,18 +23,18 @@
 		7235E07D1CA0114400C25ECA /* BusRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7235E07C1CA0114400C25ECA /* BusRouteViewController.swift */; };
 		7235E0831CA0475800C25ECA /* RouteStopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */; };
 		72418BBE1C5F4FAF002E7262 /* NextBusStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */; };
-		7245F9B01CAE5B6400FAEA69 /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7245F9AF1CAE5B6400FAEA69 /* PermissionScope.framework */; };
-		7245F9B11CAE5B6400FAEA69 /* PermissionScope.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7245F9AF1CAE5B6400FAEA69 /* PermissionScope.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		724917D81C885FDC006C7114 /* SpeechController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724917D71C885FDC006C7114 /* SpeechController.swift */; };
 		725419CF1C9BF08B005A3476 /* NetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725419CE1C9BF08B005A3476 /* NetworkEvent.swift */; };
 		727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */; };
 		727CC04A1CB5213700C96B71 /* ALThreeCircleSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727CC0491CB5213700C96B71 /* ALThreeCircleSpinner.swift */; };
 		727CC04C1CB526F200C96B71 /* BusDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727CC04B1CB526F200C96B71 /* BusDetailViewController.swift */; };
+		7286971F1CC0216C00E6FA52 /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7286971E1CC0216C00E6FA52 /* PermissionScope.framework */; };
+		728697201CC0216C00E6FA52 /* PermissionScope.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7286971E1CC0216C00E6FA52 /* PermissionScope.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		728697231CC0217200E6FA52 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728697221CC0217200E6FA52 /* Alamofire.framework */; };
+		728697251CC0217700E6FA52 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728697241CC0217700E6FA52 /* SwiftyJSON.framework */; };
 		729416F61CBA432E00F2D07F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729416F51CBA432E00F2D07F /* SettingsTableViewController.swift */; };
 		729416FC1CBBC6F600F2D07F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 729416FE1CBBC6F600F2D07F /* Localizable.strings */; };
 		72A599A01C69ECBD0059D9C1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5999F1C69ECBD0059D9C1 /* NotificationController.swift */; };
-		72A6F2C31CA2A19F004778AE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DF00BD1C57873300AFBCCD /* Alamofire.framework */; };
-		72A6F2C41CA2A1A4004778AE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */; };
 		72C6F6691C58BA5700DEDD53 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F6681C58BA5700DEDD53 /* Bus.swift */; };
 		72C6F66B1C58BACC00DEDD53 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F66A1C58BACC00DEDD53 /* BusStop.swift */; };
 		72C6F66D1C58BD5A00DEDD53 /* BusDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F66C1C58BD5A00DEDD53 /* BusDataController.swift */; };
@@ -69,13 +69,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7245F9B21CAE5B6400FAEA69 /* Embed Frameworks */ = {
+		728697211CC0216D00E6FA52 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7245F9B11CAE5B6400FAEA69 /* PermissionScope.framework in Embed Frameworks */,
+				728697201CC0216C00E6FA52 /* PermissionScope.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,7 +105,6 @@
 		7235E07C1CA0114400C25ECA /* BusRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRouteViewController.swift; sourceTree = "<group>"; };
 		7235E0821CA0475800C25ECA /* RouteStopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteStopTableViewCell.swift; sourceTree = "<group>"; };
 		72418BBD1C5F4FAF002E7262 /* NextBusStopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextBusStopViewController.swift; sourceTree = "<group>"; };
-		7245F9AF1CAE5B6400FAEA69 /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = Carthage/Build/iOS/PermissionScope.framework; sourceTree = "<group>"; };
 		724917D71C885FDC006C7114 /* SpeechController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechController.swift; sourceTree = "<group>"; };
 		725419CE1C9BF08B005A3476 /* NetworkEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
 		727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRequestViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +112,9 @@
 		727CC04B1CB526F200C96B71 /* BusDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusDetailViewController.swift; sourceTree = "<group>"; };
 		7286970E1CBFD82A00E6FA52 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
 		7286970F1CBFD82A00E6FA52 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7286971E1CC0216C00E6FA52 /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = Carthage/Build/iOS/PermissionScope.framework; sourceTree = "<group>"; };
+		728697221CC0217200E6FA52 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		728697241CC0217700E6FA52 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		729416F51CBA432E00F2D07F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		729416F91CBB925A00F2D07F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		729416FD1CBBC6F600F2D07F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -127,9 +129,7 @@
 		72D9B3681C689BD5009CF956 /* DestinationSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationSelectionTableViewController.swift; sourceTree = "<group>"; };
 		72D9B36A1C68F826009CF956 /* BusSelectionCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionCollectionViewController.swift; sourceTree = "<group>"; };
 		72D9B36C1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
-		72DF00BD1C57873300AFBCCD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		72DF00C21C57898D00AFBCCD /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
-		72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		72DF00C61C578BBA00AFBCCD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		72E0F4CE1CBE64E5006733EE /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = snapshot/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -141,9 +141,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72A6F2C31CA2A19F004778AE /* Alamofire.framework in Frameworks */,
-				72A6F2C41CA2A1A4004778AE /* SwiftyJSON.framework in Frameworks */,
-				7245F9B01CAE5B6400FAEA69 /* PermissionScope.framework in Frameworks */,
+				7286971F1CC0216C00E6FA52 /* PermissionScope.framework in Frameworks */,
+				728697231CC0217200E6FA52 /* Alamofire.framework in Frameworks */,
+				728697251CC0217700E6FA52 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +219,9 @@
 		722D30551C5139BF00CAEE90 = {
 			isa = PBXGroup;
 			children = (
-				7245F9AF1CAE5B6400FAEA69 /* PermissionScope.framework */,
-				72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */,
-				72DF00BD1C57873300AFBCCD /* Alamofire.framework */,
+				728697241CC0217700E6FA52 /* SwiftyJSON.framework */,
+				728697221CC0217200E6FA52 /* Alamofire.framework */,
+				7286971E1CC0216C00E6FA52 /* PermissionScope.framework */,
 				722D30601C5139BF00CAEE90 /* FöliGuide */,
 				722D30751C5139BF00CAEE90 /* FöliGuideTests */,
 				722D30801C5139BF00CAEE90 /* FöliGuideUITests */,
@@ -300,7 +300,7 @@
 				722D305B1C5139BF00CAEE90 /* Frameworks */,
 				722D305C1C5139BF00CAEE90 /* Resources */,
 				72DF00C11C57874A00AFBCCD /* ShellScript */,
-				7245F9B21CAE5B6400FAEA69 /* Embed Frameworks */,
+				728697211CC0216D00E6FA52 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
