@@ -45,6 +45,7 @@
 		72D9B36D1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D9B36C1C68FE04009CF956 /* BusSelectionCollectionViewCell.swift */; };
 		72DF00C31C57898D00AFBCCD /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF00C21C57898D00AFBCCD /* NetworkController.swift */; };
 		72DF00C71C578BBA00AFBCCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DF00C61C578BBA00AFBCCD /* Constants.swift */; };
+		72E0F4CF1CBE64E5006733EE /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E0F4CE1CBE64E5006733EE /* SnapshotHelper.swift */; };
 		72E7FD861C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */; };
 		72F07EA01C6DC11E00CDE64D /* UserDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F07E9F1C6DC11E00CDE64D /* UserDataController.swift */; };
 /* End PBXBuildFile section */
@@ -126,6 +127,7 @@
 		72DF00C21C57898D00AFBCCD /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		72DF00C41C578B2800AFBCCD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		72DF00C61C578BBA00AFBCCD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		72E0F4CE1CBE64E5006733EE /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = snapshot/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		72F07E9F1C6DC11E00CDE64D /* UserDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,6 +263,7 @@
 		722D30801C5139BF00CAEE90 /* FöliGuideUITests */ = {
 			isa = PBXGroup;
 			children = (
+				72E0F4CE1CBE64E5006733EE /* SnapshotHelper.swift */,
 				722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */,
 				722D30831C5139BF00CAEE90 /* Info.plist */,
 			);
@@ -485,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				722D30821C5139BF00CAEE90 /* Fo_liGuideUITests.swift in Sources */,
+				72E0F4CF1CBE64E5006733EE /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
