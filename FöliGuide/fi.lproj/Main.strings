@@ -99,7 +99,7 @@
 "q6h-Fc-tCE.text" = "to Kauppatori";
 
 /* Class = "UILabel"; text = "Checking bus locations"; ObjectID = "qu5-Zz-joP"; */
-"qu5-Zz-joP.text" = "Checking bus locations";
+"qu5-Zz-joP.text" = "Tarkista bussin sijainti";
 
 /* Class = "UILabel"; text = "Only notify once about upcoming bus stops"; ObjectID = "sYJ-uc-Z7J"; */
 "sYJ-uc-Z7J.text" = "Ilmoita vain kerran tulevista bussipysäkeistä";

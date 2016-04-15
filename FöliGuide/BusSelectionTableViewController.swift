@@ -136,7 +136,9 @@ class BusSelectionTableViewController: UITableViewController {
 			
 			if let busStopCell = cell as? BusSelectionTableViewCell {
 				busStopCell.busNumberLabel.text = busses[indexPath.row].name
-				busStopCell.finalStopLabel.text = "to \(busses[indexPath.row].finalStop)"
+				busStopCell.finalStopLabel.text = String.localizedStringWithFormat(NSLocalizedString("Destination: %@", comment: ""), busses[indexPath.row].finalStop)
+//				busStopCell.finalStopLabel.text = "to \(busses[indexPath.row].finalStop)"
+				
 				
 				if let distance = busses[indexPath.row].distanceToUser {
 					if distance > 1000 {

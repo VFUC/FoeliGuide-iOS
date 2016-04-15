@@ -24,3 +24,4 @@
 "After that" = "Sen jälkeen"; //used during announcement, e.g.: "Next Stop - Kauppatori - After that - Brahenkatu"
 "Loading nearby busses" = "Ladataan lähellä olevia busseja"; //Used on a loading indicator
 "Done" = "Valmis";
+"Destination: %@" = "Määränpää: %@";
