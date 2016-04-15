@@ -24,8 +24,8 @@ class NextStopSubViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		nextStationNameLabel.text = ""
-		afterThatStationNameLabel.text = ""
+		nextStationNameLabel.text = appDelegate.busController.currentUserBus?.nextStop.name ?? ""
+		afterThatStationNameLabel.text = appDelegate.busController.currentUserBus?.afterThatStop?.name ?? ""
 		appDelegate.busDataUpdateDelegates.append(self)
 		
 		//remove initially
