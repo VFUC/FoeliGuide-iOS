@@ -18,46 +18,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QwB-Os-2gg">
-                                <rect key="frame" x="212" y="219" width="177" height="162"/>
-                                <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-SO-EZK">
-                                        <rect key="frame" x="70" y="0.0" width="37" height="0.0"/>
-                                    </activityIndicatorView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-hd-MUx">
-                                        <rect key="frame" x="28.5" y="0.0" width="120" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Ve3-hd-MUx" secondAttribute="height" multiplier="1:1" id="AXz-B1-aIm"/>
-                                            <constraint firstAttribute="width" constant="120" id="dDQ-sP-dwP"/>
-                                        </constraints>
-                                        <state key="normal" image="bus">
-                                            <color key="titleColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="Np8-Nd-AHn" kind="show" id="AmT-Iq-9zj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lqf-wh-60x">
-                                        <rect key="frame" x="0.0" y="120" width="177" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                        <state key="normal" title="Select your bus">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="Np8-Nd-AHn" kind="show" id="uG5-hP-lXK"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-SO-EZK">
+                                <rect key="frame" x="281" y="281.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-hd-MUx">
+                                <rect key="frame" x="240" y="230" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ve3-hd-MUx" secondAttribute="height" multiplier="1:1" id="AXz-B1-aIm"/>
+                                    <constraint firstAttribute="width" constant="120" id="dDQ-sP-dwP"/>
+                                </constraints>
+                                <state key="normal" image="bus">
+                                    <color key="titleColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Np8-Nd-AHn" kind="show" id="AmT-Iq-9zj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lqf-wh-60x">
+                                <rect key="frame" x="211" y="358" width="177" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <state key="normal" title="Select your bus">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Np8-Nd-AHn" kind="show" id="uG5-hP-lXK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.6705882352941176" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="QwB-Os-2gg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3f5-k6-hk4"/>
-                            <constraint firstItem="QwB-Os-2gg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="4" id="4uQ-dD-fGz"/>
-                            <constraint firstItem="QwB-Os-2gg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OyX-dv-GiX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QwB-Os-2gg" secondAttribute="bottom" constant="4" id="bJX-xb-DO3"/>
-                            <constraint firstItem="QwB-Os-2gg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="hJ5-Es-mT5"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="QwB-Os-2gg" secondAttribute="trailing" constant="4" id="pRt-f1-zY7"/>
+                            <constraint firstItem="Ve3-hd-MUx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G98-lh-wVb"/>
+                            <constraint firstItem="Ve3-hd-MUx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-10" id="Gtm-MD-Jb7"/>
+                            <constraint firstItem="AGI-SO-EZK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PYb-Vo-8gY"/>
+                            <constraint firstItem="lqf-wh-60x" firstAttribute="centerX" secondItem="Ve3-hd-MUx" secondAttribute="centerX" id="gaI-4L-WUk"/>
+                            <constraint firstItem="AGI-SO-EZK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uIB-uP-IZE"/>
+                            <constraint firstItem="lqf-wh-60x" firstAttribute="top" secondItem="Ve3-hd-MUx" secondAttribute="bottom" constant="8" id="xYT-MU-bD3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wnQ-7r-bV2">
@@ -1323,6 +1318,6 @@
         <image name="route-icon-top" width="40" height="88"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uG5-hP-lXK"/>
+        <segue reference="AmT-Iq-9zj"/>
     </inferredMetricsTieBreakers>
 </document>
