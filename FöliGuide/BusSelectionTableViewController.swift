@@ -48,7 +48,7 @@ class BusSelectionTableViewController: UITableViewController {
 		
     }
 	
-	override func viewWillDisappear(animated: Bool) {
+	override func viewDidDisappear(animated: Bool) {
 		if self.isMovingFromParentViewController() { //View is being dismissed -> moving back to main menu
 			appDelegate.stopBusDataLoop()
 		}

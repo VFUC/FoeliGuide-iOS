@@ -106,7 +106,7 @@ class BusDetailViewController: UIViewController {
 	}
 	
 	
-	override func viewWillDisappear(animated: Bool) {
+	override func viewDidDisappear(animated: Bool) {
 		if self.isMovingFromParentViewController() && subViewController != nil { //View is being dismissed -> moving back to previous screen
 			subViewController!.willMoveToParentViewController(nil)
 			subViewController!.view.removeFromSuperview()
