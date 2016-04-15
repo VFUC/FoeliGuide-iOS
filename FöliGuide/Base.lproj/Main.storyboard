@@ -778,25 +778,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gku-eo-FLw">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="firstBusStopCell" id="W9N-G1-TqT" customClass="RouteStopTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W9N-G1-TqT" id="dpx-lc-YG0">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOY-Ly-mMz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kauppatori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOY-Ly-mMz">
                                                     <rect key="frame" x="275" y="12" width="83.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-top" translatesAutoresizingMaskIntoConstraints="NO" id="Phy-CN-v76">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="route-icon-top" translatesAutoresizingMaskIntoConstraints="NO" id="Phy-CN-v76">
                                                     <rect key="frame" x="245" y="0.0" width="20" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Phy-CN-v76" secondAttribute="height" multiplier="40:58" id="Agd-gk-EX0"/>
@@ -812,7 +812,7 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="en8-qp-3EV">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="en8-qp-3EV">
                                                     <rect key="frame" x="368" y="13" width="20" height="20"/>
                                                     <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <constraints>
@@ -862,19 +862,19 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="nextStopCell" id="yrZ-vx-zt7" customClass="RouteStopTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yrZ-vx-zt7" id="Jsr-0d-k8g">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paavaistentie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4G5-uL-Xy8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Paavaistentie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4G5-uL-Xy8">
                                                     <rect key="frame" x="275" y="10" width="123" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-next" translatesAutoresizingMaskIntoConstraints="NO" id="Ceb-zX-Sxt">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="route-icon-next" translatesAutoresizingMaskIntoConstraints="NO" id="Ceb-zX-Sxt">
                                                     <rect key="frame" x="245" y="0.0" width="20" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="aMr-vv-6Dm"/>
@@ -886,13 +886,13 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 min kuluttua" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4RH-mb-org">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5 min kuluttua" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="4RH-mb-org">
                                                     <rect key="frame" x="132" y="12" width="103" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="nOL-ZE-kzQ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="nOL-ZE-kzQ">
                                                     <rect key="frame" x="408" y="12" width="20" height="20"/>
                                                     <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <constraints>
@@ -932,25 +932,25 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="middleBusStopCell" id="gNX-TB-bgq" customClass="RouteStopTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="116" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="116" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gNX-TB-bgq" id="34r-Fw-rQe">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luhtikatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDH-2Q-EGa">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Luhtikatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDH-2Q-EGa">
                                                     <rect key="frame" x="275" y="12" width="71" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-middle" translatesAutoresizingMaskIntoConstraints="NO" id="oJi-1s-dfG">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="route-icon-middle" translatesAutoresizingMaskIntoConstraints="NO" id="oJi-1s-dfG">
                                                     <rect key="frame" x="245" y="0.0" width="20" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="oJi-1s-dfG" secondAttribute="height" multiplier="40:88" id="QfW-ow-InB"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="gEp-aa-hed">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="gEp-aa-hed">
                                                     <rect key="frame" x="356" y="13" width="20" height="20"/>
                                                     <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <constraints>
@@ -987,25 +987,25 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="lastBusStopCell" id="o7t-dW-9B8" customClass="RouteStopTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="160" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="160" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o7t-dW-9B8" id="MCK-uS-S5a">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brahenkatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-bl-DfV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Brahenkatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtf-bl-DfV">
                                                     <rect key="frame" x="275" y="12" width="87.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="route-icon-bottom" translatesAutoresizingMaskIntoConstraints="NO" id="a5G-bM-CPI">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="route-icon-bottom" translatesAutoresizingMaskIntoConstraints="NO" id="a5G-bM-CPI">
                                                     <rect key="frame" x="245" y="0.0" width="20" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="a5G-bM-CPI" secondAttribute="height" multiplier="40:88" id="3GQ-8q-8a8"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="8kA-Hx-Zvy">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bell-filled" translatesAutoresizingMaskIntoConstraints="NO" id="8kA-Hx-Zvy">
                                                     <rect key="frame" x="372" y="13" width="20" height="20"/>
                                                     <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <constraints>
@@ -1042,13 +1042,13 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="defaultBusStopCell" id="DhZ-tW-bQB" customClass="RouteStopTableViewCell" customModule="Fo_liGuide" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="204" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="204" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DhZ-tW-bQB" id="waq-Bi-ku4">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inspehtorinkatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adN-U4-rJy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Inspehtorinkatu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adN-U4-rJy">
                                                     <rect key="frame" x="241" y="12" width="117.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                     <color key="textColor" red="0.91066666669999996" green="0.91066666669999996" blue="0.91066666669999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -1072,8 +1072,8 @@
                         <color key="backgroundColor" red="0.91764705879999997" green="0.6705882353" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="sjs-vS-KGR" firstAttribute="top" secondItem="Gku-eo-FLw" secondAttribute="bottom" id="DE8-97-T0K"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Gku-eo-FLw" secondAttribute="trailing" constant="-20" id="LS5-xm-1ga"/>
-                            <constraint firstItem="Gku-eo-FLw" firstAttribute="leading" secondItem="wQc-yK-TtX" secondAttribute="leadingMargin" constant="-20" id="h2P-05-hU3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gku-eo-FLw" secondAttribute="trailing" id="LS5-xm-1ga"/>
+                            <constraint firstItem="Gku-eo-FLw" firstAttribute="leading" secondItem="wQc-yK-TtX" secondAttribute="leadingMargin" id="h2P-05-hU3"/>
                             <constraint firstItem="Gku-eo-FLw" firstAttribute="top" secondItem="wQc-yK-TtX" secondAttribute="topMargin" id="jqz-kn-eyc"/>
                         </constraints>
                     </view>
