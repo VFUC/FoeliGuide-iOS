@@ -58,16 +58,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		
 		//register for local notifications
-//		application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil))
 		
 		applicationEventHandlers.append(self)
 		
-		if busStops == nil { //Get bus stop data once, if not retrieved yet
-
-			busController.getBusStops { (stops) -> () in //TODO: error handling
-				self.busStops = stops
-			}
-		}
+		initialDataLoading()
 		
 		switch PermissionScope().statusLocationInUse() {
 		case .Authorized:
@@ -77,8 +71,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			locationController.authorized = false
 		}
 		
+		
+		return true
+	}
+	
+	func initialDataLoading(){
+		if busStops == nil { //Get bus stop data once, if not retrieved yet
+			busController.getBusStops { (stops) -> () in
+				self.busStops = stops
+				
+				if stops == nil {
+					self.callNetworkEvent(.LoadingFailed)
+				}
+			}
+		}
+		
+		
+		
 		self.busController.getBussesOnce({ (busses) -> () in
 			guard let busses = busses else { // failure getting busses
+				self.callNetworkEvent(.LoadingFailed)
 				return
 			}
 			
@@ -95,14 +107,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				for delegate in self.busDataUpdateDelegates {
 					delegate.didUpdateBusData()
 				}
-				
 			}
-			
 		})
-		
-		
-		
-		return true
 	}
 	
 	func applicationWillResignActive(application: UIApplication) {

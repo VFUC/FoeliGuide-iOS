@@ -15,6 +15,23 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var selectBusImageButton: UIButton!
 	@IBOutlet weak var selectBusLabelButton: UIButton!
 	
+	@IBOutlet weak var networkErrorStackView: UIStackView!
+	
+	var didLoadBusStops = false {
+		didSet {
+			if didLoadBusStops && didLoadBusses {
+				setLoadingFinishedState()
+			}
+		}
+	}
+	var didLoadBusses = false {
+		didSet {
+			if didLoadBusStops && didLoadBusses {
+				setLoadingFinishedState()
+			}
+		}
+	}
+	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	
 	
@@ -23,8 +40,10 @@ class MainViewController: UIViewController {
 		appDelegate.networkEventHandlers.append(self)
 		
 		if appDelegate.busStops == nil {
-			setBusStopLoadingStartedState()
+			setLoadingStartedState()
 		}
+		
+		networkErrorStackView.hidden = true
 		
 		let topImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
 		topImageView.image = UIImage(named: "appicon-transparent-landscape-400")
@@ -44,17 +63,36 @@ class MainViewController: UIViewController {
     }
 	
 	
-	func setBusStopLoadingStartedState(){
+	func setLoadingStartedState(){
 		activityIndicator.startAnimating()
 		selectBusLabelButton.hidden = true
 		selectBusImageButton.hidden = true
+		networkErrorStackView.hidden = true
 	}
 	
-	func setBusStopLoadingFinishedState(){
+	func setLoadingFinishedState(){
 		activityIndicator.stopAnimating()
 		selectBusLabelButton.hidden = false
 		selectBusImageButton.hidden = false
+		networkErrorStackView.hidden = true
 	}
+	
+	func setLoadingFailedState(){
+		activityIndicator.stopAnimating()
+		selectBusImageButton.hidden = true
+		selectBusLabelButton.hidden = true
+		networkErrorStackView.hidden = false
+	}
+	
+	
+	
+	
+	@IBAction func tryNetworkRequestAgainTapped(sender: UIButton) {
+		setLoadingStartedState()
+		appDelegate.initialDataLoading()
+	}
+	
+	
 
 }
 
@@ -62,9 +100,14 @@ extension MainViewController : NetworkEventHandler {
 	func handleEvent(event: NetworkEvent) {
 		switch event {
 		case .BusStopLoadingStarted:
-			setBusStopLoadingStartedState()
+			setLoadingStartedState()
 		case .BusStopLoadingFinished:
-			setBusStopLoadingFinishedState()
+			didLoadBusStops = true
+		case .BusLoadingFinished:
+			didLoadBusses = true
+			
+		case .LoadingFailed:
+			setLoadingFailedState()
 		default:
 			break
 		}

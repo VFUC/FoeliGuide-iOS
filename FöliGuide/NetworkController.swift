@@ -21,13 +21,25 @@ class NetworkController: NSObject {
 	
 	// Gets bus data from API, calls completionhandler with nil if data invalid
 	class func getBusData(completionHandler: JSON? -> ()){
-		
 		requestActive = true
 		
 		latestRequest = Alamofire.request(.GET, Constants.API.RealTimeBusURL)
 			.responseData { response in
+				print(response.request)
 				
 				requestActive = false
+				
+				
+				switch response.result {
+					
+				case .Success(let data):
+					completionHandler(JSON(data: data))
+					
+				case .Failure(_):
+					completionHandler(nil)
+				}
+				
+				/*
 				
 				print(response.request)
 				
@@ -37,6 +49,7 @@ class NetworkController: NSObject {
 				}
 				
 				completionHandler(JSON(data: apidata))
+				*/
 		}
 	}
 	
@@ -121,7 +134,18 @@ class NetworkController: NSObject {
 	class func getJSONData(fromURL url: String, completionHandler: JSON? -> ()){
 		Alamofire.request(.GET, url)
 			.responseData { response in
+				print(response.request)
 				
+				switch response.result {
+				
+				case .Success(let data):
+					completionHandler(JSON(data: data))
+					
+				case .Failure(_):
+					completionHandler(nil)
+				}
+				
+				/*
 				print(response.request)
 
 				guard let data = response.data else { //check if data returns nil
@@ -130,6 +154,7 @@ class NetworkController: NSObject {
 				}
 			
 				completionHandler(JSON(data: data))
+				*/
 		}
 	}
 	

@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-SO-EZK">
-                                <rect key="frame" x="281" y="281.5" width="37" height="37"/>
+                                <rect key="frame" x="281" y="281" width="37" height="37"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-hd-MUx">
-                                <rect key="frame" x="240" y="230" width="120" height="120"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ve3-hd-MUx">
+                                <rect key="frame" x="240" y="361.5" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ve3-hd-MUx" secondAttribute="height" multiplier="1:1" id="AXz-B1-aIm"/>
                                     <constraint firstAttribute="width" constant="120" id="dDQ-sP-dwP"/>
@@ -34,8 +34,8 @@
                                     <segue destination="Np8-Nd-AHn" kind="show" id="AmT-Iq-9zj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lqf-wh-60x">
-                                <rect key="frame" x="211" y="358" width="177" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lqf-wh-60x">
+                                <rect key="frame" x="211" y="489.5" width="177" height="42"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <state key="normal" title="Select your bus">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,16 +44,93 @@
                                     <segue destination="Np8-Nd-AHn" kind="show" id="uG5-hP-lXK"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c0I-tm-97o">
+                                <rect key="frame" x="64" y="202" width="293" height="240"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="error-icon" translatesAutoresizingMaskIntoConstraints="NO" id="2FD-qJ-VJK">
+                                        <rect key="frame" x="122" y="0.0" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="rFk-ZJ-xVQ"/>
+                                            <constraint firstAttribute="width" secondItem="2FD-qJ-VJK" secondAttribute="height" multiplier="1:1" id="vI4-nk-4iv"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="Network request failed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EM-WF-IX1">
+                                        <rect key="frame" x="56" y="48" width="182" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please check your internet connection" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7j-Hx-wBS">
+                                        <rect key="frame" x="0.0" y="90" width="293" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="rCS-Rr-B8z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="rCS-Rr-B8z"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSj-JF-sVB">
+                                        <rect key="frame" x="112" y="131" width="68" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="UWR-VC-pt8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Try again">
+                                            <color key="titleColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="UWR-VC-pt8"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="tryNetworkRequestAgainTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n5S-xQ-ZIt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="JQR-wU-MWQ"/>
+                                    <constraint firstAttribute="width" constant="300" id="NJ5-Pf-9DT"/>
+                                    <constraint firstAttribute="width" constant="300" id="YdM-je-bbt"/>
+                                    <constraint firstAttribute="height" constant="300" id="dlx-ez-Mvr"/>
+                                    <constraint firstAttribute="height" constant="240" id="tsj-qz-Gr4"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JQR-wU-MWQ"/>
+                                        <exclude reference="NJ5-Pf-9DT"/>
+                                        <exclude reference="YdM-je-bbt"/>
+                                        <exclude reference="dlx-ez-Mvr"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.6705882352941176" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="c0I-tm-97o" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="22" id="DJ6-4F-gXI"/>
                             <constraint firstItem="Ve3-hd-MUx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G98-lh-wVb"/>
                             <constraint firstItem="Ve3-hd-MUx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-10" id="Gtm-MD-Jb7"/>
                             <constraint firstItem="AGI-SO-EZK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PYb-Vo-8gY"/>
+                            <constraint firstItem="lqf-wh-60x" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c0I-tm-97o" secondAttribute="bottom" constant="20" id="X0M-oW-4N4"/>
+                            <constraint firstItem="c0I-tm-97o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="XRK-OT-uYW"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="c0I-tm-97o" secondAttribute="trailing" constant="5" id="b5d-AR-EiQ"/>
+                            <constraint firstItem="c0I-tm-97o" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="gCb-ip-GWb"/>
                             <constraint firstItem="lqf-wh-60x" firstAttribute="centerX" secondItem="Ve3-hd-MUx" secondAttribute="centerX" id="gaI-4L-WUk"/>
+                            <constraint firstItem="c0I-tm-97o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sBm-of-sSp"/>
                             <constraint firstItem="AGI-SO-EZK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uIB-uP-IZE"/>
                             <constraint firstItem="lqf-wh-60x" firstAttribute="top" secondItem="Ve3-hd-MUx" secondAttribute="bottom" constant="8" id="xYT-MU-bD3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gCb-ip-GWb"/>
+                                <exclude reference="X0M-oW-4N4"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="wnQ-7r-bV2">
                         <barButtonItem key="leftBarButtonItem" image="empty" id="tvl-9y-COF"/>
@@ -65,6 +142,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="AGI-SO-EZK" id="ML1-oL-BL2"/>
+                        <outlet property="networkErrorStackView" destination="c0I-tm-97o" id="FDN-tX-M8h"/>
                         <outlet property="selectBusImageButton" destination="Ve3-hd-MUx" id="FP0-ul-06P"/>
                         <outlet property="selectBusLabelButton" destination="lqf-wh-60x" id="O7T-va-wXz"/>
                     </connections>
@@ -582,7 +660,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="we3-7Q-I51">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="we3-7Q-I51">
                                             <rect key="frame" x="14" y="8" width="186" height="54"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="801" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-mo-M3m">
@@ -594,7 +672,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="to Kauppatori" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckg-bh-Aat">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to Kauppatori" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckg-bh-Aat">
                                                     <rect key="frame" x="88" y="0.0" width="98" height="54"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1309,6 +1387,7 @@
         <image name="bell-filled" width="22" height="22"/>
         <image name="bus" width="256" height="256"/>
         <image name="empty" width="22" height="22"/>
+        <image name="error-icon" width="48" height="48"/>
         <image name="gear-icon-barbuttonsize" width="22" height="22"/>
         <image name="ios-volume-low" width="80" height="120"/>
         <image name="location-icon" width="208" height="208"/>
