@@ -15,6 +15,10 @@ class NetworkController: NSObject {
 	static var requestActive = false
 	static var latestRequest : Request? // Latest request, so it can be cancelled if new one comes in
 	
+	
+	static var gtfsDataURL : String?
+	
+	
 	// Gets bus data from API, calls completionhandler with nil if data invalid
 	class func getBusData(completionHandler: JSON? -> ()){
 		
@@ -44,17 +48,74 @@ class NetworkController: NSObject {
 	
 	class func getRoutesData(completionHandler: JSON? -> ()) {
 		
-		//TODO: put in constants or retrieve dynamically
-		getJSONData(fromURL: "http://data.foli.fi/gtfs/v0/20160304-150630/routes", completionHandler: completionHandler)
+		if let gtfsURL = gtfsDataURL {
+			getJSONData(fromURL: "\(gtfsURL)/routes", completionHandler: completionHandler)
+		} else {
+			getGTFSDataURL({ (gtfsURL) in
+				if let url = gtfsURL {
+					gtfsDataURL = url
+					getJSONData(fromURL: "\(url)/routes", completionHandler: completionHandler)
+				} else {
+					completionHandler(nil)
+				}
+			})
+			
+		}
 	}
 	
 	class func getTripsData(withRouteID routeID: String, completionHandler: JSON? -> ()) {
-		//TODO: put in constants or retrieve dynamically
-		getJSONData(fromURL: "http://data.foli.fi/gtfs/v0/20160304-150630/trips/route/\(routeID)", completionHandler: completionHandler)
+		
+		if let gtfsURL = gtfsDataURL {
+			getJSONData(fromURL: "\(gtfsURL)/trips/route/\(routeID)", completionHandler: completionHandler)
+		} else {
+			getGTFSDataURL({ (gtfsURL) in
+				if let url = gtfsURL {
+					gtfsDataURL = url
+					getJSONData(fromURL: "\(url)/trips/route/\(routeID)", completionHandler: completionHandler)
+				} else {
+					completionHandler(nil)
+				}
+			})
+			
+		}
 	}
 	
 	class func getTripData(withTripID tripID: String, completionHandler: JSON? -> ()) {
-		getJSONData(fromURL: "http://data.foli.fi/gtfs/v0/20160304-150630/stop_times/trip/\(tripID)", completionHandler: completionHandler)
+	
+		if let gtfsURL = gtfsDataURL {
+			getJSONData(fromURL: "\(gtfsURL)/stop_times/trip/\(tripID)", completionHandler: completionHandler)
+		} else {
+			getGTFSDataURL({ (gtfsURL) in
+				if let url = gtfsURL {
+					gtfsDataURL = url
+					getJSONData(fromURL: "\(url)/stop_times/trip/\(tripID)", completionHandler: completionHandler)
+				} else {
+					completionHandler(nil)
+				}
+			})
+			
+		}
+	}
+	
+	class func getGTFSDataURL(completionHandler: String? -> ()) {
+		getJSONData(fromURL: Constants.API.GTFSInfoURL, completionHandler: { json in
+			guard let json = json else {
+				completionHandler(nil)
+				return
+			}
+			
+			guard let host = json["host"].string,
+			let path = json["gtfspath"].string,
+				let latest = json["latest"].string else {
+					completionHandler(nil)
+					return
+			}
+			
+			let url = "http://\(host)\(path.stringByReplacingOccurrencesOfString("\\/", withString: "/"))/\(latest)"
+			completionHandler(url)
+			
+			
+			})
 	}
 	
 	class func getJSONData(fromURL url: String, completionHandler: JSON? -> ()){
