@@ -37,12 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	// MARK: Flags
-	var alarmIsSet = false {
-		didSet {
-			didShowBackgroundWarning = false //Reset once new alarm has been set
-		}
-	}
-	var didShowBackgroundWarning = false //Only show once
+	var alarmIsSet = false
 	var didGetUserLocationOnce = false
 	
 	
@@ -56,8 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
-		
-		//register for local notifications
 		
 		applicationEventHandlers.append(self)
 		
@@ -119,15 +112,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidEnterBackground(application: UIApplication) {
 		// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
 		// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-		
-		if alarmIsSet && !didShowBackgroundWarning {
-			NotificationController.showAppInBackgroundWithAlarmWarning() //TODO: show popup once user reopens app
-			didShowBackgroundWarning = true
-		}
 	}
 	
 	func applicationWillEnterForeground(application: UIApplication) {
 		// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+		if alarmIsSet {
+			callApplicationEvent(.ClosedAppWithActiveAlarm)
+		}
 	}
 	
 	func applicationDidBecomeActive(application: UIApplication) {

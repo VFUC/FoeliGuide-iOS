@@ -90,6 +90,7 @@ class BusDetailViewController: UIViewController {
 		delegates = [BusDetailViewControllerDelegate]() //Reset delegates
 		
 		appDelegate.networkEventHandlers.append(self)
+		appDelegate.applicationEventHandlers.append(self)
 		
 		appDelegate.busController.getBusRoute(forBus: appDelegate.busController.currentUserBus!) { (busStops) -> () in
 			
@@ -149,6 +150,13 @@ class BusDetailViewController: UIViewController {
 		presentViewController(vc, animated: true, completion: nil)
 	}
 	
+	func showAppClosedWithActiveAlarmAlert(){
+		let vc = UIAlertController(title: "Alarm will not ring when app is closed", message: "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check frequently enough anymore.", preferredStyle: .Alert)
+		vc.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
+			vc.removeFromParentViewController()
+		}))
+		presentViewController(vc, animated: true, completion: nil)
+	}
 	
 	
 	@IBAction func didTapHead(sender: UITapGestureRecognizer) {
@@ -230,6 +238,14 @@ extension BusDetailViewController : BusUpdateDelegate {
 		}
 		
 		
+	}
+}
+
+extension BusDetailViewController : ApplicationEventHandler {
+	func handleEvent(event: ApplicationEvent) {
+		if event == .ClosedAppWithActiveAlarm {
+			showAppClosedWithActiveAlarmAlert()
+		}
 	}
 }
 
