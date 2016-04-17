@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "Why do some busses only show the next two bus stops?"; ObjectID = "17D-A8-gpP"; */
-"17D-A8-gpP.text" = "Warum werden manchmal nicht alle folgenden Haltestellen angezeigt?";
+"17D-A8-gpP.text" = "Why do some busses only show the next two bus stops?";
 
 /* Class = "UILabel"; text = "Paavaistentie"; ObjectID = "4G5-uL-Xy8"; */
 "4G5-uL-Xy8.text" = "Paavaistentie";
@@ -19,6 +19,9 @@
 
 /* Class = "UILabel"; text = "to Kauppatori"; ObjectID = "Ckg-bh-Aat"; */
 "Ckg-bh-Aat.text" = "to Kauppatori";
+
+/* Class = "UILabel"; text = "Why can I not get notifications when the app is closed?"; ObjectID = "ECL-Jv-spL"; */
+"ECL-Jv-spL.text" = "Why can I not get notifications when the app is closed?";
 
 /* Class = "UILabel"; text = "Alamofire"; ObjectID = "IwC-lX-LBg"; */
 "IwC-lX-LBg.text" = "Alamofire";
@@ -40,6 +43,9 @@
 
 /* Class = "UILabel"; text = "Luhtikatu"; ObjectID = "MDH-2Q-EGa"; */
 "MDH-2Q-EGa.text" = "Luhtikatu";
+
+/* Class = "UILabel"; text = "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check that often anymore and the data would be inaccurate."; ObjectID = "PYc-Hr-suS"; */
+"PYc-Hr-suS.text" = "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check that often anymore and the data would be inaccurate.";
 
 /* Class = "UILabel"; text = "Alarm set for:"; ObjectID = "QPj-b1-jxf"; */
 "QPj-b1-jxf.text" = "Alarm set for:";

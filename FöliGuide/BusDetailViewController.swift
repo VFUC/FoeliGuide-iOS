@@ -89,6 +89,8 @@ class BusDetailViewController: UIViewController {
 
 		delegates = [BusDetailViewControllerDelegate]() //Reset delegates
 		
+		appDelegate.networkEventHandlers.append(self)
+		
 		appDelegate.busController.getBusRoute(forBus: appDelegate.busController.currentUserBus!) { (busStops) -> () in
 			
 			self.loadingSpinner.stopAnimating()
@@ -137,6 +139,14 @@ class BusDetailViewController: UIViewController {
 		if let afterThatStation = appDelegate.busController.currentUserBus?.afterThatStop?.name {
 			SpeechController.announceFollowingBusStop(afterThatStation)
 		}
+	}
+	
+	func showNetworkErrorAlert(){
+		let vc = UIAlertController(title: "Network Error", message: "Please check your internet connection", preferredStyle: .Alert)
+		vc.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
+			vc.removeFromParentViewController()
+		}))
+		presentViewController(vc, animated: true, completion: nil)
 	}
 	
 	
@@ -220,5 +230,16 @@ extension BusDetailViewController : BusUpdateDelegate {
 		}
 		
 		
+	}
+}
+
+extension BusDetailViewController : NetworkEventHandler {
+	func handleEvent(event: NetworkEvent) {
+		switch event {
+		case .LoadingFailed:
+			showNetworkErrorAlert()
+		default:
+			break
+		}
 	}
 }
