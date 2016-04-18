@@ -38,18 +38,7 @@ class NetworkController: NSObject {
 				case .Failure(_):
 					completionHandler(nil)
 				}
-				
-				/*
-				
-				print(response.request)
-				
-				guard let apidata = response.data else { //check if data returns nil
-					completionHandler(nil)
-					return
-				}
-				
-				completionHandler(JSON(data: apidata))
-				*/
+
 		}
 	}
 	
@@ -144,17 +133,6 @@ class NetworkController: NSObject {
 				case .Failure(_):
 					completionHandler(nil)
 				}
-				
-				/*
-				print(response.request)
-
-				guard let data = response.data else { //check if data returns nil
-					completionHandler(nil)
-					return
-				}
-			
-				completionHandler(JSON(data: data))
-				*/
 		}
 	}
 	
