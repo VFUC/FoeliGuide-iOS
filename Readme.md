@@ -8,3 +8,11 @@ Feel free to contribute to or fork the project.
 
 Details on the implementation:
  - [Obtaining data from the server](Documentation/Server.md)
+
+
+#### Credits
+This project makes use of the following great projects:
+ - [Alamofire](https://github.com/Alamofire/Alamofire)
+ - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+ - [PermissionScope](https://github.com/nickoneill/PermissionScope)
+ - [ALThreeCircleSpinner](https://github.com/AlexLittlejohn/ALThreeCircleSpinner)
