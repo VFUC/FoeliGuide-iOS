@@ -12,8 +12,29 @@ class MainViewController: UIViewController {
 
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
-	@IBOutlet weak var selectBusImageButton: UIButton!
-	@IBOutlet weak var selectBusLabelButton: UIButton!
+	@IBOutlet weak var selectBusImageButton: UIButton! {
+		didSet {
+			selectBusImageButton.accessibilityLabel = NSLocalizedString("Select your bus", comment: "")
+		}
+	}
+	
+	@IBOutlet weak var selectBusLabelButton: UIButton! {
+		didSet {
+			selectBusLabelButton.accessibilityLabel = NSLocalizedString("Select your bus", comment: "")
+		}
+	}
+	
+	@IBOutlet weak var settingsBarButton: UIBarButtonItem! {
+		didSet {
+			settingsBarButton.accessibilityLabel = NSLocalizedString("Settings", comment: "")
+		}
+	}
+	
+	@IBOutlet weak var emptyBarButton: UIBarButtonItem! { //Sole purpose is to keep nav bar image centered, no function
+		didSet {
+			emptyBarButton.isAccessibilityElement = false
+		}
+	}
 	
 	@IBOutlet weak var networkErrorStackView: UIStackView!
 	

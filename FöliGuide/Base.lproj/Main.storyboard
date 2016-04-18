@@ -142,9 +142,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="AGI-SO-EZK" id="ML1-oL-BL2"/>
+                        <outlet property="emptyBarButton" destination="tvl-9y-COF" id="Nd5-Tc-bQq"/>
                         <outlet property="networkErrorStackView" destination="c0I-tm-97o" id="FDN-tX-M8h"/>
                         <outlet property="selectBusImageButton" destination="Ve3-hd-MUx" id="FP0-ul-06P"/>
                         <outlet property="selectBusLabelButton" destination="lqf-wh-60x" id="O7T-va-wXz"/>
+                        <outlet property="settingsBarButton" destination="D4G-Hr-iR0" id="h4n-X1-qoT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
