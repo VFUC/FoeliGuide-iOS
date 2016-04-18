@@ -25,3 +25,4 @@
 "Loading nearby busses" = "Ladataan lähellä olevia busseja"; //Used on a loading indicator
 "Done" = "Valmis";
 "Destination: %@" = "Määränpää: %@";
+"Settings" = "Asetukset";
