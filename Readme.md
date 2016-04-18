@@ -7,4 +7,4 @@ Find the Android version [here](https://github.com/VFUC/RouteGuidance-Android)
 Feel free to contribute to or fork the project.
 
 Details on the implementation:
- - [Obtaining data from the server](Server.md)
+ - [Obtaining data from the server](Documentation/Server.md)
