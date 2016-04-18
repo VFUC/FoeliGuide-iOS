@@ -80,7 +80,7 @@ class BusDetailViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		appDelegate.busDataUpdateDelegates.append(self) // TODO: remove on popping?
+		appDelegate.busDataUpdateDelegates.append(self)
 		
 		loadingSpinner.startAnimating()
 		busNumberLabel.text = appDelegate.busController.currentUserBus?.name ?? "?"
