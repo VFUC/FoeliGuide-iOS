@@ -33,3 +33,7 @@
 "arriving" = "arriving";
 "This stop has already been passed" = "This stop has already been passed";
 "%d stops away" = "%d stops away";
+"Please check your internet connectivity." = "Please check your internet connectivity.";
+"OK" = "OK";
+"Alarm will not ring when app is closed" = "Alarm will not ring when app is closed";
+"In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check frequently enough anymore." = "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check frequently enough anymore.";

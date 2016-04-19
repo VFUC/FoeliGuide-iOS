@@ -30,7 +30,7 @@ class NotificationController: NSObject {
 	private class func notificationWithTitle(title: String, body: String, viewController: UIViewController){
 		
 		let alertController = UIAlertController(title: title, message: body, preferredStyle: .Alert)
-		alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+		alertController.addAction(UIAlertAction(title: "OK".localized, style: .Default, handler: nil))
 		
 		AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
 		viewController.presentViewController(alertController, animated: true, completion: nil)

@@ -150,16 +150,16 @@ class BusDetailViewController: UIViewController {
 	}
 	
 	func showNetworkErrorAlert(){
-		let vc = UIAlertController(title: "Network Error", message: "Please check your internet connection", preferredStyle: .Alert)
-		vc.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
+		let vc = UIAlertController(title: "Network Error".localized, message: "Please check your internet connection".localized, preferredStyle: .Alert)
+		vc.addAction(UIAlertAction(title: "OK".localized, style: .Default, handler: { (_) in
 			vc.removeFromParentViewController()
 		}))
 		presentViewController(vc, animated: true, completion: nil)
 	}
 	
 	func showAppClosedWithActiveAlarmAlert(){
-		let vc = UIAlertController(title: "Alarm will not ring when app is closed", message: "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check frequently enough anymore.", preferredStyle: .Alert)
-		vc.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
+		let vc = UIAlertController(title: "Alarm will not ring when app is closed".localized, message: "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check frequently enough anymore.".localized, preferredStyle: .Alert)
+		vc.addAction(UIAlertAction(title: "OK".localized, style: .Default, handler: { (_) in
 			vc.removeFromParentViewController()
 		}))
 		presentViewController(vc, animated: true, completion: nil)
