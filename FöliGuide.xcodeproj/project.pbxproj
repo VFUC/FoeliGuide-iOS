@@ -49,6 +49,7 @@
 		72E0F4CF1CBE64E5006733EE /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E0F4CE1CBE64E5006733EE /* SnapshotHelper.swift */; };
 		72E7FD861C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */; };
 		72F07EA01C6DC11E00CDE64D /* UserDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F07E9F1C6DC11E00CDE64D /* UserDataController.swift */; };
+		72F69C811CC60431006BD216 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F69C801CC60431006BD216 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		72E0F4CE1CBE64E5006733EE /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = snapshot/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		72E7FD851C746CFA002015BD /* BusSelectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusSelectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		72F07E9F1C6DC11E00CDE64D /* UserDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
+		72F69C801CC60431006BD216 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		721C903D1C561EA7001027EC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				72F69C801CC60431006BD216 /* Extensions.swift */,
 				721D5F8E1C6B2B4300061181 /* UserData.swift */,
 				72C6F6681C58BA5700DEDD53 /* Bus.swift */,
 				72C6F66A1C58BACC00DEDD53 /* BusStop.swift */,
@@ -475,6 +478,7 @@
 				72D3B0B21C770AD8004491F5 /* BusSelectionTableViewController.swift in Sources */,
 				727CC04A1CB5213700C96B71 /* ALThreeCircleSpinner.swift in Sources */,
 				72C6F6691C58BA5700DEDD53 /* Bus.swift in Sources */,
+				72F69C811CC60431006BD216 /* Extensions.swift in Sources */,
 				729416F61CBA432E00F2D07F /* SettingsTableViewController.swift in Sources */,
 				72C6F66D1C58BD5A00DEDD53 /* BusDataController.swift in Sources */,
 				72418BBE1C5F4FAF002E7262 /* NextBusStopViewController.swift in Sources */,
