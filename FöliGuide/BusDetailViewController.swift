@@ -19,7 +19,12 @@ class BusDetailViewController: UIViewController {
 	
 	@IBOutlet weak var containerView: UIView!
 	@IBOutlet weak var loadingSpinner: ALThreeCircleSpinner!
-	@IBOutlet weak var alarmBarButton: UIBarButtonItem!
+	@IBOutlet weak var alarmBarButton: UIBarButtonItem! {
+		didSet {
+			alarmBarButton.accessibilityLabel = "Set an alarm".localized
+		}
+	}
+	
 	@IBOutlet weak var volumeButton: UIButton! {
 		didSet {
 			volumeButton.imageView?.contentMode = .ScaleAspectFit
@@ -59,6 +64,8 @@ class BusDetailViewController: UIViewController {
 	
 	var volumeEnabled = false {
 		didSet {
+			volumeButton.accessibilityLabel = volumeEnabled ? "Turn off announcements".localized : "Turn on announcements".localized
+			
 			if volumeEnabled {
 				volumeButton.setImage(UIImage(named: "ios-volume-high"), forState: .Normal)
 				

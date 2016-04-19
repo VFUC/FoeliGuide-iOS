@@ -136,6 +136,7 @@ class BusSelectionTableViewController: UITableViewController {
 			
 			if let busStopCell = cell as? BusSelectionTableViewCell {
 				busStopCell.busNumberLabel.text = busses[indexPath.row].name
+				busStopCell.busNumberLabel.accessibilityLabel = String.localizedStringWithFormat("Bus %@".localized, busses[indexPath.row].name)
 				busStopCell.finalStopLabel.text = String.localizedStringWithFormat(NSLocalizedString("Destination: %@", comment: ""), busses[indexPath.row].finalStop)
 //				busStopCell.finalStopLabel.text = "to \(busses[indexPath.row].finalStop)"
 				
@@ -158,6 +159,8 @@ class BusSelectionTableViewController: UITableViewController {
 			
 			if let busStopCell = cell as? BusSelectionTableViewCell {
 				busStopCell.busNumberLabel.text = busses[indexPath.row].name
+				busStopCell.busNumberLabel.accessibilityLabel = String.localizedStringWithFormat("Bus %@".localized, busses[indexPath.row].name)
+				
 				busStopCell.finalStopLabel.text = "to \(busses[indexPath.row].finalStop)"
 				return busStopCell
 			}

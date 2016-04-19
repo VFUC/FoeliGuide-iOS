@@ -26,3 +26,10 @@
 "Done" = "Done";
 "Destination: %@" = "Destination: %@";
 "Settings" = "Settings";
+"Bus %@" = "Bus %@";
+"Set an alarm" = "Set an alarm";
+"Turn on announcements" = "Turn on announcements";
+"Turn off announcements" = "Turn off announcements";
+"arriving" = "arriving";
+"This stop has already been passed" = "This stop has already been passed";
+"%d stops away" = "%d stops away";

@@ -167,10 +167,17 @@ extension BusRouteSubViewController : UITableViewDataSource {
 		if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
 			stopCell.dimSubViews()
 			stopCell.userInteractionEnabled = false
+			stopCell.accessibilityLabel = stop.name + ", " + "This stop has already been passed".localized
 		} else {
 			stopCell.brightenSubViews()
 			stopCell.userInteractionEnabled = true
 			stopCell.selectionStyle = .None
+			
+			
+			if let nextStopIndex = nextStopIndex where indexPath.row > nextStopIndex {
+				stopCell.accessibilityLabel = stop.name + ", " + String.localizedStringWithFormat("%d stops away".localized, indexPath.row + 1 - nextStopIndex)
+			}
+			
 		}
 		
 		if let nextStopIndex = nextStopIndex where indexPath.row == nextStopIndex {
@@ -186,8 +193,14 @@ extension BusRouteSubViewController : UITableViewDataSource {
 				let intervalInSeconds = nextStopArrivalDate.timeIntervalSinceNow
 				let minutes = Int(intervalInSeconds / 60)
 				
-				let now = NSLocalizedString("now", comment: "now")
-				stopCell.arrivalDateLabel.text = (minutes <= 0) ? now : String.localizedStringWithFormat(NSLocalizedString("in %d min", comment: "Arriving at bus station in n minutes"), minutes)
+				if minutes <= 0 {
+					stopCell.arrivalDateLabel.text  = "now".localized
+					stopCell.arrivalDateLabel.accessibilityLabel = "arriving".localized + " " + "now".localized
+				} else {
+					stopCell.arrivalDateLabel.text = String.localizedStringWithFormat(NSLocalizedString("in %d min", comment: "Arriving at bus station in n minutes"), minutes)
+					stopCell.arrivalDateLabel.accessibilityLabel = "arriving".localized + " " + String.localizedStringWithFormat(NSLocalizedString("in %d min", comment: "Arriving at bus station in n minutes"), minutes)
+				}
+				
 				
 			} else {
 				stopCell.arrivalDateLabel.text = ""
