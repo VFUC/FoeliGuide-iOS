@@ -109,7 +109,36 @@ class BusDetailViewController: UIViewController {
 				return
 			}
 			
-			self.appDelegate.busController.currentUserBus?.route = busStops
+			var route = busStops!
+			
+			if let currentBus = self.appDelegate.busController.currentUserBus {
+				//Check if route is going in wrong direction, needs to be reversed
+				
+				if let afterThatStopName = currentBus.afterThatStop?.name {
+					let nextStopName = currentBus.nextStop.name
+					
+					//get index of both upcoming stop names on route
+					var nextStopIndex : Int? = nil
+					var afterThatStopIndex : Int? = nil
+					
+					for (index, stop) in busStops!.enumerate() {
+						if stop.name == nextStopName {
+							nextStopIndex = index
+						}
+						
+						if stop.name == afterThatStopName {
+							afterThatStopIndex = index
+						}
+					}
+					
+					//Flip if direction is incorrect
+					if let n = nextStopIndex, let a = afterThatStopIndex where a < n {
+						route = route.reverse()
+					}
+				}
+			}
+			
+			self.appDelegate.busController.currentUserBus?.route = route
 			self.loadSubViewController(withIdentifier: "BusRouteSubViewController")
 		}
 		
