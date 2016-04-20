@@ -72,10 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		if busStops == nil { //Get bus stop data once, if not retrieved yet
 			busController.getBusStops { (stops) -> () in
 				self.busStops = stops
-				
-				if stops == nil {
-					self.callNetworkEvent(.LoadingFailed)
-				}
 			}
 		}
 		
@@ -83,7 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		self.busController.getBussesOnce({ (busses) -> () in
 			guard let busses = busses else { // failure getting busses
-				self.callNetworkEvent(.LoadingFailed)
 				return
 			}
 			
