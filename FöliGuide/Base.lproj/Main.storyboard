@@ -523,7 +523,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find your bus - enable location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cua-hC-fAh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find your bus - enable location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="cua-hC-fAh">
                                 <rect key="frame" x="201" y="289" width="246" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -551,6 +551,7 @@
                             <constraint firstItem="cua-hC-fAh" firstAttribute="leading" secondItem="r9G-76-g4f" secondAttribute="trailing" constant="14" id="4xZ-LX-SuQ"/>
                             <constraint firstItem="r9G-76-g4f" firstAttribute="centerY" secondItem="cua-hC-fAh" secondAttribute="centerY" id="8wS-Li-HHM"/>
                             <constraint firstItem="cua-hC-fAh" firstAttribute="centerY" secondItem="07j-7z-mca" secondAttribute="centerY" id="Neg-Ki-2oo"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="cua-hC-fAh" secondAttribute="trailing" constant="4" id="aeI-Kf-Ixo"/>
                             <constraint firstItem="r9G-76-g4f" firstAttribute="width" secondItem="r9G-76-g4f" secondAttribute="height" multiplier="1:1" id="jbj-gY-skM"/>
                             <constraint firstItem="cua-hC-fAh" firstAttribute="centerX" secondItem="07j-7z-mca" secondAttribute="centerX" constant="24" id="lY2-Zh-GcX"/>
                         </constraints>

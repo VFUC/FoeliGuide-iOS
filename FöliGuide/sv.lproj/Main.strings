@@ -1,18 +1,21 @@
 
 /* Class = "UILabel"; text = "Why do some busses only show the next two bus stops?"; ObjectID = "17D-A8-gpP"; */
-"17D-A8-gpP.text" = "Why do some busses only show the next two bus stops?";
+"17D-A8-gpP.text" = "Varför visar vissa bussar bara de följande två hållplatserna?";
 
 /* Class = "UILabel"; text = "Paavaistentie"; ObjectID = "4G5-uL-Xy8"; */
 "4G5-uL-Xy8.text" = "Paavaistentie";
 
 /* Class = "UILabel"; text = "Next bus station:"; ObjectID = "4H1-0I-9y0"; */
-"4H1-0I-9y0.text" = "Next bus station:";
+"4H1-0I-9y0.text" = "Nästa busshållplats:";
 
-/* Class = "UILabel"; text = "in 5 min"; ObjectID = "4RH-mb-org"; */
-"4RH-mb-org.text" = "in 5 min";
+/* Class = "UILabel"; text = "5 min kuluttua"; ObjectID = "4RH-mb-org"; */
+"4RH-mb-org.text" = "5 min kuluttua";
 
 /* Class = "UILabel"; text = "Less battery consumption, but not as accurate"; ObjectID = "7dh-aJ-SV2"; */
-"7dh-aJ-SV2.text" = "Less battery consumption, but not as accurate";
+"7dh-aJ-SV2.text" = "Drar mindre batteri men är inte lika exakt";
+
+/* Class = "UILabel"; text = "Network request failed"; ObjectID = "9EM-WF-IX1"; */
+"9EM-WF-IX1.text" = "Nätverksfel";
 
 /* Class = "UILabel"; text = "SwiftyJSON"; ObjectID = "ALX-Rb-6Au"; */
 "ALX-Rb-6Au.text" = "SwiftyJSON";
@@ -21,7 +24,7 @@
 "Ckg-bh-Aat.text" = "to Kauppatori";
 
 /* Class = "UILabel"; text = "Why can I not get notifications when the app is closed?"; ObjectID = "ECL-Jv-spL"; */
-"ECL-Jv-spL.text" = "Why can I not get notifications when the app is closed?";
+"ECL-Jv-spL.text" = "Varför får jag inga notiser när appen är stängd?";
 
 /* Class = "UILabel"; text = "Alamofire"; ObjectID = "IwC-lX-LBg"; */
 "IwC-lX-LBg.text" = "Alamofire";
@@ -30,7 +33,7 @@
 "JOY-Ly-mMz.text" = "Kauppatori";
 
 /* Class = "UITableViewSection"; headerTitle = "Help"; ObjectID = "KWk-JJ-Lxf"; */
-"KWk-JJ-Lxf.headerTitle" = "Help";
+"KWk-JJ-Lxf.headerTitle" = "Hjälp";
 
 /* Class = "UILabel"; text = "420m away"; ObjectID = "LfR-lb-jBg"; */
 "LfR-lb-jBg.text" = "420m away";
@@ -39,25 +42,28 @@
 "LmX-op-bbL.text" = "801";
 
 /* Class = "UIButton"; normalTitle = "More"; ObjectID = "MBc-Rc-6de"; */
-"MBc-Rc-6de.normalTitle" = "More";
+"MBc-Rc-6de.normalTitle" = "Mer";
 
 /* Class = "UILabel"; text = "Luhtikatu"; ObjectID = "MDH-2Q-EGa"; */
 "MDH-2Q-EGa.text" = "Luhtikatu";
 
 /* Class = "UILabel"; text = "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check that often anymore and the data would be inaccurate."; ObjectID = "PYc-Hr-suS"; */
-"PYc-Hr-suS.text" = "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check that often anymore and the data would be inaccurate.";
+"PYc-Hr-suS.text" = "För att kunna veta var din buss är laddar appen ner data från Fölis servar flera gånger per minut. Om du stänger ner appen avslutas den processen.";
 
 /* Class = "UILabel"; text = "Alarm set for:"; ObjectID = "QPj-b1-jxf"; */
-"QPj-b1-jxf.text" = "Alarm set for:";
+"QPj-b1-jxf.text" = "Alarm på för:";
+
+/* Class = "UIButton"; normalTitle = "Try again"; ObjectID = "RSj-JF-sVB"; */
+"RSj-JF-sVB.normalTitle" = "Försök igen";
 
 /* Class = "UILabel"; text = "Kauppatori"; ObjectID = "TKh-GS-8xJ"; */
 "TKh-GS-8xJ.text" = "Kauppatori";
 
-/* Class = "UINavigationItem"; title = "Title"; ObjectID = "Tci-SN-yeg"; */
-"Tci-SN-yeg.title" = "Title";
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "VJR-jz-JZ2"; */
+"VJR-jz-JZ2.title" = "Tillbaka";
 
 /* Class = "UIButton"; normalTitle = "More"; ObjectID = "Xzy-Mp-X0d"; */
-"Xzy-Mp-X0d.normalTitle" = "More";
+"Xzy-Mp-X0d.normalTitle" = "Mer";
 
 /* Class = "UILabel"; text = "Kauppatori"; ObjectID = "Yi6-W5-Xip"; */
 "Yi6-W5-Xip.text" = "Kauppatori";
@@ -65,53 +71,56 @@
 /* Class = "UILabel"; text = "Inspehtorinkatu"; ObjectID = "adN-U4-rJy"; */
 "adN-U4-rJy.text" = "Inspehtorinkatu";
 
+/* Class = "UILabel"; text = "Please check your internet connection"; ObjectID = "b7j-Hx-wBS"; */
+"b7j-Hx-wBS.text" = "Vänligen kontrollera din internetuppkoppling";
+
 /* Class = "UIButton"; normalTitle = "Done"; ObjectID = "bca-bZ-Gvs"; */
-"bca-bZ-Gvs.normalTitle" = "Done";
+"bca-bZ-Gvs.normalTitle" = "Klart";
 
 /* Class = "UILabel"; text = "After that:"; ObjectID = "coP-YF-vee"; */
-"coP-YF-vee.text" = "After that:";
+"coP-YF-vee.text" = "Efter det:";
 
-/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "df9-I9-eHl"; */
-"df9-I9-eHl.normalTitle" = "Settings";
+/* Class = "UILabel"; text = "Find your bus - enable location"; ObjectID = "cua-hC-fAh"; */
+"cua-hC-fAh.text" = "Hitta din buss - sätt på platstjänst";
 
 /* Class = "UILabel"; text = "801"; ObjectID = "eY1-mo-M3m"; */
 "eY1-mo-M3m.text" = "801";
 
 /* Class = "UITableViewSection"; headerTitle = "Credits"; ObjectID = "fwo-dP-ZU3"; */
-"fwo-dP-ZU3.headerTitle" = "Credits";
+"fwo-dP-ZU3.headerTitle" = "Medverkande";
 
 /* Class = "UILabel"; text = "The data is retrieved directly from the Föli servers. If the app only shows the next two stops it is because Föli does not provide more accurate information for that bus."; ObjectID = "gEO-C6-uBv"; */
-"gEO-C6-uBv.text" = "The data is retrieved directly from the Föli servers. If the app only shows the next two stops it is because Föli does not provide more accurate information for that bus.";
+"gEO-C6-uBv.text" = "Datan kommer direkt från Fölis servrar. Om appen endast visar de två kommande hållplatserna är det för att Föli inte har mer information om den bussen.";
 
 /* Class = "UILabel"; text = "Refresh data less frequently"; ObjectID = "hat-3P-unU"; */
-"hat-3P-unU.text" = "Refresh data less frequently";
+"hat-3P-unU.text" = "Uppdatera data mer sällan";
 
 /* Class = "UILabel"; text = "Kauppatori"; ObjectID = "jG4-fw-ABs"; */
 "jG4-fw-ABs.text" = "Kauppatori";
 
 /* Class = "UIButton"; normalTitle = "More"; ObjectID = "lLl-56-m2Q"; */
-"lLl-56-m2Q.normalTitle" = "More";
+"lLl-56-m2Q.normalTitle" = "Mer";
 
 /* Class = "UIButton"; normalTitle = "Select your bus"; ObjectID = "lqf-wh-60x"; */
-"lqf-wh-60x.normalTitle" = "Select your bus";
+"lqf-wh-60x.normalTitle" = "Välj buss";
 
 /* Class = "UILabel"; text = "to Kauppatori"; ObjectID = "q6h-Fc-tCE"; */
 "q6h-Fc-tCE.text" = "to Kauppatori";
 
-/* Class = "UILabel"; text = "Find your bus - enable location"; ObjectID = "ron-uz-8Li"; */
-"ron-uz-8Li.text" = "Find your bus - enable location";
+/* Class = "UILabel"; text = "Checking bus locations"; ObjectID = "qu5-Zz-joP"; */
+"qu5-Zz-joP.text" = "Kollar buss platser";
 
 /* Class = "UILabel"; text = "Only notify once about upcoming bus stops"; ObjectID = "sYJ-uc-Z7J"; */
-"sYJ-uc-Z7J.text" = "Only notify once about upcoming bus stops";
+"sYJ-uc-Z7J.text" = "Meddela endast om busshållplatser på kommande";
 
 /* Class = "UILabel"; text = "Bus"; ObjectID = "tC5-pa-vpB"; */
-"tC5-pa-vpB.text" = "Bus";
+"tC5-pa-vpB.text" = "Buss";
 
 /* Class = "UILabel"; text = "51"; ObjectID = "tqs-wZ-MVy"; */
 "tqs-wZ-MVy.text" = "51";
 
 /* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "uyh-AS-Mqv"; */
-"uyh-AS-Mqv.headerTitle" = "Settings";
+"uyh-AS-Mqv.headerTitle" = "Inställningar";
 
 /* Class = "UILabel"; text = "Brahenkatu"; ObjectID = "wtf-bl-DfV"; */
 "wtf-bl-DfV.text" = "Brahenkatu";

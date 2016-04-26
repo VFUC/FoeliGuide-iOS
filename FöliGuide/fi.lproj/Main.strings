@@ -14,6 +14,9 @@
 /* Class = "UILabel"; text = "Less battery consumption, but not as accurate"; ObjectID = "7dh-aJ-SV2"; */
 "7dh-aJ-SV2.text" = "Pienempi akunkulutus, muttei yhtä tarkka";
 
+/* Class = "UILabel"; text = "Network request failed"; ObjectID = "9EM-WF-IX1"; */
+"9EM-WF-IX1.text" = "Verkkovirhe";
+
 /* Class = "UILabel"; text = "SwiftyJSON"; ObjectID = "ALX-Rb-6Au"; */
 "ALX-Rb-6Au.text" = "SwiftyJSON";
 
@@ -65,6 +68,9 @@
 /* Class = "UILabel"; text = "Inspehtorinkatu"; ObjectID = "adN-U4-rJy"; */
 "adN-U4-rJy.text" = "Inspehtorinkatu";
 
+/* Class = "UILabel"; text = "Please check your internet connection"; ObjectID = "b7j-Hx-wBS"; */
+"b7j-Hx-wBS.text" = "Tarkista internetyhteytesi.";
+
 /* Class = "UIButton"; normalTitle = "Done"; ObjectID = "bca-bZ-Gvs"; */
 "bca-bZ-Gvs.normalTitle" = "Valmis";
 
@@ -105,13 +111,13 @@
 "sYJ-uc-Z7J.text" = "Ilmoita vain kerran tulevista bussipysäkeistä";
 
 /* Class = "UILabel"; text = "Bus"; ObjectID = "tC5-pa-vpB"; */
-"tC5-pa-vpB.text" = "Bus";
+"tC5-pa-vpB.text" = "Bussi";
 
 /* Class = "UILabel"; text = "51"; ObjectID = "tqs-wZ-MVy"; */
 "tqs-wZ-MVy.text" = "51";
 
 /* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "uyh-AS-Mqv"; */
-"uyh-AS-Mqv.headerTitle" = "Settings";
+"uyh-AS-Mqv.headerTitle" = "Asetukset";
 
 /* Class = "UILabel"; text = "Brahenkatu"; ObjectID = "wtf-bl-DfV"; */
 "wtf-bl-DfV.text" = "Brahenkatu";

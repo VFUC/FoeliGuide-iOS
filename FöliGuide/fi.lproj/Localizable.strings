@@ -26,3 +26,14 @@
 "Done" = "Valmis";
 "Destination: %@" = "Määränpää: %@";
 "Settings" = "Asetukset";
+"Bus %@" = "Bussi %@";
+"Set an alarm" = "Aseta hälytys";
+"Turn on announcements" = "Ilmoitukset päälle";
+"Turn off announcements" = "Ilmoitukset pois";
+"arriving" = "saapuu";
+"This stop has already been passed" = "Pysäkki on ohitettu";
+"%d stops away" = "%d pysäkin päässä";
+"Please check your internet connectivity." = "Tarkista internetyhteytesi.";
+"OK" = "OK";
+"Alarm will not ring when app is closed" = "Hälytys ei soi, kun sovellus on suljettu";
+"In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check frequently enough anymore." = "Jotta bussin sijainti voidaan määrittää tarkasti ohjelma lataa dataa Fölin palvelimelta useita kertoja minuutissa. Mikäli suljet ohjelman tätä ei voida tehdä yhtä usein.";
