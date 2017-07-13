@@ -22,7 +22,7 @@ class NextBusStopViewController: UIViewController {
 	@IBOutlet weak var initialConstraint: NSLayoutConstraint!
 	@IBOutlet weak var networkActivityIndicator: UIActivityIndicatorView!
 
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	var currentConstraint : NSLayoutConstraint? = nil
 	
 	var alarmSet = false {
@@ -58,18 +58,18 @@ class NextBusStopViewController: UIViewController {
 			}
 			
 			if volumeEnabled {
-				volumeButton.setImage(UIImage(named: "ios-volume-high"), forState: .Normal)
+				volumeButton.setImage(UIImage(named: "ios-volume-high"), for: UIControlState())
 				
 				
 				
-				currentConstraint = NSLayoutConstraint(item: volumeButton, attribute: .Width, relatedBy: .Equal, toItem: volumeButton, attribute: .Height, multiplier: 5/4, constant: 0)
+				currentConstraint = NSLayoutConstraint(item: volumeButton, attribute: .width, relatedBy: .equal, toItem: volumeButton, attribute: .height, multiplier: 5/4, constant: 0)
 				volumeButton.addConstraint(currentConstraint!)
 				
 				
 			} else {
-				volumeButton.setImage(UIImage(named: "ios-volume-low"), forState: .Normal)
+				volumeButton.setImage(UIImage(named: "ios-volume-low"), for: UIControlState())
 				
-				currentConstraint = NSLayoutConstraint(item: volumeButton, attribute: .Width, relatedBy: .Equal, toItem: volumeButton, attribute: .Height, multiplier: 2/3, constant: 0)
+				currentConstraint = NSLayoutConstraint(item: volumeButton, attribute: .width, relatedBy: .equal, toItem: volumeButton, attribute: .height, multiplier: 2/3, constant: 0)
 					
 				volumeButton.addConstraint(currentConstraint!)
 			}
@@ -98,34 +98,34 @@ class NextBusStopViewController: UIViewController {
 	
 	
 	
-	@IBAction func alarmButtonPressed(sender: UIBarButtonItem) {
+	@IBAction func alarmButtonPressed(_ sender: UIBarButtonItem) {
 		if alarmSet {
 			
-			let alertController = UIAlertController(title: "Remove Alarm?", message: "Do you want to remove the alarm for \(destinationStop ?? "--")", preferredStyle: .Alert)
-			alertController.addAction(UIAlertAction(title: "Remove", style: .Destructive, handler: { _ -> Void in
+			let alertController = UIAlertController(title: "Remove Alarm?", message: "Do you want to remove the alarm for \(destinationStop ?? "--")", preferredStyle: .alert)
+			alertController.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { _ -> Void in
 				self.destinationStop = nil
 			}))
-			alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+			alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 			
-			presentViewController(alertController, animated: true, completion: nil)
+			present(alertController, animated: true, completion: nil)
 			
 		} else {
-			self.performSegueWithIdentifier("showDestinationSelectionVC", sender: nil)
+			self.performSegue(withIdentifier: "showDestinationSelectionVC", sender: nil)
 		}
 		
 	}
 	
-	@IBAction func volumeButtonPressed(sender: UIButton) {
+	@IBAction func volumeButtonPressed(_ sender: UIButton) {
 		volumeEnabled = !volumeEnabled
 	}
 
 	// MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-		if let vc = segue.destinationViewController as? DestinationSelectionTableViewController {
+		if let vc = segue.destination as? DestinationSelectionTableViewController {
 //			vc.nextStopVC = self
 		}
 	}
@@ -182,11 +182,11 @@ extension NextBusStopViewController : BusUpdateDelegate {
 
 
 extension NextBusStopViewController : NetworkEventHandler {
-	func handleEvent(event: NetworkEvent) {
+	func handleEvent(_ event: NetworkEvent) {
 		switch event {
-		case .BusLoadingStarted:
+		case .busLoadingStarted:
 			networkActivityIndicator.startAnimating()
-		case .BusLoadingFinished:
+		case .busLoadingFinished:
 			networkActivityIndicator.stopAnimating()
 		default: break
 		}

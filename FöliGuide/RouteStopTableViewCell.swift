@@ -15,8 +15,8 @@ class RouteStopTableViewCell: UITableViewCell {
 	@IBOutlet weak var arrivalDateLabel: UILabel!
 	@IBOutlet weak var alarmImageView: UIImageView! {
 		didSet {
-			alarmImageView.tintColor = UIColor.whiteColor()
-			alarmImageView.image = alarmImageView.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+			alarmImageView.tintColor = UIColor.white
+			alarmImageView.image = alarmImageView.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
 		}
 	}
 	
@@ -25,7 +25,7 @@ class RouteStopTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

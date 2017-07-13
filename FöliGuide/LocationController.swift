@@ -41,20 +41,21 @@ class LocationController: NSObject{
 
 extension LocationController : CLLocationManagerDelegate {
 	
-	func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-		if status == CLAuthorizationStatus.AuthorizedWhenInUse {
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+		if status == CLAuthorizationStatus.authorizedWhenInUse {
 			requestLocationUpdate()
 		}
 	}
-	
-	func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+	/*
+	func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 		userLocation = newLocation
-		appDelegate.callApplicationEvent(.UserLocationDidUpdate)
-	}
+		appDelegate.callApplicationEvent(.userLocationDidUpdate)
+	}*/
 	
-	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
 		//last location = most recent
 		guard let newLocation = locations.last else {
 			print("[LocationManager] didUpdateLocations failed to provide locations")
@@ -62,11 +63,11 @@ extension LocationController : CLLocationManagerDelegate {
 		}
 		
 		userLocation = newLocation
-		appDelegate.callApplicationEvent(.UserLocationDidUpdate)
+		appDelegate.callApplicationEvent(.userLocationDidUpdate)
 	}
 	
-	func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-		print("[LocationManager] Error getting location! \(error.debugDescription)")
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+		print("[LocationManager] Error getting location! \(error.localizedDescription)")
 	}
 }
 

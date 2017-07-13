@@ -7,10 +7,34 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class BusRouteSubViewController: UIViewController {
 
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
 	// MARK: Outlets
 	@IBOutlet weak var busStopsTableView: UITableView! {
@@ -38,21 +62,21 @@ class BusRouteSubViewController: UIViewController {
         super.viewDidLoad()
 		appDelegate.busDataUpdateDelegates.append(self)
 		
-		if let detailVC = parentViewController as? BusDetailViewController {
+		if let detailVC = parent as? BusDetailViewController {
 			detailVC.delegates.append(self)
 		}
 	}
 	
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		scrollToNextBusStop(animated: true)
 	}
 	
 	
-	override func willMoveToParentViewController(parent: UIViewController?) {
+	override func willMove(toParentViewController parent: UIViewController?) {
 		if parent == nil {
-			for (index, delegate) in appDelegate.busDataUpdateDelegates.enumerate() {
+			for (index, delegate) in appDelegate.busDataUpdateDelegates.enumerated() {
 				if let _ = delegate as? BusRouteSubViewController {
-					appDelegate.busDataUpdateDelegates.removeAtIndex(index)
+					appDelegate.busDataUpdateDelegates.remove(at: index)
 				}
 			}
 		}
@@ -60,8 +84,8 @@ class BusRouteSubViewController: UIViewController {
 	
 	
 	
-	func hasDuplicateStops(stops: [BusStop]) -> Bool {
-		for (index, stop) in stops.enumerate() {
+	func hasDuplicateStops(_ stops: [BusStop]) -> Bool {
+		for (index, stop) in stops.enumerated() {
 			if index - 1  >= 0 {
 				if stops[index - 1].name == stop.name {
 					return true
@@ -72,12 +96,12 @@ class BusRouteSubViewController: UIViewController {
 		return false
 	}
 	
-	func removeFirstDuplicateStop(stops: [BusStop]) -> [BusStop]{
+	func removeFirstDuplicateStop(_ stops: [BusStop]) -> [BusStop]{
 		var stopCopy = stops
-		for (index, stop) in stopCopy.enumerate() {
+		for (index, stop) in stopCopy.enumerated() {
 			if index - 1  >= 0 {
 				if stopCopy[index - 1].name == stop.name {
-					stopCopy.removeAtIndex(index)
+					stopCopy.remove(at: index)
 					return stopCopy
 				}
 			}
@@ -87,7 +111,7 @@ class BusRouteSubViewController: UIViewController {
 	}
 	
 	
-	func scrollToNextBusStop(animated animated: Bool){
+	func scrollToNextBusStop(animated: Bool){
 		
 		var nextStopIndex : Int? = nil
 		guard let _ = appDelegate.busController.currentUserBus?.route else {
@@ -97,7 +121,7 @@ class BusRouteSubViewController: UIViewController {
 		displayStops = appDelegate.busController.currentUserBus!.route!
 		
 		
-		for (index, stop) in displayStops.enumerate() where stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
+		for (index, stop) in displayStops.enumerated() where stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
 			nextStopIndex = index
 			break
 		}
@@ -106,30 +130,30 @@ class BusRouteSubViewController: UIViewController {
 			return
 		}
 		
-		self.busStopsTableView.scrollToRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0), atScrollPosition: .Top, animated: animated)
+		self.busStopsTableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: animated)
 		
 	}
 }
 
 
 extension BusRouteSubViewController : UITableViewDataSource {
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		var nextStopIndex : Int? = nil
 		
 		guard let _ = appDelegate.busController.currentUserBus?.route else {
-			return tableView.dequeueReusableCellWithIdentifier("defaultBusStopCell", forIndexPath: indexPath)
+			return tableView.dequeueReusableCell(withIdentifier: "defaultBusStopCell", for: indexPath)
 		}
 		
 		displayStops = appDelegate.busController.currentUserBus!.route!
 		
 		guard indexPath.row < displayStops.count else {
-			return tableView.dequeueReusableCellWithIdentifier("defaultBusStopCell", forIndexPath: indexPath)
+			return tableView.dequeueReusableCell(withIdentifier: "defaultBusStopCell", for: indexPath)
 		}
 		
 		let stop = displayStops[indexPath.row]
 		
-		for (index, stop) in displayStops.enumerate() {
+		for (index, stop) in displayStops.enumerated() {
 			if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
 				nextStopIndex = index
 				break
@@ -153,7 +177,7 @@ extension BusRouteSubViewController : UITableViewDataSource {
 			reuseIdentifier = "nextStopCell"
 		}
 		
-		let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 		
 		
 		guard let stopCell = cell as? RouteStopTableViewCell else {
@@ -161,27 +185,27 @@ extension BusRouteSubViewController : UITableViewDataSource {
 		}
 		
 		stopCell.nameLabel.text = stop.name
-		stopCell.alarmImageView.hidden = !(stop.name == destinationStop)
+		stopCell.alarmImageView.isHidden = !(stop.name == destinationStop)
 		
 		//Put cell on half opacity if the bus stop has already been passed
-		if let nextStopIndex = nextStopIndex where indexPath.row < nextStopIndex {
+		if let nextStopIndex = nextStopIndex, indexPath.row < nextStopIndex {
 			stopCell.dimSubViews()
-			stopCell.userInteractionEnabled = false
+			stopCell.isUserInteractionEnabled = false
 			stopCell.accessibilityLabel = stop.name + ", " + "This stop has already been passed".localized
 		} else {
 			stopCell.brightenSubViews()
-			stopCell.userInteractionEnabled = true
-			stopCell.selectionStyle = .None
+			stopCell.isUserInteractionEnabled = true
+			stopCell.selectionStyle = .none
 			
 			
-			if let nextStopIndex = nextStopIndex where indexPath.row > nextStopIndex {
+			if let nextStopIndex = nextStopIndex, indexPath.row > nextStopIndex {
 				stopCell.accessibilityLabel = stop.name + ", " + String.localizedStringWithFormat("%d stops away".localized, indexPath.row + 1 - nextStopIndex)
 			}
 			
 		}
 		
-		if let nextStopIndex = nextStopIndex where indexPath.row == nextStopIndex {
-			stopCell.userInteractionEnabled = false
+		if let nextStopIndex = nextStopIndex, indexPath.row == nextStopIndex {
+			stopCell.isUserInteractionEnabled = false
 		}
 		
 		
@@ -219,11 +243,11 @@ extension BusRouteSubViewController : UITableViewDataSource {
 		return stopCell
 	}
 	
-	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 	
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		guard let _ = appDelegate.busController.currentUserBus?.route else {
 			return 0
 		}
@@ -236,7 +260,7 @@ extension BusRouteSubViewController : UITableViewDataSource {
 
 extension BusRouteSubViewController : UITableViewDelegate {
 	
-	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		guard indexPath.row < displayStops.count else {
 			return
 		}
@@ -244,7 +268,7 @@ extension BusRouteSubViewController : UITableViewDelegate {
 		
 		// Already passed bus stops are not selectable
 		var nextStopIndex : Int? = nil
-		for (index, stop) in displayStops.enumerate() {
+		for (index, stop) in displayStops.enumerated() {
 			if stop.name == appDelegate.busController.currentUserBus?.nextStop.name {
 				nextStopIndex = index
 				break
@@ -279,14 +303,14 @@ extension BusRouteSubViewController : BusDetailViewControllerDelegate {
 		scrollToNextBusStop(animated: true)
 	}
 	
-	func didSetAlarm(alarmSet: Bool) {
+	func didSetAlarm(_ alarmSet: Bool) {
 		if alarmSet == false {
 			
 			if let previousStop = destinationStop { //previously set a stop
 				//remove alarm icon
-				for (index, stop) in self.displayStops.enumerate() where stop.name == previousStop {
-					if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
-						cell.alarmImageView.hidden = true
+				for (index, stop) in self.displayStops.enumerated() where stop.name == previousStop {
+					if let cell = self.busStopsTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? RouteStopTableViewCell {
+						cell.alarmImageView.isHidden = true
 					}
 				}
 			}
@@ -294,22 +318,22 @@ extension BusRouteSubViewController : BusDetailViewControllerDelegate {
 		}
 	}
 	
-	func didSelectDestination(destination: String) {
+	func didSelectDestination(_ destination: String) {
 		
 		if let previousStop = destinationStop { //previously set a stop
 			//remove alarm icon
-			for (index, stop) in self.displayStops.enumerate() where stop.name == previousStop {
-				if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
-					cell.alarmImageView.hidden = true
+			for (index, stop) in self.displayStops.enumerated() where stop.name == previousStop {
+				if let cell = self.busStopsTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? RouteStopTableViewCell {
+					cell.alarmImageView.isHidden = true
 				}
 			}
 		}
 		
 		
 		//set alarm icon on selected alarm
-		for (index, stop) in self.displayStops.enumerate() where stop.name == destination {
-			if let cell = self.busStopsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? RouteStopTableViewCell {
-				cell.alarmImageView.hidden = false
+		for (index, stop) in self.displayStops.enumerated() where stop.name == destination {
+			if let cell = self.busStopsTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? RouteStopTableViewCell {
+				cell.alarmImageView.isHidden = false
 			}
 		}
 		

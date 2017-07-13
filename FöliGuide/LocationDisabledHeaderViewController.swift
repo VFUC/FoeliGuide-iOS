@@ -11,9 +11,9 @@ import PermissionScope
 
 class LocationDisabledHeaderViewController: UIViewController {
 
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	let permissionScope = PermissionScope()
-	
+
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -23,7 +23,7 @@ class LocationDisabledHeaderViewController: UIViewController {
 		permissionScope.addPermission(LocationWhileInUsePermission(), message: message)
     }
 
-	@IBAction func didTapView(sender: AnyObject) {
+	@IBAction func didTapView(_ sender: AnyObject) {
 		permissionScope.show({ finished, results in
 			self.appDelegate.locationController.authorized = true
 			self.appDelegate.locationController.requestLocationUpdate()

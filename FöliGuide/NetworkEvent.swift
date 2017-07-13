@@ -9,9 +9,9 @@
 import Foundation
 
 enum NetworkEvent {
-	case BusLoadingStarted
-	case BusLoadingFinished
-	case BusStopLoadingStarted
-	case BusStopLoadingFinished
-	case LoadingFailed
+	case busLoadingStarted
+	case busLoadingFinished
+	case busStopLoadingStarted
+	case busStopLoadingFinished
+	case loadingFailed
 }

@@ -9,9 +9,9 @@
 import UIKit
 
 @objc protocol BusDetailViewControllerDelegate {
-	optional func didTapHead()
-	optional func didSetAlarm(alarmSet: Bool)
-	optional func didSelectDestination(destination: String)
+	@objc optional func didTapHead()
+	@objc optional func didSetAlarm(_ alarmSet: Bool)
+	@objc optional func didSelectDestination(_ destination: String)
 }
 
 
@@ -27,13 +27,13 @@ class BusDetailViewController: UIViewController {
 	
 	@IBOutlet weak var volumeButton: UIButton! {
 		didSet {
-			volumeButton.imageView?.contentMode = .ScaleAspectFit
+			volumeButton.imageView?.contentMode = .scaleAspectFit
 		}
 	}
 	
 	@IBOutlet weak var busNumberLabel: UILabel!
 	
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	var subViewController : UIViewController?
 	var delegates = [BusDetailViewControllerDelegate]()
 	
@@ -67,15 +67,15 @@ class BusDetailViewController: UIViewController {
 			volumeButton.accessibilityLabel = volumeEnabled ? "Turn off announcements".localized : "Turn on announcements".localized
 			
 			if volumeEnabled {
-				volumeButton.setImage(UIImage(named: "ios-volume-high"), forState: .Normal)
+				volumeButton.setImage(UIImage(named: "ios-volume-high"), for: UIControlState())
 				
-				dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), {
+				DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async(execute: {
 					self.announceNextTwoBusStops()
 				})
 				
 			} else {
 				SpeechController.stopSpeaking()
-				volumeButton.setImage(UIImage(named: "ios-volume-low"), forState: .Normal)
+				volumeButton.setImage(UIImage(named: "ios-volume-low"), for: UIControlState())
 			}
 		}
 	}
@@ -121,7 +121,7 @@ class BusDetailViewController: UIViewController {
 					var nextStopIndex : Int? = nil
 					var afterThatStopIndex : Int? = nil
 					
-					for (index, stop) in busStops!.enumerate() {
+					for (index, stop) in busStops!.enumerated() {
 						if stop.name == nextStopName {
 							nextStopIndex = index
 						}
@@ -132,8 +132,8 @@ class BusDetailViewController: UIViewController {
 					}
 					
 					//Flip if direction is incorrect
-					if let n = nextStopIndex, let a = afterThatStopIndex where a < n {
-						route = route.reverse()
+					if let n = nextStopIndex, let a = afterThatStopIndex, a < n {
+						route = route.reversed()
 					}
 				}
 			}
@@ -145,9 +145,9 @@ class BusDetailViewController: UIViewController {
 	}
 	
 	
-	override func viewDidDisappear(animated: Bool) {
-		if self.isMovingFromParentViewController() && subViewController != nil { //View is being dismissed -> moving back to previous screen
-			subViewController!.willMoveToParentViewController(nil)
+	override func viewDidDisappear(_ animated: Bool) {
+		if self.isMovingFromParentViewController && subViewController != nil { //View is being dismissed -> moving back to previous screen
+			subViewController!.willMove(toParentViewController: nil)
 			subViewController!.view.removeFromSuperview()
 			subViewController!.removeFromParentViewController()
 			
@@ -157,14 +157,14 @@ class BusDetailViewController: UIViewController {
 	
 	
 	func loadSubViewController(withIdentifier identifier: String){
-		let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-		let vc = storyboard.instantiateViewControllerWithIdentifier(identifier)
+		let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+		let vc = storyboard.instantiateViewController(withIdentifier: identifier)
 		subViewController = vc
 		
 		addChildViewController(vc)
 		vc.view.frame = CGRect(x: 0,y: 0, width: self.containerView.frame.size.width, height: self.containerView.frame.size.height)
 		containerView.addSubview(vc.view)
-		vc.didMoveToParentViewController(self)
+		vc.didMove(toParentViewController: self)
 	}
 	
 	
@@ -179,55 +179,55 @@ class BusDetailViewController: UIViewController {
 	}
 	
 	func showNetworkErrorAlert(){
-		let vc = UIAlertController(title: "Network Error".localized, message: "Please check your internet connection".localized, preferredStyle: .Alert)
-		vc.addAction(UIAlertAction(title: "OK".localized, style: .Default, handler: { (_) in
+		let vc = UIAlertController(title: "Network Error".localized, message: "Please check your internet connection".localized, preferredStyle: .alert)
+		vc.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: { (_) in
 			vc.removeFromParentViewController()
 		}))
-		presentViewController(vc, animated: true, completion: nil)
+		present(vc, animated: true, completion: nil)
 	}
 	
 	func showAppClosedWithActiveAlarmAlert(){
-		let vc = UIAlertController(title: "Alarm will not ring when app is closed".localized, message: "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check frequently enough anymore.".localized, preferredStyle: .Alert)
-		vc.addAction(UIAlertAction(title: "OK".localized, style: .Default, handler: { (_) in
+		let vc = UIAlertController(title: "Alarm will not ring when app is closed".localized, message: "In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check frequently enough anymore.".localized, preferredStyle: .alert)
+		vc.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: { (_) in
 			vc.removeFromParentViewController()
 		}))
-		presentViewController(vc, animated: true, completion: nil)
+		present(vc, animated: true, completion: nil)
 	}
 	
 	
-	@IBAction func didTapHead(sender: UITapGestureRecognizer) {
+	@IBAction func didTapHead(_ sender: UITapGestureRecognizer) {
 		for delegate in delegates {
 			delegate.didTapHead?()
 		}
 	}
 	
-	@IBAction func didTapAlarmButton(sender: UIBarButtonItem) {
+	@IBAction func didTapAlarmButton(_ sender: UIBarButtonItem) {
 		if alarmSet {
 			
 			let title = NSLocalizedString("Remove alarm?", comment: "Asking the user if he's sure to remove the alarm")
 			let message = String.localizedStringWithFormat(NSLocalizedString("Do you want to remove the alarm for %@?", comment: "Name the bus station the user is about to delete the alarm for"), (destinationStop ?? "--"))
 			
-			let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-			alertController.addAction(UIAlertAction(title: NSLocalizedString("Remove", comment: "Remove button label"), style: .Destructive, handler: { _ -> Void in
+			let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+			alertController.addAction(UIAlertAction(title: NSLocalizedString("Remove", comment: "Remove button label"), style: .destructive, handler: { _ -> Void in
 				self.destinationStop = nil
 			}))
-			alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel button label"), style: .Cancel, handler: nil))
+			alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel button label"), style: .cancel, handler: nil))
 			
-			presentViewController(alertController, animated: true, completion: nil)
+			present(alertController, animated: true, completion: nil)
 			
 		} else {
-			self.performSegueWithIdentifier("showDestinationSelectionVC", sender: nil)
+			self.performSegue(withIdentifier: "showDestinationSelectionVC", sender: nil)
 		}
 	}
 	
-	@IBAction func didTapVolumeButton(sender: UIButton) {
+	@IBAction func didTapVolumeButton(_ sender: UIButton) {
 		volumeEnabled = !volumeEnabled
 	}
 	
 	
 	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if let vc = segue.destinationViewController as? DestinationSelectionTableViewController {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let vc = segue.destination as? DestinationSelectionTableViewController {
 			vc.destinationDelegates.append(self)
 		}
 	}
@@ -236,7 +236,7 @@ class BusDetailViewController: UIViewController {
 
 
 extension BusDetailViewController : DestinationSetDelegate {
-	func didSetDestination(destination: String) {
+	func didSetDestination(_ destination: String) {
 		destinationStop = destination
 	}
 }
@@ -262,7 +262,7 @@ extension BusDetailViewController : BusUpdateDelegate {
 					destinationStop = nil
 				}
 				
-				if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop?.name where afterThatStop == destinationStop {
+				if let afterThatStop = appDelegate.busController.currentUserBus?.afterThatStop?.name, afterThatStop == destinationStop {
 					
 					if !appDelegate.userDataController.userData.onlyNotifyOnce ||  (appDelegate.userDataController.userData.onlyNotifyOnce && !didNotifyUserAboutUpcomingDestination ) {
 						NotificationController.showAfterThatBusStationNotification(stopName: afterThatStop, viewController: self)
@@ -278,17 +278,17 @@ extension BusDetailViewController : BusUpdateDelegate {
 }
 
 extension BusDetailViewController : ApplicationEventHandler {
-	func handleEvent(event: ApplicationEvent) {
-		if event == .ClosedAppWithActiveAlarm {
+	func handleEvent(_ event: ApplicationEvent) {
+		if event == .closedAppWithActiveAlarm {
 			showAppClosedWithActiveAlarmAlert()
 		}
 	}
 }
 
 extension BusDetailViewController : NetworkEventHandler {
-	func handleEvent(event: NetworkEvent) {
+	func handleEvent(_ event: NetworkEvent) {
 		switch event {
-		case .LoadingFailed:
+		case .loadingFailed:
 			showNetworkErrorAlert()
 		default:
 			break

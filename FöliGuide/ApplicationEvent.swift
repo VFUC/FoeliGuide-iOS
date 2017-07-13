@@ -9,6 +9,6 @@
 import Foundation
 
 enum ApplicationEvent {
-	case UserLocationDidUpdate
-	case ClosedAppWithActiveAlarm
+	case userLocationDidUpdate
+	case closedAppWithActiveAlarm
 }

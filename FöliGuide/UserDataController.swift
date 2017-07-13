@@ -10,13 +10,13 @@ import UIKit
 
 class UserDataController: NSObject {
 	
-	private struct Keys {
+	fileprivate struct Keys {
 		static let recentSearches = "recentSearches"
 		static let refreshDataLessFrequently = "refreshDataLessFrequently"
 		static let onlyNotifyOnce = "onlyNotifyOnce"
 	}
 	
-	let defaults = NSUserDefaults.standardUserDefaults()
+	let defaults = UserDefaults.standard
 	
 	var userData : UserData {
 		didSet {
@@ -28,9 +28,9 @@ class UserDataController: NSObject {
 		// Check if settings have been stored in defaults already
 		// loadFromDefaults can't be called before super.init()
 		
-		let recentSearches : [String]? = defaults.objectForKey(Keys.recentSearches) as? [String]
-		let refreshDataLessFrequently : Bool? = defaults.objectForKey(Keys.refreshDataLessFrequently) as? Bool
-		let onlyNotifyOnce : Bool? = defaults.objectForKey(Keys.onlyNotifyOnce) as? Bool
+		let recentSearches : [String]? = defaults.object(forKey: Keys.recentSearches) as? [String]
+		let refreshDataLessFrequently : Bool? = defaults.object(forKey: Keys.refreshDataLessFrequently) as? Bool
+		let onlyNotifyOnce : Bool? = defaults.object(forKey: Keys.onlyNotifyOnce) as? Bool
 
 		userData = UserData(recentSearches: recentSearches ?? [], refreshDataLessFrequently: refreshDataLessFrequently ?? false, onlyNotifyOnce: onlyNotifyOnce ?? false) //initialize empty if no defaults saved
 		
@@ -41,33 +41,33 @@ class UserDataController: NSObject {
 	
 	
 	
-	func addRecentSearch(search: String){
+	func addRecentSearch(_ search: String){
 		
-		if let index = userData.recentSearches.indexOf(search) { // Search already exists in recent searches
-			userData.recentSearches.removeAtIndex(index)
+		if let index = userData.recentSearches.index(of: search) { // Search already exists in recent searches
+			userData.recentSearches.remove(at: index)
 		}
 		else if userData.recentSearches.count >= Constants.RecentSearchesCount { // Search is a new entry, but search limit reached
 			userData.recentSearches.removeLast()
 		}
 		
-		userData.recentSearches.insert(search, atIndex: 0)
+		userData.recentSearches.insert(search, at: 0)
 	}
 	
 	
 	
-	private func loadFromDefaults() -> UserData? {
-		let recentSearches : [String]? = defaults.objectForKey(Keys.recentSearches) as? [String]
-		let refreshDataLessFrequently : Bool? = defaults.objectForKey(Keys.refreshDataLessFrequently) as? Bool
-		let onlyNotifyOnce : Bool? = defaults.objectForKey(Keys.onlyNotifyOnce) as? Bool
+	fileprivate func loadFromDefaults() -> UserData? {
+		let recentSearches : [String]? = defaults.object(forKey: Keys.recentSearches) as? [String]
+		let refreshDataLessFrequently : Bool? = defaults.object(forKey: Keys.refreshDataLessFrequently) as? Bool
+		let onlyNotifyOnce : Bool? = defaults.object(forKey: Keys.onlyNotifyOnce) as? Bool
 		
 		return UserData(recentSearches: recentSearches ?? [], refreshDataLessFrequently: refreshDataLessFrequently ?? false, onlyNotifyOnce: onlyNotifyOnce ?? false) //initialize empty if no defaults saved
 	}
 	
 	
-	private func saveToDefaults(){
-		defaults.setObject(userData.recentSearches, forKey: Keys.recentSearches)
-		defaults.setObject(userData.refreshDataLessFrequently, forKey: Keys.refreshDataLessFrequently)
-		defaults.setObject(userData.onlyNotifyOnce, forKey: Keys.onlyNotifyOnce)
+	fileprivate func saveToDefaults(){
+		defaults.set(userData.recentSearches, forKey: Keys.recentSearches)
+		defaults.set(userData.refreshDataLessFrequently, forKey: Keys.refreshDataLessFrequently)
+		defaults.set(userData.onlyNotifyOnce, forKey: Keys.onlyNotifyOnce)
 	}
 	
 }

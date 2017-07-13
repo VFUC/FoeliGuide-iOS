@@ -9,18 +9,18 @@
 import UIKit
 
 protocol DestinationSetDelegate {
-	func didSetDestination(destination: String)
+	func didSetDestination(_ destination: String)
 }
 
 
 class DestinationSelectionTableViewController: UITableViewController {
 	
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
 	var busStopNames = [String]() {
 		didSet {
 			if !routeDataAvailable {
-				busStopNames.sortInPlace( { $0 < $1 } )
+				busStopNames.sort( by: { $0 < $1 } )
 			}
 		}
 	}
@@ -55,8 +55,8 @@ class DestinationSelectionTableViewController: UITableViewController {
 		let recentSearches = userData.recentSearches
 		
 		for recentSearch in recentSearches {
-			if let index = busStopNames.indexOf(recentSearch){ // if recentSearch entry is in busStopNames
-				busStopNames.removeAtIndex(index) // remove from busStopNames
+			if let index = busStopNames.index(of: recentSearch){ // if recentSearch entry is in busStopNames
+				busStopNames.remove(at: index) // remove from busStopNames
 				recentSearchEntries.append(recentSearch) // add to recent searches
 			}
 		}
@@ -79,26 +79,26 @@ class DestinationSelectionTableViewController: UITableViewController {
 	
 	// MARK: - Table view data source
 	
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if searchController.active && searchController.searchBar.text != "" {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if searchController.isActive && searchController.searchBar.text != "" {
 			return filteredRecentSearchEntries.count + filteredBusStopNames.count
 		}
 		
 		return recentSearchEntries.count + busStopNames.count
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("busStopCell", forIndexPath: indexPath)
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "busStopCell", for: indexPath)
 		
 		var stopNames = busStopNames
 		var recentSearches = recentSearchEntries
 		
 		//If search bar is active, show filtered results
-		if searchController.active && searchController.searchBar.text != "" {
+		if searchController.isActive && searchController.searchBar.text != "" {
 			stopNames = filteredBusStopNames
 			recentSearches = filteredRecentSearchEntries
 		}
@@ -106,7 +106,7 @@ class DestinationSelectionTableViewController: UITableViewController {
 		
 		if indexPath.row < recentSearches.count {
 			//make recent search entry bold
-			cell.textLabel?.attributedText = NSAttributedString(string: recentSearches[indexPath.row], attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(17)])
+			cell.textLabel?.attributedText = NSAttributedString(string: recentSearches[indexPath.row], attributes: [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 17)])
 		} else {
 			cell.textLabel?.text = stopNames[indexPath.row - recentSearches.count]
 		}
@@ -116,19 +116,19 @@ class DestinationSelectionTableViewController: UITableViewController {
 	
 	
 	// Override to support conditional editing of the table view.
-	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 		// Return false if you do not want the specified item to be editable.
 		return false
 	}
 	
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 		var selectedStop = ""
 		var stopNames = busStopNames
 		var recentSearches = recentSearchEntries
 		
 		//If search bar is active, use filtered results
-		if searchController.active && searchController.searchBar.text != "" {
+		if searchController.isActive && searchController.searchBar.text != "" {
 			stopNames = filteredBusStopNames
 			recentSearches = filteredRecentSearchEntries
 		}
@@ -141,14 +141,14 @@ class DestinationSelectionTableViewController: UITableViewController {
 		
 		appDelegate.userDataController.addRecentSearch(selectedStop)
 		
-		searchController.active = false
-		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+		searchController.isActive = false
+		tableView.deselectRow(at: indexPath, animated: true)
 		
 		for delegate in destinationDelegates {
 			delegate.didSetDestination(selectedStop)
 		}
 		
-		self.navigationController?.popViewControllerAnimated(true)
+		self.navigationController?.popViewController(animated: true)
 	}
 	
 	
@@ -167,8 +167,8 @@ class DestinationSelectionTableViewController: UITableViewController {
 	
 
 	
-	func filterAlreadyPassedBusStops(stops: [String], nextStop: String) -> [String] {
-		for (index, stop) in stops.enumerate() {
+	func filterAlreadyPassedBusStops(_ stops: [String], nextStop: String) -> [String] {
+		for (index, stop) in stops.enumerated() {
 			if stop == nextStop {
 				return Array(stops[(index + 1)..<stops.count])
 			}
@@ -178,13 +178,13 @@ class DestinationSelectionTableViewController: UITableViewController {
 	}
 	
 	
-	func filterBusStopsForSearchText(searchText: String){
+	func filterBusStopsForSearchText(_ searchText: String){
 		filteredBusStopNames = busStopNames.filter({ (stop) -> Bool in
-			return stop.lowercaseString.containsString(searchText.lowercaseString) //case-insensitive
+			return stop.lowercased().contains(searchText.lowercased()) //case-insensitive
 		})
 		
 		filteredRecentSearchEntries = recentSearchEntries.filter({ (stop) -> Bool in
-			return stop.lowercaseString.containsString(searchText.lowercaseString) //case-insensitive
+			return stop.lowercased().contains(searchText.lowercased()) //case-insensitive
 		})
 		
 		tableView.reloadData()
@@ -195,9 +195,9 @@ class DestinationSelectionTableViewController: UITableViewController {
 
 
 extension DestinationSelectionTableViewController : UISearchResultsUpdating {
-	func updateSearchResultsForSearchController(searchController: UISearchController) {
+	func updateSearchResults(for searchController: UISearchController) {
 		
 		//trim leading/trailing whitespace
-		filterBusStopsForSearchText(searchController.searchBar.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()))
+		filterBusStopsForSearchText(searchController.searchBar.text!.trimmingCharacters(in: CharacterSet.whitespaces))
 	}
 }

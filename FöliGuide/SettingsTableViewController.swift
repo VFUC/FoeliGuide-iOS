@@ -11,7 +11,7 @@ import SafariServices
 
 class SettingsTableViewController: UITableViewController {
 	
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
 	@IBOutlet weak var dataRefreshRateSwitch: UISwitch!
 	@IBOutlet weak var notifyOnceSwitch: UISwitch!
@@ -21,43 +21,43 @@ class SettingsTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		dataRefreshRateSwitch.on = appDelegate.userDataController.userData.refreshDataLessFrequently
-		notifyOnceSwitch.on = appDelegate.userDataController.userData.onlyNotifyOnce
+		dataRefreshRateSwitch.isOn = appDelegate.userDataController.userData.refreshDataLessFrequently
+		notifyOnceSwitch.isOn = appDelegate.userDataController.userData.onlyNotifyOnce
 	}
 	
-	override func viewWillAppear(animated: Bool) {
-		UIApplication.sharedApplication().statusBarStyle = .Default
+	override func viewWillAppear(_ animated: Bool) {
+		UIApplication.shared.statusBarStyle = .default
 	}
 	
 	
-	@IBAction func doneButtonPressed(sender: UIButton) {
+	@IBAction func doneButtonPressed(_ sender: UIButton) {
 		
-		dismissViewControllerAnimated(true, completion: nil)
+		dismiss(animated: true, completion: nil)
 	}
 	
-	@IBAction func dataRefreshRateSwitchChanged(sender: UISwitch) {
-		appDelegate.userDataController.userData.refreshDataLessFrequently = sender.on
+	@IBAction func dataRefreshRateSwitchChanged(_ sender: UISwitch) {
+		appDelegate.userDataController.userData.refreshDataLessFrequently = sender.isOn
 	}
 	
-	@IBAction func notifyOnceSwitchChanged(sender: UISwitch) {
-		appDelegate.userDataController.userData.onlyNotifyOnce = sender.on
+	@IBAction func notifyOnceSwitchChanged(_ sender: UISwitch) {
+		appDelegate.userDataController.userData.onlyNotifyOnce = sender.isOn
 	}
 	
 	
 	
-	@IBAction func creditsShowMorePressedAlamofire(sender: UIButton) {
-		let sfc = SFSafariViewController(URL: NSURL(string: "https://github.com/Alamofire/Alamofire")!)
-		presentViewController(sfc, animated: true, completion: nil)
+	@IBAction func creditsShowMorePressedAlamofire(_ sender: UIButton) {
+		let sfc = SFSafariViewController(url: URL(string: "https://github.com/Alamofire/Alamofire")!)
+		present(sfc, animated: true, completion: nil)
 	}
 	
-	@IBAction func creditsShowMorePressedSwiftyJSON(sender: UIButton) {
-		let sfc = SFSafariViewController(URL: NSURL(string: "https://github.com/SwiftyJSON/SwiftyJSON")!)
-		presentViewController(sfc, animated: true, completion: nil)
+	@IBAction func creditsShowMorePressedSwiftyJSON(_ sender: UIButton) {
+		let sfc = SFSafariViewController(url: URL(string: "https://github.com/SwiftyJSON/SwiftyJSON")!)
+		present(sfc, animated: true, completion: nil)
 	}
 	
-	@IBAction func creditsShowMorePressedPermissionScope(sender: UIButton) {
-		let sfc = SFSafariViewController(URL: NSURL(string: "https://github.com/nickoneill/PermissionScope")!)
-		presentViewController(sfc, animated: true, completion: nil)
+	@IBAction func creditsShowMorePressedPermissionScope(_ sender: UIButton) {
+		let sfc = SFSafariViewController(url: URL(string: "https://github.com/nickoneill/PermissionScope")!)
+		present(sfc, animated: true, completion: nil)
 	}
 	
 }

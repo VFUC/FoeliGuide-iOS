@@ -10,7 +10,7 @@ import UIKit
 
 class NextStopSubViewController: UIViewController {
 	
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 	
 	@IBOutlet weak var nextStationNameLabel: UILabel!
@@ -30,20 +30,20 @@ class NextStopSubViewController: UIViewController {
 		
 		//remove initially
 		mainStackView.removeArrangedSubview(selectedBusStationStackView)
-		selectedBusStationStackView.hidden = true
+		selectedBusStationStackView.isHidden = true
 
 		
-		if let detailVC = parentViewController as? BusDetailViewController {
+		if let detailVC = parent as? BusDetailViewController {
 			detailVC.delegates.append(self)
 		}
     }
 	
 	
-	override func willMoveToParentViewController(parent: UIViewController?) {
+	override func willMove(toParentViewController parent: UIViewController?) {
 		if parent == nil {
-			for (index, delegate) in appDelegate.busDataUpdateDelegates.enumerate() {
+			for (index, delegate) in appDelegate.busDataUpdateDelegates.enumerated() {
 				if let _ = delegate as? NextStopSubViewController {
-					appDelegate.busDataUpdateDelegates.removeAtIndex(index)
+					appDelegate.busDataUpdateDelegates.remove(at: index)
 				}
 			}
 		}
@@ -58,7 +58,7 @@ extension NextStopSubViewController : BusUpdateDelegate {
 			return
 		}
 		
-		guard let detailVC = self.parentViewController as? BusDetailViewController else {
+		guard let detailVC = self.parent as? BusDetailViewController else {
 			print("[NextStopVC] My parent VC is not a busDetailVC (which I expected)")
 			return
 		}
@@ -73,24 +73,24 @@ extension NextStopSubViewController : BusUpdateDelegate {
 		nextStationNameLabel.text = bus.nextStop.name
 		afterThatStationNameLabel.text = bus.afterThatStop?.name ?? "--"
 		
-		afterThatStationNameLabel.hidden = (nextStationNameLabel.text == afterThatStationNameLabel.text) //Hide if both labels are equal
+		afterThatStationNameLabel.isHidden = (nextStationNameLabel.text == afterThatStationNameLabel.text) //Hide if both labels are equal
 		
 	}
 }
 
 extension NextStopSubViewController : BusDetailViewControllerDelegate {
 	
-	func didSetAlarm(alarmSet: Bool) {
+	func didSetAlarm(_ alarmSet: Bool) {
 		if alarmSet {
 			mainStackView.addArrangedSubview(selectedBusStationStackView)
-			selectedBusStationStackView.hidden = false
+			selectedBusStationStackView.isHidden = false
 		} else {
 			mainStackView.removeArrangedSubview(selectedBusStationStackView)
-			selectedBusStationStackView.hidden = true
+			selectedBusStationStackView.isHidden = true
 		}
 	}
 	
-	func didSelectDestination(destination: String) {
+	func didSelectDestination(_ destination: String) {
 		selectedBusStationNameLabel.text = destination
 	}
 }

@@ -28,15 +28,14 @@
 		727B3AB11C566AB3006D2EC8 /* AuthorizationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727B3AB01C566AB3006D2EC8 /* AuthorizationRequestViewController.swift */; };
 		727CC04A1CB5213700C96B71 /* ALThreeCircleSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727CC0491CB5213700C96B71 /* ALThreeCircleSpinner.swift */; };
 		727CC04C1CB526F200C96B71 /* BusDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727CC04B1CB526F200C96B71 /* BusDetailViewController.swift */; };
-		7286971F1CC0216C00E6FA52 /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7286971E1CC0216C00E6FA52 /* PermissionScope.framework */; };
-		728697201CC0216C00E6FA52 /* PermissionScope.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7286971E1CC0216C00E6FA52 /* PermissionScope.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		728697231CC0217200E6FA52 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728697221CC0217200E6FA52 /* Alamofire.framework */; };
-		728697251CC0217700E6FA52 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728697241CC0217700E6FA52 /* SwiftyJSON.framework */; };
 		729361501CCF435300B22626 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 729416FE1CBBC6F600F2D07F /* Localizable.strings */; };
 		729361511CCF44B100B22626 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722D30651C5139BF00CAEE90 /* Main.storyboard */; };
 		729416F61CBA432E00F2D07F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729416F51CBA432E00F2D07F /* SettingsTableViewController.swift */; };
 		729416FC1CBBC6F600F2D07F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 729416FE1CBBC6F600F2D07F /* Localizable.strings */; };
 		72A599A01C69ECBD0059D9C1 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5999F1C69ECBD0059D9C1 /* NotificationController.swift */; };
+		72C45B431F17F5D4005CB08B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C45B3A1F17F54D005CB08B /* Alamofire.framework */; };
+		72C45B441F17F5D4005CB08B /* PermissionScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C45B3C1F17F54D005CB08B /* PermissionScope.framework */; };
+		72C45B451F17F5D4005CB08B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C45B3B1F17F54D005CB08B /* SwiftyJSON.framework */; };
 		72C6F6691C58BA5700DEDD53 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F6681C58BA5700DEDD53 /* Bus.swift */; };
 		72C6F66B1C58BACC00DEDD53 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F66A1C58BACC00DEDD53 /* BusStop.swift */; };
 		72C6F66D1C58BD5A00DEDD53 /* BusDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6F66C1C58BD5A00DEDD53 /* BusDataController.swift */; };
@@ -71,20 +70,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		728697211CC0216D00E6FA52 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				728697201CC0216C00E6FA52 /* PermissionScope.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		7216D0DC1CBF7EA200F31F45 /* LocationDisabledHeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDisabledHeaderViewController.swift; sourceTree = "<group>"; };
 		721C90341C5619E6001027EC /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
@@ -115,14 +100,14 @@
 		727CC04B1CB526F200C96B71 /* BusDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusDetailViewController.swift; sourceTree = "<group>"; };
 		7286970E1CBFD82A00E6FA52 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
 		7286970F1CBFD82A00E6FA52 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7286971E1CC0216C00E6FA52 /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = Carthage/Build/iOS/PermissionScope.framework; sourceTree = "<group>"; };
-		728697221CC0217200E6FA52 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		728697241CC0217700E6FA52 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7293614E1CCE579200B22626 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		7293614F1CCE579200B22626 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		729416F51CBA432E00F2D07F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		729416FD1CBBC6F600F2D07F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		72A5999F1C69ECBD0059D9C1 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		72C45B3A1F17F54D005CB08B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		72C45B3B1F17F54D005CB08B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		72C45B3C1F17F54D005CB08B /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = Carthage/Build/iOS/PermissionScope.framework; sourceTree = "<group>"; };
 		72C6F6681C58BA5700DEDD53 /* Bus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
 		72C6F66A1C58BACC00DEDD53 /* BusStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
 		72C6F66C1C58BD5A00DEDD53 /* BusDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusDataController.swift; sourceTree = "<group>"; };
@@ -145,9 +130,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7286971F1CC0216C00E6FA52 /* PermissionScope.framework in Frameworks */,
-				728697231CC0217200E6FA52 /* Alamofire.framework in Frameworks */,
-				728697251CC0217700E6FA52 /* SwiftyJSON.framework in Frameworks */,
+				72C45B431F17F5D4005CB08B /* Alamofire.framework in Frameworks */,
+				72C45B441F17F5D4005CB08B /* PermissionScope.framework in Frameworks */,
+				72C45B451F17F5D4005CB08B /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,13 +209,11 @@
 		722D30551C5139BF00CAEE90 = {
 			isa = PBXGroup;
 			children = (
-				728697241CC0217700E6FA52 /* SwiftyJSON.framework */,
-				728697221CC0217200E6FA52 /* Alamofire.framework */,
-				7286971E1CC0216C00E6FA52 /* PermissionScope.framework */,
 				722D30601C5139BF00CAEE90 /* FöliGuide */,
 				722D30751C5139BF00CAEE90 /* FöliGuideTests */,
 				722D30801C5139BF00CAEE90 /* FöliGuideUITests */,
 				722D305F1C5139BF00CAEE90 /* Products */,
+				72C45B391F17F54C005CB08B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,6 +263,16 @@
 			path = "FöliGuideUITests";
 			sourceTree = "<group>";
 		};
+		72C45B391F17F54C005CB08B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72C45B3A1F17F54D005CB08B /* Alamofire.framework */,
+				72C45B3C1F17F54D005CB08B /* PermissionScope.framework */,
+				72C45B3B1F17F54D005CB08B /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		72E0F4CB1CBCD6C2006733EE /* Legacy */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +298,6 @@
 				722D305B1C5139BF00CAEE90 /* Frameworks */,
 				722D305C1C5139BF00CAEE90 /* Resources */,
 				72DF00C11C57874A00AFBCCD /* ShellScript */,
-				728697211CC0216D00E6FA52 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -359,11 +351,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Capstone Innovation Project - Route Guidance";
 				TargetAttributes = {
 					722D305D1C5139BF00CAEE90 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7DUWXZ9JVB;
+						LastSwiftMigration = 0900;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -372,10 +366,12 @@
 					};
 					722D30711C5139BF00CAEE90 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0900;
 						TestTargetID = 722D305D1C5139BF00CAEE90;
 					};
 					722D307C1C5139BF00CAEE90 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0900;
 						TestTargetID = 722D305D1C5139BF00CAEE90;
 					};
 				};
@@ -439,14 +435,18 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/PermissionScope.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PermissionScope.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -558,17 +558,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -595,6 +604,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -602,17 +612,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -631,6 +650,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -639,15 +660,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7DUWXZ9JVB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "FöliGuide/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.innovationproject.routeguidance.Fo-liGuide";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -656,15 +681,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7DUWXZ9JVB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "FöliGuide/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.innovationproject.routeguidance.Fo-liGuide";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -677,6 +706,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.innovationproject.routeguidance.Fo-liGuideTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FöliGuide.app/FöliGuide";
 			};
 			name = Debug;
@@ -689,6 +720,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.innovationproject.routeguidance.Fo-liGuideTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FöliGuide.app/FöliGuide";
 			};
 			name = Release;
@@ -700,6 +733,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.innovationproject.routeguidance.Fo-liGuideUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "FöliGuide";
 				USES_XCTRUNNER = YES;
 			};
@@ -712,6 +747,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "capstone.innovationproject.routeguidance.Fo-liGuideUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "FöliGuide";
 				USES_XCTRUNNER = YES;
 			};

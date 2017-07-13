@@ -20,7 +20,7 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 
 	var headerView: BusSelectionHeaderCollectionReusableView?
 	
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +31,11 @@ class BusSelectionCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		activityIndicator.startAnimating()
 	}
 	
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		activityIndicator.stopAnimating()
 		headerView?.showLoadingLocationState()
 //		appDelegate.busSelectionVC = self // should be here, so appDelegate reloads user data
@@ -81,16 +81,16 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return busses.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
 		/*
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
@@ -106,7 +106,7 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 		
 		
 		
-		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifierHorizontal, forIndexPath: indexPath)
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierHorizontal, for: indexPath)
 		
 		if let busStopCell = cell as? BusSelectionHorizontalCollectionViewCell {
 		busStopCell.numberLabel.text = busses[indexPath.row].name
@@ -120,8 +120,8 @@ class BusSelectionCollectionViewController: UICollectionViewController {
     }
 	
 	
-	override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-		let reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: reuseIdentifierSectionHeader, forIndexPath: indexPath)
+	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+		let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: reuseIdentifierSectionHeader, for: indexPath)
 		
 		if let header = reusableView as? BusSelectionHeaderCollectionReusableView {
 			headerView = header
@@ -163,13 +163,13 @@ class BusSelectionCollectionViewController: UICollectionViewController {
 	
 	
 	
-	override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-		let cell = collectionView.cellForItemAtIndexPath(indexPath) as! BusSelectionCollectionViewCell
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let cell = collectionView.cellForItem(at: indexPath) as! BusSelectionCollectionViewCell
 		cell.selectionAnimation()
 		
 		appDelegate.busController.currentUserBus = busses[indexPath.row]
 		
-		performSegueWithIdentifier("showNextBusStop", sender: nil)
+		performSegue(withIdentifier: "showNextBusStop", sender: nil)
 	}
 
 }

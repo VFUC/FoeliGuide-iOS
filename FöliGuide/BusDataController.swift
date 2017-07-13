@@ -9,13 +9,26 @@
 import UIKit
 import CoreLocation
 import SwiftyJSON
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 
 // Used to pass parameters to the bus data retrieval loop
 class BusLoopParameters {
-	var completionHandler: [Bus]? -> ()
+	var completionHandler: ([Bus]?) -> ()
 	
-	init(completionHandler: ([Bus]? -> ())){
+	init(completionHandler: (@escaping ([Bus]?) -> ())){
 		self.completionHandler = completionHandler
 	}
 }
@@ -23,19 +36,20 @@ class BusLoopParameters {
 
 class BusDataController: NSObject {
 	
-	private var timer: NSTimer? = nil // used for running network loop
+	fileprivate var timer: Timer? = nil // used for running network loop
 	var currentUserBus : Bus? = nil // current bus the user has selected
 	var currentBusData : [Bus]? // last saved bus data
 	
 	
-	private func getCurrentBusData(completionHandler: [Bus]? -> () ){
-		let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		appdelegate.callNetworkEvent(.BusLoadingStarted)
-		
+	fileprivate func getCurrentBusData(_ completionHandler: @escaping ([Bus]?) -> () ){
+		let appdelegate = UIApplication.shared.delegate as! AppDelegate
+		appdelegate.callNetworkEvent(.busLoadingStarted)
+
+
 		NetworkController.getBusData { (json) -> () in
 			
 			guard let json = json else {
-				appdelegate.callNetworkEvent(.LoadingFailed)
+				appdelegate.callNetworkEvent(.loadingFailed)
 				completionHandler(nil)
 				return
 			}
@@ -59,15 +73,15 @@ class BusDataController: NSObject {
 				{
 					
 					
-					var expectedArrivalDate : NSDate? = nil
+					var expectedArrivalDate : Date? = nil
 					if let expectedArrival = vehicle["next_expectedarrivaltime"].float {
-						expectedArrivalDate = NSDate(timeIntervalSince1970: NSTimeInterval(expectedArrival))
+						expectedArrivalDate = Date(timeIntervalSince1970: TimeInterval(expectedArrival))
 					}
 					
 					let nextStop = BusStop(name: nextStopName, number: nextStopNumber, location: nil, expectedArrival: expectedArrivalDate)
 					var afterThatStop : BusStop? = nil
 					
-					if let onwardCalls = vehicle["onwardcalls"].array where onwardCalls.count > 0 {
+					if let onwardCalls = vehicle["onwardcalls"].array , onwardCalls.count > 0 {
 						if let name = onwardCalls[0]["stoppointname"].string,
 							let number = onwardCalls[0]["visitnumber"].int {
 							afterThatStop = BusStop(name: name, number: "\(number)", location: nil, expectedArrival: nil)
@@ -82,18 +96,18 @@ class BusDataController: NSObject {
 			
 			self.currentBusData = busses
 			
-			appdelegate.callNetworkEvent(.BusLoadingFinished)
+			appdelegate.callNetworkEvent(.busLoadingFinished)
 			completionHandler(busses)
 		}
 	}
 	
 	// Gets the current bus stop data
-	func getBusStops(completionHandler completionHandler: [BusStop]? -> ()){
-		let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		appdelegate.callNetworkEvent(.BusStopLoadingStarted)
+	func getBusStops(completionHandler: @escaping ([BusStop]?) -> ()){
+		let appdelegate = UIApplication.shared.delegate as! AppDelegate
+		appdelegate.callNetworkEvent(.busStopLoadingStarted)
 		NetworkController.getBusStopData { (json) -> () in
 			guard let json = json else {
-				appdelegate.callNetworkEvent(.LoadingFailed)
+				appdelegate.callNetworkEvent(.loadingFailed)
 				completionHandler(nil)
 				return
 			}
@@ -104,19 +118,20 @@ class BusDataController: NSObject {
 			}
 			
 			var stops = [BusStop]()
-			
+
+
 			for (key, value) in dict { //key: station number, value: dict{ "stop_name": name }
 				if let name = value["stop_name"].string {
 					stops.append(BusStop(name: name, number: key, location: nil, expectedArrival: nil))
 				}
 			}
 			
-			appdelegate.callNetworkEvent(.BusStopLoadingFinished)
+			appdelegate.callNetworkEvent(.busStopLoadingFinished)
 			completionHandler(stops)
 		}
 	}
 	
-	func getBusRoute(forBus bus: Bus, completionHandler: [BusStop]? -> ()){
+	func getBusRoute(forBus bus: Bus, completionHandler: @escaping ([BusStop]?) -> ()){
 		NetworkController.getRoutesData { (json) -> () in
 			guard let json = json else {
 				completionHandler(nil)
@@ -129,11 +144,11 @@ class BusDataController: NSObject {
 			}
 			
 			var matchingRouteID: String? = nil
-			
+
 			for route in routes {
 				if let dictionary = route.dictionary,
 					let routeID = dictionary["route_id"]?.string,
-					let shortName = dictionary["route_short_name"]?.string where shortName == bus.name {
+					let shortName = dictionary["route_short_name"]?.string , shortName == bus.name {
 					matchingRouteID = routeID
 					break
 				}
@@ -163,7 +178,7 @@ class BusDataController: NSObject {
 					if let dictionary = trip.dictionary,
 						let tripID = dictionary["trip_id"]?.string,
 						let dirID = dictionary["direction_id"]?.int,
-						let blockID = dictionary["block_id"]?.string where blockID == bus.blockRef {
+						let blockID = dictionary["block_id"]?.string , blockID == bus.blockRef {
 						matchingTripID = tripID
 						directionID = dirID
 						break
@@ -198,7 +213,7 @@ class BusDataController: NSObject {
 					
 					//Reverse stops if directionID implies so
 					if directionID == 0 {
-						busStopIDs = busStopIDs.reverse()
+						busStopIDs = busStopIDs.reversed()
 					}
 					
 					self.getBusStops(fromIDs: busStopIDs, completionHandler: completionHandler)
@@ -211,7 +226,7 @@ class BusDataController: NSObject {
 	
 	
 	
-	func getBusStops(fromIDs ids: [String], completionHandler: [BusStop]? -> ()){
+	func getBusStops(fromIDs ids: [String], completionHandler: @escaping ([BusStop]?) -> ()){
 		
 		NetworkController.getBusStopData { (json) -> () in
 			guard let json = json else {
@@ -241,17 +256,17 @@ class BusDataController: NSObject {
 	
 	
 	// Sets the distance to the user property on all the input busses
-	private func setDistanceToUserOnBusses(busses: [Bus], location: CLLocation) -> [Bus]{
+	fileprivate func setDistanceToUserOnBusses(_ busses: [Bus], location: CLLocation) -> [Bus]{
 		var mutable = busses
 		
-		for (index, bus) in busses.enumerate() {
-			mutable[index].distanceToUser = location.distanceFromLocation(bus.location)
+		for (index, bus) in busses.enumerated() {
+			mutable[index].distanceToUser = location.distance(from: bus.location)
 		}
 		
 		return mutable
 	}
 	
-	private func isOrderedBeforeByDistanceToUser(bus1: Bus, bus2: Bus) -> Bool {
+	fileprivate func isOrderedBeforeByDistanceToUser(_ bus1: Bus, bus2: Bus) -> Bool {
 		return bus1.distanceToUser < bus2.distanceToUser
 	}
 	
@@ -273,7 +288,7 @@ class BusDataController: NSObject {
 	
 	
 	// Periodically retrieves bus data
-	func getBussesInLoop(intervalInSeconds intervalInSeconds: Double, completionHandler: [Bus]? -> ()){
+	func getBussesInLoop(intervalInSeconds: Double, completionHandler: @escaping ([Bus]?) -> ()){
 		guard timer == nil else {
 			print("[BusDataController] Timer is set -> not starting again")
 			return
@@ -281,18 +296,18 @@ class BusDataController: NSObject {
 		
 		let parameters = BusLoopParameters(completionHandler: completionHandler)
 		
-		timer = NSTimer.scheduledTimerWithTimeInterval(intervalInSeconds, target: self, selector: #selector(BusDataController.getBussesLoop(_:)), userInfo: parameters, repeats: true)
+		timer = Timer.scheduledTimer(timeInterval: intervalInSeconds, target: self, selector: #selector(BusDataController.getBussesLoop(_:)), userInfo: parameters, repeats: true)
 		
 		timer?.fire() // start right away
 	}
 	
-	func getBussesOnce(completionHandler: [Bus]? -> ()){
+	func getBussesOnce(_ completionHandler: @escaping ([Bus]?) -> ()){
 		getCurrentBusData(completionHandler)
 	}
 	
 	
 	// Function used in timer loop to periodically retrieve bus data, arguments passed via BusLoopParameter struct
-	@objc private func getBussesLoop(timer: NSTimer) {
+	@objc fileprivate func getBussesLoop(_ timer: Timer) {
 		guard let parameters = timer.userInfo as? BusLoopParameters else {
 			print("[BusDataController] Sending parameter of unrecognized type to busLoop")
 			return
@@ -308,16 +323,16 @@ class BusDataController: NSObject {
 	
 	
 	// Returns input bus array, sorted by distance to user
-	func sortBussesByDistanceToUser(busses busses: [Bus], userLocation: CLLocation) -> [Bus] {
+	func sortBussesByDistanceToUser(busses: [Bus], userLocation: CLLocation) -> [Bus] {
 		let bussesWithDistance = setDistanceToUserOnBusses(busses, location: userLocation)
 		
-		let sorted = bussesWithDistance.sort(self.isOrderedBeforeByDistanceToUser)
+		let sorted = bussesWithDistance.sorted(by: self.isOrderedBeforeByDistanceToUser)
 		
 		return Array(sorted)
 	}
 	
 	// Returns array of bus stop names, based on input busstops, checked against blacklist and filtered out duplicates (next to each other)
-	class func namesForBusStops(stops: [BusStop], preserveOrder: Bool) -> [String] {
+	class func namesForBusStops(_ stops: [BusStop], preserveOrder: Bool) -> [String] {
 		if preserveOrder {
 			var names = [String]()
 			for stop in stops {
@@ -327,9 +342,9 @@ class BusDataController: NSObject {
 				names.append(stop.name)
 			}
 			
-			for (index, name) in names.enumerate() {
+			for (index, name) in names.enumerated() {
 				if index < names.count - 1 && names[index + 1] == name {
-					names.removeAtIndex(index)
+					names.remove(at: index)
 				}
 			}
 			

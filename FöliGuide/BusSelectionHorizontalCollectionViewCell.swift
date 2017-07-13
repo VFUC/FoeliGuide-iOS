@@ -23,10 +23,10 @@ class BusSelectionHorizontalCollectionViewCell: UICollectionViewCell {
 			label.layer.opacity = 0.18
 		}
 		
-		UIView.animateWithDuration(0.420) { () -> Void in
+		UIView.animate(withDuration: 0.420, animations: { () -> Void in
 			for label in self.allLabels {
 				label.layer.opacity = 1
 			}
-		}
+		}) 
 	}
 }

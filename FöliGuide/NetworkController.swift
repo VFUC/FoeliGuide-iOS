@@ -14,28 +14,28 @@ class NetworkController: NSObject {
 	
 	static var requestActive = false
 	static var latestRequest : Request? // Latest request, so it can be cancelled if new one comes in
-	
+
 	
 	static var gtfsDataURL : String?
 	
 	
 	// Gets bus data from API, calls completionhandler with nil if data invalid
-	class func getBusData(completionHandler: JSON? -> ()){
+	class func getBusData(_ completionHandler: @escaping (JSON?) -> ()){
 		requestActive = true
-		
-		latestRequest = Alamofire.request(.GET, Constants.API.RealTimeBusURL)
+
+		latestRequest = Alamofire.request(Constants.API.RealTimeBusURL, method: .get)
 			.responseData { response in
 				print(response.request)
-				
+
 				requestActive = false
-				
-				
+
+
 				switch response.result {
-					
-				case .Success(let data):
+
+				case .success(let data):
 					completionHandler(JSON(data: data))
-					
-				case .Failure(_):
+
+				case .failure(_):
 					completionHandler(nil)
 				}
 
@@ -43,12 +43,12 @@ class NetworkController: NSObject {
 	}
 	
 	// Gets bus stop data from API, calls completionhandler with nil if data invalid
-	class func getBusStopData(completionHandler: JSON? -> ()) {
+	class func getBusStopData(_ completionHandler: @escaping (JSON?) -> ()) {
 		
 		getJSONData(fromURL: Constants.API.BusStopURL, completionHandler: completionHandler)
 	}
 	
-	class func getRoutesData(completionHandler: JSON? -> ()) {
+	class func getRoutesData(_ completionHandler: @escaping (JSON?) -> ()) {
 		
 		if let gtfsURL = gtfsDataURL {
 			getJSONData(fromURL: "\(gtfsURL)/routes", completionHandler: completionHandler)
@@ -65,7 +65,7 @@ class NetworkController: NSObject {
 		}
 	}
 	
-	class func getTripsData(withRouteID routeID: String, completionHandler: JSON? -> ()) {
+	class func getTripsData(withRouteID routeID: String, completionHandler: @escaping (JSON?) -> ()) {
 		
 		if let gtfsURL = gtfsDataURL {
 			getJSONData(fromURL: "\(gtfsURL)/trips/route/\(routeID)", completionHandler: completionHandler)
@@ -82,8 +82,8 @@ class NetworkController: NSObject {
 		}
 	}
 	
-	class func getTripData(withTripID tripID: String, completionHandler: JSON? -> ()) {
-	
+	class func getTripData(withTripID tripID: String, completionHandler: @escaping (JSON?) -> ()) {
+
 		if let gtfsURL = gtfsDataURL {
 			getJSONData(fromURL: "\(gtfsURL)/stop_times/trip/\(tripID)", completionHandler: completionHandler)
 		} else {
@@ -99,38 +99,38 @@ class NetworkController: NSObject {
 		}
 	}
 	
-	class func getGTFSDataURL(completionHandler: String? -> ()) {
+	class func getGTFSDataURL(_ completionHandler: @escaping (String?) -> ()) {
 		getJSONData(fromURL: Constants.API.GTFSInfoURL, completionHandler: { json in
+
 			guard let json = json else {
 				completionHandler(nil)
 				return
 			}
 			
 			guard let host = json["host"].string,
-			let path = json["gtfspath"].string,
+				let path = json["gtfspath"].string,
 				let latest = json["latest"].string else {
 					completionHandler(nil)
 					return
 			}
 			
-			let url = "http://\(host)\(path.stringByReplacingOccurrencesOfString("\\/", withString: "/"))/\(latest)"
+			let url = "http://\(host)\(path.replacingOccurrences(of: "\\/", with: "/"))/\(latest)"
 			completionHandler(url)
-			
-			
-			})
+
+		})
 	}
 	
-	class func getJSONData(fromURL url: String, completionHandler: JSON? -> ()){
-		Alamofire.request(.GET, url)
+	class func getJSONData(fromURL url: String, completionHandler: @escaping (JSON?) -> ()){
+		Alamofire.request(url, method: .get)
 			.responseData { response in
 				print(response.request)
 				
 				switch response.result {
-				
-				case .Success(let data):
+
+				case .success(let data):
 					completionHandler(JSON(data: data))
 					
-				case .Failure(_):
+				case .failure(_):
 					completionHandler(nil)
 				}
 		}

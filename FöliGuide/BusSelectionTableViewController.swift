@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PermissionScope
 
 private let cellReuseIdentifier = "BusCell"
 private let cellReuseIdentifierWithDistance = "BusCellWithDistance"
@@ -15,7 +14,7 @@ private let cellReuseIdentifierWithDistance = "BusCellWithDistance"
 class BusSelectionTableViewController: UITableViewController {
 
 	var busses = [Bus]()
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
 	@IBOutlet weak var headerContainerView: UIView!
 	var headerVC : UIViewController?
@@ -29,7 +28,7 @@ class BusSelectionTableViewController: UITableViewController {
 		appDelegate.startBusDataLoop()
 		
 		self.navigationItem.title = NSLocalizedString("Select your bus", comment: "Select your bus header")
-		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: "Back Button") , style: .Plain, target: nil, action: nil)
+		self.navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: "Back Button") , style: .plain, target: nil, action: nil)
 		
 		
 		
@@ -48,29 +47,29 @@ class BusSelectionTableViewController: UITableViewController {
 		
     }
 	
-	override func viewDidDisappear(animated: Bool) {
-		if self.isMovingFromParentViewController() { //View is being dismissed -> moving back to main menu
+	override func viewDidDisappear(_ animated: Bool) {
+		if self.isMovingFromParentViewController { //View is being dismissed -> moving back to main menu
 			appDelegate.stopBusDataLoop()
 		}
 	}
 
 	
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool) {
 		loadData()
 	}
 	
 	
 	
 	func loadHeaderViewController(withIdentifier identifier: String){
-		let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-		let vc = storyboard.instantiateViewControllerWithIdentifier(identifier)
+		let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+		let vc = storyboard.instantiateViewController(withIdentifier: identifier)
 		
 		headerVC = vc
 		
 		addChildViewController(vc)
 		vc.view.frame = CGRect(x: 0,y: 0, width: self.headerContainerView.frame.size.width, height: self.headerContainerView.frame.size.height)
 		headerContainerView.addSubview(vc.view)
-		vc.didMoveToParentViewController(self)
+		vc.didMove(toParentViewController: self)
 	}
 	
 	
@@ -88,7 +87,7 @@ class BusSelectionTableViewController: UITableViewController {
 	func didUpdateUserLocation(){
 		print("[BusSelectionTVC] Did receive user location update")
 		if let vc = headerVC {
-			vc.willMoveToParentViewController(nil)
+			vc.willMove(toParentViewController: nil)
 			vc.view.removeFromSuperview()
 			vc.removeFromParentViewController()
 			tableView.tableHeaderView = nil
@@ -118,21 +117,21 @@ class BusSelectionTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return busses.count
     }
 
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		
 		
 		if appDelegate.locationController.authorized {
-			let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifierWithDistance, forIndexPath: indexPath)
+			let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifierWithDistance, for: indexPath)
 			
 			if let busStopCell = cell as? BusSelectionTableViewCell {
 				busStopCell.busNumberLabel.text = busses[indexPath.row].name
@@ -155,7 +154,7 @@ class BusSelectionTableViewController: UITableViewController {
 			return cell
 			
 		} else {
-			let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier, forIndexPath: indexPath)
+			let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
 			
 			if let busStopCell = cell as? BusSelectionTableViewCell {
 				busStopCell.busNumberLabel.text = busses[indexPath.row].name
@@ -169,11 +168,11 @@ class BusSelectionTableViewController: UITableViewController {
 		}
     }
 	
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		appDelegate.busController.currentUserBus = busses[indexPath.row]
 		
 		
-		performSegueWithIdentifier("showBusDetailViewController", sender: nil)
+		performSegue(withIdentifier: "showBusDetailViewController", sender: nil)
 		appDelegate.busController.runNow()
 	}
 	
@@ -230,8 +229,8 @@ class BusSelectionTableViewController: UITableViewController {
 
 
 extension BusSelectionTableViewController : ApplicationEventHandler {
-	func handleEvent(event: ApplicationEvent) {
-		if event == .UserLocationDidUpdate {
+	func handleEvent(_ event: ApplicationEvent) {
+		if event == .userLocationDidUpdate {
 			didUpdateUserLocation()
 		}
 	}

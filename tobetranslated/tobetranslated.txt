@@ -1,0 +1,30 @@
+"Next bus station:" // Stands in front of a bus station, e.g. "Next bus station: Kauppatori"
+"After that:" // Stands after "Next Bus station" in front of a bus station, e.g. "Next Bus station: Kauppatori, After that: Brahenkatu"
+"Alarm set for:" // Stands in front of a bus station, e.g. "Alarm set for: Kauppatori"
+"More" //Button label to show more
+"Done" //Button label to finish the settings screen
+"Help" //Title for section with questions and answers
+"Credits" //Title for section with credits to libraries used
+"Select your bus"
+"Find your bus - enable location" //Telling user to enable location so he can find the bus more easily
+"Refresh data less frequently" //Settings option title
+"Less battery consumption, but not as accurate" //Settings option description
+"Only notify once about upcoming bus stops" //Settings option title
+"Why do some busses only show the next two bus stops?"
+"The data is retrieved directly from the Föli servers. If the app only shows the next two stops it is because Föli does not provide more accurate information for that bus."
+"Why can I not get notifications when the app is closed?"
+"In order to accurately determine where your bus is, the app loads data from the Föli servers several times a minute. If you close the app, it is not possible to check that often anymore and the data would be inaccurate."
+"Enable Location" //On button, lets user enable location services
+"Allowed Location" //User has allowed location
+"Denied Location" //User has denied location
+"Location Disabled" //User has disabled location
+"Close" //Close button
+"Hey, listen!"
+"We need a couple things before you get started."
+"Permission for Location was denied."
+"Please enable access to Location in the Settings app"
+"OK"
+"Show me"
+"Location is currently disabled."
+"Please enable access to Location in Settings"
+"Settings"

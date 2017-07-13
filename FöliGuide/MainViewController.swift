@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
 		}
 	}
 	
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
 	
     override func viewDidLoad() {
@@ -64,18 +64,18 @@ class MainViewController: UIViewController {
 			setLoadingStartedState()
 		}
 		
-		networkErrorStackView.hidden = true
+		networkErrorStackView.isHidden = true
 		
 		let topImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
 		topImageView.image = UIImage(named: "appicon-transparent-landscape-400")
-		topImageView.contentMode = .ScaleAspectFit
+		topImageView.contentMode = .scaleAspectFit
 		
 		self.navigationItem.titleView = topImageView
 		
 	}
 	
-	override func viewWillAppear(animated: Bool) {
-		UIApplication.sharedApplication().statusBarStyle = .LightContent
+	override func viewWillAppear(_ animated: Bool) {
+		UIApplication.shared.statusBarStyle = .lightContent
 	}
 
     override func didReceiveMemoryWarning() {
@@ -86,29 +86,29 @@ class MainViewController: UIViewController {
 	
 	func setLoadingStartedState(){
 		activityIndicator.startAnimating()
-		selectBusLabelButton.hidden = true
-		selectBusImageButton.hidden = true
-		networkErrorStackView.hidden = true
+		selectBusLabelButton.isHidden = true
+		selectBusImageButton.isHidden = true
+		networkErrorStackView.isHidden = true
 	}
 	
 	func setLoadingFinishedState(){
 		activityIndicator.stopAnimating()
-		selectBusLabelButton.hidden = false
-		selectBusImageButton.hidden = false
-		networkErrorStackView.hidden = true
+		selectBusLabelButton.isHidden = false
+		selectBusImageButton.isHidden = false
+		networkErrorStackView.isHidden = true
 	}
 	
 	func setLoadingFailedState(){
 		activityIndicator.stopAnimating()
-		selectBusImageButton.hidden = true
-		selectBusLabelButton.hidden = true
-		networkErrorStackView.hidden = false
+		selectBusImageButton.isHidden = true
+		selectBusLabelButton.isHidden = true
+		networkErrorStackView.isHidden = false
 	}
 	
 	
 	
 	
-	@IBAction func tryNetworkRequestAgainTapped(sender: UIButton) {
+	@IBAction func tryNetworkRequestAgainTapped(_ sender: UIButton) {
 		setLoadingStartedState()
 		appDelegate.initialDataLoading()
 	}
@@ -118,16 +118,16 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController : NetworkEventHandler {
-	func handleEvent(event: NetworkEvent) {
+	func handleEvent(_ event: NetworkEvent) {
 		switch event {
-		case .BusStopLoadingStarted:
+		case .busStopLoadingStarted:
 			setLoadingStartedState()
-		case .BusStopLoadingFinished:
+		case .busStopLoadingFinished:
 			didLoadBusStops = true
-		case .BusLoadingFinished:
+		case .busLoadingFinished:
 			didLoadBusses = true
 			
-		case .LoadingFailed:
+		case .loadingFailed:
 			setLoadingFailedState()
 		default:
 			break

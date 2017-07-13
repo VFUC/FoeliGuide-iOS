@@ -10,7 +10,7 @@ import UIKit
 
 class AuthorizationRequestViewController: UIViewController {
 
-	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	let appDelegate = UIApplication.shared.delegate as! AppDelegate
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class AuthorizationRequestViewController: UIViewController {
     }
     */
 	
-	@IBAction func activateButtonPressed(sender: UIButton) {
+	@IBAction func activateButtonPressed(_ sender: UIButton) {
 			appDelegate.locationController.locationManager.requestWhenInUseAuthorization()
 	}
 	

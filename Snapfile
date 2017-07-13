@@ -2,10 +2,10 @@
 
 # A list of devices you want to take the screenshots from
  devices([
-   "iPhone 6s"
-#   "iPhone 6 Plus",
-#   "iPhone 5",
-#   "iPhone 4s"
+   "iPhone 6s",
+  "iPhone 6s Plus",
+  "iPhone 5s",
+   "iPhone 4s"
 #   "iPad Retina",
 #   "iPad Pro"
  ])
@@ -13,7 +13,7 @@
 languages([
   "fi",
   "en-US",
-  "de-DE"
+  "sv"
 #  "it-IT",
  # ["pt", "pt_BR"] # Portuguese with Brazilian locale
 ])
