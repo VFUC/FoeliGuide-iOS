@@ -10,19 +10,19 @@ import UIKit
 
 class BusSelectionHeaderCollectionReusableView: UICollectionReusableView {
 
-	@IBOutlet weak var headerLabel: UILabel!
-	@IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-	
-	
-	func showLoadingLocationState(){
-		loadingIndicator.startAnimating()
-		headerLabel.text = NSLocalizedString("Loading nearby busses", comment: "used on loading indicator")
-	}
-	
-	func showNormalState(){
-		loadingIndicator.stopAnimating()
-		headerLabel.text = NSLocalizedString("Select your bus", comment: "user prompt")
-	}
-	
-	
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+
+
+    func showLoadingLocationState() {
+        loadingIndicator.startAnimating()
+        headerLabel.text = NSLocalizedString("Loading nearby busses", comment: "used on loading indicator")
+    }
+
+    func showNormalState() {
+        loadingIndicator.stopAnimating()
+        headerLabel.text = NSLocalizedString("Select your bus", comment: "user prompt")
+    }
+
+
 }

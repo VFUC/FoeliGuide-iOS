@@ -13,8 +13,7 @@ class BusSelectionTableViewCell: UITableViewCell {
 	@IBOutlet weak var busNumberLabel: UILabel!
 	@IBOutlet weak var finalStopLabel: UILabel!
 	@IBOutlet weak var distanceLabel: UILabel!
-	
-	
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

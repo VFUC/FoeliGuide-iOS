@@ -11,25 +11,25 @@ import PermissionScope
 
 class LocationDisabledHeaderViewController: UIViewController {
 
-	let appDelegate = UIApplication.shared.delegate as! AppDelegate
-	let permissionScope = PermissionScope()
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    let permissionScope = PermissionScope()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		permissionScope.headerLabel.text = NSLocalizedString("Location Access", comment: "Location access header")
-		permissionScope.bodyLabel.text = NSLocalizedString("Select your bus quicker and easier", comment: "Select your bus quicker and easier")
-		let message = NSLocalizedString("Your location is used to locate the bus closest to you.", comment: "Your location is used to locate the bus closest to you.")
-		permissionScope.addPermission(LocationWhileInUsePermission(), message: message)
+
+        permissionScope.headerLabel.text = NSLocalizedString("Location Access", comment: "Location access header")
+        permissionScope.bodyLabel.text = NSLocalizedString("Select your bus quicker and easier", comment: "Select your bus quicker and easier")
+        let message = NSLocalizedString("Your location is used to locate the bus closest to you.", comment: "Your location is used to locate the bus closest to you.")
+        permissionScope.addPermission(LocationWhileInUsePermission(), message: message)
     }
 
-	@IBAction func didTapView(_ sender: AnyObject) {
-		permissionScope.show({ finished, results in
-			self.appDelegate.locationController.authorized = true
-			self.appDelegate.locationController.requestLocationUpdate()
-			
-			}, cancelled: { (results) -> Void in
-				self.appDelegate.locationController.authorized = false
-		})
-	}
+    @IBAction func didTapView(_ sender: AnyObject) {
+        permissionScope.show({ _, _ in
+            self.appDelegate?.locationController.authorized = true
+            self.appDelegate?.locationController.requestLocationUpdate()
+
+        }, cancelled: { (_) -> Void in
+            self.appDelegate?.locationController.authorized = false
+        })
+    }
 }

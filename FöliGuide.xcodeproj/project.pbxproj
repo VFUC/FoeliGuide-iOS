@@ -16,8 +16,8 @@
 		722D30671C5139BF00CAEE90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722D30651C5139BF00CAEE90 /* Main.storyboard */; };
 		722D30691C5139BF00CAEE90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722D30681C5139BF00CAEE90 /* Assets.xcassets */; };
 		722D306C1C5139BF00CAEE90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722D306A1C5139BF00CAEE90 /* LaunchScreen.storyboard */; };
-		722D30771C5139BF00CAEE90 /* Fo_liGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30761C5139BF00CAEE90 /* Fo_liGuideTests.swift */; };
-		722D30821C5139BF00CAEE90 /* Fo_liGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */; };
+		722D30771C5139BF00CAEE90 /* FoliGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30761C5139BF00CAEE90 /* FoliGuideTests.swift */; };
+		722D30821C5139BF00CAEE90 /* FoliGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D30811C5139BF00CAEE90 /* FoliGuideUITests.swift */; };
 		723521731CB55109008BB1CE /* BusRouteSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723521721CB55109008BB1CE /* BusRouteSubViewController.swift */; };
 		723521751CB55119008BB1CE /* NextStopSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723521741CB55119008BB1CE /* NextStopSubViewController.swift */; };
 		7235E07D1CA0114400C25ECA /* BusRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7235E07C1CA0114400C25ECA /* BusRouteViewController.swift */; };
@@ -83,10 +83,10 @@
 		722D306B1C5139BF00CAEE90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		722D306D1C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		722D30721C5139BF00CAEE90 /* FöliGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FöliGuideTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		722D30761C5139BF00CAEE90 /* Fo_liGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fo_liGuideTests.swift; sourceTree = "<group>"; };
+		722D30761C5139BF00CAEE90 /* FoliGuideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoliGuideTests.swift; sourceTree = "<group>"; };
 		722D30781C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		722D307D1C5139BF00CAEE90 /* FöliGuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FöliGuideUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fo_liGuideUITests.swift; sourceTree = "<group>"; };
+		722D30811C5139BF00CAEE90 /* FoliGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoliGuideUITests.swift; sourceTree = "<group>"; };
 		722D30831C5139BF00CAEE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		723521721CB55109008BB1CE /* BusRouteSubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRouteSubViewController.swift; sourceTree = "<group>"; };
 		723521741CB55119008BB1CE /* NextStopSubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextStopSubViewController.swift; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 		722D30751C5139BF00CAEE90 /* FöliGuideTests */ = {
 			isa = PBXGroup;
 			children = (
-				722D30761C5139BF00CAEE90 /* Fo_liGuideTests.swift */,
+				722D30761C5139BF00CAEE90 /* FoliGuideTests.swift */,
 				722D30781C5139BF00CAEE90 /* Info.plist */,
 			);
 			path = "FöliGuideTests";
@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				72E0F4CE1CBE64E5006733EE /* SnapshotHelper.swift */,
-				722D30811C5139BF00CAEE90 /* Fo_liGuideUITests.swift */,
+				722D30811C5139BF00CAEE90 /* FoliGuideUITests.swift */,
 				722D30831C5139BF00CAEE90 /* Info.plist */,
 			);
 			path = "FöliGuideUITests";
@@ -297,7 +297,8 @@
 				722D305A1C5139BF00CAEE90 /* Sources */,
 				722D305B1C5139BF00CAEE90 /* Frameworks */,
 				722D305C1C5139BF00CAEE90 /* Resources */,
-				72DF00C11C57874A00AFBCCD /* ShellScript */,
+				72DF00C11C57874A00AFBCCD /* Carthage Copy Frameworks */,
+				723BB8891F182881000BEE35 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -429,7 +430,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		72DF00C11C57874A00AFBCCD /* ShellScript */ = {
+		723BB8891F182881000BEE35 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		72DF00C11C57874A00AFBCCD /* Carthage Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -439,6 +454,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
+			name = "Carthage Copy Frameworks";
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PermissionScope.framework",
@@ -494,7 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				722D30771C5139BF00CAEE90 /* Fo_liGuideTests.swift in Sources */,
+				722D30771C5139BF00CAEE90 /* FoliGuideTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				722D30821C5139BF00CAEE90 /* Fo_liGuideUITests.swift in Sources */,
+				722D30821C5139BF00CAEE90 /* FoliGuideUITests.swift in Sources */,
 				72E0F4CF1CBE64E5006733EE /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

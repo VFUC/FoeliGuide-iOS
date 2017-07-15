@@ -19,7 +19,7 @@ class RouteStopTableViewCell: UITableViewCell {
 			alarmImageView.image = alarmImageView.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
 		}
 	}
-	
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,13 +30,13 @@ class RouteStopTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-	
-	func dimSubViews(){
+
+	func dimSubViews() {
 		nameLabel.layer.opacity = 0.5
 		iconImageView.layer.opacity = 0.5
 	}
-	
-	func brightenSubViews(){
+
+	func brightenSubViews() {
 		nameLabel.layer.opacity = 1
 		iconImageView.layer.opacity = 1
 	}
