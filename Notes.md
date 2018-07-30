@@ -1,4 +1,4 @@
-####CoreLocation
+#### CoreLocation
 
 > If your iOS app must keep monitoring location even while it’s in the background, use the standard location service and specify the location value of the UIBackgroundModes key to continue running in the background and receiving location updates. (In this situation, you should also make sure the location manager’s pausesLocationUpdatesAutomatically property is set to YES to help conserve power.) Examples of apps that might need this type of location updating are fitness or turn-by-turn navigation apps.
 
